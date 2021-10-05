@@ -31,6 +31,11 @@ const renderer = ({ days, hours, minutes, seconds, completed }) => {
     )
 }
 
+const texts = {
+    paragraph1:
+        'Late in the year 2021 a group of scientists ......... causing the earth s gravitational force to collapse. Such malfunction have been prevented, but Dr. Milan Decided to try his own scientific methods. The accident sent most existing countries into orbit making them float above a dark cover of clouds covering what we know as earth',
+}
+
 export default class LandingPage extends Component {
     render() {
         return (
@@ -90,8 +95,15 @@ export default class LandingPage extends Component {
                             </div>
                         </div>
                     </section>
-                    <section className="section-gradient h-40 -mt-10 pt-10">
-                        dgfhfgh
+                    <section className="section-gradient -mt-20 pt-20">
+                        <div className="section text-center mx-auto">
+                            <div className="header text-#7CC4D1 text-4xl mt-5">
+                                History
+                            </div>
+                            <div className="text-#334C8C text-2xl mt-5">
+                                <p>{texts.paragraph1}</p>
+                            </div>
+                        </div>
                     </section>
                 </Content>
             </Layout>

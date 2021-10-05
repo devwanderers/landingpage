@@ -16,6 +16,8 @@ module.exports = {
             transparent: 'transparent',
             dark: '#171230',
             darker: '#090416',
+            '#7CC4D1': '#7CC4D1',
+            '#334C8C': '#334C8C',
         },
         fontSize: {
             xs: '.75rem',
