@@ -1,20 +1,48 @@
 const colors = require('tailwindcss/colors')
 
 module.exports = {
+    // important: true,
     purge: ['./src/**/*.{js,jsx,ts,tsx}', './public/index.html'],
     darkMode: 'class', // or 'media' or 'class'
     theme: {
         colors: {
             // ...colors,
+            red: colors.red,
             yellow: colors.yellow,
-            primary: {
-                600: '#2b344b',
-            },
+            primary: '#52dad8',
+            secondary: '#70e8ff',
             white: '#ffffff',
             gray: colors.trueGray,
             transparent: 'transparent',
+            dark: '#171230',
+            darker: '#090416',
         },
-        extend: {},
+        fontSize: {
+            xs: '.75rem',
+            sm: '.875rem',
+            tiny: '.875rem',
+            base: '1rem',
+            lg: '1.125rem',
+            xl: '1.25rem',
+            '2xl': '1.5rem',
+            '3xl': '1.875rem',
+            '4xl': '2.25rem',
+            '5xl': '3rem',
+            '6xl': '4rem',
+            '7xl': '5rem',
+            // 'counter': '10rem',
+        },
+        extend: {
+            backgroundImage: {
+                render: "url('/src/assets/images/backgrounds/render-fondo.jpg')",
+            },
+            margin: {
+                '-64px': '-64px',
+            },
+            padding: {
+                '64px': '64px',
+            },
+        },
     },
     variants: {
         extend: {},

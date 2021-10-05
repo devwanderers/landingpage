@@ -4,12 +4,18 @@
 
 @import 'global.less';
 @import 'vars.less';
+@import 'views/landing-page.less';
+@import url('https://fonts.googleapis.com/css2?family=Saira+Condensed:wght@300;400;500;600;700;800&display=swap');
 
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 @layout-sider-background: @gold-6;
+
+body {
+    font-family: 'Saira Condensed', sans-serif;
+}
 
 .custom-menu-filter {
     box-shadow: none;
@@ -26,6 +32,10 @@
     padding-left: 24px;
     line-height: 40px;
     height: 40px;
+}
+
+.section {
+    max-width: 1200px;
 }
 
 @media (max-width: 599px) {
