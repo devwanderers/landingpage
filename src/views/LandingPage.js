@@ -33,7 +33,13 @@ const renderer = ({ days, hours, minutes, seconds, completed }) => {
 
 const texts = {
     paragraph1:
-        'Late in the year 2021 a group of scientists ......... causing the earth s gravitational force to collapse. Such malfunction have been prevented, but Dr. Milan Decided to try his own scientific methods. The accident sent most existing countries into orbit making them float above a dark cover of clouds covering what we know as earth',
+        'Late in the year 2021 a group of scientists ......... causing the earth s gravitational force to collapse. Such malfunction have been prevented, but Dr. Milan Decided to try his own scientific methods. The accident sent most existing countries into orbit making them float above a dark cover of clouds covering what we know as earth.',
+    paragraph2:
+        "It's been one day since the accident my fellow group of scientists and I are all alive and well, currently floating on a piece of earth in the middle of the air, very close to space I would say based on my knowledge",
+    paragraph3:
+        'It has been 48 years since the accident. What was once agroup of 120 individuals is now 232 of us. We have created and established a civilization up here after spending years on years trying to reach communication anywhere in this galaxy and even attempted to go down to what we once called home, but constantly failed to do so. Thankfully we have managed to establish food and water resources as well as living structures up here.',
+    paragraph4:
+        'Generations came and went and after many years of trying to continue to accomplish what Dr Milan and his group of scientists were trying to do which was to either go down and explore or reach communication elsewhere hope was lost and people moved on with their life’s and eventually forgot all about it, not until 520 years later a group of boys found Dr Milan log hidden underneath an old structure that was being demolished.',
 }
 
 export default class LandingPage extends Component {
@@ -66,12 +72,13 @@ export default class LandingPage extends Component {
                     </Row>
                 </Header>
                 <Content>
-                    <section className="bg-render bg-no-repeat bg-cover -mt-64px pt-64px h-screen">
-                        <div className="section mx-auto ">
-                            <div className="pl-56 pr-56 mb-20">
+                    <section className="bg-render bg-no-repeat bg-cover bg-center -mt-64px pt-64px h-screen">
+                        {/* <div className="bottom-gradient"></div> */}
+                        <div className="section mx-auto flex flex-col justify-between h-full pb-8">
+                            <div className="pl-56 pr-56">
                                 <img src={brandImages.logo} />
                             </div>
-                            <div className="mb-48">
+                            <div className="mb-10">
                                 <div className="count-down bg-dark bg-opacity-50 mx-auto px-12 pt-5 pb-4">
                                     <Countdown
                                         date={deadline}
@@ -95,14 +102,62 @@ export default class LandingPage extends Component {
                             </div>
                         </div>
                     </section>
-                    <section className="section-gradient -mt-20 pt-20">
-                        <div className="section text-center mx-auto">
-                            <div className="header text-#7CC4D1 text-4xl mt-5">
+                    <section className="section-gradient -mt-10 pt-10">
+                        <div className="section text-center mx-auto pt-5 pb-40">
+                            <div className="header text-#7CC4D1 text-4xl">
                                 History
                             </div>
-                            <div className="text-#334C8C text-2xl mt-5">
+                            <div className="text-#334C8C text-xl mt-7 px-20 mb-10">
                                 <p>{texts.paragraph1}</p>
                             </div>
+                            <Row className="mb-60">
+                                <Col xs={12}></Col>
+                                <Col
+                                    xs={12}
+                                    className="text-#334C8C text-xl mt-7"
+                                >
+                                    <div className="header text-#7CC4D1 text-left mb-4">
+                                        Log 1 <br /> Year 1 After Accident
+                                        <br /> Dr. Millan
+                                    </div>
+                                    <p className="text-justify">
+                                        {texts.paragraph2}
+                                    </p>
+                                </Col>
+                            </Row>
+                            <Row className="mb-60">
+                                <Col
+                                    xs={12}
+                                    className="text-#334C8C text-xl mt-7"
+                                >
+                                    <div className="header text-#7CC4D1 text-left mb-4">
+                                        Log 1 <br /> Year 1 After Accident
+                                        <br /> Dr. Millan
+                                    </div>
+                                    <p className="text-justify">
+                                        {texts.paragraph3}
+                                    </p>
+                                </Col>
+                                <Col xs={12}></Col>
+                            </Row>
+                            <Row>
+                                <Col xs={12}></Col>
+                                <Col
+                                    xs={12}
+                                    className="text-#334C8C text-xl mt-7"
+                                >
+                                    <div className="header text-#7CC4D1 text-left mb-4">
+                                        Log 1 <br /> Year 1 After Accident
+                                        <br /> Dr. Millan
+                                    </div>
+                                    <p className="text-justify">
+                                        {texts.paragraph2}
+                                    </p>
+                                </Col>
+                            </Row>
+                            {/* <div className="text-#334C8C text-2xl mt-7">
+                                <p>{texts.paragraph1}</p>
+                            </div> */}
                         </div>
                     </section>
                 </Content>
