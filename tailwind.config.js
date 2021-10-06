@@ -44,6 +44,9 @@ module.exports = {
                 render: "url('/src/assets/images/backgrounds/render-fondo.jpg')",
             },
             margin: {
+                84: '21rem',
+                88: '22rem',
+                92: '23rem',
                 '-64px': '-64px',
             },
             padding: {

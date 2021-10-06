@@ -1,5 +1,3 @@
-const shapesImages = {
-    line: require('./line.svg'),
-}
+const shapesImages = {}
 
 export default shapesImages
