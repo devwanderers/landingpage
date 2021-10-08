@@ -22,6 +22,7 @@ module.exports = {
             },
             blue: {
                 1: '#334C8C',
+                2: '#81A4D5',
             },
         },
         fontSize: {
@@ -37,11 +38,14 @@ module.exports = {
             '5xl': '3rem',
             '6xl': '4rem',
             '7xl': '5rem',
+            '2-75rem': '2.75rem',
+            '2rem': '2rem',
             // 'counter': '10rem',
         },
         extend: {
             backgroundImage: {
                 render: "url('/src/assets/images/backgrounds/render-fondo.jpg')",
+                earth: "url('/src/assets/images/backgrounds/fondo-tierra.jpg')",
             },
             margin: {
                 84: '21rem',

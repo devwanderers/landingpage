@@ -10,22 +10,72 @@ import GenericCountDown from './../components/CountDowns/GenericCountDown'
 // import { ReactSVG } from 'react-svg'
 // import shapesImages from '../assets/images/shapes'
 import { LineSVG } from '../assets/svg/shapes/index'
-import { BookSVG } from './../assets/svg/utilities/index'
+import {
+    // BookSVG,
+    ShadowPersonSVG,
+    IslandSVG,
+    BookSVG,
+    CoinSVG,
+} from './../assets/svg/utilities/index'
+import utilitiesImages from '../assets/images/utilities'
+import Paragraph from '../components/DisplayText/Paragraph'
 
 const { Header, Content } = Layout
 // const { Countdown } = Statistic
 
 const deadline = Date.now() + 1000 * 60 * 60 * 24 * 2 + 1000 * 30 // Moment is also OK
 
-const texts = {
+const section1Texts = {
     paragraph1:
-        'Late in the year 2021 a group of scientists ......... causing the earth s gravitational force to collapse. Such malfunction have been prevented, but Dr. Milan Decided to try his own scientific methods. The accident sent most existing countries into orbit making them float above a dark cover of clouds covering what we know as earth.',
+        "Late in the year 2021 a group of scientists experimented with the hadron collider. causing the earth's gravitational force to collapse. The accident sent most existing countries into orbit making them float above a dark cover of clouds covering what we now know as earth.",
     paragraph2:
         "It's been one day since the accident my fellow group of scientists and I are all alive and well, currently floating on a piece of earth in the middle of the air, very close to space I would say based on my knowledge",
     paragraph3:
         'It has been 48 years since the accident. What was once agroup of 120 individuals is now 232 of us. We have created and established a civilization up here after spending years on years trying to reach communication anywhere in this galaxy and even attempted to go down to what we once called home, but constantly failed to do so. Thankfully we have managed to establish food and water resources as well as living structures up here.',
     paragraph4:
         'Generations came and went and after many years of trying to continue to accomplish what Dr Milan and his group of scientists were trying to do which was to either go down and explore or reach communication elsewhere hope was lost and people moved on with their life’s and eventually forgot all about it, not until 520 years later a group of boys found Dr Milan log hidden underneath an old structure that was being demolished.',
+}
+
+const section2Texts = {
+    paragraph1: 'What is The Wanderers?',
+    paragraph2:
+        'The wanderers is a private collection ...... Dar mencion de lo que es Wanderers, y mencion de la plataforma de ohana',
+    paragraph3:
+        ' The Wanderers es una colección única de NFTs con más de 100 personajes únicos ilustrados a mano, los cuales cada uno de ellos te proporcionaran beneficios espedificos dentro de la plataforma Ohana',
+}
+
+const section3Texts = {
+    paragraph1:
+        'Mencion de la moneda de the wanderers con los cuales se genera la compra de los personajes, cada personaje puedes darle mejoras como ser parte de the wanderers',
+}
+const section4Texts = {
+    paragraph1:
+        'Mencionar todos los beneficios que tiene cada rango porcentajes de ganancia de ohana',
+}
+
+const SegmentCirlce = ({
+    title,
+    paragraph,
+    className,
+    paragraphClassName,
+    circleClassName,
+}) => {
+    return (
+        <div className={`flex ${className} md:text-base lg:text-lg`}>
+            <div style={{ flex: '1 0 11rem', maxWidth: '11rem' }}>
+                <div
+                    className={`rounded-full h-44 w-44 bg-blue-1 flex items-center justify-center header text-aqua-1 text-center  ${circleClassName} `}
+                >
+                    {title}
+                </div>
+            </div>
+            <div
+                className={`pl-10 flex-1 text-blue-2 flex items-center xl:text-xl${paragraphClassName}`}
+            >
+                {paragraph}
+            </div>
+        </div>
+    )
 }
 
 export default class LandingPage extends Component {
@@ -93,77 +143,181 @@ export default class LandingPage extends Component {
                         </div>
                     </section>
                     <section className="section-gradient -mt-10 pt-10">
-                        <div className="section text-center mx-auto pt-5 pb-40 relative">
-                            <div className="header text-aqua-1 text-xl md:text-2xl lg:text-3xl xl:text-4xl">
+                        <div className="section text-center mx-auto pt-5 pb-10 relative">
+                            {/* <div className="header text-aqua-1 text-xl md:text-2xl lg:text-3xl xl:text-4xl">
                                 History
+                            </div> */}
+                            <div className="mt-2 lg:mt-6 xl:mt-7 lg:px-20 xl:px-40 mb-10">
+                                <Paragraph
+                                    content={section1Texts.paragraph1}
+                                    md="base"
+                                    lg="lg"
+                                    xl="xl"
+                                />
                             </div>
-                            <div className="text-blue-1 md:text-base lg:text-lg xl:text-xl mt-2 lg:mt-6 xl:mt-7 px-3 xl:px-20 mb-10">
-                                <p>{texts.paragraph1}</p>
-                            </div>
-                            <Row className=" mb-40">
-                                <Col xs={12} className="pr-20">
+                            <Row className=" lg:mb-64 xl:mb-84">
+                                <Col xs={12} className="pr-20 relative">
                                     <BookSVG
+                                        className="absolute left-0 right-0"
+                                        style={{
+                                            top: -50,
+                                            width: '90%',
+                                            height: 'auto',
+                                        }}
+                                    />
+                                </Col>
+                                <Col xs={12} className="  mt-7 pr-28">
+                                    <div className="header text-aqua-1 text-left mb-4  md:text-base lg:text-lg">
+                                        Log 1 <br /> Year 1 After Accident
+                                        <br /> Dr. Millan
+                                    </div>
+                                    <Paragraph
+                                        content={section1Texts.paragraph2}
+                                        className="text-justify"
+                                        md="base"
+                                        lg="lg"
+                                    />
+                                </Col>
+                            </Row>
+                            <Row className=" lg:mb-20 xl:mb-40">
+                                <Col
+                                    xs={12}
+                                    className="text-blue-2 mt-7  pl-28"
+                                >
+                                    <div className="header text-aqua-1 text-left md:text-base lg:text-lg mb-4">
+                                        Log 48
+                                        <br /> Year 48 After Accident <br /> Dr.
+                                        Milan
+                                    </div>
+                                    <Paragraph
+                                        content={section1Texts.paragraph3}
+                                        className="text-justify"
+                                        md="base"
+                                        lg="lg"
+                                    />
+                                </Col>
+                                <Col xs={12} className="relative ">
+                                    <IslandSVG
+                                        className="absolute left-0 right-0"
+                                        style={{
+                                            top: -100,
+                                            width: '100%',
+                                            height: 'auto',
+                                        }}
+                                    />
+                                </Col>
+                            </Row>
+                            <Row>
+                                <Col xs={12}></Col>
+                                <Col xs={12} className="mt-20 pr-28">
+                                    {/* <div className="header text-aqua-1 text-left mb-4">
+                                        Log 1 <br /> Year 1 After Accident
+                                        <br /> Dr. Millan
+                                    </div> */}
+                                    <Paragraph
+                                        content={section1Texts.paragraph4}
+                                        className="text-justify"
+                                        md="base"
+                                        lg="lg"
+                                    />
+                                </Col>
+                            </Row>
+                            <div className="lg:pl-20 lg:pr-20 xl:pl-20 xl:pr-20">
+                                <ShadowPersonSVG />
+                            </div>
+                            <div className="line">
+                                <LineSVG width="100%" height="auto" />
+                            </div>
+                        </div>
+                    </section>
+                    <section className="pt-10 bg-earth bg-no-repeat bg-cover bg-center">
+                        <div className="section mx-auto text-center pb-40 lg:pb-64 xl:pb-72">
+                            <div className="header text-aqua-1 text-2xl md:text-3xl lg:text-2xl xl:text-2rem mx-auto mb-10">
+                                Welcome to <br /> The wanders
+                            </div>
+                            <Paragraph
+                                content={section2Texts.paragraph1}
+                                className="mb-5"
+                                lg="xl"
+                                xl="2xl"
+                            />
+                            <Paragraph
+                                content={section2Texts.paragraph2}
+                                className="mb-5"
+                                lg="xl"
+                                xl="2xl"
+                            />
+                            <Paragraph
+                                content={section2Texts.paragraph3}
+                                lg="xl"
+                                xl="2xl"
+                            />
+                        </div>
+                    </section>
+                    <section className="section-gradient2 pt-10 pb-20">
+                        <div className="section mx-auto mt-10">
+                            <Row className="mb-20">
+                                <Col xs={12}>
+                                    <div className="header text-aqua-1 xl:text-2xl mb-2">
+                                        How it works
+                                    </div>
+                                    <p className="text-blue-2 xl:text-xl pl-8 pr-24">
+                                        {section3Texts.paragraph1}
+                                    </p>
+                                </Col>
+                                <Col xs={12}>
+                                    <CoinSVG
                                         style={{
                                             width: '100%',
                                             height: 'auto',
                                         }}
                                     />
                                 </Col>
-                                <Col
-                                    xs={12}
-                                    className=" text-blue-1 text-lg mt-7 pr-28"
-                                >
-                                    <div className="header text-aqua-1 text-left mb-4">
-                                        Log 1 <br /> Year 1 After Accident
-                                        <br /> Dr. Millan
-                                    </div>
-                                    <p className="text-justify">
-                                        {texts.paragraph2}
-                                    </p>
-                                </Col>
                             </Row>
-                            <Row className=" mb-40">
-                                <Col
-                                    xs={12}
-                                    className="text-blue-1  text-lg mt-7  pl-28"
-                                >
-                                    <div className="header text-aqua-1 text-left mb-4">
-                                        Log 1 <br /> Year 1 After Accident
-                                        <br /> Dr. Millan
-                                    </div>
-                                    <p className="text-justify">
-                                        {texts.paragraph3}
-                                    </p>
-                                </Col>
-                                <Col xs={12}></Col>
-                            </Row>
-                            <Row>
-                                <Col xs={12}></Col>
-                                <Col
-                                    xs={12}
-                                    className="text-blue-1  text-lg mt-7  pr-28"
-                                >
-                                    <div className="header text-aqua-1 text-left mb-4">
-                                        Log 1 <br /> Year 1 After Accident
-                                        <br /> Dr. Millan
-                                    </div>
-                                    <p className="text-justify">
-                                        {texts.paragraph2}
-                                    </p>
-                                </Col>
-                            </Row>
-                            <div
-                                // className="bg-yellow-500"
-                                style={{
-                                    right: 'calc(50% - 120px)',
-                                    top: '280px',
-                                    position: 'absolute',
-                                    height: 'auto',
-                                    width: '60%',
-                                }}
-                            >
-                                <LineSVG />
+                            <div className="lg:pl-20 lg:pr-20 mb-52">
+                                <img
+                                    src={utilitiesImages.card}
+                                    style={{
+                                        width: '100%',
+                                        height: 'auto',
+                                    }}
+                                />
                             </div>
+                            <Row className="lg:pl-20 lg:pr-20">
+                                <Col xs={12}>
+                                    <SegmentCirlce
+                                        className="mb-10"
+                                        title="Marcos Rango"
+                                        paragraph="Rango"
+                                    />
+                                    <SegmentCirlce
+                                        className="mb-10 xl:ml-16"
+                                        title="Marcos Rango"
+                                        paragraph="Rango"
+                                    />
+                                    <SegmentCirlce
+                                        className="mb-10 xl:ml-32"
+                                        title="Marcos Rango"
+                                        paragraph="Rango"
+                                    />
+                                    <SegmentCirlce
+                                        className="xl:ml-48"
+                                        title="Marcos Rango"
+                                        paragraph="Rango"
+                                    />
+                                </Col>
+                                <Col xs={12} className="text-right">
+                                    <div className="header text-aqua-1 xl:text-2xl mb-2">
+                                        Benefits
+                                    </div>
+
+                                    <Paragraph
+                                        className="pl-20"
+                                        content={section4Texts.paragraph1}
+                                        lg="xl"
+                                    />
+                                </Col>
+                            </Row>
                         </div>
                     </section>
                 </Content>

@@ -1,7 +1,3 @@
-const iconImages = {
-    discord: require('./discord.svg'),
-    telegram: require('./telegram.svg'),
-    twitter: require('./twitter.svg'),
-}
+const iconImages = {}
 
 export default iconImages
