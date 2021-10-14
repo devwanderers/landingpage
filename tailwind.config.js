@@ -2,18 +2,23 @@ const colors = require('tailwindcss/colors')
 
 module.exports = {
     // important: true,
+    // important: true,
     purge: ['./src/**/*.{js,jsx,ts,tsx}', './public/index.html'],
     darkMode: 'class', // or 'media' or 'class'
     theme: {
+        fontFamily: {
+            'russo-one': ['Russo One', 'sans-serif'],
+            'saira-condensed': ['Saira Condensed', 'sans-serif'],
+        },
         colors: {
             // ...colors,
             red: colors.red,
             yellow: colors.yellow,
             gray: colors.trueGray,
             white: '#ffffff',
-            primary: '#52dad8',
+            primary: '#1BC09B',
             // secondary: '',
-            info: '#70e8ff',
+            info: '#00B5EB',
             transparent: 'transparent',
             dark: '#171230',
             darker: '#090416',
@@ -23,6 +28,9 @@ module.exports = {
             blue: {
                 1: '#334C8C',
                 2: '#81A4D5',
+                3: '#171230',
+                4: '#688CA5',
+                5: '#03152B',
             },
         },
         fontSize: {
@@ -52,9 +60,18 @@ module.exports = {
                 88: '22rem',
                 92: '23rem',
                 '-64px': '-64px',
+                '-1px': '-1px',
             },
             padding: {
                 '64px': '64px',
+            },
+            width: {
+                '125px': '125px',
+                '150px': '150px',
+                '300px': '300px',
+                '900px': '900px',
+                '1025px': '1025px',
+                '1100px': '1100px',
             },
         },
     },

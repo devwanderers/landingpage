@@ -3,24 +3,26 @@ import PropTypes from 'prop-types'
 import { TextSizes } from './../../constants/textConstants'
 import { returnTextSizeByScreenWidth } from './../../services/stylesServices'
 
-const Paragraph = ({ children, className, ...restProps }) => {
+const Header = ({ children, style, className, ...restProps }) => {
     const { base, sm, md, lg, xl, xxl } = returnTextSizeByScreenWidth({
         ...restProps,
     })
-
     return (
-        <p className={`${className} ${base} ${sm} ${md} ${lg} ${xl} ${xxl}`}>
+        <div
+            className={`font-russo-one  ${className} ${base} ${sm} ${md} ${lg} ${xl}  ${xxl}`}
+            style={style}
+        >
             {children}
-        </p>
+        </div>
     )
 }
 
-Paragraph.defaultProps = {
-    className: 'text-blue-4',
-    base: 'xl',
+Header.defaultProps = {
+    className: '',
+    base: '2xl',
 }
 
-Paragraph.propTypes = {
+Header.propTypes = {
     children: PropTypes.oneOfType([
         PropTypes.arrayOf(PropTypes.node),
         PropTypes.node,
@@ -34,4 +36,4 @@ Paragraph.propTypes = {
     xxl: PropTypes.oneOf(TextSizes),
 }
 
-export default Paragraph
+export default Header
