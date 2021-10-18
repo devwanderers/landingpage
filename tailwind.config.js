@@ -30,7 +30,7 @@ module.exports = {
                 2: '#81A4D5',
                 3: '#171230',
                 4: '#688CA5',
-                5: '#03152B',
+                5: '#03152b',
             },
         },
         fontSize: {
@@ -46,6 +46,7 @@ module.exports = {
             '5xl': '3rem',
             '6xl': '4rem',
             '7xl': '5rem',
+            '8xl': '6rem',
             '2-75rem': '2.75rem',
             '2rem': '2rem',
             // 'counter': '10rem',

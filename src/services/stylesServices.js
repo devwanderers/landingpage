@@ -1,5 +1,5 @@
 export const returnTextSizeByScreenWidth = ({ base, sm, md, lg, xl, xxl }) => {
-    const _base = sm ? `text-${base}` : ''
+    const _base = base ? `text-${base}` : ''
     const _sm = sm ? `sm:text-${sm}` : ''
     const _md = md ? `md:text-${md}` : ''
     const _lg = lg ? `lg:text-${lg}` : ''

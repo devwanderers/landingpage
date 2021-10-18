@@ -7,6 +7,7 @@ const Header = ({ children, style, className, ...restProps }) => {
     const { base, sm, md, lg, xl, xxl } = returnTextSizeByScreenWidth({
         ...restProps,
     })
+    console.log({ base })
     return (
         <div
             className={`font-russo-one  ${className} ${base} ${sm} ${md} ${lg} ${xl}  ${xxl}`}
@@ -15,11 +16,6 @@ const Header = ({ children, style, className, ...restProps }) => {
             {children}
         </div>
     )
-}
-
-Header.defaultProps = {
-    className: '',
-    base: '2xl',
 }
 
 Header.propTypes = {
@@ -34,6 +30,11 @@ Header.propTypes = {
     lg: PropTypes.oneOf(TextSizes),
     xl: PropTypes.oneOf(TextSizes),
     xxl: PropTypes.oneOf(TextSizes),
+}
+
+Header.defaultProps = {
+    className: '',
+    base: '4xl',
 }
 
 export default Header

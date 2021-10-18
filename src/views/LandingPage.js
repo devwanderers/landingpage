@@ -1,6 +1,7 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState } from 'react'
 import { Layout, Row, Col, Button } from 'antd'
 import { FaDiscord, FaTwitter, FaTelegramPlane } from 'react-icons/fa'
+import Slider from 'react-slick'
 
 import brandImages from '../assets/images/brand'
 
@@ -12,63 +13,29 @@ import Article from '../components/DisplayText/Article'
 import SectionTitle from '../components/Sections/SectionTitle'
 import utilitiesImages from '../assets/images/utilities'
 import CollectionImage from '../components/DisplayImages/CollectionImage'
-// import ReactVisibilitySensor from 'react-visibility-sensor'
 import AnimInOutHorizontal from '../components/Animations/AnimInOutHorizontal'
-// import { ReactSVG } from 'react-svg'
-// import shapesImages from '../assets/images/shapes'
-
-// import { CoinSVG } from './../assets/svg/utilities/index'
-// import utilitiesImages from '../assets/images/utilities'
-// import Paragraph from '../components/DisplayText/Paragraph'
-import useScrollOffsetY from './../customHooks/useScrollOffsetY'
-import useElementProperties from '../customHooks/useElementPropierties'
+import { useInView } from 'react-intersection-observer'
+import AnimateCover from '../components/Animations/AnimateCover'
+import { LineWrapper } from './../components/Wrappers/LineWrapper'
+import HeaderText from './../components/DisplayText/Header'
+import NextArrowControl from '../components/CustomSliderControls/NextArrowControl'
+import PrevArrowControl from '../components/CustomSliderControls/PrevArrowControl'
+import { RenderMarcoSVG } from '../assets/svg/sections'
+import Paragraph from './../components/DisplayText/Paragraph'
+import { IslandSVG } from '../assets/svg/utilities'
+// import { BackgroundSectionSVG } from '../assets/svg/background'
 
 const { Header, Content } = Layout
 // const { Countdown } = Statistic
 
 const deadline = Date.now() + 1000 * 60 * 60 * 24 * 2 + 1000 * 30 // Moment is also OK
 
-// const section2Texts = {
-//     paragraph1: 'What is The Wanderers?',
-//     paragraph2:
-//         'The wanderers is a private collection ...... Dar mencion de lo que es Wanderers, y mencion de la plataforma de ohana',
-//     paragraph3:
-//         ' The Wanderers es una colección única de NFTs con más de 100 personajes únicos ilustrados a mano, los cuales cada uno de ellos te proporcionaran beneficios espedificos dentro de la plataforma Ohana',
-// }
-
-// const section3Texts = {
-//     paragraph1:
-//         'Mencion de la moneda de the wanderers con los cuales se genera la compra de los personajes, cada personaje puedes darle mejoras como ser parte de the wanderers',
-// }
-// const section4Texts = {
-//     paragraph1:
-//         'Mencionar todos los beneficios que tiene cada rango porcentajes de ganancia de ohana',
-// }
-
-// const SegmentCirlce = ({
-//     title,
-//     paragraph,
-//     className,
-//     paragraphClassName,
-//     circleClassName,
-// }) => {
-//     return (
-//         <div className={`flex ${className} md:text-base lg:text-lg`}>
-//             <div style={{ flex: '1 0 11rem', maxWidth: '11rem' }}>
-//                 <div
-//                     className={`rounded-full h-44 w-44 bg-blue-1 flex items-center justify-center header text-aqua-1 text-center  ${circleClassName} `}
-//                 >
-//                     {title}
-//                 </div>
-//             </div>
-//             <div
-//                 className={`pl-10 flex-1 text-blue-2 flex items-center xl:text-xl${paragraphClassName}`}
-//             >
-//                 {paragraph}
-//             </div>
-//         </div>
-//     )
-// }
+const landImages = [
+    { id: 1, img: utilitiesImages.isla },
+    { id: 2, img: utilitiesImages.isla },
+    { id: 3, img: utilitiesImages.isla },
+    { id: 4, img: utilitiesImages.isla },
+]
 
 const CollectionContainer = ({ children }) => (
     <div className="css-generic w-full flex-row justify-center flex-grow space-x-6">
@@ -76,29 +43,35 @@ const CollectionContainer = ({ children }) => (
     </div>
 )
 const LandingPage = () => {
-    const [showCollection, setShowCollection] = useState(false)
-    const { offsetY } = useScrollOffsetY()
-    const collectionProperties = useElementProperties('collection')
-    const handleShowCollection = () => {
-        setShowCollection(true)
+    // const [showCollection, setShowCollection] = useState(false)
+    const [imageIndex, setImageIndex] = useState(0)
+    const collectionConfig = {
+        threshold: 0.2,
     }
-    useEffect(() => {
-        handleShowCollection()
-        return () => {}
-    }, [showCollection])
+    const [refSection, showCover] = useInView({
+        threshold: 0.1,
+    })
+    const [refCollection1, showCollection1] = useInView(collectionConfig)
+    const [refCollection2, showCollection2] = useInView(collectionConfig)
+    const [refCollection3, showCollection3] = useInView(collectionConfig)
 
-    console.log({ collectionProperties })
-    console.log(
-        collectionProperties
-            ? collectionProperties?.top + document.body.scrollTop
-            : null
-    )
-    console.log({ offsetY })
+    const sliderLandSettings = {
+        dots: false,
+        infinite: true,
+        lazyLoad: true,
+        speed: 300,
+        slidesToShow: 3,
+        centerMode: true,
+        centerPadding: 0,
+        nextArrow: <NextArrowControl />,
+        prevArrow: <PrevArrowControl />,
+        beforeChange: (_, next) => setImageIndex(next),
+    }
 
     return (
         <Layout className="landing-page" onScroll={(e) => console.log({ e })}>
-            <Header className="bg-transparent">
-                <Row className="h-full bg-gray-400">
+            <Header className="bg-transparent z-30">
+                <Row className="h-full">
                     <Col xs={20}></Col>
                     <Col
                         xs={24}
@@ -127,16 +100,16 @@ const LandingPage = () => {
                 </Row>
             </Header>
             <Content>
-                <section className="bg-render bg-no-repeat bg-cover bg-center -mt-64px pt-64px h-screen">
+                <section className="bg-render bg-no-repeat bg-cover bg-center -mt-64px pb-40 relative">
                     {/* <div className="bottom-gradient"></div> */}
-                    <div className="section mx-auto flex flex-col justify-between h-full pb-8">
+                    <div className="section mx-auto flex flex-col justify-between pt-64px pb-12 mb-20 h-screen">
                         <div className="pt-10 lg:pt-0 lg:pl-56 lg:pr-56">
                             <img
                                 className=" w-full h-auto"
                                 src={brandImages.logo}
                             />
                         </div>
-                        <div className="mb-10">
+                        <div className="mb-10 z-20">
                             <div className="count-down bg-dark bg-opacity-50 mx-auto lg:px-12 pt-5 pb-4">
                                 <GenericCountDown date={deadline} />
                                 <div className="flex text-info text-lg md:text-2xl lg:text-4xl mt-5">
@@ -147,7 +120,7 @@ const LandingPage = () => {
                                 </div>
                             </div>
                         </div>
-                        <div className="text-center">
+                        <div className="text-center z-20">
                             <Button
                                 className="bg-dark bg-opacity-50 h-auto text-primary text-xl md:text-2xl lg:text-3xl xl:text-4xl py-2 px-8"
                                 type="primary"
@@ -156,8 +129,15 @@ const LandingPage = () => {
                             </Button>
                         </div>
                     </div>
+                    <AnimateCover visible={showCover} />
+                    <div
+                        className="absolute bottom-0 right-0 left-0"
+                        // style={{ height: '100px' }}
+                    >
+                        <RenderMarcoSVG className="" />
+                    </div>
                 </section>
-                <section className=" bg-blue-3 pt-10 pb-64">
+                <section ref={refSection} className=" bg-blue-5 pt-10 pb-32">
                     <div className="section">
                         <Row>
                             <Col xs={12} className="">
@@ -173,11 +153,12 @@ const LandingPage = () => {
                                             }}
                                             subHeaderProps={{
                                                 className:
-                                                    'mb-4 font-saira-condensed leading-none text-info font-semibold',
+                                                    'mb-4 font-saira-condensed leading-none text-info font-semibold ',
                                                 sm: '5xl',
                                             }}
                                             paragraphProps={{
-                                                // className: '',
+                                                className:
+                                                    'text-blue-4  text-justify',
                                                 sm: '2xl',
                                             }}
                                             className="max-w-full"
@@ -211,23 +192,21 @@ const LandingPage = () => {
                                 </div>
                             </Col>
                             <Col xs={12} className="bg-red-100">
-                                asdasddsa
+                                <div className=""></div>
                             </Col>
                         </Row>
                     </div>
                 </section>
-                <section className=" bg-blue-3 pt-10 pb-64 css-generic flex-row">
+                <section className=" bg-blue-5 pt-10 pb-32 css-generic flex-row">
                     <SectionTitle>COLLECTION</SectionTitle>
                     <div className="css-generic flex-grow pb-5">
-                        <div
-                            id="collection"
-                            className="css-generic flex-col w-1025px space-y-4 space "
-                        >
+                        <div className="css-generic flex-col w-1025px space-y-4 space ">
                             <div
+                                ref={refCollection1}
                                 style={{ height: '210px' }}
                                 className="css-generic w-full max-w-full"
                             >
-                                <AnimInOutHorizontal visible={showCollection}>
+                                <AnimInOutHorizontal visible={showCollection1}>
                                     <CollectionContainer>
                                         <CollectionImage
                                             src={utilitiesImages.nft}
@@ -242,11 +221,12 @@ const LandingPage = () => {
                                 </AnimInOutHorizontal>
                             </div>
                             <div
+                                ref={refCollection2}
                                 style={{ height: '210px' }}
                                 className="css-generic w-full max-w-full"
                             >
                                 <AnimInOutHorizontal
-                                    visible={showCollection}
+                                    visible={showCollection2}
                                     side="right"
                                 >
                                     <CollectionContainer>
@@ -266,10 +246,11 @@ const LandingPage = () => {
                                 </AnimInOutHorizontal>
                             </div>
                             <div
+                                ref={refCollection3}
                                 style={{ height: '210px' }}
-                                className="css-generic w-full max-w-full"
+                                className="css-generic w-full max-w-full "
                             >
-                                <AnimInOutHorizontal visible={showCollection}>
+                                <AnimInOutHorizontal visible={showCollection3}>
                                     <CollectionContainer>
                                         <CollectionImage
                                             src={utilitiesImages.nft}
@@ -286,97 +267,218 @@ const LandingPage = () => {
                         </div>
                     </div>
                 </section>
-                <section className="h-screen bg-red-100">as</section>
-                {/* <section className="pt-10 bg-earth bg-no-repeat bg-cover bg-center">
-                        <div className="section mx-auto text-center pb-40 lg:pb-64 xl:pb-72">
-                            <div className="header text-aqua-1 text-2xl md:text-3xl lg:text-2xl xl:text-2rem mx-auto mb-10">
-                                Welcome to <br /> The wanders
-                            </div>
-                            <Paragraph
-                                content={section2Texts.paragraph1}
-                                className="mb-5"
-                                lg="xl"
-                                xl="2xl"
-                            />
-                            <Paragraph
-                                content={section2Texts.paragraph2}
-                                className="mb-5"
-                                lg="xl"
-                                xl="2xl"
-                            />
-                            <Paragraph
-                                content={section2Texts.paragraph3}
-                                lg="xl"
-                                xl="2xl"
-                            />
-                        </div>
-                    </section>
-                    <section className="section-gradient2 pt-10 pb-20">
-                        <div className="section mx-auto mt-10">
-                            <Row className="mb-20">
-                                <Col xs={12}>
-                                    <div className="header text-aqua-1 xl:text-2xl mb-2">
-                                        How it works
-                                    </div>
-                                    <p className="text-blue-2 xl:text-xl pl-8 pr-24">
-                                        {section3Texts.paragraph1}
-                                    </p>
-                                </Col>
-                                <Col xs={12}>
-                                    <CoinSVG
-                                        style={{
-                                            width: '100%',
-                                            height: 'auto',
-                                        }}
-                                    />
-                                </Col>
-                            </Row>
-                            <div className="lg:pl-20 lg:pr-20 mb-52">
-                                <img
-                                    src={utilitiesImages.card}
-                                    style={{
-                                        width: '100%',
-                                        height: 'auto',
-                                    }}
-                                />
-                            </div>
-                            <Row className="lg:pl-20 lg:pr-20">
-                                <Col xs={12}>
-                                    <SegmentCirlce
-                                        className="mb-10"
-                                        title="Marcos Rango"
-                                        paragraph="Rango"
-                                    />
-                                    <SegmentCirlce
-                                        className="mb-10 xl:ml-16"
-                                        title="Marcos Rango"
-                                        paragraph="Rango"
-                                    />
-                                    <SegmentCirlce
-                                        className="mb-10 xl:ml-32"
-                                        title="Marcos Rango"
-                                        paragraph="Rango"
-                                    />
-                                    <SegmentCirlce
-                                        className="xl:ml-48"
-                                        title="Marcos Rango"
-                                        paragraph="Rango"
-                                    />
-                                </Col>
-                                <Col xs={12} className="text-right">
-                                    <div className="header text-aqua-1 xl:text-2xl mb-2">
-                                        Benefits
-                                    </div>
+                <section className="bg-blue-5 pt-10 pb-20">
+                    <div className="section">
+                        <Row>
+                            <Col sm={12} className="flex justify-center ">
+                                <div className="css-generic w-8/12 ">
+                                    <IslandSVG />
+                                </div>
+                            </Col>
+                            <Col sm={12}>
+                                <div className="pl-5">
+                                    <HeaderText
+                                        base="5xl"
+                                        sm="8xl"
+                                        className="text-primary leading-tight tracking-widest"
+                                    >
+                                        NFT
+                                    </HeaderText>
+                                </div>
 
-                                    <Paragraph
-                                        className="pl-20"
-                                        content={section4Texts.paragraph1}
-                                        lg="xl"
-                                    />
+                                <LineWrapper
+                                    borderHeight="60%"
+                                    borderWidth="80%"
+                                    decorationBottom="0.7rem"
+                                >
+                                    <Article
+                                        header="Lands"
+                                        headerProps={{
+                                            className:
+                                                'mb-4 font-saira-condensed leading-none text-info font-semibold',
+                                            sm: '2-75rem',
+                                        }}
+                                        paragraphProps={{
+                                            className:
+                                                'mb-8 text-blue-4 text-justify',
+                                            sm: 'xl',
+                                        }}
+                                    >
+                                        Lorem ipsum dolor sit amet, consectetuer
+                                        adipiscing elit, sed diam nonummy nibh
+                                        euismod tincidunt ut laoreet dolore
+                                        magna aliquam erat volutpat. Ut wisi
+                                        enim ad minim veniam, quis nostrud
+                                        exerci tation ullamcorper suscipit
+                                        lobortis nisl.
+                                    </Article>
+                                    <Article
+                                        header="Level up"
+                                        headerProps={{
+                                            className:
+                                                'mb-4 font-saira-condensed leading-none text-info font-semibold',
+                                            sm: '2-75rem',
+                                        }}
+                                        paragraphProps={{
+                                            className:
+                                                'mb-10 text-blue-4 text-justify',
+                                            sm: 'xl',
+                                        }}
+                                    >
+                                        Duis autem vel eum iriure dolor in
+                                        hendrerit in vulputate velit esse
+                                        molestie consequat, vel illum dolore eu
+                                        feugiat nulla facilisis at vero eros et
+                                        accumsan et iusto odio dignissim qui
+                                        blandit praesent luptatum ril delenit
+                                        augue duis dolore te feugait nulla
+                                        facilisi.
+                                    </Article>
+                                </LineWrapper>
+                            </Col>
+                        </Row>
+                    </div>
+                </section>
+                <section className="bg-blue-5 pt-10 pb-44 relative">
+                    <div className="section">
+                        <div className="css-generic">
+                            <Slider className="px-12" {...sliderLandSettings}>
+                                {landImages.map(({ id, img }, idx) => (
+                                    <div
+                                        key={`land-${id}`}
+                                        className={
+                                            idx === imageIndex
+                                                ? 'landSlide activeSlide'
+                                                : 'landSlide'
+                                        }
+                                    >
+                                        <img src={img} alt={img} />
+                                    </div>
+                                ))}
+                            </Slider>
+                        </div>
+                        <div className="css-generic items-center mt-5">
+                            <HeaderText
+                                className="leading-tight text-primary tracking-widest"
+                                base="4xl"
+                            >
+                                LAND
+                            </HeaderText>
+                            <HeaderText
+                                className="leading-none text-info font-saira-condensed font-semibold"
+                                base="3xl"
+                            >
+                                35% Hotels
+                            </HeaderText>
+                        </div>
+                    </div>
+                </section>
+                <section className="bg-blue-5 pt-10 pb-64 relative">
+                    {/* <div className="absolute bottom-0 left-0 right-0 top-0">
+                        <BackgroundSectionSVG className="object-cover" />
+                    </div> */}
+                    <div className="section">
+                        <div className="css-generic flex-grow ">
+                            <div className="css-generic items-center">
+                                <HeaderText
+                                    base="5xl"
+                                    sm="8xl"
+                                    className="text-primary leading-none tracking-widest"
+                                >
+                                    WTT
+                                </HeaderText>
+                            </div>
+                            <div className="css-generic"></div>
+                            <div className="css-generic flex-row flex-grow max-h-full ">
+                                <div className="css-generic w-6/12"></div>
+                                <div className="css-generic   w-6/12 pl-8">
+                                    <HeaderText
+                                        base="5xl"
+                                        className="text-info leading-none font-saira-condensed font-semibold"
+                                    >
+                                        Token
+                                    </HeaderText>
+                                </div>
+                            </div>
+                        </div>
+                        <div className="css-generic mb-20">
+                            <Row>
+                                <Col sm={12}>
+                                    <LineWrapper
+                                        side="right"
+                                        decorationBottom="0.7rem"
+                                    >
+                                        <Paragraph
+                                            className=" text-blue-4 text-justify"
+                                            sm="xl"
+                                        >
+                                            Lorem ipsum dolor sit amet,
+                                            consectetuer adipiscing elit, sed
+                                            diam nonummy nibh euismod tincidunt
+                                            ut laoreet dolore magna aliquam erat
+                                            volutpat. Ut wisi enim ad minim
+                                            veniam, quis nostrud exerci tation
+                                            ullamcorper suscipit lobortis nisl.
+                                        </Paragraph>
+                                    </LineWrapper>
+                                </Col>
+                                <Col sm={12} className="flex pl-5">
+                                    <div
+                                        className="bg-yellow-100 flex-1"
+                                        style={{ height: '50vh' }}
+                                    ></div>
                                 </Col>
                             </Row>
                         </div>
-                    </section> */}
+                        <div className="css-generic">
+                            <HeaderText
+                                base="5xl"
+                                sm="8xl"
+                                className="text-primary leading-none tracking-widest mb-28"
+                            >
+                                Road Map
+                            </HeaderText>
+                            <div className="css-generic mx-auto w-8/12">
+                                <Article
+                                    header="1. Road Map"
+                                    subHeader="December 12nd"
+                                    headerProps={{
+                                        className: 'leading-tight text-info',
+                                        base: '5xl',
+                                    }}
+                                    subHeaderProps={{
+                                        className:
+                                            'leading-tight text-info font-saira-condensed font-semibold mb-4',
+                                        base: '3xl',
+                                    }}
+                                    paragraphProps={{
+                                        className:
+                                            'mb-8 text-blue-4  text-justify',
+                                        sm: 'xl',
+                                    }}
+                                >
+                                    Lorem ipsum dolor sit amet, consectetuer
+                                    adipiscing elit, sed diam nonummy nibh
+                                    euismod tincidunt ut laoreet dolore magna
+                                    aliquam erat volutpat. Ut wisi enim ad minim
+                                    veniam, quis nostrud exerci tation
+                                    ullamcorper suscipit lobortis nisl. Lorem
+                                    ipsum dolor sit amet, consectetuer
+                                    adipiscing elit, sed diam nonummy nibh
+                                    euismod tincidunt ut laoreet dolore magna
+                                    aliquam erat volutpat. Ut wisi enim ad minim
+                                    veniam, quis nostrud exerci tation
+                                    ullamcorper suscipit lobortis nisl.
+                                </Article>
+                            </div>
+
+                            <div
+                                className="css-generic max-w-full bg-red-50"
+                                style={{ height: '25vh' }}
+                            ></div>
+                        </div>
+                    </div>
+                </section>
             </Content>
         </Layout>
     )
