@@ -37,8 +37,7 @@
         "start": "craco start",
         "build": "craco build",
         "test": "craco test",
-        "eject": "react-scripts eject",
-        "prepare": "husky install"
+        "eject": "react-scripts eject"
     },
     "eslintConfig": {
         "extends": [
@@ -74,15 +73,9 @@
         "gulp-debug": "^4.0.0",
         "gulp-less": "^5.0.0",
         "gulp-postcss": "^9.0.1",
-        "husky": "^7.0.2",
         "less-plugin-npm-import": "^2.1.0",
-        "lint-staged": "^11.1.2",
         "postcss": "^7.0.36",
         "prettier": "^2.4.0",
         "tailwindcss": "npm:@tailwindcss/postcss7-compat@^2.2.14"
-    },
-    "lint-staged": {
-        "*.js": "eslint --cache --fix",
-        "*.{js,css,md}": "prettier --write"
     }
 }
