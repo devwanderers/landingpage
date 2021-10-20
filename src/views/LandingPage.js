@@ -44,6 +44,7 @@ import { returnValueByScreenWidth } from '../services/stylesServices'
 // import { sectionsImages } from '../assets/images/sections'
 import { RenderMarcoSVG } from './../assets/svg/sections/index'
 import { LogoWhiteSV } from '../assets/svg/brand'
+import AnimDisplayFromTop from './../components/Animations/AnimDisplayFromTop'
 
 const { Header, Content } = Layout
 // const { Countdown } = Statistic
@@ -675,8 +676,11 @@ const LandingPage = () => {
                                     <DownArrowSVG />
                                 </div>
                             </div>
-                            {!collapseFaq && (
-                                <div className="css-generic px-10 lg:px-20 pt-10">
+                            <AnimDisplayFromTop
+                                visible={!collapseFaq}
+                                className="overflow-hidden css-generic"
+                            >
+                                <div className="css-generic px-10 lg:px-20 pt-10 ">
                                     <Article
                                         header="Lorem?"
                                         headerProps={{
@@ -716,7 +720,8 @@ const LandingPage = () => {
                                         </span>
                                     </Article>
                                 </div>
-                            )}
+                            </AnimDisplayFromTop>
+                            {/* {!collapseFaq && <div className=""></div>} */}
                         </div>
                     </div>
                 </div>

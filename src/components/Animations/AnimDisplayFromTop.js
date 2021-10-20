@@ -1,23 +1,29 @@
 import React from 'react'
-import { useTransition, animated, config } from 'react-spring'
+import { AnimatePresence, motion } from 'framer-motion'
 import PropTypes from 'prop-types'
 
-const AnimDisplayFromTop = ({ visible, children }) => {
-    const transitions = useTransition(!!visible, {
-        from: { opacity: 1, height: 0, transformOrigin: '100% 0%' },
-        enter: { opacity: 1, height: 100, transformOrigin: '100% 0%' },
-        leave: { opacity: 1, height: 0, transformOrigin: '100% 0%' },
-        delay: 200,
-        config: config.stiff,
-    })
-
-    return transitions(
-        (props, item) =>
-            item && (
-                <animated.div className="css-generic max-w-full" style={props}>
+const AnimDisplayFromTop = ({ visible, children, className }) => {
+    return (
+        <AnimatePresence>
+            {visible && (
+                <motion.div
+                    className={className}
+                    initial={{ opacity: 1, height: 0, originY: 0 }}
+                    animate={{ opacity: 1, height: 'auto', originY: 0 }}
+                    exit={{
+                        opacity: 1,
+                        height: 0,
+                        originY: 0,
+                        // display: 'none',
+                    }}
+                    transition={{
+                        delay: 0,
+                    }}
+                >
                     {children}
-                </animated.div>
-            )
+                </motion.div>
+            )}
+        </AnimatePresence>
     )
 }
 AnimDisplayFromTop.defaultProps = {}
