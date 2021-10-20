@@ -3,7 +3,7 @@ const colors = require('tailwindcss/colors')
 module.exports = {
     // important: true,
     // important: true,
-    purge: ['./src/**/*.{js,jsx,ts,tsx}', './public/index.html'],
+    purge: [],
     darkMode: 'class', // or 'media' or 'class'
     theme: {
         minWidth: {
@@ -64,7 +64,6 @@ module.exports = {
             '40px': '40px',
             '27px': '27px',
             '34px': '34px',
-            // 'counter': '10rem',
         },
         extend: {
             backgroundImage: {

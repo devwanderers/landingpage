@@ -1,10 +1,8 @@
 import React from 'react'
-import { AnimatePresence, motion, useViewportScroll } from 'framer-motion'
+import { AnimatePresence, motion } from 'framer-motion'
 import PropTypes from 'prop-types'
 
 const AnimDisplayFromTop = ({ visible, children, className }) => {
-    const { scrollYProgress } = useViewportScroll()
-    console.log({ scrollYProgress })
     return (
         <AnimatePresence>
             {visible && (

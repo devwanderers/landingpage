@@ -162,8 +162,8 @@ const LandingPage = () => {
                                                 {
                                                     base: '-6px',
                                                     md: '-11px',
-                                                    lg: '-15px',
-                                                    xl: '-16px',
+                                                    lg: '-10px',
+                                                    xl: '-12px',
                                                 }
                                             ),
                                         }}
@@ -191,7 +191,7 @@ const LandingPage = () => {
                                             lg="34px"
                                             className="text-white z-10"
                                         >
-                                            MINT START
+                                            MINT STARTS
                                         </HeaderText>
                                     </div>
                                 </div>
@@ -222,7 +222,7 @@ const LandingPage = () => {
                         <Row>
                             <Col xs={24} md={12} className="">
                                 <div className="w-full">
-                                    <div className="w-full xl:pr-24">
+                                    <div className="w-full xl:pr-16">
                                         <Article
                                             header="8,728"
                                             subHeader="unique Wanderers"
@@ -247,41 +247,25 @@ const LandingPage = () => {
                                             className="max-w-full"
                                         >
                                             <span>
-                                                Lorem ipsum dolor sit amet,
-                                                consectetuer adipiscing elit,
-                                                sed diam nonummy nibh euismod
-                                                tincidunt ut laoreet dolore
-                                                magna aliquam erat volutpat. Ut
-                                                wisi enim ad minim veniam, quis
-                                                nostrud exerci tation
-                                                ullamcorper suscipit lobortis
-                                                nisl.
+                                                {
+                                                    " We’ve created a completely virtual metaverse in which all the tourist destinations offered by our partnership Destinare are represented as NFT's within our platform known as Lands or Roles."
+                                                }
                                             </span>
                                             <br />
                                             <br />
                                             <span>
-                                                Lorem ipsum dolor sit amet,
-                                                consectetuer adipiscing elit,
-                                                sed diam nonummy nibh euismod
-                                                tincidunt ut laoreet dolore
-                                                magna aliquam erat volutpat. Ut
-                                                wisi enim ad minim veniam, quis
-                                                nostrud exerci tation
-                                                ullamcorper suscipit lobortis
-                                                nisl.
+                                                There are 8750 unique characters
+                                                called wanderers as an initial
+                                                offering and other 500 ultrarare
+                                                and special characters available
+                                                by 250 FTM.
                                             </span>
                                             <br />
                                             <br />
                                             <span>
-                                                Duis autem vel eum iriure dolor
-                                                in hendrerit in vulputate velit
-                                                esse molestie consequat, vel
-                                                illum dolore eu feugiat nulla
-                                                facilisis at vero eros et
-                                                accumsan et iusto odio dignissim
-                                                qui blandit praesent luptatum
-                                                ril delenit augue duis dolore te
-                                                feugait nulla facilisi.
+                                                {
+                                                    'A wonderer is your key to the adventure in this metaverse and your best investment, Destinare shares big benefits if you mint and hold a wanderer, once you mint a wanderer you start to receive benefits like Tokens, membership to Destinary platform, amazing discounts to travel and more. Read the white paper'
+                                                }
                                             </span>
                                         </Article>
                                     </div>

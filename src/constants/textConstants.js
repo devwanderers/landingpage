@@ -12,4 +12,10 @@ export const TextSizes = [
     '7xl',
     '8xl',
     '2-75rem',
+    '89px',
+    '53px',
+    '23px',
+    '40px',
+    '27px',
+    '34px',
 ]
