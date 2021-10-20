@@ -15,15 +15,15 @@ export const LineWrapper = ({
         >
             <div
                 className={`css-generic ${
-                    side === 'left' ? 'pl-14' : 'pr-14'
-                } pt-10`}
+                    side === 'left' ? 'lg:pl-14' : 'lg:pr-14'
+                } pt-2 lg:pt-10`}
             >
                 {children}
             </div>
             <div
                 className={`wrapper-line wrapper-line-${
                     side === 'left' ? 'lt' : 'rt'
-                }  border-primary border-solid`}
+                }   border-blue-4 border-solid`}
                 style={{ height: borderHeight, width: borderWidth }}
             >
                 <div className="line-decoration">

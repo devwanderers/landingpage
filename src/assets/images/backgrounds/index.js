@@ -1,6 +1,7 @@
+import earthBackground from './bakgroundearth.png'
 const backgroundImages = {
     render: require('./render-fondo.jpg'),
-    earthBackground: require('./fondo-tierra.jpg'),
+    earthBackground,
 }
 
 export default backgroundImages

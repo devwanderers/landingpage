@@ -51,12 +51,14 @@
 
 .section {
     margin: 0 auto;
-    max-width: 1200px;
+    // min-width: 375px;
+    max-width: 1100px;
+    padding: 0 25px;
     @media @min768 {
-        padding: 0 20px;
+        padding: 0 40px;
     }
     @media @min1024 {
-        padding: 0;
+        padding: 0 55px;
     }
 }
 
@@ -118,7 +120,11 @@
 
 .wrapper-line {
     position: absolute;
-    display: flex;
+    display: none;
+
+    @media @min1024 {
+        display: flex;
+    }
 }
 
 .wrapper-line-lt {
@@ -171,8 +177,11 @@
 }
 
 .landSlide img {
-    width: 20rem;
+    width: 12rem;
     margin: 0 auto;
+    @media @min768 {
+        width: 20rem;
+    }
 }
 
 .landSlide {
@@ -192,8 +201,9 @@
     position: absolute;
     cursor: pointer;
     z-index: 10;
+
     .svg-container {
-        width: 50px;
+        width: 30px;
         svg {
             opacity: 0.7;
             transition: color 300ms;
@@ -201,6 +211,9 @@
                 opacity: 1;
                 color: #68edff;
             }
+        }
+        @media @min1024 {
+            width: 50px;
         }
     }
 }

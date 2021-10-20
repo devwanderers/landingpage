@@ -7,7 +7,6 @@ const Header = ({ children, style, className, ...restProps }) => {
     const { base, sm, md, lg, xl, xxl } = returnTextSizeByScreenWidth({
         ...restProps,
     })
-    console.log({ base })
     return (
         <div
             className={`font-russo-one  ${className} ${base} ${sm} ${md} ${lg} ${xl}  ${xxl}`}
