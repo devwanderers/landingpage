@@ -1,11 +1,6 @@
 import { useState, useEffect } from 'react'
 
 const getElementProperties = (elementID) => {
-    console.log(
-        document.getElementById(elementID)
-            ? document.getElementById(elementID)
-            : null
-    )
     return document.getElementById(elementID)
         ? document.getElementById(elementID).getBoundingClientRect()
         : null

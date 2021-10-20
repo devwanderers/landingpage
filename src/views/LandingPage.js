@@ -105,10 +105,7 @@ const LandingPage = () => {
     }
 
     return (
-        <Layout
-            className="landing-page min-w-minMobileWidth"
-            onScroll={(e) => console.log({ e })}
-        >
+        <Layout className="landing-page min-w-minMobileWidth">
             <Header className="bg-transparent z-30">
                 <Row className="h-full">
                     <Col xs={20}></Col>
@@ -446,16 +443,15 @@ const LandingPage = () => {
                                             lg: '23px',
                                         }}
                                     >
-                                        Lorem ipsum dolor sit amet, consectetuer
-                                        adipiscing elit, sed diam nonummy nibh
-                                        euismod tincidunt ut laoreet dolore
-                                        magna aliquam erat volutpat. Ut wisi
-                                        enim ad minim veniam, quis nostrud
-                                        exerci tation ullamcorper suscipit
-                                        lobortis nisl.
+                                        Feel the power!! once you get this class
+                                        of NTF, now you’re the only owner of
+                                        this land, it means that every single
+                                        booking completed to the equivalent
+                                        place in the Destinare platform will pay
+                                        you a commission!
                                     </Article>
                                     <Article
-                                        header="Level up"
+                                        header="Role in Land"
                                         headerProps={{
                                             className:
                                                 'mb-4 font-saira-condensed leading-none text-info font-semibold  text-center lg:text-left',
@@ -469,14 +465,13 @@ const LandingPage = () => {
                                             lg: '23px',
                                         }}
                                     >
-                                        Duis autem vel eum iriure dolor in
-                                        hendrerit in vulputate velit esse
-                                        molestie consequat, vel illum dolore eu
-                                        feugiat nulla facilisis at vero eros et
-                                        accumsan et iusto odio dignissim qui
-                                        blandit praesent luptatum ril delenit
-                                        augue duis dolore te feugait nulla
-                                        facilisi.
+                                        As the land NFT you will be rewarded
+                                        with a commission when a booking has
+                                        completed but, in less percentage, and
+                                        divide with other 9 members with this
+                                        role. In other words, you’re working for
+                                        the land owner but him/her share
+                                        revenues with you.
                                     </Article>
                                 </LineWrapper>
                             </Col>
@@ -562,13 +557,21 @@ const LandingPage = () => {
                                             base="lg"
                                             lg="23px"
                                         >
-                                            Lorem ipsum dolor sit amet,
-                                            consectetuer adipiscing elit, sed
-                                            diam nonummy nibh euismod tincidunt
-                                            ut laoreet dolore magna aliquam erat
-                                            volutpat. Ut wisi enim ad minim
-                                            veniam, quis nostrud exerci tation
-                                            ullamcorper suscipit lobortis nisl.
+                                            Why a token? We’re not just a common
+                                            NFT project, we’re creating an
+                                            ecosystem where your NFT’s is more
+                                            than Art, we think in our community
+                                            and we want to give you a little
+                                            piece back for the trust put in the
+                                            project. <br /> The token reward you
+                                            in the ecosystem and has unique
+                                            features that you will love!! The
+                                            Wanderers travel token, is the
+                                            native currency in the metaverse, it
+                                            is based on FRC20 making it highly
+                                            diverse and easy to shift
+                                            interdomain. Wait for the listing in
+                                            Anyswap
                                         </Paragraph>
                                     </LineWrapper>
                                 </Col>
@@ -802,7 +805,7 @@ const LandingPage = () => {
                         <div className="css-generic flex-grow max-h-full w-6/12 ">
                             <div className="css-generic items-center w-64">
                                 <div className="css-generic w-full mb-3 px-8">
-                                    <LogoWhiteSV width="100%" height="auto" />
+                                    <LogoWhiteSV width="100%" />
                                 </div>
                                 <HeaderText
                                     base="2xl"

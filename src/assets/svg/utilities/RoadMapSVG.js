@@ -7,7 +7,6 @@ const RoadMapSVG = ({
     width = '100%',
     height = '100%',
 }) => {
-    console.log({ selectedKey })
     return (
         <div style={{ width, height }}>
             <svg
@@ -29,7 +28,6 @@ const RoadMapSVG = ({
                 <Tooltip title="Lorem1">
                     <rect
                         onMouseEnter={() => onSelectedKey(1)}
-                        onMouseLeave={() => console.log('Mouse leave')}
                         x="76.61"
                         y="29.9"
                         width="17.51"
