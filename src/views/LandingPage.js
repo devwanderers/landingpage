@@ -3,7 +3,7 @@ import { Layout, Row, Col, Button } from 'antd'
 import { FaDiscord, FaTwitter, FaTelegramPlane } from 'react-icons/fa'
 import Slider from 'react-slick'
 
-import brandImages from '../assets/images/brand'
+// import brandImages from '../assets/images/brand'
 
 // import logo from '../assets/images/brand/logo.png'
 // import { DiscordIcon } from '../components/CustomIcons'
@@ -43,7 +43,7 @@ import useWindowDimensions from './../customHooks/useWindowDimensions'
 import { returnValueByScreenWidth } from '../services/stylesServices'
 // import { sectionsImages } from '../assets/images/sections'
 import { RenderMarcoSVG } from './../assets/svg/sections/index'
-import { LogoWhiteSV } from '../assets/svg/brand'
+import { Logo2SVG, LogoWhiteSV } from '../assets/svg/brand'
 import AnimDisplayFromTop from './../components/Animations/AnimDisplayFromTop'
 
 const { Header, Content } = Layout
@@ -52,10 +52,42 @@ const { Header, Content } = Layout
 const deadline = Date.now() + 1000 * 60 * 60 * 24 * 2 + 1000 * 30 // Moment is also OK
 
 const landImages = [
-    { id: 1, img: utilitiesImages.isla },
-    { id: 2, img: utilitiesImages.isla },
-    { id: 3, img: utilitiesImages.isla },
-    { id: 4, img: utilitiesImages.isla },
+    {
+        id: 1,
+        img: utilitiesImages.isla,
+        title: '25%',
+        percent: 'Country',
+    },
+    {
+        id: 2,
+        img: utilitiesImages.isla,
+        title: '10%',
+        percent: 'City',
+    },
+    {
+        id: 3,
+        img: utilitiesImages.isla,
+        title: '6%',
+        percent: 'Destiny',
+    },
+    {
+        id: 4,
+        img: utilitiesImages.isla,
+        title: '20%',
+        percent: 'Country ambassador',
+    },
+    {
+        id: 5,
+        img: utilitiesImages.isla,
+        title: '15%',
+        percent: 'City ambassador',
+    },
+    {
+        id: 6,
+        img: utilitiesImages.isla,
+        title: '9%',
+        percent: 'Destiny ambassador ',
+    },
 ]
 
 const CollectionContainer = ({ children }) => (
@@ -71,7 +103,7 @@ const LandingPage = () => {
     const [roadKey, setSelectedKey] = useState(1)
 
     const collectionConfig = {
-        threshold: 0.2,
+        threshold: 0.3,
     }
     const [refSection, showCover] = useInView({
         threshold: 0.1,
@@ -136,17 +168,14 @@ const LandingPage = () => {
                 </Row>
             </Header>
             <Content>
-                <div className="bg-render bg-no-repeat bg-cover bg-center -mt-64px pb-40 relative">
+                <div className="bg-render-mobil lg:bg-render bg-no-repeat bg-cover -bg-top-7 lg:bg-center -mt-64px pb-20 md:pb-32 lg:pb-40 relative">
                     <div className="section mx-auto pt-64px mb-20 h-screen">
-                        <div className="css-generic h-full flex-col justify-between py-4 md:py-6 lg:px-28 xl:px-20 lg:py-10">
+                        <div className="css-generic h-full flex-col justify-between py-4 md:py-6 lg:px-28 xl:px-28 lg:py-10">
                             <div className="pt-10 lg:pt-0 w-80 lg:w-96 mx-auto  pb-6">
-                                <img
-                                    className=" w-full h-auto"
-                                    src={brandImages.logoWanderes}
-                                />
+                                <Logo2SVG width="100%" />
                             </div>
                             <div className="mb-10 z-20">
-                                <div className="count-down bg-black-1 bg-opacity-40 mx-auto lg:px-12 pt-5 pb-4 relative z-10">
+                                <div className="count-down bg-black-1 bg-opacity-30 mx-auto lg:px-4 pt-5 pb-4 relative z-10">
                                     <GenericCountDown date={deadline} />
                                     <div className="flex text-info text-lg md:text-2xl lg:text-4xl mt-5">
                                         <div className="flex-1">DAYS</div>
@@ -263,9 +292,24 @@ const LandingPage = () => {
                                             <br />
                                             <br />
                                             <span>
-                                                {
-                                                    'A wonderer is your key to the adventure in this metaverse and your best investment, Destinare shares big benefits if you mint and hold a wanderer, once you mint a wanderer you start to receive benefits like Tokens, membership to Destinary platform, amazing discounts to travel and more. Read the white paper'
-                                                }
+                                                A wonderer is your key to the
+                                                adventure in this metaverse and
+                                                your best investment, Destinare
+                                                shares big benefits if you mint
+                                                and hold a wanderer, once you
+                                                mint a wanderer you start to
+                                                receive benefits like Tokens,
+                                                membership to Destinary
+                                                platform, amazing discounts to
+                                                travel and more.{' '}
+                                                <a
+                                                    href="#"
+                                                    className="underline"
+                                                >
+                                                    <strong>
+                                                        Read the white paper.
+                                                    </strong>
+                                                </a>
                                             </span>
                                         </Article>
                                     </div>
@@ -486,14 +530,16 @@ const LandingPage = () => {
                                 base="3xl"
                                 lg="40px"
                             >
-                                LAND
+                                {landImages[imageIndex] &&
+                                    landImages[imageIndex]?.title}
                             </HeaderText>
                             <HeaderText
                                 className="leading-none text-info font-saira-condensed font-semibold"
                                 base="xl"
                                 lg="27px"
                             >
-                                35% Hotels
+                                {landImages[imageIndex] &&
+                                    landImages[imageIndex]?.percent}
                             </HeaderText>
                         </div>
                     </div>
@@ -605,18 +651,16 @@ const LandingPage = () => {
                                         lg: '23px',
                                     }}
                                 >
-                                    Lorem ipsum dolor sit amet, consectetuer
-                                    adipiscing elit, sed diam nonummy nibh
-                                    euismod tincidunt ut laoreet dolore magna
-                                    aliquam erat volutpat. Ut wisi enim ad minim
-                                    veniam, quis nostrud exerci tation
-                                    ullamcorper suscipit lobortis nisl. Lorem
-                                    ipsum dolor sit amet, consectetuer
-                                    adipiscing elit, sed diam nonummy nibh
-                                    euismod tincidunt ut laoreet dolore magna
-                                    aliquam erat volutpat. Ut wisi enim ad minim
-                                    veniam, quis nostrud exerci tation
-                                    ullamcorper suscipit lobortis nisl.
+                                    It is essential to understand that this
+                                    project has been designed to keep alive more
+                                    than a couple of months like other NFT’s
+                                    projects, that’s why our roadmap is more
+                                    complex than launch and NFT collection, the
+                                    teams is working tirelessly to accomplish
+                                    all the goals in the roadmap according the
+                                    dates. We’ll always keep you up to date by
+                                    our social media channels! Let’s get the
+                                    grow up together
                                 </Article>
                             </div>
 
@@ -745,13 +789,12 @@ const LandingPage = () => {
                                         lg="23px"
                                         className="text-blue-4 lg:pl-44 text-justify"
                                     >
-                                        Lorem ipsum dolor sit amet, consectetuer
-                                        adipiscing elit, sed diam nonummy nibh
-                                        euismod tincidunt ut laoreet dolore
-                                        magna aliquam erat volutpat. Ut wisi
-                                        enim ad minim veniam, quis nostrud
-                                        exerci tation ullamcorper suscipit
-                                        lobortis nisl.
+                                        Become part of the most important NFT
+                                        project, big things happen when the
+                                        community is involved in all phases.
+                                        Join us to get the news as soon as
+                                        possible and follow our latest
+                                        announcements.
                                     </Paragraph>
                                 </LineWrapper>
                             </Col>

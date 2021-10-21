@@ -6,6 +6,20 @@ module.exports = {
     purge: [],
     darkMode: 'class', // or 'media' or 'class'
     theme: {
+        backgroundPosition: {
+            bottom: 'bottom',
+            'bottom-4': 'center bottom 1rem',
+            center: 'center',
+            left: 'left',
+            'left-bottom': 'left bottom',
+            'left-top': 'left top',
+            right: 'right',
+            'right-bottom': 'right bottom',
+            'right-top': 'right top',
+            top: 'top',
+            'top-4': 'center top 1rem',
+            '-top-7': 'center top -7rem',
+        },
         minWidth: {
             minMobileWidth: '375px',
         },
@@ -68,6 +82,8 @@ module.exports = {
         extend: {
             backgroundImage: {
                 render: "url('/src/assets/images/backgrounds/render-fondo.jpg')",
+                'render-mobil':
+                    "url('/src/assets/images/backgrounds/render-fondo-mobil.jpg')",
                 earth: "url('/src/assets/images/backgrounds/bakgroundearth.png')",
             },
             margin: {

@@ -1,7 +1,14 @@
 import React from 'react'
 import Countdown from 'react-countdown'
 
-const Render = ({ days, hours, minutes, seconds, completed, className }) => {
+const Render = ({
+    days,
+    hours,
+    minutes,
+    seconds,
+    completed,
+    className = '',
+}) => {
     return (
         <div className={`count-numbers flex text-white ${className}`}>
             <div className="flex-1">{days > 9 ? days : `0${days}`}</div>
