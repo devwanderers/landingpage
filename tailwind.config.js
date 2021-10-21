@@ -6,6 +6,13 @@ module.exports = {
     purge: [],
     darkMode: 'class', // or 'media' or 'class'
     theme: {
+        backgroundSize: {
+            auto: 'auto',
+            cover: 'cover',
+            contain: 'contain',
+            '50%': '50%',
+            16: '4rem',
+        },
         backgroundPosition: {
             bottom: 'bottom',
             'bottom-4': 'center bottom 1rem',
@@ -18,7 +25,8 @@ module.exports = {
             'right-top': 'right top',
             top: 'top',
             'top-4': 'center top 1rem',
-            '-top-7': 'center top -7rem',
+            '-top-7': 'center top -5rem',
+            '-top-15': 'center top -15rem',
         },
         minWidth: {
             minMobileWidth: '375px',

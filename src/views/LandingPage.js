@@ -168,7 +168,7 @@ const LandingPage = () => {
                 </Row>
             </Header>
             <Content>
-                <div className="bg-render-mobil lg:bg-render bg-no-repeat bg-cover -bg-top-7 lg:bg-center -mt-64px pb-20 md:pb-32 lg:pb-40 relative">
+                <div className="bg-render-mobil xl:bg-render bg-no-repeat bg-cover bg-center -mt-64px pb-1 xl:pb-32 lg:pb-40 relative">
                     <div className="section mx-auto pt-64px mb-20 h-screen">
                         <div className="css-generic h-full flex-col justify-between py-4 md:py-6 lg:px-28 xl:px-28 lg:py-10">
                             <div className="pt-10 lg:pt-0 w-80 lg:w-96 mx-auto  pb-6">
