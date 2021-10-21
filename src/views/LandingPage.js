@@ -43,7 +43,7 @@ import useWindowDimensions from './../customHooks/useWindowDimensions'
 import { returnValueByScreenWidth } from '../services/stylesServices'
 // import { sectionsImages } from '../assets/images/sections'
 import { RenderMarcoSVG } from './../assets/svg/sections/index'
-import { Logo2SVG, LogoWhiteSV } from '../assets/svg/brand'
+import { Logo1SVG } from '../assets/svg/brand'
 import AnimDisplayFromTop from './../components/Animations/AnimDisplayFromTop'
 
 const { Header, Content } = Layout
@@ -123,6 +123,7 @@ const LandingPage = () => {
         dots: false,
         infinite: true,
         lazyLoad: true,
+        autoplay: true,
         speed: 300,
         slidesToShow: width < 768 ? 1 : 3,
         centerMode: true,
@@ -172,7 +173,7 @@ const LandingPage = () => {
                     <div className="section mx-auto pt-64px mb-20 h-screen">
                         <div className="css-generic h-full flex-col justify-between py-4 md:py-6 lg:px-28 xl:px-28 lg:py-10">
                             <div className="pt-10 lg:pt-0 w-80 lg:w-96 mx-auto  pb-6">
-                                <Logo2SVG width="100%" />
+                                <Logo1SVG width="100%" />
                             </div>
                             <div className="mb-10 z-20">
                                 <div className="count-down bg-black-1 bg-opacity-30 mx-auto lg:px-4 pt-5 pb-4 relative z-10">
@@ -254,7 +255,7 @@ const LandingPage = () => {
                                     <div className="w-full xl:pr-16">
                                         <Article
                                             header="8,728"
-                                            subHeader="unique Wanderers"
+                                            subHeader="Unique Wanderers"
                                             headerProps={{
                                                 className:
                                                     'mb-1 leading-none text-primary text-center lg:text-left',
@@ -277,7 +278,7 @@ const LandingPage = () => {
                                         >
                                             <span>
                                                 {
-                                                    " We’ve created a completely virtual metaverse in which all the tourist destinations offered by our partnership Destinare are represented as NFT's within our platform known as Lands or Roles."
+                                                    " We’ve created a completely virtual metaverse in which all the tourist destinations offered by our partner Destinare are represented as NFT's within our platform known as Lands or Roles. Such destinations can be owned by you, or a group of adventurers called Wanderers who are also represented as unique NFT's."
                                                 }
                                             </span>
                                             <br />
@@ -285,23 +286,21 @@ const LandingPage = () => {
                                             <span>
                                                 There are 8750 unique characters
                                                 called wanderers as an initial
-                                                offering and other 500 ultrarare
-                                                and special characters available
-                                                by 250 FTM.
+                                                offering and other 500 Ultrarare
+                                                and special characters aviable
+                                                by 250FTM.
                                             </span>
                                             <br />
                                             <br />
                                             <span>
-                                                A wonderer is your key to the
-                                                adventure in this metaverse and
-                                                your best investment, Destinare
-                                                shares big benefits if you mint
-                                                and hold a wanderer, once you
-                                                mint a wanderer you start to
-                                                receive benefits like Tokens,
-                                                membership to Destinary
-                                                platform, amazing discounts to
-                                                travel and more.{' '}
+                                                Owning a wanderer gives you
+                                                access to the metaverse as well
+                                                as exclusive benefits to our
+                                                partner Destinare. Once you mint
+                                                a wanderer you start to receive
+                                                big benefits such as Tokens,
+                                                exclusive membership to
+                                                Destinare platform and more.{' '}
                                                 <a
                                                     href="#"
                                                     className="underline"
@@ -471,7 +470,7 @@ const LandingPage = () => {
                                             lg: '23px',
                                         }}
                                     >
-                                        Feel the power!! once you get this class
+                                        Feel the power!! Once you get this class
                                         of NTF, now you’re the only owner of
                                         this land, it means that every single
                                         booking completed to the equivalent
@@ -493,13 +492,13 @@ const LandingPage = () => {
                                             lg: '23px',
                                         }}
                                     >
-                                        As the land NFT you will be rewarded
-                                        with a commission when a booking has
-                                        completed but, in less percentage, and
-                                        divide with other 9 members with this
-                                        role. In other words, you’re working for
-                                        the land owner but him/her share
-                                        revenues with you.
+                                        As the role in land NFT you and 9 others
+                                        will guard the land, by doing so, you
+                                        will also be rewarded with a commission
+                                        when a booking has been completed, but
+                                        in a smaller percentage. In other words,
+                                        you’re working for the land owner but
+                                        whom will share revenue with you.
                                     </Article>
                                 </LineWrapper>
                             </Col>
@@ -651,16 +650,14 @@ const LandingPage = () => {
                                         lg: '23px',
                                     }}
                                 >
-                                    It is essential to understand that this
-                                    project has been designed to keep alive more
-                                    than a couple of months like other NFT’s
-                                    projects, that’s why our roadmap is more
-                                    complex than launch and NFT collection, the
-                                    teams is working tirelessly to accomplish
-                                    all the goals in the roadmap according the
-                                    dates. We’ll always keep you up to date by
-                                    our social media channels! Let’s get the
-                                    grow up together
+                                    Unlike many other projects our project has
+                                    been created to be in the market for the
+                                    long run. That is why our roadmap is more
+                                    complex and detailed than most projects. The
+                                    team is working tirelessly to accomplish all
+                                    the goals set in the roadmap according to
+                                    dates. We’ll keep you updated through our
+                                    social media channels!
                                 </Article>
                             </div>
 
@@ -789,11 +786,11 @@ const LandingPage = () => {
                                         lg="23px"
                                         className="text-blue-4 lg:pl-44 text-justify"
                                     >
-                                        Become part of the most important NFT
-                                        project, big things happen when the
+                                        Become a part of the most important NFT
+                                        project. Big things happen when the
                                         community is involved in all phases.
-                                        Join us to get the news as soon as
-                                        possible and follow our latest
+                                        Join us to get the news as soon as they
+                                        come out and follow us for our latest
                                         announcements.
                                     </Paragraph>
                                 </LineWrapper>
@@ -832,7 +829,7 @@ const LandingPage = () => {
                         <div className="css-generic flex-grow max-h-full w-6/12 ">
                             <div className="css-generic items-center w-64">
                                 <div className="css-generic w-full mb-3 px-8">
-                                    <LogoWhiteSV width="100%" />
+                                    <Logo1SVG width="100%" />
                                 </div>
                                 <HeaderText
                                     base="2xl"
