@@ -288,7 +288,7 @@ const LandingPage = () => {
                                                 called wanderers as an initial
                                                 offering and other 500 Ultrarare
                                                 and special characters aviable
-                                                by 250FTM.
+                                                by 0.12 ETH.
                                             </span>
                                             <br />
                                             <br />
@@ -296,11 +296,11 @@ const LandingPage = () => {
                                                 Owning a wanderer gives you
                                                 access to the metaverse as well
                                                 as exclusive benefits to our
-                                                partner Destinare. Once you mint
+                                                travel partner. Once you mint
                                                 a wanderer you start to receive
                                                 big benefits such as Tokens,
-                                                exclusive membership to
-                                                Destinare platform and more.{' '}
+                                                exclusive promotions in the
+                                                travel platform and more.{' '}
                                                 <a
                                                     href="#"
                                                     className="underline"
@@ -359,11 +359,11 @@ const LandingPage = () => {
                                         />
                                         <CollectionImage
                                             size={heightContainerCollection}
-                                            src={utilitiesImages.nft}
+                                            src={utilitiesImages.nft9}
                                         />
                                         <CollectionImage
                                             size={heightContainerCollection}
-                                            src={utilitiesImages.nft}
+                                            src={utilitiesImages.nft5}
                                         />
                                     </CollectionContainer>
                                 </AnimInOutHorizontal>
@@ -380,19 +380,19 @@ const LandingPage = () => {
                                     <CollectionContainer>
                                         <CollectionImage
                                             size={heightContainerCollection}
-                                            src={utilitiesImages.nft}
+                                            src={utilitiesImages.nft1}
                                         />
                                         <CollectionImage
                                             size={heightContainerCollection}
-                                            src={utilitiesImages.nft}
+                                            src={utilitiesImages.nft3}
                                         />
                                         <CollectionImage
                                             size={heightContainerCollection}
-                                            src={utilitiesImages.nft}
+                                            src={utilitiesImages.nft2}
                                         />
                                         <CollectionImage
                                             size={heightContainerCollection}
-                                            src={utilitiesImages.nft}
+                                            src={utilitiesImages.nft4}
                                         />
                                     </CollectionContainer>
                                 </AnimInOutHorizontal>
@@ -406,15 +406,15 @@ const LandingPage = () => {
                                     <CollectionContainer>
                                         <CollectionImage
                                             size={heightContainerCollection}
-                                            src={utilitiesImages.nft}
+                                            src={utilitiesImages.nft6}
                                         />
                                         <CollectionImage
                                             size={heightContainerCollection}
-                                            src={utilitiesImages.nft}
+                                            src={utilitiesImages.nft7}
                                         />
                                         <CollectionImage
                                             size={heightContainerCollection}
-                                            src={utilitiesImages.nft}
+                                            src={utilitiesImages.nft8}
                                         />
                                     </CollectionContainer>
                                 </AnimInOutHorizontal>
@@ -474,7 +474,7 @@ const LandingPage = () => {
                                         of NTF, now you’re the only owner of
                                         this land, it means that every single
                                         booking completed to the equivalent
-                                        place in the Destinare platform will pay
+                                        place in the travel platform will pay
                                         you a commission!
                                     </Article>
                                     <Article
@@ -557,7 +557,7 @@ const LandingPage = () => {
                                     lg="89px"
                                     className="text-primary leading-none tracking-widest"
                                 >
-                                    WTT
+                                    Wanderers Token
                                 </HeaderText>
                             </div>
                             <div className="css-generic"></div>
@@ -597,10 +597,10 @@ const LandingPage = () => {
                                             features that you will love!! The
                                             Wanderers travel token, is the
                                             native currency in the metaverse, it
-                                            is based on FRC20 making it highly
+                                            is based on ERC20 making it highly
                                             diverse and easy to shift
                                             interdomain. Wait for the listing in
-                                            Anyswap
+                                            Unyswap
                                         </Paragraph>
                                     </LineWrapper>
                                 </Col>
@@ -710,12 +710,64 @@ const LandingPage = () => {
                             >
                                 <div className="css-generic px-10 lg:px-20 pt-10 ">
                                     <Article
-                                        header="Lorem?"
+                                        header="How do I mint?"
                                         headerProps={{
                                             className:
-                                                'mb-1 leading-none text-primary',
-                                            base: '3xl',
-                                            lg: '40px',
+                                                'mb-1 leading-none text-info',
+                                            base: '2xl',
+                                            lg: '3xl',
+                                        }}
+                                        paragraphProps={{
+                                            className:
+                                                'text-blue-4  text-justify',
+                                            base: 'lg',
+                                            lg: '23px',
+                                        }}
+                                        className="max-w-full"
+                                    >
+                                        <span>
+                                            Lorem ipsum dolor sit amet,
+                                            consectetuer adipiscing elit, sed
+                                            diam nonummy nibh euismod tincidunt
+                                            ut laoreet dolore magna aliquam erat
+                                            volutpat. 
+                                        </span>
+                                    </Article>
+                                        <br />
+                                    <Article
+                                        header="Who are The Wanderers?"
+                                        headerProps={{
+                                            className:
+                                                'mb-1 leading-none text-info',
+                                            base: '2xl',
+                                            lg: '3xl',
+                                        }}
+                                        paragraphProps={{
+                                            className:
+                                                'text-blue-4  text-justify',
+                                            base: 'lg',
+                                            lg: '23px',
+                                        }}
+                                        className="max-w-full"
+                                    >
+                                        <span>
+                                            Lorem ipsum dolor sit amet,
+                                            consectetuer adipiscing elit, sed
+                                            diam nonummy nibh euismod tincidunt
+                                            ut laoreet dolore magna aliquam erat
+                                            volutpat. Ut wisi enim ad minim
+                                            veniam, quis nostrud exerci tation
+                                            ullamcorper suscipit lobortis nisl.
+                                        </span>
+                                    </Article>
+                                        <br />
+                                    <Article
+                                        header="How to play and earn?"
+                                        headerProps={{
+                                            className:
+                                                'mb-1 leading-none text-info',
+                                            base: '2xl',
+                                            lg: '3xl',
                                         }}
                                         paragraphProps={{
                                             className:
@@ -735,16 +787,59 @@ const LandingPage = () => {
                                             ullamcorper suscipit lobortis nisl.
                                         </span>
                                         <br />
+                                    </Article>
                                         <br />
+                                    <Article
+                                        header="It would be a presale event?"
+                                        headerProps={{
+                                            className:
+                                                'mb-1 leading-none text-info',
+                                            base: 'base',
+                                            lg: '3xl',
+                                        }}
+                                        paragraphProps={{
+                                            className:
+                                                'text-blue-4  text-justify',
+                                            base: 'lg',
+                                            lg: '23px',
+                                        }}
+                                        className="max-w-full"
+                                    >
                                         <span>
-                                            Duis autem vel eum iriure dolor in
-                                            hendrerit in vulputate velit esse
-                                            molestie consequat, vel illum dolore
-                                            eu feugiat nulla facilisis at vero
-                                            eros et accumsan et iusto odio
-                                            dignissim qui blandit praesent
-                                            luptatum ril delenit augue duis
-                                            dolore te feugait nulla facilisi.
+                                            Lorem ipsum dolor sit amet,
+                                            consectetuer adipiscing elit, sed
+                                            diam nonummy nibh euismod tincidunt
+                                            ut laoreet dolore magna aliquam erat
+                                            volutpat. Ut wisi enim ad minim
+                                            veniam, quis nostrud exerci tation
+                                            ullamcorper suscipit lobortis nisl.
+                                        </span>
+                                    </Article>
+                                    <br />
+                                    <Article
+                                        header="Why Ethereum?"
+                                        headerProps={{
+                                            className:
+                                                'mb-1 leading-none text-info',
+                                            base: 'base',
+                                            lg: '3xl',
+                                        }}
+                                        paragraphProps={{
+                                            className:
+                                                'text-blue-4  text-justify',
+                                            base: 'lg',
+                                            lg: '23px',
+                                        }}
+                                        className="max-w-full"
+                                    >
+                                        <span>
+                                            Lorem ipsum dolor sit amet,
+                                            consectetuer adipiscing elit, sed
+                                            diam nonummy nibh euismod tincidunt
+                                            ut laoreet dolore magna aliquam erat
+                                            volutpat. Ut wisi enim ad minim
+                                            veniam, quis nostrud exerci tation
+                                            ullamcorper suscipit lobortis nisl.
                                         </span>
                                     </Article>
                                 </div>

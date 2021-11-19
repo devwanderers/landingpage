@@ -8,8 +8,8 @@ const CollectionImage = ({ src, className, size }) => {
                 style={{ height: size, width: size }}
             >
                 <div className="absolute -m-2 top-0 right-0 left-0 bottom-0 border-t-8 border-b-8 border-opacity-30 border-blue-1 border-solid"></div>
-                <div className="absolute -m-2 top-0 right-0 left-0 bottom-0 overflow-hidden">
-                    <img className="object-contain w-10/12 mx-auto" src={src} />
+                <div className="absolute top-0 right-0 left-0 bottom-0 overflow-hidden">
+                    <img className="object-contain w-full h-auto mx-auto" src={src} />
                 </div>
             </div>
         </div>
