@@ -4,8 +4,10 @@ import { useWeb3React } from '@web3-react/core'
 import { injected } from '../wallet/connectors'
 import { useLocalStorage } from './useStorage'
 import DestinareContract from '../abi/DestinareContract.json'
-import AvatarDestinare from '../abi/AvatarDestinare.json'
+import AvatarDestinareAbi from '../abi/AvatarDestinare.json'
 import useEffectOnce from './useEffectOnce'
+
+// const nftAvatar = 1000000000000000000
 
 const useSCInteractions = () => {
     const [data, setData] = useState({
@@ -13,8 +15,13 @@ const useSCInteractions = () => {
         totalSupply: 0,
         getPresaleInfo: { 0: [], 1: [] },
     })
+    const [mintAvatarData, setMintAvatarData] = useState({
+        minting: {},
+        minted: {},
+    })
 
-    const { active, library, activate, deactivate, error } = useWeb3React()
+    const { active, library, activate, deactivate, account, error } =
+        useWeb3React()
     const [walletActive, setWalletActive] = useLocalStorage('wallet', false)
 
     async function connect() {
@@ -38,7 +45,6 @@ const useSCInteractions = () => {
 
     async function validateChainIdNetwork() {
         const ethereum = window.ethereum
-        console.log({ ethereum })
         if (
             !ethereum ||
             (ethereum &&
@@ -78,19 +84,26 @@ const useSCInteractions = () => {
         }
     }
 
-    async function mintAvatar(callBack) {
+    async function mintAvatar(amount, callBack) {
         if (!active) callBack({ error: 'Wallet not connected' })
         try {
             const contract = new library.eth.Contract(
-                AvatarDestinare,
+                AvatarDestinareAbi,
                 process.env.REACT_APP_AVATAR_DESTINARE_CONTRACT_ADDRESS
             )
             console.log({ contract })
-            // const circulatingSupply = await contract.methods
-            //     .circulatingSupply()
-            //     .call()
+            // mint(address, amount)
+            console.log(contract.methods)
+            console.log(typeof account)
+            const mintAvatar = await contract.methods
+                .mint(account, amount)
+                .send({ from: account, value: nftAvatar * amount })
+            // console.log({ mintAvatar })
+            const tokenUri = await contract.methods.tokenURI('8').call()
+            console.log({ tokenUri })
             callBack('Successful call')
         } catch (error) {
+            console.log({ error })
             callBack({ error: 'Something went wrong while minting the nft.' })
         }
     }

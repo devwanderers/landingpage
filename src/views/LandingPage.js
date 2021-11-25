@@ -1,9 +1,7 @@
 import React, { useState } from 'react'
-import { Layout, Row, Col, Button, Modal } from 'antd'
+import { Layout, Row, Col, Button } from 'antd'
 import { FaDiscord, FaTwitter, FaTelegramPlane } from 'react-icons/fa'
 import Slider from 'react-slick'
-import ReactPlayer from 'react-player'
-
 // import brandImages from '../assets/images/brand'
 // import logo from '../assets/images/brand/logo.png'
 // import { DiscordIcon } from '../components/CustomIcons'
@@ -21,7 +19,6 @@ import HeaderText from './../components/DisplayText/Header'
 import NextArrowControl from '../components/CustomSliderControls/NextArrowControl'
 import PrevArrowControl from '../components/CustomSliderControls/PrevArrowControl'
 import Paragraph from './../components/DisplayText/Paragraph'
-import revealNft from '../assets/images/utilities/reveal-nft.mp4'
 // import { IslandSVG } from '../assets/svg/utilities'
 import {
     FrameCounterTopSVG,
@@ -51,6 +48,7 @@ import AnimDisplayFromTop from './../components/Animations/AnimDisplayFromTop'
 import IncreaseDecreaseInput from './../components/Inputs/increaseDecreaseInput'
 import useResponsive from '../hooks/useResponsive'
 import useSCInteractions from '../hooks/useSCInteractions'
+import ModalMint from '../components/Mint/ModalMint'
 
 const { Header, Content } = Layout
 // const { Countdown } = Statistic
@@ -103,12 +101,12 @@ const CollectionContainer = ({ children }) => (
 )
 
 const LandingPage = () => {
-    const { connect, disconnect, active } = useSCInteractions()
+    const { connect, disconnect, mintAvatar, active } = useSCInteractions()
     const { width } = useWindowDimensions()
     const [imageIndex, setImageIndex] = useState(0)
+    const [mintAmount, setMintAmount] = useState(0)
     const [collapseFaq, setCollapseFAQ] = useState(true)
     const [roadKey, setSelectedKey] = useState(1)
-    const [widthModal] = useResponsive({ base: '100%', xl: '70%', lg: '80%' })
 
     const collectionConfig = {
         threshold: 0.3,
@@ -146,11 +144,17 @@ const LandingPage = () => {
     }
 
     const [visibleModal, setVisibleModal] = useState(false)
-    const [showVideo, setShowVideo] = useState(true)
-    const [closable, setClosable] = useState(false)
 
+    const handleShowMintModal = () => {
+        setVisibleModal(!visibleModal)
+    }
     return (
         <Layout className="landing-page min-w-minMobileWidth">
+            <ModalMint
+                visibleModal={visibleModal}
+                onCloseModal={handleShowMintModal}
+                mintAmount={mintAmount}
+            />
             <Header className="bg-transparent z-30">
                 <Row className="h-full">
                     <Col xs={20}></Col>
@@ -212,6 +216,7 @@ const LandingPage = () => {
                                             <div className="selector-box text-white text-center my-5 w-4/5 m-auto">
                                                 <IncreaseDecreaseInput
                                                     onValueChange={(val) => {
+                                                        setMintAmount(val)
                                                         console.log(val)
                                                     }}
                                                 ></IncreaseDecreaseInput>
@@ -242,9 +247,18 @@ const LandingPage = () => {
                                                     </Button>
                                                 )}
                                                 <Button
-                                                    onClick={() =>
-                                                        setVisibleModal(true)
-                                                    }
+                                                    onClick={() => {
+                                                        // console.log(
+                                                        //     'mintAmount',
+                                                        //     mintAmount
+                                                        // )
+                                                        // mintAvatar(
+                                                        //     mintAmount,
+                                                        //     (res) =>
+                                                        //         console.log(res)
+                                                        // )
+                                                        handleShowMintModal()
+                                                    }}
                                                     className="bg-primary hover:bg-primary focus:bg-primary btn-now"
                                                     size="large"
                                                 >
@@ -279,175 +293,6 @@ const LandingPage = () => {
                                         </div>
                                     </div>
                                 </Col>
-                                <Modal
-                                    centered
-                                    closable={closable}
-                                    visible={visibleModal}
-                                    onCancel={() =>
-                                        !showVideo
-                                            ? setVisibleModal(false)
-                                            : null
-                                    }
-                                    width={widthModal}
-                                    footer={null}
-                                >
-                                    {showVideo ? (
-                                        <ReactPlayer
-                                            width="100%"
-                                            height="100%"
-                                            controls={false}
-                                            playing={showVideo}
-                                            url={revealNft}
-                                            muted={false}
-                                            onError={(e) =>
-                                                console.log('error', e)
-                                            }
-                                            onEnded={() => {
-                                                setShowVideo(false)
-                                                setClosable(true)
-                                            }}
-                                        />
-                                    ) : (
-                                        <>
-                                            <Row
-                                                gutter={[20, 10]}
-                                                className="my-5"
-                                            >
-                                                <Col
-                                                    xs={24}
-                                                    sm={8}
-                                                    md={8}
-                                                    lg={8}
-                                                    xl={8}
-                                                    style={{
-                                                        marginBottom: '5%',
-                                                    }}
-                                                >
-                                                    <div className="nft-card relative">
-                                                        <div
-                                                            className="absolute left-0 right-0"
-                                                            style={{
-                                                                top: '-10px',
-                                                            }}
-                                                        >
-                                                            <FrameNftTopSVG width="100%" />
-                                                        </div>
-                                                        <div
-                                                            className="absolute left-0 right-0"
-                                                            style={{
-                                                                bottom: '-12px',
-                                                            }}
-                                                        >
-                                                            <FrameNftBottomSVG width="100%" />
-                                                        </div>
-                                                        <img
-                                                            className="w-full h-auto"
-                                                            src={
-                                                                utilitiesImages.nft9
-                                                            }
-                                                            alt={
-                                                                utilitiesImages.nft9
-                                                            }
-                                                        />
-                                                    </div>
-                                                </Col>
-                                                <Col
-                                                    xs={24}
-                                                    sm={16}
-                                                    md={16}
-                                                    lg={16}
-                                                    xl={16}
-                                                >
-                                                    <div className="nft-info h-full p-4">
-                                                        <div className="nft-name mb-5">
-                                                            <h2 className="text-info text-2xl font-bold">
-                                                                Renegate 001
-                                                            </h2>
-                                                        </div>
-                                                        <div className="nft-about my-2">
-                                                            <h3 className="text-green-0 text-lg">
-                                                                About
-                                                            </h3>
-                                                            <p>
-                                                                Aquí puede estar
-                                                                un poco de
-                                                                historia de la
-                                                                clase que
-                                                                pertenece el NFT
-                                                            </p>
-                                                        </div>
-                                                        <hr className="my-2 border-green-3" />
-                                                        <div className="flex space-x-5 flex-wrap nft-data my-2">
-                                                            <div className="nft-class">
-                                                                <h3 className="text-green-0 text-lg">
-                                                                    Class
-                                                                </h3>
-                                                                <p>Renegate</p>
-                                                            </div>
-                                                            <div className="nft-rarity">
-                                                                <h3 className="text-green-0 text-lg">
-                                                                    Rarity
-                                                                </h3>
-                                                                <p>
-                                                                    20% Anormaly
-                                                                </p>
-                                                            </div>
-                                                        </div>
-                                                        <hr className="my-2 border-green-3" />
-                                                        <div className="nft-details my-2">
-                                                            <h3 className="text-green-0 text-lg">
-                                                                Details
-                                                            </h3>
-                                                            <p>
-                                                                Información
-                                                                detallada de
-                                                                items raros
-                                                            </p>
-                                                        </div>
-                                                    </div>
-                                                </Col>
-                                            </Row>
-                                            <Row gutter={[20]}>
-                                                <Col
-                                                    xs={{ span: 24, offset: 0 }}
-                                                    sm={{ span: 16, offset: 8 }}
-                                                    md={{ span: 16, offset: 8 }}
-                                                    lg={{ span: 16, offset: 8 }}
-                                                    xl={{ span: 16, offset: 8 }}
-                                                    // offset={8}
-                                                >
-                                                    <div className="nft-footer flex space-x-10 flex-wrap">
-                                                        <Button
-                                                            className="flex-1 border-none bg-primary hover:bg-primary 
-                                            focus:bg-primary text-white hover:text-white focus:text-white"
-                                                            key="myprofile"
-                                                            size="large"
-                                                        >
-                                                            My profile
-                                                        </Button>
-                                                        <Button
-                                                            className="flex-1 border-none bg-info hover:bg-info 
-                                            focus:bg-info text-white hover:text-white focus:text-white"
-                                                            key="marketplace"
-                                                            size="large"
-                                                        >
-                                                            Marketplace
-                                                        </Button>
-                                                        <Button
-                                                            className="flex-1 border-solid border-1 border-info bg-transparent 
-                                            text-info hover:border-white hover:bg-info focus:bg-info 
-                                            hover:text-white focus:text-whit"
-                                                            key="download"
-                                                            size="large"
-                                                        >
-                                                            Download Image
-                                                        </Button>
-                                                    </div>
-                                                </Col>
-                                            </Row>
-                                        </>
-                                    )}
-                                </Modal>
                             </Row>
                             {/* <div className="mb-10 z-20">
                                 <div className="count-down bg-black-1 bg-opacity-30 mx-auto lg:px-4 pt-5 pb-4 relative z-10">
