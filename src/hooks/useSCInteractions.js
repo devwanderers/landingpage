@@ -15,7 +15,6 @@ const useSCInteractions = () => {
 
     const { active, library, activate, deactivate, error } = useWeb3React()
     const [walletActive, setValue] = useLocalStorage('wallet', false)
-    console.log({ library })
 
     async function connect() {
         try {
@@ -46,7 +45,6 @@ const useSCInteractions = () => {
             })
         } catch (switchError) {
             // This error code indicates that the chain has not been added to MetaMask.
-            console.log({ switchError })
             if (switchError.code === 4902) {
                 try {
                     await ethereum.request({
