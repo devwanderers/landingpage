@@ -15,7 +15,7 @@ const ModalMint = ({ visibleModal, mintAmount, onCloseModal, onEnded }) => {
 
     useEffect(() => {
         if (visibleModal && !initCall) {
-            mintAvatar(mintAmount, () => {})
+            mintAvatar(mintAmount, (res) => {})
             setInitCall(true)
         }
     }, [visibleModal])
