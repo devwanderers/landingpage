@@ -2,13 +2,13 @@ import React, { useState } from 'react'
 import { Layout, Row, Col, Button } from 'antd'
 import { FaDiscord, FaTwitter, FaTelegramPlane } from 'react-icons/fa'
 import Slider from 'react-slick'
-
+import ReactPlayer from 'react-player/file'
 // import brandImages from '../assets/images/brand'
 
 // import logo from '../assets/images/brand/logo.png'
 // import { DiscordIcon } from '../components/CustomIcons'
 // import { SiDiscord } from 'react-icons/si'
-import GenericCountDown from './../components/CountDowns/GenericCountDown'
+// import GenericCountDown from './../components/CountDowns/GenericCountDown'
 import Article from '../components/DisplayText/Article'
 import SectionTitle from '../components/Sections/SectionTitle'
 import utilitiesImages from '../assets/images/utilities'
@@ -22,6 +22,7 @@ import NextArrowControl from '../components/CustomSliderControls/NextArrowContro
 import PrevArrowControl from '../components/CustomSliderControls/PrevArrowControl'
 import Paragraph from './../components/DisplayText/Paragraph'
 // import { IslandSVG } from '../assets/svg/utilities'
+import islandVideo from '../assets/images/backgrounds/FLOAT-ISLAND.mp4'
 import {
     FrameCounterTopSVG,
     FrameCounterBottomSVG,
@@ -30,7 +31,7 @@ import {
     FrameCharacterSVG,
     // FrameCounterHeaderSVG,
 } from '../assets/svg/frames'
-import FrameCounterHeaderCustom from '../assets/svg/frames/FrameCounterHeaderCustom'
+// import FrameCounterHeaderCustom from '../assets/svg/frames/FrameCounterHeaderCustom'
 import {
     DownArrowSVG,
     OctagonDiscordSVG,
@@ -49,7 +50,7 @@ import AnimDisplayFromTop from './../components/Animations/AnimDisplayFromTop'
 const { Header, Content } = Layout
 // const { Countdown } = Statistic
 
-const deadline = Date.now() + 1000 * 60 * 60 * 24 * 2 + 1000 * 30 // Moment is also OK
+// const deadline = Date.now() + 1000 * 60 * 60 * 24 * 2 + 1000 * 30 // Moment is also OK
 
 const landImages = [
     {
@@ -101,6 +102,7 @@ const LandingPage = () => {
     const [imageIndex, setImageIndex] = useState(0)
     const [collapseFaq, setCollapseFAQ] = useState(true)
     const [roadKey, setSelectedKey] = useState(1)
+    // const [videoReady, playVideo] = useState(false)
 
     const collectionConfig = {
         threshold: 0.3,
@@ -137,6 +139,10 @@ const LandingPage = () => {
         setCollapseFAQ(!collapseFaq)
     }
 
+    // const handlePlayVideo = () => {
+    //     playVideo(!videoReady)
+    // }
+
     return (
         <Layout className="landing-page min-w-minMobileWidth">
             <Header className="bg-transparent z-30">
@@ -169,23 +175,40 @@ const LandingPage = () => {
                 </Row>
             </Header>
             <Content>
-                <div className="bg-render-mobil xl:bg-render bg-no-repeat bg-cover bg-center -mt-64px pb-1 xl:pb-32 lg:pb-40 relative">
+                <div className="-mt-64px pb-1 xl:pb-32 lg:pb-40 relative">
+                        <div className="absolute top-0 left-0 bottom-0 right-0 overflow-hidden">
+
+                        <ReactPlayer 
+                            className="custom-react-player" 
+                            width="100%" 
+                            height="100%"
+                            controls={false}
+                            loop={true} 
+                            playing={true}
+                            url={islandVideo}
+                            muted={true} 
+                            // onReady={handlePlayVideo}
+                            onError={(e) => console.log('error', e)}
+                            onStart={() => console.log('playing')}
+                        />
+                        </div>
+                    <div className="absolute top-0 left-0 bottom-0 right-0 overflow-hidden">
+                        {/* <video width="100%" height="100%" controls autoPlay={true} src={islandVideo} type="video/mp4"/> */}
+                    </div>
                     <div className="section mx-auto pt-64px mb-20 h-screen">
-                        <div className="css-generic h-full flex-col justify-between py-4 md:py-6 lg:px-28 xl:px-28 lg:py-10">
+                        <div className="css-generic h-full flex-col justify-between py-4 md:py-6 lg:px-28 xl:px-36 lg:py-10">
                             <div className="pt-10 lg:pt-0 w-80 lg:w-96 mx-auto  pb-6">
                                 <Logo1SVG width="100%" />
                             </div>
                             <div className="mb-10 z-20">
-                                <div className="count-down bg-black-1 bg-opacity-30 mx-auto lg:px-4 pt-5 pb-4 relative z-10">
-                                    <GenericCountDown date={deadline} />
-                                    <div className="flex text-info text-lg md:text-2xl lg:text-4xl mt-5">
-                                        <div className="flex-1">DAYS</div>
-                                        <div className="flex-1">HOURS</div>
-                                        <div className="flex-1">MINUTES</div>
-                                        <div className="flex-1">SECONDS</div>
+                                <div className="count-down bg-black-1 bg-opacity-40 mx-auto lg:px-4 pt-5 pb-4 relative z-10">
+                                    {/* <GenericCountDown date={deadline} /> */}
+                                    <div className="flex flex-col text-white text-lg md:text-2xl lg:text-4xl mt-5 text-center">
+                                        <div className="xl:text-6xl text-xl font-saira-condensed leading-none tracking-wider">SOMETHING AWSOME IS</div>
+                                        <div className="xl:text-8xl text-lg font-russo-one leading-none pt-4 relative -mr-5" style={{ letterSpacing: "1.9rem"}}>COMING!</div>
                                     </div>
                                     <div
-                                        className="absolute right-0 left-0 "
+                                        className="absolute right-0 left-0 -mx-3"
                                         style={{
                                             top: returnValueByScreenWidth(
                                                 width,
@@ -193,7 +216,7 @@ const LandingPage = () => {
                                                     base: '-6px',
                                                     md: '-11px',
                                                     lg: '-10px',
-                                                    xl: '-12px',
+                                                    xl: '-18px',
                                                 }
                                             ),
                                         }}
@@ -201,8 +224,8 @@ const LandingPage = () => {
                                         <FrameCounterTopSVG width="100%" />
                                     </div>
                                     <div
-                                        className="absolute right-0 left-0 "
-                                        style={{ bottom: '-3px' }}
+                                        className="absolute right-0 left-0 -mx-3"
+                                        style={{ bottom: '-18px' }}
                                     >
                                         <FrameCounterBottomSVG
                                             width="100%"
@@ -210,7 +233,7 @@ const LandingPage = () => {
                                         />
                                     </div>
                                 </div>
-                                <div className="css-generic">
+                                {/* <div className="css-generic">
                                     <div className="css-generic px-12 md:px-16 xl:px-20 text-center mx-auto relative">
                                         <div className="absolute right-0 left-0 top-0">
                                             <FrameCounterHeaderCustom width="100%" />
@@ -224,7 +247,7 @@ const LandingPage = () => {
                                             MINT STARTS
                                         </HeaderText>
                                     </div>
-                                </div>
+                                </div> */}
                             </div>
                             <div className="text-center z-20">
                                 <Button
@@ -710,7 +733,7 @@ const LandingPage = () => {
                             >
                                 <div className="css-generic px-10 lg:px-20 pt-10 ">
                                     <Article
-                                        header="How do I mint?"
+                                        header="How to buy my NFT?"
                                         headerProps={{
                                             className:
                                                 'mb-1 leading-none text-info',
@@ -790,7 +813,7 @@ const LandingPage = () => {
                                     </Article>
                                         <br />
                                     <Article
-                                        header="It would be a presale event?"
+                                        header="How to participate in the presale event?"
                                         headerProps={{
                                             className:
                                                 'mb-1 leading-none text-info',
@@ -817,7 +840,7 @@ const LandingPage = () => {
                                     </Article>
                                     <br />
                                     <Article
-                                        header="Why Ethereum?"
+                                        header="Why Polygon?"
                                         headerProps={{
                                             className:
                                                 'mb-1 leading-none text-info',
