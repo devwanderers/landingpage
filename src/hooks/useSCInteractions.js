@@ -4,6 +4,7 @@ import { useWeb3React } from '@web3-react/core'
 import { injected } from '../wallet/connectors'
 import { useLocalStorage } from './useStorage'
 import DestinareContract from '../abi/DestinareContract.json'
+import AvatarDestinare from '../abi/AvatarDestinare.json'
 import useEffectOnce from './useEffectOnce'
 
 const useSCInteractions = () => {
@@ -14,14 +15,13 @@ const useSCInteractions = () => {
     })
 
     const { active, library, activate, deactivate, error } = useWeb3React()
-    const [walletActive, setValue] = useLocalStorage('wallet', false)
-    console.log({ library })
+    const [walletActive, setWalletActive] = useLocalStorage('wallet', false)
 
     async function connect() {
         try {
             await activate(injected)
 
-            if (!walletActive) setValue(true)
+            if (!walletActive) setWalletActive(true)
         } catch (ex) {
             console.log({ ex })
         }
@@ -29,7 +29,8 @@ const useSCInteractions = () => {
 
     async function disconnect() {
         try {
-            deactivate()
+            await deactivate()
+            setWalletActive(false)
         } catch (ex) {
             console.log(ex)
         }
@@ -37,8 +38,13 @@ const useSCInteractions = () => {
 
     async function validateChainIdNetwork() {
         const ethereum = window.ethereum
-
-        if (!ethereum || (ethereum && ethereum.chainId === '0x89')) return
+        console.log({ ethereum })
+        if (
+            !ethereum ||
+            (ethereum &&
+                (ethereum.chainId === '0x89' || ethereum.chainId === '0x539'))
+        )
+            return null
         try {
             await ethereum.request({
                 method: 'wallet_switchEthereumChain',
@@ -73,6 +79,23 @@ const useSCInteractions = () => {
         }
     }
 
+    async function mintAvatar(callBack) {
+        if (!active) callBack({ error: 'Wallet not connected' })
+        try {
+            const contract = new library.eth.Contract(
+                AvatarDestinare,
+                process.env.REACT_APP_AVATAR_DESTINARE_CONTRACT_ADDRESS
+            )
+            console.log({ contract })
+            // const circulatingSupply = await contract.methods
+            //     .circulatingSupply()
+            //     .call()
+            callBack('Successful call')
+        } catch (error) {
+            callBack({ error: 'Something went wrong while minting the nft.' })
+        }
+    }
+
     useEffectOnce(async () => {
         validateChainIdNetwork()
         if (walletActive) await connect()
@@ -89,9 +112,9 @@ const useSCInteractions = () => {
             const getPresaleInfo = await contract.methods
                 .getPresaleInfo()
                 .call()
-            const getUserInfo = await contract.methods.getUserInfo().call()
+            // const getUserInfo = await contract.methods.getUserInfo().call()
             // console.log({ getPresaleInfo })
-            console.log({ getUserInfo })
+            // console.log({ getUserInfo })
             setData((state) => ({
                 ...state,
                 circulatingSupply,
@@ -101,7 +124,7 @@ const useSCInteractions = () => {
         }
     })
 
-    return { connect, disconnect, active, error, data }
+    return { connect, disconnect, mintAvatar, active, error, data }
 }
 
 export default useSCInteractions
