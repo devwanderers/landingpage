@@ -3,7 +3,46 @@
     margin: 16px;
     background: rgba(255, 255, 255, 0.3);
 }
-
+.connect-section {
+    .connect-box {
+        margin: 0 10%;
+        .wanderers-amount  {
+            .amount {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                color: #fff;
+                span#total {
+                    font-weight: bold;
+                    font-size: 50px;
+                }
+                span#title {
+                    font-weight: bold;
+                    font-size: 40px;
+                }
+            }
+            .price {
+                margin-top: -20px;
+                text-align: right;
+                span {
+                    font-size: 25px;
+                }
+            }
+        }
+    }
+    .buttons-select {
+        display: flex;
+        justify-content: center;
+        .btn-connect,
+        .btn-now {
+            width: 100%;
+            font-size: 20px;
+            color: #fff;
+            border: none;
+            margin: 0 10px;
+        }
+    }
+}
 .count-down {
     text-align: center;
     .count-numbers {
@@ -53,7 +92,7 @@
     margin: 0 auto;
     // min-width: 375px;
     max-width: 1100px;
-    padding: 0 25px;
+    // padding: 0 25px;
     @media @min768 {
         padding: 0 40px;
     }
@@ -226,4 +265,11 @@
 .next {
     right: 0%;
     top: 40%;
+}
+// .nft-card {
+//     width: 80%;
+// }
+.nft-info {
+    background-color: #243c49;
+    border: solid 2px #337184;
 }

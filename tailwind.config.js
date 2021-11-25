@@ -50,6 +50,12 @@ module.exports = {
             transparent: 'transparent',
             dark: '#171230',
             darker: '#090416',
+            green: {
+                0: '#15a9be',
+                1: '#243c49',
+                2: '#2a4655',
+                3: '#337184',
+            },
             aqua: {
                 1: '#7CC4D1',
             },
@@ -89,10 +95,12 @@ module.exports = {
         },
         extend: {
             backgroundImage: {
-                render: "url('/src/assets/images/backgrounds/render-fondo.jpg')",
+                render:
+                    "url('/src/assets/images/backgrounds/render-fondo.jpg')",
                 'render-mobil':
                     "url('/src/assets/images/backgrounds/render-fondo-mobil.jpg')",
-                earth: "url('/src/assets/images/backgrounds/bakgroundearth.png')",
+                earth:
+                    "url('/src/assets/images/backgrounds/bakgroundearth.png')",
             },
             margin: {
                 84: '21rem',
@@ -117,6 +125,10 @@ module.exports = {
                 '1100px': '1100px',
             },
         },
+        backgroundColor: (theme) => ({
+            ...theme('colors'),
+        }),
+        textColor: (theme) => theme('colors'),
     },
     variants: {
         extend: {},

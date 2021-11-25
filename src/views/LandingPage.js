@@ -1,14 +1,13 @@
 import React, { useState } from 'react'
-import { Layout, Row, Col, Button } from 'antd'
+import { Layout, Row, Col, Button, Modal } from 'antd'
 import { FaDiscord, FaTwitter, FaTelegramPlane } from 'react-icons/fa'
 import Slider from 'react-slick'
 
 // import brandImages from '../assets/images/brand'
-
 // import logo from '../assets/images/brand/logo.png'
 // import { DiscordIcon } from '../components/CustomIcons'
 // import { SiDiscord } from 'react-icons/si'
-import GenericCountDown from './../components/CountDowns/GenericCountDown'
+// import GenericCountDown from './../components/CountDowns/GenericCountDown'
 import Article from '../components/DisplayText/Article'
 import SectionTitle from '../components/Sections/SectionTitle'
 import utilitiesImages from '../assets/images/utilities'
@@ -28,9 +27,11 @@ import {
     FrameFAQTopSVG,
     FrameFAQBottomSVG,
     FrameCharacterSVG,
+    FrameNftTopSVG,
+    FrameNftBottomSVG,
     // FrameCounterHeaderSVG,
 } from '../assets/svg/frames'
-import FrameCounterHeaderCustom from '../assets/svg/frames/FrameCounterHeaderCustom'
+// import FrameCounterHeaderCustom from '../assets/svg/frames/FrameCounterHeaderCustom'
 import {
     DownArrowSVG,
     OctagonDiscordSVG,
@@ -45,11 +46,14 @@ import { returnValueByScreenWidth } from '../services/stylesServices'
 import { RenderMarcoSVG } from './../assets/svg/sections/index'
 import { Logo1SVG } from '../assets/svg/brand'
 import AnimDisplayFromTop from './../components/Animations/AnimDisplayFromTop'
+import IncreaseDecreaseInput from './../components/Inputs/increaseDecreaseInput'
+import useResponsive from '../hooks/useResponsive'
+import useSCInteractions from '../hooks/useSCInteractions'
 
 const { Header, Content } = Layout
 // const { Countdown } = Statistic
 
-const deadline = Date.now() + 1000 * 60 * 60 * 24 * 2 + 1000 * 30 // Moment is also OK
+// const deadline = Date.now() + 1000 * 60 * 60 * 24 * 2 + 1000 * 30 // Moment is also OK
 
 const landImages = [
     {
@@ -97,10 +101,13 @@ const CollectionContainer = ({ children }) => (
 )
 
 const LandingPage = () => {
+    const { connect, disconnect, active } = useSCInteractions()
+    console.log('active', active)
     const { width } = useWindowDimensions()
     const [imageIndex, setImageIndex] = useState(0)
     const [collapseFaq, setCollapseFAQ] = useState(true)
     const [roadKey, setSelectedKey] = useState(1)
+    const [widthModal] = useResponsive({ base: '70%', xl: '70%' })
 
     const collectionConfig = {
         threshold: 0.3,
@@ -137,6 +144,8 @@ const LandingPage = () => {
         setCollapseFAQ(!collapseFaq)
     }
 
+    const [visible, setVisible] = useState(false)
+
     return (
         <Layout className="landing-page min-w-minMobileWidth">
             <Header className="bg-transparent z-30">
@@ -171,11 +180,214 @@ const LandingPage = () => {
             <Content>
                 <div className="bg-render-mobil xl:bg-render bg-no-repeat bg-cover bg-center -mt-64px pb-1 xl:pb-32 lg:pb-40 relative">
                     <div className="section mx-auto pt-64px mb-20 h-screen">
-                        <div className="css-generic h-full flex-col justify-between py-4 md:py-6 lg:px-28 xl:px-28 lg:py-10">
+                        {/* <div className="css-generic h-full flex-col justify-between py-4 md:py-6 lg:px-28 xl:px-28 lg:py-10"> */}
+                        <div className="css-generic h-full flex-col justify-between py-4 md:py-6 lg:px-0 xl:px-0 lg:py-10">
                             <div className="pt-10 lg:pt-0 w-80 lg:w-96 mx-auto  pb-6">
                                 <Logo1SVG width="100%" />
                             </div>
-                            <div className="mb-10 z-20">
+                            <Row className="connect-section">
+                                <Col span={12}>
+                                    <div className="mb-10 z-20">
+                                        <div className="bg-black-1 bg-opacity-40 mx-auto lg:px-4 pt-5 pb-4 relative z-10">
+                                            <div className="connect-box">
+                                                <div className="wanderers-amount text-white">
+                                                    <div className="amount">
+                                                        <span id="total">
+                                                            9,000
+                                                        </span>
+                                                        <span id="title">
+                                                            WANDERERS
+                                                        </span>
+                                                    </div>
+                                                    <div className="price">
+                                                        <span>
+                                                            Price .06 ETH
+                                                        </span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div className="selector-box text-white text-center my-5 w-4/5 m-auto">
+                                                <IncreaseDecreaseInput
+                                                    onValueChange={(val) => {
+                                                        console.log(val)
+                                                    }}
+                                                ></IncreaseDecreaseInput>
+                                                <span className="text-xl">
+                                                    Max 15 mints per tx
+                                                </span>
+                                            </div>
+                                            <div className="buttons-select my-4">
+                                                {active}
+                                                {!active ? (
+                                                    <Button
+                                                        onClick={() =>
+                                                            connect()
+                                                        }
+                                                        className="bg-info hover:bg-info focus:bg-info btn-connect"
+                                                        size="large"
+                                                    >
+                                                        Connect
+                                                    </Button>
+                                                ) : (
+                                                    <Button
+                                                        onClick={() =>
+                                                            disconnect()
+                                                        }
+                                                        className="bg-info hover:bg-info focus:bg-info btn-connect"
+                                                        size="large"
+                                                    >
+                                                        Disconnect
+                                                    </Button>
+                                                )}
+                                                <Button
+                                                    onClick={() =>
+                                                        setVisible(true)
+                                                    }
+                                                    className="bg-primary hover:bg-primary focus:bg-primary btn-now"
+                                                    size="large"
+                                                >
+                                                    Mint now
+                                                </Button>
+                                            </div>
+                                            <div
+                                                className="absolute right-0 left-0 "
+                                                style={{
+                                                    top: returnValueByScreenWidth(
+                                                        width,
+                                                        {
+                                                            base: '-6px',
+                                                            md: '-11px',
+                                                            lg: '-10px',
+                                                            xl: '-12px',
+                                                        }
+                                                    ),
+                                                }}
+                                            >
+                                                <FrameCounterTopSVG width="100%" />
+                                            </div>
+                                            <div
+                                                className="absolute right-0 left-0 "
+                                                style={{ bottom: '-3px' }}
+                                            >
+                                                <FrameCounterBottomSVG
+                                                    width="100%"
+                                                    height="100%"
+                                                />
+                                            </div>
+                                        </div>
+                                    </div>
+                                </Col>
+                                <Modal
+                                    centered
+                                    visible={visible}
+                                    onCancel={() => setVisible(false)}
+                                    width={widthModal}
+                                    footer={null}
+                                >
+                                    <Row gutter={[20, 10]} className="my-5">
+                                        <Col
+                                            span={8}
+                                            style={{ marginBottom: '5%' }}
+                                        >
+                                            <div className="nft-card relative">
+                                                <div
+                                                    className="absolute left-0 right-0"
+                                                    style={{ top: '-10px' }}
+                                                >
+                                                    <FrameNftTopSVG width="100%" />
+                                                </div>
+                                                <div
+                                                    className="absolute left-0 right-0"
+                                                    style={{ bottom: '-12px' }}
+                                                >
+                                                    <FrameNftBottomSVG width="100%" />
+                                                </div>
+                                                <img
+                                                    className="w-full h-auto"
+                                                    src={utilitiesImages.nft9}
+                                                    alt={utilitiesImages.nft9}
+                                                />
+                                            </div>
+                                        </Col>
+                                        <Col span={16}>
+                                            <div className="nft-info h-full p-4">
+                                                <div className="nft-name mb-5">
+                                                    <h2 className="text-info text-2xl font-bold">
+                                                        Renegate 001
+                                                    </h2>
+                                                </div>
+                                                <div className="nft-about">
+                                                    <h3 className="text-green-0 text-lg">
+                                                        About
+                                                    </h3>
+                                                    <p>
+                                                        Aquí puede estar un poco
+                                                        de historia de la clase
+                                                        que pertenece el NFT
+                                                    </p>
+                                                </div>
+                                                <hr className="my-2 border-green-3" />
+                                                <div className="nft-data">
+                                                    <div className="nft-class">
+                                                        <h3 className="text-green-0 text-lg">
+                                                            Class
+                                                        </h3>
+                                                        <p>Renegate</p>
+                                                    </div>
+                                                    <div className="nft-rarity">
+                                                        <h3 className="text-green-0 text-lg">
+                                                            Rarity
+                                                        </h3>
+                                                        <p>20% Anormaly</p>
+                                                    </div>
+                                                </div>
+                                                <hr className="my-2 border-green-3" />
+                                                <div className="nft-details">
+                                                    <h3 className="text-green-0 text-lg">
+                                                        Details
+                                                    </h3>
+                                                    <p>
+                                                        Información detallada de
+                                                        items raros
+                                                    </p>
+                                                </div>
+                                            </div>
+                                        </Col>
+                                    </Row>
+                                    <Row gutter={[20]}>
+                                        <Col span={16} offset={8}>
+                                            <div className="nft-footer flex space-x-10 flex-wrap">
+                                                <Button
+                                                    className="flex-1 border-none bg-primary hover:bg-primary 
+                                            focus:bg-primary text-white hover:text-white focus:text-white"
+                                                    key="myprofile"
+                                                    size="large"
+                                                >
+                                                    My profile
+                                                </Button>
+                                                <Button
+                                                    className="flex-1 border-none bg-info hover:bg-info 
+                                            focus:bg-info text-white hover:text-white focus:text-white"
+                                                    key="marketplace"
+                                                    size="large"
+                                                >
+                                                    Marketplace
+                                                </Button>
+                                                <Button
+                                                    className="flex-1 border-solid border-1 border-info bg-transparent 
+                                            text-info hover:border-white hover:bg-info focus:bg-info 
+                                            hover:text-white focus:text-whit"
+                                                    key="download"
+                                                    size="large"
+                                                >
+                                                    Download Image
+                                                </Button>
+                                            </div>
+                                        </Col>
+                                    </Row>
+                                </Modal>
+                            </Row>
+                            {/* <div className="mb-10 z-20">
                                 <div className="count-down bg-black-1 bg-opacity-30 mx-auto lg:px-4 pt-5 pb-4 relative z-10">
                                     <GenericCountDown date={deadline} />
                                     <div className="flex text-info text-lg md:text-2xl lg:text-4xl mt-5">
@@ -225,7 +437,7 @@ const LandingPage = () => {
                                         </HeaderText>
                                     </div>
                                 </div>
-                            </div>
+                            </div> */}
                             <div className="text-center z-20">
                                 <Button
                                     className="bg-dark bg-opacity-50 h-auto text-primary text-xl md:text-2xl lg:text-3xl xl:text-4xl py-2 px-8"
@@ -296,8 +508,8 @@ const LandingPage = () => {
                                                 Owning a wanderer gives you
                                                 access to the metaverse as well
                                                 as exclusive benefits to our
-                                                travel partner. Once you mint
-                                                a wanderer you start to receive
+                                                travel partner. Once you mint a
+                                                wanderer you start to receive
                                                 big benefits such as Tokens,
                                                 exclusive promotions in the
                                                 travel platform and more.{' '}
@@ -730,10 +942,10 @@ const LandingPage = () => {
                                             consectetuer adipiscing elit, sed
                                             diam nonummy nibh euismod tincidunt
                                             ut laoreet dolore magna aliquam erat
-                                            volutpat. 
+                                            volutpat.
                                         </span>
                                     </Article>
-                                        <br />
+                                    <br />
                                     <Article
                                         header="Who are The Wanderers?"
                                         headerProps={{
@@ -760,7 +972,7 @@ const LandingPage = () => {
                                             ullamcorper suscipit lobortis nisl.
                                         </span>
                                     </Article>
-                                        <br />
+                                    <br />
                                     <Article
                                         header="How to play and earn?"
                                         headerProps={{
@@ -788,7 +1000,7 @@ const LandingPage = () => {
                                         </span>
                                         <br />
                                     </Article>
-                                        <br />
+                                    <br />
                                     <Article
                                         header="It would be a presale event?"
                                         headerProps={{
