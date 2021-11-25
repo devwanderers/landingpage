@@ -108,7 +108,7 @@ const LandingPage = () => {
     const [imageIndex, setImageIndex] = useState(0)
     const [collapseFaq, setCollapseFAQ] = useState(true)
     const [roadKey, setSelectedKey] = useState(1)
-    const [widthModal] = useResponsive({ base: '70%', xl: '70%' })
+    const [widthModal] = useResponsive({ base: '100%', xl: '70%', lg: '80%' })
 
     const collectionConfig = {
         threshold: 0.3,
@@ -314,7 +314,11 @@ const LandingPage = () => {
                                                 className="my-5"
                                             >
                                                 <Col
-                                                    span={8}
+                                                    xs={24}
+                                                    sm={8}
+                                                    md={8}
+                                                    lg={8}
+                                                    xl={8}
                                                     style={{
                                                         marginBottom: '5%',
                                                     }}
@@ -347,14 +351,20 @@ const LandingPage = () => {
                                                         />
                                                     </div>
                                                 </Col>
-                                                <Col span={16}>
+                                                <Col
+                                                    xs={24}
+                                                    sm={16}
+                                                    md={16}
+                                                    lg={16}
+                                                    xl={16}
+                                                >
                                                     <div className="nft-info h-full p-4">
                                                         <div className="nft-name mb-5">
                                                             <h2 className="text-info text-2xl font-bold">
                                                                 Renegate 001
                                                             </h2>
                                                         </div>
-                                                        <div className="nft-about">
+                                                        <div className="nft-about my-2">
                                                             <h3 className="text-green-0 text-lg">
                                                                 About
                                                             </h3>
@@ -367,7 +377,7 @@ const LandingPage = () => {
                                                             </p>
                                                         </div>
                                                         <hr className="my-2 border-green-3" />
-                                                        <div className="nft-data">
+                                                        <div className="flex space-x-5 flex-wrap nft-data my-2">
                                                             <div className="nft-class">
                                                                 <h3 className="text-green-0 text-lg">
                                                                     Class
@@ -384,7 +394,7 @@ const LandingPage = () => {
                                                             </div>
                                                         </div>
                                                         <hr className="my-2 border-green-3" />
-                                                        <div className="nft-details">
+                                                        <div className="nft-details my-2">
                                                             <h3 className="text-green-0 text-lg">
                                                                 Details
                                                             </h3>
@@ -398,7 +408,14 @@ const LandingPage = () => {
                                                 </Col>
                                             </Row>
                                             <Row gutter={[20]}>
-                                                <Col span={16} offset={8}>
+                                                <Col
+                                                    xs={{ span: 24, offset: 0 }}
+                                                    sm={{ span: 16, offset: 8 }}
+                                                    md={{ span: 16, offset: 8 }}
+                                                    lg={{ span: 16, offset: 8 }}
+                                                    xl={{ span: 16, offset: 8 }}
+                                                    // offset={8}
+                                                >
                                                     <div className="nft-footer flex space-x-10 flex-wrap">
                                                         <Button
                                                             className="flex-1 border-none bg-primary hover:bg-primary 
