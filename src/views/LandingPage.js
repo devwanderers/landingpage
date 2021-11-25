@@ -277,7 +277,7 @@ const LandingPage = () => {
                                 <div className="w-full">
                                     <div className="w-full xl:pr-16">
                                         <Article
-                                            header="8,728"
+                                            header="9,000"
                                             subHeader="Unique Wanderers"
                                             headerProps={{
                                                 className:
@@ -301,17 +301,17 @@ const LandingPage = () => {
                                         >
                                             <span>
                                                 {
-                                                    " We’ve created a completely virtual metaverse in which all the tourist destinations offered by our partner Destinare are represented as NFT's within our platform known as Lands or Roles. Such destinations can be owned by you, or a group of adventurers called Wanderers who are also represented as unique NFT's."
+                                                    " We’ve created a completely virtual metaverse in which all the tourist destinations offered by our travel partner are represented as NFT's within our platform known as Lands or Roles. Such destinations can be owned by you, or a group of adventurers called Wanderers who are also represented as unique handmade NFT's."
                                                 }
                                             </span>
                                             <br />
                                             <br />
                                             <span>
-                                                There are 8750 unique characters
+                                                There are 9,000 unique characters
                                                 called wanderers as an initial
-                                                offering and other 500 Ultrarare
-                                                and special characters aviable
-                                                by 0.12 ETH.
+                                                offering and other 100
+                                                special characters aviable in a pre-sale event
+                                                by 250 MATIC.
                                             </span>
                                             <br />
                                             <br />
@@ -609,7 +609,7 @@ const LandingPage = () => {
                                             base="lg"
                                             lg="23px"
                                         >
-                                            Why a token? We’re not just a common
+                                            We’re not just a common
                                             NFT project, we’re creating an
                                             ecosystem where your NFT’s is more
                                             than Art, we think in our community
@@ -619,11 +619,9 @@ const LandingPage = () => {
                                             in the ecosystem and has unique
                                             features that you will love!! The
                                             Wanderers travel token, is the
-                                            native currency in the metaverse, it
-                                            is based on ERC20 making it highly
-                                            diverse and easy to shift
-                                            interdomain. Wait for the listing in
-                                            Unyswap
+                                            native currency in the ecosystem, it
+                                            is based on PRC20 making it highly
+                                            diverse and easy to use. Wait for the token listing
                                         </Paragraph>
                                     </LineWrapper>
                                 </Col>
@@ -749,11 +747,10 @@ const LandingPage = () => {
                                         className="max-w-full"
                                     >
                                         <span>
-                                            Lorem ipsum dolor sit amet,
-                                            consectetuer adipiscing elit, sed
-                                            diam nonummy nibh euismod tincidunt
-                                            ut laoreet dolore magna aliquam erat
-                                            volutpat. 
+                                            Just wait until the launch date,
+                                            you will see the mint option in this page,
+                                            only link your metamask account an click the
+                                            mint button, then you receive your NFT.
                                         </span>
                                     </Article>
                                         <br />
@@ -774,13 +771,10 @@ const LandingPage = () => {
                                         className="max-w-full"
                                     >
                                         <span>
-                                            Lorem ipsum dolor sit amet,
-                                            consectetuer adipiscing elit, sed
-                                            diam nonummy nibh euismod tincidunt
-                                            ut laoreet dolore magna aliquam erat
-                                            volutpat. Ut wisi enim ad minim
-                                            veniam, quis nostrud exerci tation
-                                            ullamcorper suscipit lobortis nisl.
+                                            The adventure began when a small group of adventurers called  Wanderers decided to reinitiate an investigation about
+                                            the earth’s gravitational catastrophe that happened hundreds
+                                            of years ago. These Wanderers went off to investigate if there
+                                            were any remaining civilizations or Lands after the catastrophe.
                                         </span>
                                     </Article>
                                         <br />
@@ -801,13 +795,9 @@ const LandingPage = () => {
                                         className="max-w-full"
                                     >
                                         <span>
-                                            Lorem ipsum dolor sit amet,
-                                            consectetuer adipiscing elit, sed
-                                            diam nonummy nibh euismod tincidunt
-                                            ut laoreet dolore magna aliquam erat
-                                            volutpat. Ut wisi enim ad minim
-                                            veniam, quis nostrud exerci tation
-                                            ullamcorper suscipit lobortis nisl.
+                                            We are working tirelessly to launch the wanderers video game.
+                                            The game has a Play to Earn model where you can use our token
+                                            to be part of the game and be rewarded with the same tokens, once the token have been listed, you can enjoy your rewards in the real life.
                                         </span>
                                         <br />
                                     </Article>
@@ -829,13 +819,7 @@ const LandingPage = () => {
                                         className="max-w-full"
                                     >
                                         <span>
-                                            Lorem ipsum dolor sit amet,
-                                            consectetuer adipiscing elit, sed
-                                            diam nonummy nibh euismod tincidunt
-                                            ut laoreet dolore magna aliquam erat
-                                            volutpat. Ut wisi enim ad minim
-                                            veniam, quis nostrud exerci tation
-                                            ullamcorper suscipit lobortis nisl.
+                                            All the basis to participate in the pre-sale event will be anounce in our social media, if you are a milestone follower you have more chances to participate.
                                         </span>
                                     </Article>
                                     <br />
