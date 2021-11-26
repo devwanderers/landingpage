@@ -22,7 +22,6 @@ const App = () => {
 
     // Avoid theme change flicker
     // const handleClick = () => {}
-
     return (
         <React.Fragment>
             <WalletManager />

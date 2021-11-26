@@ -44,12 +44,15 @@ const fetchAllTokens = async () => {}
 const useSCInteractions = () => {
     const [minting, setFetchingMinting] = useState(false)
     const [mintingError, setMintingError] = useState(null)
+    // Estado traido del reducer
     const scInteractions = useSelector(scInteractionReducerSelector)
     const dispatch = useDispatch()
 
+    // Acciones conectadas con dispatch
     const setMinting = (data) => dispatch(scActions.setMinting(data))
-    const clearMinting = () => dispatch(scActions.clearMinting())
     const setMinted = (data) => dispatch(scActions.setMinted(data))
+    const clearMinting = () => dispatch(scActions.clearMinting())
+    const clearMinted = () => dispatch(scActions.clearMinted())
 
     const { active, library, activate, deactivate, account, error } =
         useWeb3React()
@@ -91,7 +94,14 @@ const useSCInteractions = () => {
                                 const tokenUri = await contract.methods
                                     .tokenURI(val)
                                     .call()
-                                resolve({ tokenId: val, tokenUri })
+                                // const response = await fetch(tokenUri)
+                                // const nftJSON = await response.json()
+                                // console.log({ nftJSON })
+                                resolve({
+                                    tokenId: val,
+                                    tokenUri,
+                                    // nftData: JSON.parse(nftJSON),
+                                })
                             } catch (error) {
                                 reject(error)
                             }
@@ -115,8 +125,11 @@ const useSCInteractions = () => {
             })
     }
 
-    async function mintAvatar(amount) {
+    async function mintAvatar(amount, callBack = () => {}) {
         if (!active) setMintingError('Wallet not connected')
+        if (mintingError) setMintingError(null)
+
+        clearMinted()
         try {
             const contract = new library.eth.Contract(
                 AvatarDestinareAbi,
@@ -129,7 +142,6 @@ const useSCInteractions = () => {
             const transformedData = transformMintAvatarResult(mintAvatar)
             setMinting(transformedData)
             setFetchingMinting(true)
-            // const tokenUri = await contract.methods.tokenURI(1).call()
         } catch (error) {
             console.log({ error })
             setMintingError(error)

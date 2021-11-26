@@ -1,7 +1,6 @@
 import React, { useState } from 'react'
 import { Layout, Row, Col, Button } from 'antd'
 import { FaDiscord, FaTwitter, FaTelegramPlane } from 'react-icons/fa'
-import Slider from 'react-slick'
 // import brandImages from '../assets/images/brand'
 // import logo from '../assets/images/brand/logo.png'
 // import { DiscordIcon } from '../components/CustomIcons'
@@ -16,8 +15,6 @@ import { useInView } from 'react-intersection-observer'
 import AnimateCover from '../components/Animations/AnimateCover'
 import { LineWrapper } from './../components/Wrappers/LineWrapper'
 import HeaderText from './../components/DisplayText/Header'
-import NextArrowControl from '../components/CustomSliderControls/NextArrowControl'
-import PrevArrowControl from '../components/CustomSliderControls/PrevArrowControl'
 import Paragraph from './../components/DisplayText/Paragraph'
 // import { IslandSVG } from '../assets/svg/utilities'
 import {
@@ -46,50 +43,12 @@ import AnimDisplayFromTop from './../components/Animations/AnimDisplayFromTop'
 import IncreaseDecreaseInput from './../components/Inputs/increaseDecreaseInput'
 import useSCInteractions from '../hooks/useSCInteractions'
 import ModalMint from '../components/Mint/ModalMint'
+import SliderIslands from '../components/LandingComponent/SliderIslands'
 
 const { Header, Content } = Layout
 // const { Countdown } = Statistic
 
 // const deadline = Date.now() + 1000 * 60 * 60 * 24 * 2 + 1000 * 30 // Moment is also OK
-
-const landImages = [
-    {
-        id: 1,
-        img: utilitiesImages.isla,
-        title: '25%',
-        percent: 'Country',
-    },
-    {
-        id: 2,
-        img: utilitiesImages.isla,
-        title: '10%',
-        percent: 'City',
-    },
-    {
-        id: 3,
-        img: utilitiesImages.isla,
-        title: '6%',
-        percent: 'Destiny',
-    },
-    {
-        id: 4,
-        img: utilitiesImages.isla,
-        title: '20%',
-        percent: 'Country ambassador',
-    },
-    {
-        id: 5,
-        img: utilitiesImages.isla,
-        title: '15%',
-        percent: 'City ambassador',
-    },
-    {
-        id: 6,
-        img: utilitiesImages.isla,
-        title: '9%',
-        percent: 'Destiny ambassador ',
-    },
-]
 
 const CollectionContainer = ({ children }) => (
     <div className="css-generic w-full flex-row justify-center flex-grow space-x-2 xl:space-x-6">
@@ -100,7 +59,6 @@ const CollectionContainer = ({ children }) => (
 const LandingPage = () => {
     const { connect, disconnect, active } = useSCInteractions()
     const { width } = useWindowDimensions()
-    const [imageIndex, setImageIndex] = useState(0)
     const [mintAmount, setMintAmount] = useState(0)
     const [collapseFaq, setCollapseFAQ] = useState(true)
     const [roadKey, setSelectedKey] = useState(1)
@@ -122,20 +80,6 @@ const LandingPage = () => {
         xl: '210px',
     })
 
-    const sliderLandSettings = {
-        dots: false,
-        infinite: true,
-        lazyLoad: true,
-        autoplay: true,
-        speed: 300,
-        slidesToShow: width < 768 ? 1 : 3,
-        centerMode: true,
-        centerPadding: 0,
-        nextArrow: <NextArrowControl />,
-        prevArrow: <PrevArrowControl />,
-        beforeChange: (_, next) => setImageIndex(next),
-    }
-
     const handleCollapseFaq = () => {
         setCollapseFAQ(!collapseFaq)
     }
@@ -145,15 +89,15 @@ const LandingPage = () => {
     const handleShowMintModal = () => {
         setVisibleModal(!visibleModal)
     }
-
-    console.log('entro Landing')
     return (
         <Layout className="landing-page min-w-minMobileWidth">
-            <ModalMint
-                visibleModal={visibleModal}
-                onCloseModal={handleShowMintModal}
-                mintAmount={mintAmount}
-            />
+            {visibleModal && (
+                <ModalMint
+                    visibleModal={visibleModal}
+                    onCloseModal={handleShowMintModal}
+                    mintAmount={mintAmount}
+                />
+            )}
             <Header className="bg-transparent z-30">
                 <Row className="h-full">
                     <Col xs={20}></Col>
@@ -245,16 +189,8 @@ const LandingPage = () => {
                                                     </Button>
                                                 )}
                                                 <Button
+                                                    disabled={!active}
                                                     onClick={() => {
-                                                        // console.log(
-                                                        //     'mintAmount',
-                                                        //     mintAmount
-                                                        // )
-                                                        // mintAvatar(
-                                                        //     mintAmount,
-                                                        //     (res) =>
-                                                        //         console.log(res)
-                                                        // )
                                                         handleShowMintModal()
                                                     }}
                                                     className="bg-primary hover:bg-primary focus:bg-primary btn-now"
@@ -623,42 +559,7 @@ const LandingPage = () => {
                     </div>
                 </div>
                 <div className="bg-blue-5 pb-16 relative border-0">
-                    <div className="section">
-                        <div className="css-generic">
-                            <Slider className="px-12" {...sliderLandSettings}>
-                                {landImages.map(({ id, img }, idx) => (
-                                    <div
-                                        key={`land-${id}`}
-                                        className={
-                                            idx === imageIndex
-                                                ? 'landSlide activeSlide'
-                                                : 'landSlide'
-                                        }
-                                    >
-                                        <img src={img} alt={img} />
-                                    </div>
-                                ))}
-                            </Slider>
-                        </div>
-                        <div className="css-generic items-center mt-5">
-                            <HeaderText
-                                className="leading-tight text-primary tracking-widest"
-                                base="3xl"
-                                lg="40px"
-                            >
-                                {landImages[imageIndex] &&
-                                    landImages[imageIndex]?.title}
-                            </HeaderText>
-                            <HeaderText
-                                className="leading-none text-info font-saira-condensed font-semibold"
-                                base="xl"
-                                lg="27px"
-                            >
-                                {landImages[imageIndex] &&
-                                    landImages[imageIndex]?.percent}
-                            </HeaderText>
-                        </div>
-                    </div>
+                    <SliderIslands />
                 </div>
                 <div
                     className="bg-blue-5 bg-earth bg-no-repeat bg-cover pt-12 pb-4 lg:pt-48 lg:pb-48 relative"

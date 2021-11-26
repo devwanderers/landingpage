@@ -22,6 +22,10 @@ export default class WalletManager extends Component {
         }
     }
 
+    clearInterval2() {
+        console.log('Hola')
+    }
+
     clearInterval = () => clearInterval(this.interval)
 
     setvalidatingChainId = () =>

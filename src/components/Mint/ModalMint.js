@@ -1,6 +1,8 @@
+/* eslint-disable no-unused-vars */
 import React, { useState } from 'react'
 import { Row, Col, Button, Modal } from 'antd'
 import ReactPlayer from 'react-player'
+import { create } from 'ipfs-http-client'
 import revealNft from '../../assets/images/utilities/reveal-nft.mp4'
 import useResponsive from './../../hooks/useResponsive'
 import { FrameNftTopSVG, FrameNftBottomSVG } from '../../assets/svg/frames'
@@ -8,26 +10,42 @@ import useSCInteractions from './../../hooks/useSCInteractions'
 import utilitiesImages from './../../assets/images/utilities/index'
 import useDeepCompareEffect from './../../hooks/useDeepCompareEffect'
 
+// const client = create('https://ipfs.infura.io:5001/api/v0')
+
 const ModalMint = ({ visibleModal, mintAmount, onCloseModal, onEnded }) => {
-    const { mintAvatar, mintData, minting, mintingError } = useSCInteractions()
     const [showVideo, setShowVideo] = useState(true)
-    const [widthModal] = useResponsive({ base: '100%', xl: '70%', lg: '80%' })
+    const [initMint, setInitMint] = useState(false)
     const [closable, setClosable] = useState(false)
+    const [widthModal] = useResponsive({ base: '100%', xl: '70%', lg: '80%' })
+    const { mintAvatar, mintData, minting, mintingError } = useSCInteractions()
+
+    const handleOnClodeModal = () => {
+        setShowVideo(true)
+        setClosable(false)
+        onCloseModal()
+        setInitMint(false)
+    }
 
     useDeepCompareEffect(() => {
         if (visibleModal) {
-            mintAvatar(mintAmount)
+            if (mintingError?.code === 4001) {
+                handleOnClodeModal()
+            }
+            if (!initMint) {
+                setInitMint(true)
+                mintAvatar(mintAmount)
+            }
         }
-    }, [visibleModal])
+    }, [visibleModal, mintingError])
 
-    console.log({ mintData, minting, mintingError })
     return (
         <Modal
             centered
             closable={closable}
             visible={visibleModal}
-            onCancel={onCloseModal}
+            onCancel={handleOnClodeModal}
             width={widthModal}
+            maskClosable={false}
             footer={null}
         >
             {showVideo ? (
