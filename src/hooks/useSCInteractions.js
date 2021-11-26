@@ -39,7 +39,12 @@ const transformTokenIdResult = (res) => {
     }, {})
 }
 
-const fetchAllTokens = async () => {}
+const ntfObjectToArray = (data) => {
+    if (Object.keys(data).length === 0) return {}
+    return Object.keys(data).reduce((acc, val) => {
+        return [...acc, data[val]]
+    }, [])
+}
 
 const useSCInteractions = () => {
     const [minting, setFetchingMinting] = useState(false)
@@ -94,13 +99,12 @@ const useSCInteractions = () => {
                                 const tokenUri = await contract.methods
                                     .tokenURI(val)
                                     .call()
-                                // const response = await fetch(tokenUri)
-                                // const nftJSON = await response.json()
-                                // console.log({ nftJSON })
+                                const response = await fetch(tokenUri)
+                                const nftData = await response.json()
                                 resolve({
                                     tokenId: val,
                                     tokenUri,
-                                    // nftData: JSON.parse(nftJSON),
+                                    nftData,
                                 })
                             } catch (error) {
                                 reject(error)
@@ -125,7 +129,7 @@ const useSCInteractions = () => {
             })
     }
 
-    async function mintAvatar(amount, callBack = () => {}) {
+    async function mintAvatar(amount) {
         if (!active) setMintingError('Wallet not connected')
         if (mintingError) setMintingError(null)
 
@@ -166,7 +170,7 @@ const useSCInteractions = () => {
         mintAvatar,
         active,
         error,
-        mintData: scInteractions.minted,
+        mintData: ntfObjectToArray(scInteractions.minted),
         minting,
         mintingError,
     }

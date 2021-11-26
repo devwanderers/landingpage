@@ -10,8 +10,6 @@ import useSCInteractions from './../../hooks/useSCInteractions'
 import utilitiesImages from './../../assets/images/utilities/index'
 import useDeepCompareEffect from './../../hooks/useDeepCompareEffect'
 
-// const client = create('https://ipfs.infura.io:5001/api/v0')
-
 const ModalMint = ({ visibleModal, mintAmount, onCloseModal, onEnded }) => {
     const [showVideo, setShowVideo] = useState(true)
     const [initMint, setInitMint] = useState(false)
@@ -94,8 +92,8 @@ const ModalMint = ({ visibleModal, mintAmount, onCloseModal, onEnded }) => {
                                 </div>
                                 <img
                                     className="w-full h-auto"
-                                    src={utilitiesImages.nft9}
-                                    alt={utilitiesImages.nft9}
+                                    src={mintData[0]?.nftData.image}
+                                    alt={mintData[0]?.nftData.image}
                                 />
                             </div>
                         </Col>
@@ -103,17 +101,14 @@ const ModalMint = ({ visibleModal, mintAmount, onCloseModal, onEnded }) => {
                             <div className="nft-info h-full p-4">
                                 <div className="nft-name mb-5">
                                     <h2 className="text-info text-2xl font-bold">
-                                        Renegate 001
+                                        {mintData[0]?.nftData.name}
                                     </h2>
                                 </div>
                                 <div className="nft-about my-2">
                                     <h3 className="text-green-0 text-lg">
                                         About
                                     </h3>
-                                    <p>
-                                        Aquí puede estar un poco de historia de
-                                        la clase que pertenece el NFT
-                                    </p>
+                                    <p>{mintData[0]?.nftData.description}</p>
                                 </div>
                                 <hr className="my-2 border-green-3" />
                                 <div className="flex space-x-5 flex-wrap nft-data my-2">
@@ -135,7 +130,11 @@ const ModalMint = ({ visibleModal, mintAmount, onCloseModal, onEnded }) => {
                                     <h3 className="text-green-0 text-lg">
                                         Details
                                     </h3>
-                                    <p>Información detallada de items raros</p>
+                                    <p>
+                                        {JSON.stringify(
+                                            mintData[0]?.nftData.attributes
+                                        )}
+                                    </p>
                                 </div>
                             </div>
                         </Col>
