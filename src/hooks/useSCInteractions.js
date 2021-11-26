@@ -6,9 +6,10 @@ import { injected } from '../wallet/connectors'
 import { useLocalStorage } from './useStorage'
 import AvatarDestinareAbi from '../abi/AvatarDestinare.json'
 import useEffectOnce from './useEffectOnce'
-import { saveMintData as saveMintDataAction } from './../store/reducers/mint/actions'
-import { mintReducerSelector } from './../store/reducers/mint/selectors'
+import * as scActions from '../store/reducers/scInteractionReducer/actions'
+import { scInteractionReducerSelector } from '../store/reducers/scInteractionReducer/selectors'
 import { returnPromise } from '../services/promises'
+import useInterval from './useInterval'
 
 const nftAvatar = 1000000000000000000
 
@@ -32,13 +33,23 @@ const transformMintAvatarResult = (res) => {
     }, {})
 }
 
+const transformTokenIdResult = (res) => {
+    return res.reduce((acc, val) => {
+        return { ...acc, [val.tokenId]: { ...val } }
+    }, {})
+}
+
 const fetchAllTokens = async () => {}
 
 const useSCInteractions = () => {
-    const mintState = useSelector(mintReducerSelector)
+    const [minting, setFetchingMinting] = useState(false)
+    const [mintingError, setMintingError] = useState(null)
+    const scInteractions = useSelector(scInteractionReducerSelector)
     const dispatch = useDispatch()
 
-    const saveMintData = (data) => dispatch(saveMintDataAction(data))
+    const setMinting = (data) => dispatch(scActions.setMinting(data))
+    const clearMinting = () => dispatch(scActions.clearMinting())
+    const setMinted = (data) => dispatch(scActions.setMinted(data))
 
     const { active, library, activate, deactivate, account, error } =
         useWeb3React()
@@ -64,80 +75,48 @@ const useSCInteractions = () => {
         }
     }
 
-    async function validateChainIdNetwork() {
-        const ethereum = window.ethereum
-        if (
-            !ethereum ||
-            (ethereum &&
-                (ethereum.chainId === '0x89' || ethereum.chainId === '0x539'))
+    async function getTokenUris() {
+        if (Object.keys(scInteractions.minting).length === 0) return
+        const promises = Object.keys(scInteractions.minting).reduce(
+            (acc, val) => {
+                return [
+                    ...acc,
+                    new Promise((resolve, reject) => {
+                        ;(async () => {
+                            try {
+                                const contract = new library.eth.Contract(
+                                    AvatarDestinareAbi,
+                                    process.env.REACT_APP_AVATAR_DESTINARE_CONTRACT_ADDRESS
+                                )
+                                const tokenUri = await contract.methods
+                                    .tokenURI(val)
+                                    .call()
+                                resolve({ tokenId: val, tokenUri })
+                            } catch (error) {
+                                reject(error)
+                            }
+                        })()
+                    }),
+                ]
+            },
+            []
         )
-            return null
-        try {
-            await ethereum.request({
-                method: 'wallet_switchEthereumChain',
-                params: [{ chainId: '0x89' }],
-            })
-        } catch (switchError) {
-            // This error code indicates that the chain has not been added to MetaMask.
-            if (switchError.code === 4902) {
-                try {
-                    await ethereum.request({
-                        method: 'wallet_addEthereumChain',
-                        params: [
-                            {
-                                chainName: 'Polygon',
-                                nativeCurrency: {
-                                    name: 'MATIC',
-                                    decimals: 18,
-                                    symbol: 'MATIC',
-                                },
-                                chainId: '0x89',
-                                rpcUrls: ['https://polygon-rpc.com/'],
-                            },
-                        ],
-                    })
-                } catch (addError) {
-                    console.log({ addError })
-                    // handle "add" error
-                }
-            }
-            // handle other "switch" errors
-        }
-    }
 
-    async function getTokenUris(callBack) {
-        const promises = Object.keys(mintState.minting).reduce((acc, val) => {
-            return [
-                ...acc,
-                new Promise((resolve, reject) => {
-                    ;(async () => {
-                        try {
-                            const contract = new library.eth.Contract(
-                                AvatarDestinareAbi,
-                                process.env.REACT_APP_AVATAR_DESTINARE_CONTRACT_ADDRESS
-                            )
-                            const tokenUri = await contract.methods
-                                .tokenURI(val)
-                                .call()
-                            resolve(tokenUri)
-                        } catch (error) {
-                            reject(error)
-                        }
-                    })()
-                }),
-            ]
-        }, [])
         Promise.all(promises)
             .then((values) => {
-                console.log({ values })
+                setFetchingMinting(false)
+                clearMinting()
+                setMinted(transformTokenIdResult(values))
+                // callBack(values)
             })
             .catch((reason) => {
-                console.log(reason)
+                console.log({ reason })
+                setMintingError(reason)
             })
     }
 
-    async function mintAvatar(amount, callBack) {
-        if (!active) callBack({ error: 'Wallet not connected' })
+    async function mintAvatar(amount) {
+        if (!active) setMintingError('Wallet not connected')
         try {
             const contract = new library.eth.Contract(
                 AvatarDestinareAbi,
@@ -148,21 +127,37 @@ const useSCInteractions = () => {
                 .send({ from: account, value: nftAvatar * amount })
 
             const transformedData = transformMintAvatarResult(mintAvatar)
-            saveMintData(transformedData)
+            setMinting(transformedData)
+            setFetchingMinting(true)
             // const tokenUri = await contract.methods.tokenURI(1).call()
-            callBack('Successful call')
         } catch (error) {
             console.log({ error })
-            callBack({ error: 'Something went wrong while minting the nft.' })
+            setMintingError(error)
         }
     }
 
+    useInterval(
+        () => {
+            console.log('getTokenUris')
+            getTokenUris()
+        },
+        minting ? 5000 : null
+    )
+
     useEffectOnce(async () => {
-        validateChainIdNetwork()
         if (walletActive) await connect()
     })
 
-    return { connect, disconnect, mintAvatar, getTokenUris, active, error }
+    return {
+        connect,
+        disconnect,
+        mintAvatar,
+        active,
+        error,
+        mintData: scInteractions.minted,
+        minting,
+        mintingError,
+    }
 }
 
 export default useSCInteractions

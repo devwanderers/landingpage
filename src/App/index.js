@@ -1,14 +1,15 @@
 import React from 'react'
 // import NoAuthLayout from './components/Layouts/NoAuthLayout'
 // import 'antd/dist'
-import './styles/App.less'
+import '../styles/App.less'
 
 // import { useThemeSwitcher } from 'react-css-theme-switcher'
 // import { Button } from 'antd'
 // import { UseEffectHook } from './hooks/UseEffectHook'
 // import Router from './Router'
 // import AuthLayout from './components/Layouts/AuthLayout'
-import LandingPage from './views/LandingPage'
+import LandingPage from '../views/LandingPage'
+import WalletManager from './WalletManager'
 
 const App = () => {
     // const [isDarkMode, setIsDarkMode] = React.useState()
@@ -23,7 +24,10 @@ const App = () => {
     // const handleClick = () => {}
 
     return (
-        <LandingPage />
+        <React.Fragment>
+            <WalletManager />
+            <LandingPage />
+        </React.Fragment>
         // {/* <NoAuthLayout>
         //     <Button>Test</Button>
         //     <h1>The current theme is: {currentTheme}</h1>

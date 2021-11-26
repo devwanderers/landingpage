@@ -145,6 +145,8 @@ const LandingPage = () => {
     const handleShowMintModal = () => {
         setVisibleModal(!visibleModal)
     }
+
+    console.log('entro Landing')
     return (
         <Layout className="landing-page min-w-minMobileWidth">
             <ModalMint
@@ -214,7 +216,6 @@ const LandingPage = () => {
                                                 <IncreaseDecreaseInput
                                                     onValueChange={(val) => {
                                                         setMintAmount(val)
-                                                        console.log(val)
                                                     }}
                                                 ></IncreaseDecreaseInput>
                                                 <span className="text-xl">

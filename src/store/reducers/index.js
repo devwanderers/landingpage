@@ -3,16 +3,16 @@ import { persistReducer } from 'redux-persist'
 import storage from 'redux-persist/lib/storage'
 
 import globalTypes from './globalTypes'
-import mintReducer from './mint/mintReducer'
+import scInteractionReducer from './scInteractionReducer/scInteractionReducer'
 
 const persistConfig = {
     key: 'root',
     storage,
-    whitelist: ['mint'],
+    whitelist: [],
 }
 
 const appReducer = combineReducers({
-    mint: mintReducer,
+    scInteraction: scInteractionReducer,
 })
 
 const rootReducer = (state, action) => {
