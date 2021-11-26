@@ -1,27 +1,48 @@
+/* eslint-disable no-unused-vars */
 import { useState } from 'react'
+import { useSelector, useDispatch } from 'react-redux'
 import { useWeb3React } from '@web3-react/core'
-// import { useDispatch } from 'react-redux'
 import { injected } from '../wallet/connectors'
 import { useLocalStorage } from './useStorage'
-import DestinareContract from '../abi/DestinareContract.json'
 import AvatarDestinareAbi from '../abi/AvatarDestinare.json'
 import useEffectOnce from './useEffectOnce'
+import { saveMintData as saveMintDataAction } from './../store/reducers/mint/actions'
+import { mintReducerSelector } from './../store/reducers/mint/selectors'
+import { returnPromise } from '../services/promises'
 
-// const nftAvatar = 1000000000000000000
+const nftAvatar = 1000000000000000000
+
+const transformMintAvatarResult = (res) => {
+    const {
+        events: { Transfer },
+    } = res
+
+    if (!Array.isArray(Transfer)) {
+        const {
+            returnValues: { tokenId },
+        } = Transfer
+        return { [tokenId]: { tokenId } }
+    }
+
+    return Transfer.reduce((acc, val) => {
+        const {
+            returnValues: { tokenId },
+        } = val
+        return { ...acc, [tokenId]: { tokenId } }
+    }, {})
+}
+
+const fetchAllTokens = async () => {}
 
 const useSCInteractions = () => {
-    const [data, setData] = useState({
-        circulatingSupply: 0,
-        totalSupply: 0,
-        getPresaleInfo: { 0: [], 1: [] },
-    })
-    const [mintAvatarData, setMintAvatarData] = useState({
-        minting: {},
-        minted: {},
-    })
+    const mintState = useSelector(mintReducerSelector)
+    const dispatch = useDispatch()
+
+    const saveMintData = (data) => dispatch(saveMintDataAction(data))
 
     const { active, library, activate, deactivate, account, error } =
         useWeb3React()
+
     const [walletActive, setWalletActive] = useLocalStorage('wallet', false)
 
     async function connect() {
@@ -84,6 +105,37 @@ const useSCInteractions = () => {
         }
     }
 
+    async function getTokenUris(callBack) {
+        const promises = Object.keys(mintState.minting).reduce((acc, val) => {
+            return [
+                ...acc,
+                new Promise((resolve, reject) => {
+                    ;(async () => {
+                        try {
+                            const contract = new library.eth.Contract(
+                                AvatarDestinareAbi,
+                                process.env.REACT_APP_AVATAR_DESTINARE_CONTRACT_ADDRESS
+                            )
+                            const tokenUri = await contract.methods
+                                .tokenURI(val)
+                                .call()
+                            resolve(tokenUri)
+                        } catch (error) {
+                            reject(error)
+                        }
+                    })()
+                }),
+            ]
+        }, [])
+        Promise.all(promises)
+            .then((values) => {
+                console.log({ values })
+            })
+            .catch((reason) => {
+                console.log(reason)
+            })
+    }
+
     async function mintAvatar(amount, callBack) {
         if (!active) callBack({ error: 'Wallet not connected' })
         try {
@@ -91,16 +143,13 @@ const useSCInteractions = () => {
                 AvatarDestinareAbi,
                 process.env.REACT_APP_AVATAR_DESTINARE_CONTRACT_ADDRESS
             )
-            console.log({ contract })
-            // mint(address, amount)
-            console.log(contract.methods)
-            console.log(typeof account)
             const mintAvatar = await contract.methods
                 .mint(account, amount)
                 .send({ from: account, value: nftAvatar * amount })
-            // console.log({ mintAvatar })
-            const tokenUri = await contract.methods.tokenURI('8').call()
-            console.log({ tokenUri })
+
+            const transformedData = transformMintAvatarResult(mintAvatar)
+            saveMintData(transformedData)
+            // const tokenUri = await contract.methods.tokenURI(1).call()
             callBack('Successful call')
         } catch (error) {
             console.log({ error })
@@ -111,32 +160,9 @@ const useSCInteractions = () => {
     useEffectOnce(async () => {
         validateChainIdNetwork()
         if (walletActive) await connect()
-        if (library?.eth) {
-            const contract = new library.eth.Contract(
-                DestinareContract,
-                process.env.REACT_APP_DESTINARE_CONTRACT_ADDRESS
-            )
-
-            const circulatingSupply = await contract.methods
-                .circulatingSupply()
-                .call()
-            const totalSupply = await contract.methods.totalSupply().call()
-            const getPresaleInfo = await contract.methods
-                .getPresaleInfo()
-                .call()
-            // const getUserInfo = await contract.methods.getUserInfo().call()
-            // console.log({ getPresaleInfo })
-            // console.log({ getUserInfo })
-            setData((state) => ({
-                ...state,
-                circulatingSupply,
-                totalSupply,
-                getPresaleInfo: { ...getPresaleInfo },
-            }))
-        }
     })
 
-    return { connect, disconnect, mintAvatar, active, error, data }
+    return { connect, disconnect, mintAvatar, getTokenUris, active, error }
 }
 
 export default useSCInteractions

@@ -1,8 +1,16 @@
 import { createReducer } from '@reduxjs/toolkit'
-import {} from './actions'
+import { saveMintData } from './actions'
 
-const initialState = {}
+const initialState = {
+    minting: {},
+    minted: {},
+}
 
-const mintReducer = createReducer(initialState, (builder) => {})
+const mintReducer = createReducer(initialState, (builder) => {
+    builder.addCase(saveMintData, (state, { payload }) => ({
+        ...state,
+        minting: { ...state.minting, ...payload },
+    }))
+})
 
 export default mintReducer

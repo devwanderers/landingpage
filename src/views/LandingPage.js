@@ -26,8 +26,6 @@ import {
     FrameFAQTopSVG,
     FrameFAQBottomSVG,
     FrameCharacterSVG,
-    FrameNftTopSVG,
-    FrameNftBottomSVG,
     // FrameCounterHeaderSVG,
 } from '../assets/svg/frames'
 // import FrameCounterHeaderCustom from '../assets/svg/frames/FrameCounterHeaderCustom'
@@ -46,7 +44,6 @@ import { RenderMarcoSVG } from './../assets/svg/sections/index'
 import { Logo1SVG } from '../assets/svg/brand'
 import AnimDisplayFromTop from './../components/Animations/AnimDisplayFromTop'
 import IncreaseDecreaseInput from './../components/Inputs/increaseDecreaseInput'
-import useResponsive from '../hooks/useResponsive'
 import useSCInteractions from '../hooks/useSCInteractions'
 import ModalMint from '../components/Mint/ModalMint'
 
@@ -101,7 +98,7 @@ const CollectionContainer = ({ children }) => (
 )
 
 const LandingPage = () => {
-    const { connect, disconnect, mintAvatar, active } = useSCInteractions()
+    const { connect, disconnect, active } = useSCInteractions()
     const { width } = useWindowDimensions()
     const [imageIndex, setImageIndex] = useState(0)
     const [mintAmount, setMintAmount] = useState(0)

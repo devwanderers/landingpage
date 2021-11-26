@@ -1,3 +1,3 @@
 import { createAction } from '@reduxjs/toolkit'
 
-export const saveData = createAction('data/save')
+export const saveMintData = createAction('data/save')

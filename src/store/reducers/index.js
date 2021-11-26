@@ -3,14 +3,17 @@ import { persistReducer } from 'redux-persist'
 import storage from 'redux-persist/lib/storage'
 
 import globalTypes from './globalTypes'
+import mintReducer from './mint/mintReducer'
 
 const persistConfig = {
     key: 'root',
     storage,
-    whitelist: [],
+    whitelist: ['mint'],
 }
 
-const appReducer = combineReducers({})
+const appReducer = combineReducers({
+    mint: mintReducer,
+})
 
 const rootReducer = (state, action) => {
     if (action.type === globalTypes.LOG_OUT) {

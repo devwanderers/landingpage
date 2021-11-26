@@ -1,25 +1,42 @@
 import React, { useState, useEffect } from 'react'
 import { Row, Col, Button, Modal } from 'antd'
 import ReactPlayer from 'react-player'
-import revealNft from '../assets/images/utilities/reveal-nft.mp4'
+import revealNft from '../../assets/images/utilities/reveal-nft.mp4'
 import useResponsive from './../../hooks/useResponsive'
-import { FrameNftTopSVG, FrameNftBottomSVG } from '../assets/svg/frames'
+import { FrameNftTopSVG, FrameNftBottomSVG } from '../../assets/svg/frames'
 import useSCInteractions from './../../hooks/useSCInteractions'
+import utilitiesImages from './../../assets/images/utilities/index'
 
 const ModalMint = ({ visibleModal, mintAmount, onCloseModal, onEnded }) => {
-    const { mintAvatar } = useSCInteractions()
+    const { mintAvatar, getTokenUris } = useSCInteractions()
     const [initCall, setInitCall] = useState(false)
+    const [fetchingNFT, setFetchingNFT] = useState(false)
     const [showVideo, setShowVideo] = useState(true)
     const [widthModal] = useResponsive({ base: '100%', xl: '70%', lg: '80%' })
     const [closable, setClosable] = useState(false)
 
     useEffect(() => {
         if (visibleModal && !initCall) {
-            mintAvatar(mintAmount, (res) => {})
+            mintAvatar(mintAmount, (res) => {
+                if (!res?.error) {
+                    setFetchingNFT(true)
+                }
+            })
             setInitCall(true)
         }
     }, [visibleModal])
 
+    useEffect(() => {
+        let interval
+        if (fetchingNFT) {
+            interval = setInterval(() => {
+                getTokenUris((uris) => console.log(uris))
+            }, 5000)
+        }
+        return () => {
+            if (interval) clearInterval(interval)
+        }
+    }, [fetchingNFT])
     return (
         <Modal
             centered
