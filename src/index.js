@@ -23,15 +23,15 @@ function getLibrary(provider) {
 
 ReactDOM.render(
     <React.StrictMode>
-        <Provider store={store.store}>
-            <PersistGate loading={null} persistor={store.persistor}>
-                <Web3ReactProvider getLibrary={getLibrary}>
+        <Web3ReactProvider getLibrary={getLibrary}>
+            <Provider store={store.store}>
+                <PersistGate loading={null} persistor={store.persistor}>
                     {/* <ThemeSwitcherProvider themeMap={themes} defaultTheme="light"> */}
                     <App />
                     {/* </ThemeSwitcherProvider> */}
-                </Web3ReactProvider>
-            </PersistGate>
-        </Provider>
+                </PersistGate>
+            </Provider>
+        </Web3ReactProvider>
     </React.StrictMode>,
     document.getElementById('root')
 )

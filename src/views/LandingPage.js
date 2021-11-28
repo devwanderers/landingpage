@@ -1,6 +1,8 @@
+/* eslint-disable no-unused-vars */
 import React, { useState } from 'react'
 import { Layout, Row, Col, Button } from 'antd'
 import { FaDiscord, FaTwitter, FaTelegramPlane } from 'react-icons/fa'
+import { useWeb3React } from '@web3-react/core'
 // import brandImages from '../assets/images/brand'
 // import logo from '../assets/images/brand/logo.png'
 // import { DiscordIcon } from '../components/CustomIcons'
@@ -44,6 +46,7 @@ import IncreaseDecreaseInput from './../components/Inputs/increaseDecreaseInput'
 import useSCInteractions from '../hooks/useSCInteractions'
 import ModalMint from '../components/Mint/ModalMint'
 import SliderIslands from '../components/LandingComponent/SliderIslands'
+import useAuth from '../hooks/useAuth'
 
 const { Header, Content } = Layout
 // const { Countdown } = Statistic
@@ -57,7 +60,8 @@ const CollectionContainer = ({ children }) => (
 )
 
 const LandingPage = () => {
-    const { connect, disconnect, active } = useSCInteractions()
+    const { login, logout } = useAuth()
+    const { account } = useWeb3React()
     const { width } = useWindowDimensions()
     const [mintAmount, setMintAmount] = useState(0)
     const [collapseFaq, setCollapseFAQ] = useState(true)
@@ -167,10 +171,10 @@ const LandingPage = () => {
                                                 </span>
                                             </div>
                                             <div className="buttons-select my-4">
-                                                {!active ? (
+                                                {!account ? (
                                                     <Button
                                                         onClick={() =>
-                                                            connect()
+                                                            login('HI')
                                                         }
                                                         className="bg-info hover:bg-info focus:bg-info btn-connect"
                                                         size="large"
@@ -179,9 +183,7 @@ const LandingPage = () => {
                                                     </Button>
                                                 ) : (
                                                     <Button
-                                                        onClick={() =>
-                                                            disconnect()
-                                                        }
+                                                        onClick={() => logout()}
                                                         className="bg-info hover:bg-info focus:bg-info btn-connect"
                                                         size="large"
                                                     >
@@ -189,7 +191,7 @@ const LandingPage = () => {
                                                     </Button>
                                                 )}
                                                 <Button
-                                                    disabled={!active}
+                                                    disabled={!account}
                                                     onClick={() => {
                                                         handleShowMintModal()
                                                     }}

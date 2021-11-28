@@ -1,5 +1,5 @@
 /* eslint-disable no-unused-vars */
-import { useState } from 'react'
+import { useState, useCallback } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
 import { useWeb3React } from '@web3-react/core'
 import { injected } from '../wallet/connectors'
@@ -13,7 +13,7 @@ import useInterval from './useInterval'
 
 const nftAvatar = 1000000000000000000
 
-const transformMintAvatarResult = (res) => {
+const mintResultConverToArray = (res) => {
     const {
         events: { Transfer },
     } = res
@@ -22,15 +22,15 @@ const transformMintAvatarResult = (res) => {
         const {
             returnValues: { tokenId },
         } = Transfer
-        return { [tokenId]: { tokenId } }
+        return [tokenId]
     }
 
     return Transfer.reduce((acc, val) => {
         const {
             returnValues: { tokenId },
         } = val
-        return { ...acc, [tokenId]: { tokenId } }
-    }, {})
+        return [...acc, tokenId]
+    }, [])
 }
 
 const transformTokenIdResult = (res) => {
@@ -59,68 +59,45 @@ const useSCInteractions = () => {
     const clearMinting = () => dispatch(scActions.clearMinting())
     const clearMinted = () => dispatch(scActions.clearMinted())
 
-    const { active, library, activate, deactivate, account, error } =
-        useWeb3React()
+    const { active, library, activate, deactivate, account } = useWeb3React()
 
-    const [walletActive, setWalletActive] = useLocalStorage('wallet', false)
-
-    async function connect() {
-        try {
-            await activate(injected)
-
-            if (!walletActive) setWalletActive(true)
-        } catch (ex) {
-            console.log({ ex })
-        }
-    }
-
-    async function disconnect() {
-        try {
-            await deactivate()
-            setWalletActive(false)
-        } catch (ex) {
-            console.log(ex)
-        }
-    }
+    const [walletAuth, setWalletAuth] = useLocalStorage('walletAuth', false)
 
     async function getTokenUris() {
-        if (Object.keys(scInteractions.minting).length === 0) return
-        const promises = Object.keys(scInteractions.minting).reduce(
-            (acc, val) => {
-                return [
-                    ...acc,
-                    new Promise((resolve, reject) => {
-                        ;(async () => {
-                            try {
-                                const contract = new library.eth.Contract(
-                                    AvatarDestinareAbi,
-                                    process.env.REACT_APP_AVATAR_DESTINARE_CONTRACT_ADDRESS
-                                )
-                                const tokenUri = await contract.methods
-                                    .tokenURI(val)
-                                    .call()
-                                const response = await fetch(tokenUri)
-                                const nftData = await response.json()
-                                resolve({
-                                    tokenId: val,
-                                    tokenUri,
-                                    nftData,
-                                })
-                            } catch (error) {
-                                reject(error)
-                            }
-                        })()
-                    }),
-                ]
-            },
-            []
-        )
+        if (scInteractions.minting.length === 0) return
+        const promises = scInteractions.minting.reduce((acc, val) => {
+            return [
+                ...acc,
+                new Promise((resolve, reject) => {
+                    ;(async () => {
+                        try {
+                            const contract = new library.eth.Contract(
+                                AvatarDestinareAbi,
+                                process.env.REACT_APP_AVATAR_DESTINARE_CONTRACT_ADDRESS
+                            )
+                            const tokenUri = await contract.methods
+                                .tokenURI(val)
+                                .call()
+                            const response = await fetch(tokenUri)
+                            const nftData = await response.json()
+                            resolve({
+                                tokenId: val,
+                                tokenUri,
+                                nftData,
+                            })
+                        } catch (error) {
+                            reject(error)
+                        }
+                    })()
+                }),
+            ]
+        }, [])
 
         Promise.all(promises)
             .then((values) => {
                 setFetchingMinting(false)
                 clearMinting()
-                setMinted(transformTokenIdResult(values))
+                setMinted(values)
                 // callBack(values)
             })
             .catch((reason) => {
@@ -129,7 +106,7 @@ const useSCInteractions = () => {
             })
     }
 
-    async function mintAvatar(amount) {
+    const mintAvatar = useCallback(async (amount) => {
         if (!active) setMintingError('Wallet not connected')
         if (mintingError) setMintingError(null)
 
@@ -143,34 +120,25 @@ const useSCInteractions = () => {
                 .mint(account, amount)
                 .send({ from: account, value: nftAvatar * amount })
 
-            const transformedData = transformMintAvatarResult(mintAvatar)
+            const transformedData = mintResultConverToArray(mintAvatar)
             setMinting(transformedData)
             setFetchingMinting(true)
         } catch (error) {
             console.log({ error })
             setMintingError(error)
         }
-    }
+    }, [])
 
     useInterval(
         () => {
-            console.log('getTokenUris')
             getTokenUris()
         },
         minting ? 5000 : null
     )
 
-    useEffectOnce(async () => {
-        if (walletActive) await connect()
-    })
-
     return {
-        connect,
-        disconnect,
         mintAvatar,
-        active,
-        error,
-        mintData: ntfObjectToArray(scInteractions.minted),
+        mintData: scInteractions.minted,
         minting,
         mintingError,
     }
