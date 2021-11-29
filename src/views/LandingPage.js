@@ -156,13 +156,13 @@ const LandingPage = () => {
                         <Button type="link">
                             <FaDiscord
                                 className="social-icons"
-                                color="#487F8F"
+                                color="#1BC09B"
                             />
                         </Button>
                         <Button type="link">
                             <FaTelegramPlane
                                 className="social-icons"
-                                color="#487F8F"
+                                color="#1BC09B"
                             />
                         </Button>
                         <Button type="link">
@@ -204,8 +204,8 @@ const LandingPage = () => {
                                 <div className="count-down bg-black-1 bg-opacity-40 mx-auto lg:px-4 pt-5 pb-4 relative z-10">
                                     {/* <GenericCountDown date={deadline} /> */}
                                     <div className="flex flex-col text-white text-lg md:text-2xl lg:text-4xl mt-5 text-center">
-                                        <div className="xl:text-6xl text-xl font-saira-condensed leading-none tracking-wider">SOMETHING AWSOME IS</div>
-                                        <div className="xl:text-8xl text-lg font-russo-one leading-none pt-4 relative -mr-5" style={{ letterSpacing: "1.9rem"}}>COMING!</div>
+                                        <div className="xl:text-6xl text-xl font-saira-condensed leading-none tracking-wide">PRE-SALE EVENT ALMOST</div>
+                                        <div className="xl:text-8xl text-lg font-russo-one leading-none pt-4 relative -mr-5" style={{ letterSpacing: "1.9rem"}}>READY!</div>
                                     </div>
                                     <div
                                         className="absolute right-0 left-0 -mx-3"
@@ -311,7 +311,7 @@ const LandingPage = () => {
                                                 called wanderers as an initial
                                                 offering and other 100
                                                 special characters aviable in a pre-sale event
-                                                by 250 MATIC.
+                                                by 0.08 ETH.
                                             </span>
                                             <br />
                                             <br />
@@ -580,7 +580,7 @@ const LandingPage = () => {
                                     lg="89px"
                                     className="text-primary leading-none tracking-widest"
                                 >
-                                    Wanderers Token
+                                    WTT
                                 </HeaderText>
                             </div>
                             <div className="css-generic"></div>
@@ -620,7 +620,7 @@ const LandingPage = () => {
                                             features that you will love!! The
                                             Wanderers travel token, is the
                                             native currency in the ecosystem, it
-                                            is based on PRC20 making it highly
+                                            is based on ERC20 making it highly
                                             diverse and easy to use. Wait for the token listing
                                         </Paragraph>
                                     </LineWrapper>
@@ -747,11 +747,16 @@ const LandingPage = () => {
                                         className="max-w-full"
                                     >
                                         <span>
-                                            Just wait until the launch date,
-                                            you will see the mint option in this page,
-                                            only link your metamask account an click the
-                                            mint button, then you receive your NFT.
+                                            {"Use either Google Chrome or Brave to visit this page. You will need to have Metamask installed and ETH or MATIC on your wallet. Select as many Wanderers as you want, click the Mint button and approve the transaction. You can see an extended video tutorial "}
                                         </span>
+                                        <a
+                                            href="#"
+                                            className="underline"
+                                        >
+                                            <strong>
+                                                here.
+                                            </strong>
+                                        </a>
                                     </Article>
                                         <br />
                                     <Article
@@ -771,10 +776,7 @@ const LandingPage = () => {
                                         className="max-w-full"
                                     >
                                         <span>
-                                            The adventure began when a small group of adventurers called  Wanderers decided to reinitiate an investigation about
-                                            the earth’s gravitational catastrophe that happened hundreds
-                                            of years ago. These Wanderers went off to investigate if there
-                                            were any remaining civilizations or Lands after the catastrophe.
+                                            The adventure began when a small group of adventurers called Wanderers decided to reinitiate an investigation about the earth’s gravitational catastrophe that happened hundreds of years ago. These Wanderers went off to investigate if there were any remaining civilizations or Lands after the catastrophe.
                                         </span>
                                     </Article>
                                         <br />
@@ -795,9 +797,7 @@ const LandingPage = () => {
                                         className="max-w-full"
                                     >
                                         <span>
-                                            We are working tirelessly to launch the wanderers video game.
-                                            The game has a Play to Earn model where you can use our token
-                                            to be part of the game and be rewarded with the same tokens, once the token have been listed, you can enjoy your rewards in the real life.
+                                            We are working tirelessly to launch the wanderers video game. The game is the place where you can use our token to play and get rewarded in several ways (PVE, PVP, Tournaments and more), once the token has been listed, you can enjoy your rewards in real life.
                                         </span>
                                         <br />
                                     </Article>
@@ -819,11 +819,11 @@ const LandingPage = () => {
                                         className="max-w-full"
                                     >
                                         <span>
-                                            All the basis to participate in the pre-sale event will be anounce in our social media, if you are a milestone follower you have more chances to participate.
+                                            All the basis to participate in the pre-sale event will be announced in our social media, if you are a milestone follower you have more chances to participate.
                                         </span>
                                     </Article>
                                     <br />
-                                    <Article
+                                    {/* <Article
                                         header="Why Polygon?"
                                         headerProps={{
                                             className:
@@ -848,7 +848,7 @@ const LandingPage = () => {
                                             veniam, quis nostrud exerci tation
                                             ullamcorper suscipit lobortis nisl.
                                         </span>
-                                    </Article>
+                                    </Article> */}
                                 </div>
                             </AnimDisplayFromTop>
                             {/* {!collapseFaq && <div className=""></div>} */}
@@ -937,7 +937,7 @@ const LandingPage = () => {
                                     base="2xl"
                                     className="text-blue-4 font-semibold font-saira-condensed"
                                 >
-                                    8,782 unique Wanderers
+                                    9,000 unique Wanderers
                                 </HeaderText>
                             </div>
                         </div>
