@@ -19,11 +19,10 @@ const useAuth = () => {
         (msg) => {
             activate(injected, async (error) => {
                 if (error instanceof UnsupportedChainIdError) {
-                    console.log({ error })
                     const hasSetup = await setupNetwork()
                     if (hasSetup) {
                         activate(injected).then(() => {
-                            if (!walletAuth) setWalletAuth(true)
+                            setWalletAuth(true)
                         })
                     }
                 } else {
@@ -36,13 +35,14 @@ const useAuth = () => {
                     }
                 }
             }).then(() => {
-                if (!walletAuth) setWalletAuth(true)
+                setWalletAuth(true)
             })
         },
         [activate]
     )
     const logout = useCallback(() => {
         deactivate()
+        setWalletAuth(false)
     }, [deactivate, dispatch, chainId])
 
     return { login, logout }

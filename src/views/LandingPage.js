@@ -1,8 +1,6 @@
-/* eslint-disable no-unused-vars */
 import React, { useState } from 'react'
 import { Layout, Row, Col, Button } from 'antd'
 import { FaDiscord, FaTwitter, FaTelegramPlane } from 'react-icons/fa'
-import { useWeb3React } from '@web3-react/core'
 // import brandImages from '../assets/images/brand'
 // import logo from '../assets/images/brand/logo.png'
 // import { DiscordIcon } from '../components/CustomIcons'
@@ -20,8 +18,6 @@ import HeaderText from './../components/DisplayText/Header'
 import Paragraph from './../components/DisplayText/Paragraph'
 // import { IslandSVG } from '../assets/svg/utilities'
 import {
-    FrameCounterTopSVG,
-    FrameCounterBottomSVG,
     FrameFAQTopSVG,
     FrameFAQBottomSVG,
     FrameCharacterSVG,
@@ -42,11 +38,8 @@ import { returnValueByScreenWidth } from '../services/stylesServices'
 import { RenderMarcoSVG } from './../assets/svg/sections/index'
 import { Logo1SVG } from '../assets/svg/brand'
 import AnimDisplayFromTop from './../components/Animations/AnimDisplayFromTop'
-import IncreaseDecreaseInput from './../components/Inputs/increaseDecreaseInput'
-import useSCInteractions from '../hooks/useSCInteractions'
-import ModalMint from '../components/Mint/ModalMint'
 import SliderIslands from '../components/LandingComponent/SliderIslands'
-import useAuth from '../hooks/useAuth'
+import MintSection from '../components/Mint/MintSection'
 
 const { Header, Content } = Layout
 // const { Countdown } = Statistic
@@ -60,10 +53,7 @@ const CollectionContainer = ({ children }) => (
 )
 
 const LandingPage = () => {
-    const { login, logout } = useAuth()
-    const { account } = useWeb3React()
     const { width } = useWindowDimensions()
-    const [mintAmount, setMintAmount] = useState(0)
     const [collapseFaq, setCollapseFAQ] = useState(true)
     const [roadKey, setSelectedKey] = useState(1)
 
@@ -88,20 +78,8 @@ const LandingPage = () => {
         setCollapseFAQ(!collapseFaq)
     }
 
-    const [visibleModal, setVisibleModal] = useState(false)
-
-    const handleShowMintModal = () => {
-        setVisibleModal(!visibleModal)
-    }
     return (
         <Layout className="landing-page min-w-minMobileWidth">
-            {visibleModal && (
-                <ModalMint
-                    visibleModal={visibleModal}
-                    onCloseModal={handleShowMintModal}
-                    mintAmount={mintAmount}
-                />
-            )}
             <Header className="bg-transparent z-30">
                 <Row className="h-full">
                     <Col xs={20}></Col>
@@ -139,97 +117,7 @@ const LandingPage = () => {
                             <div className="pt-10 lg:pt-0 w-80 lg:w-96 mx-auto  pb-6">
                                 <Logo1SVG width="100%" />
                             </div>
-                            <Row className="connect-section">
-                                <Col span={12}>
-                                    <div className="mb-10 z-20">
-                                        <div className="bg-black-1 bg-opacity-40 mx-auto lg:px-4 pt-5 pb-4 relative z-10">
-                                            <div className="connect-box">
-                                                <div className="wanderers-amount text-white">
-                                                    <div className="amount">
-                                                        <span id="total">
-                                                            9,000
-                                                        </span>
-                                                        <span id="title">
-                                                            WANDERERS
-                                                        </span>
-                                                    </div>
-                                                    <div className="price">
-                                                        <span>
-                                                            Price .06 ETH
-                                                        </span>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div className="selector-box text-white text-center my-5 w-4/5 m-auto">
-                                                <IncreaseDecreaseInput
-                                                    onValueChange={(val) => {
-                                                        setMintAmount(val)
-                                                    }}
-                                                ></IncreaseDecreaseInput>
-                                                <span className="text-xl">
-                                                    Max 15 mints per tx
-                                                </span>
-                                            </div>
-                                            <div className="buttons-select my-4">
-                                                {!account ? (
-                                                    <Button
-                                                        onClick={() =>
-                                                            login('HI')
-                                                        }
-                                                        className="bg-info hover:bg-info focus:bg-info btn-connect"
-                                                        size="large"
-                                                    >
-                                                        Connect
-                                                    </Button>
-                                                ) : (
-                                                    <Button
-                                                        onClick={() => logout()}
-                                                        className="bg-info hover:bg-info focus:bg-info btn-connect"
-                                                        size="large"
-                                                    >
-                                                        Disconnect
-                                                    </Button>
-                                                )}
-                                                <Button
-                                                    disabled={!account}
-                                                    onClick={() => {
-                                                        handleShowMintModal()
-                                                    }}
-                                                    className="bg-primary hover:bg-primary focus:bg-primary btn-now"
-                                                    size="large"
-                                                >
-                                                    Mint now
-                                                </Button>
-                                            </div>
-                                            <div
-                                                className="absolute right-0 left-0 "
-                                                style={{
-                                                    top: returnValueByScreenWidth(
-                                                        width,
-                                                        {
-                                                            base: '-6px',
-                                                            md: '-11px',
-                                                            lg: '-10px',
-                                                            xl: '-12px',
-                                                        }
-                                                    ),
-                                                }}
-                                            >
-                                                <FrameCounterTopSVG width="100%" />
-                                            </div>
-                                            <div
-                                                className="absolute right-0 left-0 "
-                                                style={{ bottom: '-3px' }}
-                                            >
-                                                <FrameCounterBottomSVG
-                                                    width="100%"
-                                                    height="100%"
-                                                />
-                                            </div>
-                                        </div>
-                                    </div>
-                                </Col>
-                            </Row>
+                            <MintSection />
                             {/* <div className="mb-10 z-20">
                                 <div className="count-down bg-black-1 bg-opacity-30 mx-auto lg:px-4 pt-5 pb-4 relative z-10">
                                     <GenericCountDown date={deadline} />

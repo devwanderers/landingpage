@@ -23,6 +23,7 @@
         "eslint-plugin-node": "^11.1.0",
         "eslint-plugin-promise": "^5.1.0",
         "eslint-plugin-react": "^7.25.1",
+        "ethers": "^5.5.1",
         "framer-motion": "^4.1.17",
         "gulp": "^4.0.2",
         "gulp-autoprefixer": "^8.0.0",

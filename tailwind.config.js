@@ -95,12 +95,10 @@ module.exports = {
         },
         extend: {
             backgroundImage: {
-                render:
-                    "url('/src/assets/images/backgrounds/render-fondo.jpg')",
+                render: "url('/src/assets/images/backgrounds/render-fondo.jpg')",
                 'render-mobil':
                     "url('/src/assets/images/backgrounds/render-fondo-mobil.jpg')",
-                earth:
-                    "url('/src/assets/images/backgrounds/bakgroundearth.png')",
+                earth: "url('/src/assets/images/backgrounds/bakgroundearth.png')",
             },
             margin: {
                 84: '21rem',
@@ -131,7 +129,9 @@ module.exports = {
         textColor: (theme) => theme('colors'),
     },
     variants: {
-        extend: {},
+        extend: {
+            opacity: ['disabled'],
+        },
     },
     plugins: [],
 }
