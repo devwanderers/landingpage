@@ -168,7 +168,7 @@ const LandingPage = () => {
                         <Button type="link">
                             <FaTwitter
                                 className="social-icons"
-                                color="#487F8F"
+                                color="#1BC09B"
                             />
                         </Button>
                     </Col>
@@ -250,12 +250,14 @@ const LandingPage = () => {
                                 </div> */}
                             </div>
                             <div className="text-center z-20">
-                                <Button
+                                <a
                                     className="bg-dark bg-opacity-50 h-auto text-primary text-xl md:text-2xl lg:text-3xl xl:text-4xl py-2 px-8"
                                     type="primary"
+                                    target="blank"
+                                    href="https://discord.gg/7Hapr7WE"
                                 >
                                     JOIN OUR DISCORD
-                                </Button>
+                                </a>
                             </div>
                         </div>
                     </div>
