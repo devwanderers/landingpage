@@ -3,7 +3,6 @@ export const setupNetwork = async () => {
 
     if (ethereum) {
         const chainId = parseInt(process.env.REACT_APP_CHAIN_ID_NETWORK, 10)
-        console.log({ chainId })
         try {
             await ethereum.request({
                 method: 'wallet_addEthereumChain',
@@ -32,4 +31,22 @@ export const setupNetwork = async () => {
         )
         return false
     }
+}
+
+export const registerToken = async () => {
+    const tokenAdded = await window.ethereum.request({
+        method: 'wallet_watchAsset',
+        params: {
+            type: 'ERC20',
+            options: {
+                address:
+                    process.env.REACT_APP_AVATAR_DESTINARE_CONTRACT_ADDRESS,
+                symbol: 'WTT',
+                decimals: 0,
+                // image: `${BASE_URL}/images/tokens/${tokenAddress}.png`,
+            },
+        },
+    })
+
+    return tokenAdded
 }

@@ -18,9 +18,7 @@ const MintWaitingVideo = ({ minting, onEnded }) => {
     const playerRef = useRef(null)
 
     const handleRestartVideo = () => {
-        console.log(playedVideo)
         if (minting && playedVideo > 3) {
-            console.log('restart')
             playerRef.current.seekTo(0)
         }
     }
@@ -52,16 +50,23 @@ const MintWaitingVideo = ({ minting, onEnded }) => {
     }
 }
 
-const ModalMint = ({ visibleModal, mintAmount, onCloseModal, onEnded }) => {
+const ModalMint = ({
+    visibleModal,
+    mintAmount,
+    onCloseModal,
+    onEnded,
+    onError = () => {},
+}) => {
     const [showVideo, setShowVideo] = useState(true)
     const [initMint, setInitMint] = useState(false)
     const [closable, setClosable] = useState(false)
     const [widthModal] = useResponsive({
-        base: '100%',
+        base: '90%',
         lg: '95%',
-        xl: '1300px',
+        xl: '1200px',
     })
-    const { mintAvatar, mintData, minting, mintingError } = useSCInteractions()
+    const { mintAvatar, mintData, minting, mintingError, resetError } =
+        useSCInteractions()
 
     const handleOnClodeModal = () => {
         setShowVideo(true)
@@ -70,14 +75,25 @@ const ModalMint = ({ visibleModal, mintAmount, onCloseModal, onEnded }) => {
         setInitMint(false)
     }
 
-    useDeepCompareEffect(() => {
-        if (visibleModal) {
-            if (mintingError?.code === 4001) {
+    useDeepCompareEffect(async () => {
+        if (!visibleModal) return
+        if (!initMint) {
+            setInitMint(true)
+            const hasSetup = await mintAvatar(mintAmount)
+            if (!hasSetup) {
                 handleOnClodeModal()
             }
-            if (!initMint) {
-                setInitMint(true)
-                mintAvatar(mintAmount)
+        }
+    }, [visibleModal, initMint])
+
+    useDeepCompareEffect(() => {
+        if (!visibleModal) return
+        if (mintingError) {
+            resetError()
+            handleOnClodeModal()
+
+            if (mintingError?.code !== 4001) {
+                onError(mintingError)
             }
         }
     }, [visibleModal, mintingError])
@@ -96,8 +112,8 @@ const ModalMint = ({ visibleModal, mintAmount, onCloseModal, onEnded }) => {
                 <MintWaitingVideo
                     minting={minting}
                     onEnded={() => {
-                        console.log('entro')
                         setShowVideo(false)
+                        setClosable(true)
                     }}
                 />
             ) : (

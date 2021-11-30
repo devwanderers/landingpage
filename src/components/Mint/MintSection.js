@@ -9,10 +9,12 @@ import {
     FrameCounterTopSVG,
 } from '../../assets/svg/frames'
 import ModalMint from './ModalMint'
+import { supportedChainIds } from './../../constants/chainNetworks'
+import { setupNetwork } from './../../services/wallet'
 
 const MintSection = (props) => {
     const { login, logout } = useAuth()
-    const { account } = useWeb3React()
+    const { account, chainId } = useWeb3React()
     const [mintAmount, setMintAmount] = useState(0)
     const [visibleModal, setVisibleModal] = useState(false)
     const [topPos] = useResponsive({
@@ -22,18 +24,32 @@ const MintSection = (props) => {
         xl: '-8px',
     })
 
+    const mint = () => {
+        const validChainId = supportedChainIds.reduce((acc, val) => {
+            if (!acc && val === chainId) return true
+            return acc
+        }, false)
+        if (!validChainId) {
+            setupNetwork()
+        } else {
+            handleShowMintModal()
+        }
+    }
+
     const handleShowMintModal = () => {
         setVisibleModal(!visibleModal)
     }
     return (
         <React.Fragment>
-            {visibleModal && (
-                <ModalMint
-                    visibleModal={visibleModal}
-                    onCloseModal={handleShowMintModal}
-                    mintAmount={mintAmount}
-                />
-            )}
+            <ModalMint
+                visibleModal={visibleModal}
+                onCloseModal={handleShowMintModal}
+                mintAmount={mintAmount}
+                onError={(err) => {
+                    console.log({ err })
+                    handleShowMintModal()
+                }}
+            />
             <div className="w-full md:w-8/12 lg:w-6/12 bg-black-1 bg-opacity-40 px-10 py-6 relative mx-auto lg:mx-0 mb-5">
                 <div>
                     <div className="relative">
@@ -81,7 +97,7 @@ const MintSection = (props) => {
                             <button
                                 disabled={!account}
                                 onClick={() => {
-                                    handleShowMintModal()
+                                    mint()
                                 }}
                                 className="bg-primary hover:bg-primary py-1  w-full focus:bg-primary text-white border-none text-xl  disabled:opacity-75"
                                 size="large"

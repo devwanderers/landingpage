@@ -40,6 +40,7 @@ import { Logo1SVG } from '../assets/svg/brand'
 import AnimDisplayFromTop from './../components/Animations/AnimDisplayFromTop'
 import SliderIslands from '../components/LandingComponent/SliderIslands'
 import MintSection from '../components/Mint/MintSection'
+import ConnectPolygonBridge from '../components/Buttons/ConnectPolygonBridge'
 
 const { Header, Content } = Layout
 // const { Countdown } = Statistic
@@ -80,13 +81,13 @@ const LandingPage = () => {
 
     return (
         <Layout className="landing-page min-w-minMobileWidth">
-            <Header className="bg-transparent z-30">
+            <Header className="bg-transparent z-30 px-5 lg:px-50px">
                 <Row className="h-full">
-                    <Col xs={20}></Col>
+                    <Col xs={19}></Col>
                     <Col
                         xs={24}
-                        md={4}
-                        className="flex justify-center md:justify-end items-center"
+                        md={5}
+                        className="flex justify-end items-center "
                     >
                         <Button type="link">
                             <FaDiscord
@@ -106,6 +107,9 @@ const LandingPage = () => {
                                 color="#487F8F"
                             />
                         </Button>
+                        <div className="ml-2 relative -mb-2">
+                            <ConnectPolygonBridge />
+                        </div>
                     </Col>
                 </Row>
             </Header>

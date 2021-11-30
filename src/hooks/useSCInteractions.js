@@ -59,7 +59,8 @@ const useSCInteractions = () => {
     const clearMinting = () => dispatch(scActions.clearMinting())
     const clearMinted = () => dispatch(scActions.clearMinted())
 
-    const { active, library, activate, deactivate, account } = useWeb3React()
+    const { active, library, activate, deactivate, account, chainId } =
+        useWeb3React()
 
     const [walletAuth, setWalletAuth] = useLocalStorage('walletAuth', false)
 
@@ -106,41 +107,51 @@ const useSCInteractions = () => {
             })
     }
 
-    const mintAvatar = useCallback(async (amount) => {
-        if (!active) setMintingError('Wallet not connected')
-        if (mintingError) setMintingError(null)
+    const mintAvatar = useCallback(
+        async (amount) => {
+            if (!active) setMintingError('Wallet not connected')
+            if (mintingError) setMintingError(null)
 
-        clearMinted()
-        try {
-            const contract = new library.eth.Contract(
-                AvatarDestinareAbi,
-                process.env.REACT_APP_AVATAR_DESTINARE_CONTRACT_ADDRESS
-            )
-            const mintAvatar = await contract.methods
-                .mint(account, amount)
-                .send({ from: account, value: nftAvatar * amount })
-
-            const transformedData = mintResultConverToArray(mintAvatar)
-            setMinting(transformedData)
+            clearMinted()
             setFetchingMinting(true)
-        } catch (error) {
-            console.log({ error })
-            setMintingError(error)
-        }
-    }, [])
+            try {
+                const contract = new library.eth.Contract(
+                    AvatarDestinareAbi,
+                    process.env.REACT_APP_AVATAR_DESTINARE_CONTRACT_ADDRESS
+                )
+                const mintAvatar = await contract.methods
+                    .mint(account, amount)
+                    .send({ from: account, value: nftAvatar * amount })
 
+                const transformedData = mintResultConverToArray(mintAvatar)
+                setMinting(transformedData)
+            } catch (error) {
+                console.log({ error })
+                setFetchingMinting(false)
+                setMintingError(error)
+            }
+        },
+        [active, library]
+    )
+
+    const resetError = useCallback(() => {
+        setFetchingMinting(false)
+        setMintingError(null)
+    }, [mintingError])
+
+    console.log({ chainId })
     useInterval(
         () => {
             getTokenUris()
         },
         minting ? 5000 : null
     )
-
     return {
         mintAvatar,
         mintData: scInteractions.minted,
         minting,
         mintingError,
+        resetError,
     }
 }
 

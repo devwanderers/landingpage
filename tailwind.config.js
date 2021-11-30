@@ -110,6 +110,7 @@ module.exports = {
             padding: {
                 '64px': '64px',
                 '10px': '10px',
+                '50px': '50px',
             },
             width: {
                 '100px': '100px',

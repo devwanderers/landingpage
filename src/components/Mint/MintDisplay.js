@@ -3,6 +3,7 @@ import { Row, Col, Button } from 'antd'
 import { FrameNftTopSVG, FrameNftBottomSVG } from '../../assets/svg/frames'
 import { FaArrowCircleRight, FaArrowCircleLeft } from 'react-icons/fa'
 import useResponsive from './../../hooks/useResponsive'
+import { registerToken } from '../../services/wallet'
 
 const example = [
     {
@@ -241,11 +242,12 @@ const MintDisplay = ({ data = example }) => {
                 >
                     {/* <div className="nft-footer flex space-x-10 md:space-x-2"> */}
                     <Button
+                        onClick={() => registerToken()}
                         className="flex-1 border-none bg-primary hover:bg-primary
                                             focus:bg-primary text-white hover:text-white focus:text-white"
                         size="large"
                     >
-                        My profile
+                        Add NFT
                     </Button>
                     <Button
                         className="flex-1 border-none bg-info hover:bg-info
