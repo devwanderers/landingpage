@@ -15,7 +15,6 @@ import utilitiesImages from '../assets/images/utilities'
 import CollectionImage from '../components/DisplayImages/CollectionImage'
 import AnimInOutHorizontal from '../components/Animations/AnimInOutHorizontal'
 import { useInView } from 'react-intersection-observer'
-import AnimateCover from '../components/Animations/AnimateCover'
 import { LineWrapper } from './../components/Wrappers/LineWrapper'
 import HeaderText from './../components/DisplayText/Header'
 import NextArrowControl from '../components/CustomSliderControls/NextArrowControl'
@@ -46,6 +45,7 @@ import { returnValueByScreenWidth } from '../services/stylesServices'
 import { RenderMarcoSVG } from './../assets/svg/sections/index'
 import { Logo1SVG } from '../assets/svg/brand'
 import AnimDisplayFromTop from './../components/Animations/AnimDisplayFromTop'
+import windowOpen from '../services/windowOpen'
 
 const { Header, Content } = Layout
 // const { Countdown } = Statistic
@@ -107,9 +107,7 @@ const LandingPage = () => {
     const collectionConfig = {
         threshold: 0.3,
     }
-    const [refSection, showCover] = useInView({
-        threshold: 0.1,
-    })
+
     const [refCollection1, showCollection1] = useInView(collectionConfig)
     const [refCollection2, showCollection2] = useInView(collectionConfig)
     const [refCollection3, showCollection3] = useInView(collectionConfig)
@@ -153,19 +151,20 @@ const LandingPage = () => {
                         md={4}
                         className="flex justify-center md:justify-end items-center"
                     >
-                        <Button type="link">
+                        <Button onClick={() => windowOpen("https://discord.gg/7Hapr7WE") } type="link">
                             <FaDiscord
                                 className="social-icons"
                                 color="#1BC09B"
+
                             />
                         </Button>
-                        <Button type="link">
+                        <Button onClick={() => windowOpen("https://t.me/joinchat/tXoYj6NupWRlNjEx")} type="link">
                             <FaTelegramPlane
                                 className="social-icons"
                                 color="#1BC09B"
                             />
                         </Button>
-                        <Button type="link">
+                        <Button onClick={() => windowOpen("https://twitter.com/TheWanderersNFT")} type="link">
                             <FaTwitter
                                 className="social-icons"
                                 color="#1BC09B"
@@ -261,7 +260,6 @@ const LandingPage = () => {
                             </div>
                         </div>
                     </div>
-                    <AnimateCover visible={showCover} />
                     <div
                         className="absolute right-0 left-0"
                         style={{ bottom: '-1px' }}
@@ -270,7 +268,6 @@ const LandingPage = () => {
                     </div>
                 </div>
                 <div
-                    ref={refSection}
                     className=" bg-blue-5 pt-10 pb-10 lg:pb-24"
                 >
                     <div className="section">
