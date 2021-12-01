@@ -417,7 +417,7 @@ const LandingPage = () => {
                                         />
                                         <CollectionImage
                                             size={heightContainerCollection}
-                                            src={utilitiesImages.nft4}
+                                            src={utilitiesImages.nft7}
                                         />
                                     </CollectionContainer>
                                 </AnimInOutHorizontal>
@@ -435,7 +435,7 @@ const LandingPage = () => {
                                         />
                                         <CollectionImage
                                             size={heightContainerCollection}
-                                            src={utilitiesImages.nft7}
+                                            src={utilitiesImages.nft4}
                                         />
                                         <CollectionImage
                                             size={heightContainerCollection}
