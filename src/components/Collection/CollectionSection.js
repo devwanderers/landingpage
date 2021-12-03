@@ -122,7 +122,7 @@ const CollectionSection = () => {
                                 />
                                 <CollectionCard
                                     size={heightContainerCollection}
-                                    src={utilitiesImages.nft5}
+                                    src={utilitiesImages.nft4}
                                 />
                                 <CollectionCard
                                     size={heightContainerCollection}
