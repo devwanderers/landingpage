@@ -139,7 +139,6 @@ const useSCInteractions = () => {
         setMintingError(null)
     }, [mintingError])
 
-    console.log({ chainId })
     useInterval(
         () => {
             getTokenUris()

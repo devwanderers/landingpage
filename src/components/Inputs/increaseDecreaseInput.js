@@ -21,7 +21,7 @@ const IncreaseDecreaseInput = ({ onValueChange }) => {
     return (
         <div className="flex items-center my-4">
             <button
-                className="flex-1 disabled:opacity-50"
+                className="flex-1 disabled:opacity-50 transform active:scale-75"
                 onClick={handleDecresaseValue}
                 disabled={currentValue === 1}
             >
@@ -34,7 +34,7 @@ const IncreaseDecreaseInput = ({ onValueChange }) => {
             </div>
             <button
                 disabled={currentValue === 15}
-                className="flex-1 disabled:opacity-50"
+                className="flex-1 disabled:opacity-50 transform active:scale-75"
                 onClick={handleIncreaseValue}
             >
                 <InputArrowRightSVG className="cursor-pointer h-10 m-auto" />

@@ -11,8 +11,12 @@ import {
 import ModalMint from './ModalMint'
 import { supportedChainIds } from './../../constants/chainNetworks'
 import { setupNetwork } from './../../services/wallet'
+import useSCInteractions from './../../hooks/useSCInteractions'
+import useDeepCompareEffect from './../../hooks/useDeepCompareEffect'
 
 const MintSection = (props) => {
+    const { mintAvatar, mintData, minting, mintingError, resetError } =
+        useSCInteractions()
     const { login, logout } = useAuth()
     const { account, chainId } = useWeb3React()
     const [mintAmount, setMintAmount] = useState(0)
@@ -24,6 +28,10 @@ const MintSection = (props) => {
         xl: '-8px',
     })
 
+    const handleShowMintModal = () => {
+        setVisibleModal(!visibleModal)
+    }
+
     const mint = () => {
         const validChainId = supportedChainIds.reduce((acc, val) => {
             if (!acc && val === chainId) return true
@@ -33,22 +41,30 @@ const MintSection = (props) => {
             setupNetwork()
         } else {
             handleShowMintModal()
+            mintAvatar(mintAmount)
         }
     }
 
-    const handleShowMintModal = () => {
-        setVisibleModal(!visibleModal)
-    }
+    useDeepCompareEffect(() => {
+        if (!visibleModal) return
+        if (mintingError) {
+            resetError()
+            handleShowMintModal()
+
+            if (mintingError?.code !== 4001) {
+                console.log({ mintingError })
+            }
+        }
+    }, [visibleModal, mintingError])
+
     return (
         <React.Fragment>
             <ModalMint
+                data={mintData}
                 visibleModal={visibleModal}
                 onCloseModal={handleShowMintModal}
-                mintAmount={mintAmount}
-                onError={(err) => {
-                    console.log({ err })
-                    handleShowMintModal()
-                }}
+                // mintAmount={mintAmount}
+                minting={minting}
             />
             <div className="w-full md:w-8/12 lg:w-6/12 bg-black-1 bg-opacity-40 px-10 py-6 relative mx-auto lg:mx-0 mb-5">
                 <div>

@@ -115,7 +115,8 @@ const LandingPage = () => {
             </Header>
             <Content>
                 <div className="bg-render-mobil xl:bg-render bg-no-repeat bg-cover bg-center -mt-64px pb-1 xl:pb-32 lg:pb-40 relative">
-                    <div className="section mx-auto pt-64px mb-20 h-screen">
+                    <AnimateCover visible={showCover} />
+                    <div className="section mx-auto pt-64px mb-20 h-screen relative">
                         {/* <div className="css-generic h-full flex-col justify-between py-4 md:py-6 lg:px-28 xl:px-28 lg:py-10"> */}
                         <div className="css-generic h-full flex-col justify-between py-4 md:py-6 lg:px-0 xl:px-0 lg:py-10">
                             <div className="pt-10 lg:pt-0 w-80 lg:w-96 mx-auto  pb-6">
@@ -183,7 +184,6 @@ const LandingPage = () => {
                             </div>
                         </div>
                     </div>
-                    <AnimateCover visible={showCover} />
                     <div
                         className="absolute right-0 left-0"
                         style={{ bottom: '-1px' }}

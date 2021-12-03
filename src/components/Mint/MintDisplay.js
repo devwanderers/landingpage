@@ -212,13 +212,13 @@ const MintDisplay = ({ data = example }) => {
             </Row>
             <Row gutter={[20]}>
                 <Col span={24} md={8} className="mb-5 md:mb-0">
-                    {data?.length > 0 && (
+                    {data?.length > 1 && (
                         <div className="flex flex-row items-center justify-center h-full">
                             <div className="flex-1 flex justify-center">
                                 <button
                                     disabled={data && index === 0}
                                     onClick={onHandlePrev}
-                                    className="text-3xl text-primary disabled:opacity-70"
+                                    className="text-3xl text-primary disabled:opacity-70 transform active:scale-75"
                                 >
                                     <FaArrowCircleLeft />
                                 </button>
@@ -227,7 +227,7 @@ const MintDisplay = ({ data = example }) => {
                                 <button
                                     disabled={data && index === data.length - 1}
                                     onClick={onHandleNext}
-                                    className="text-3xl disabled:opacity-70"
+                                    className="text-3xl disabled:opacity-70 transform active:scale-75"
                                 >
                                     <FaArrowCircleRight />
                                 </button>
