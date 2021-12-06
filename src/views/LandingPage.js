@@ -840,12 +840,20 @@ const LandingPage = () => {
                             <Button
                                 type="link"
                                 className="h-16 w-16 lg:h-24 lg:w-24 p-0"
+                                onClick={() =>
+                                    windowOpen('https://discord.gg/thewanderers')
+                                }
                             >
                                 <OctagonDiscordSVG width="100%" height="100%" />
                             </Button>
                             <Button
                                 type="link"
                                 className="h-16 w-16 lg:h-24 lg:w-24 p-0"
+                                onClick={() =>
+                                    windowOpen(
+                                        'https://t.me/joinchat/tXoYj6NupWRlNjEx'
+                                    )
+                                }
                             >
                                 <OctagonTelegramSVG
                                     width="100%"
@@ -856,6 +864,11 @@ const LandingPage = () => {
                             <Button
                                 type="link"
                                 className="h-16 w-16 lg:h-24 lg:w-24 p-0"
+                                onClick={() =>
+                                    windowOpen(
+                                        'https://twitter.com/TheWanderersNFT'
+                                    )
+                                }
                             >
                                 <OctagonTwitterSVG width="100%" height="100%" />
                             </Button>
