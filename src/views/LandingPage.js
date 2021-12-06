@@ -12,9 +12,6 @@ import ReactPlayer from 'react-player/file'
 import Article from '../components/DisplayText/Article'
 import SectionTitle from '../components/Sections/SectionTitle'
 import utilitiesImages from '../assets/images/utilities'
-import CollectionImage from '../components/DisplayImages/CollectionImage'
-import AnimInOutHorizontal from '../components/Animations/AnimInOutHorizontal'
-import { useInView } from 'react-intersection-observer'
 import { LineWrapper } from './../components/Wrappers/LineWrapper'
 import HeaderText from './../components/DisplayText/Header'
 import NextArrowControl from '../components/CustomSliderControls/NextArrowControl'
@@ -46,6 +43,7 @@ import { RenderMarcoSVG } from './../assets/svg/sections/index'
 import { Logo1SVG } from '../assets/svg/brand'
 import AnimDisplayFromTop from './../components/Animations/AnimDisplayFromTop'
 import windowOpen from '../services/windowOpen'
+import CollectionSection from '../components/Collection/CollectionSection'
 
 const { Header, Content } = Layout
 // const { Countdown } = Statistic
@@ -91,33 +89,12 @@ const landImages = [
     },
 ]
 
-const CollectionContainer = ({ children }) => (
-    <div className="css-generic w-full flex-row justify-center flex-grow space-x-2 xl:space-x-6">
-        {children}
-    </div>
-)
-
 const LandingPage = () => {
     const { width } = useWindowDimensions()
     const [imageIndex, setImageIndex] = useState(0)
     const [collapseFaq, setCollapseFAQ] = useState(true)
     const [roadKey, setSelectedKey] = useState(1)
     // const [videoReady, playVideo] = useState(false)
-
-    const collectionConfig = {
-        threshold: 0.3,
-    }
-
-    const [refCollection1, showCollection1] = useInView(collectionConfig)
-    const [refCollection2, showCollection2] = useInView(collectionConfig)
-    const [refCollection3, showCollection3] = useInView(collectionConfig)
-
-    // Height Container Collection
-    const heightContainerCollection = returnValueByScreenWidth(width, {
-        base: '80px',
-        md: '160px',
-        xl: '210px',
-    })
 
     const sliderLandSettings = {
         dots: false,
@@ -151,20 +128,38 @@ const LandingPage = () => {
                         md={4}
                         className="flex justify-center md:justify-end items-center"
                     >
-                        <Button onClick={() => windowOpen("https://discord.gg/7Hapr7WE") } type="link">
+                        <Button
+                            onClick={() =>
+                                windowOpen('https://discord.gg/7Hapr7WE')
+                            }
+                            type="link"
+                        >
                             <FaDiscord
                                 className="social-icons"
                                 color="#1BC09B"
-
                             />
                         </Button>
-                        <Button onClick={() => windowOpen("https://t.me/joinchat/tXoYj6NupWRlNjEx")} type="link">
+                        <Button
+                            onClick={() =>
+                                windowOpen(
+                                    'https://t.me/joinchat/tXoYj6NupWRlNjEx'
+                                )
+                            }
+                            type="link"
+                        >
                             <FaTelegramPlane
                                 className="social-icons"
                                 color="#1BC09B"
                             />
                         </Button>
-                        <Button onClick={() => windowOpen("https://twitter.com/TheWanderersNFT")} type="link">
+                        <Button
+                            onClick={() =>
+                                windowOpen(
+                                    'https://twitter.com/TheWanderersNFT'
+                                )
+                            }
+                            type="link"
+                        >
                             <FaTwitter
                                 className="social-icons"
                                 color="#1BC09B"
@@ -175,22 +170,21 @@ const LandingPage = () => {
             </Header>
             <Content>
                 <div className="-mt-64px pb-1 xl:pb-32 lg:pb-40 relative">
-                        <div className="absolute top-0 left-0 bottom-0 right-0 overflow-hidden">
-
-                        <ReactPlayer 
-                            className="custom-react-player" 
-                            width="100%" 
+                    <div className="absolute top-0 left-0 bottom-0 right-0 overflow-hidden">
+                        <ReactPlayer
+                            className="custom-react-player"
+                            width="100%"
                             height="100%"
                             controls={false}
-                            loop={true} 
+                            loop={true}
                             playing={true}
                             url={islandVideo}
-                            muted={true} 
+                            muted={true}
                             // onReady={handlePlayVideo}
                             onError={(e) => console.log('error', e)}
                             onStart={() => console.log('playing')}
                         />
-                        </div>
+                    </div>
                     <div className="absolute top-0 left-0 bottom-0 right-0 overflow-hidden">
                         {/* <video width="100%" height="100%" controls autoPlay={true} src={islandVideo} type="video/mp4"/> */}
                     </div>
@@ -203,8 +197,15 @@ const LandingPage = () => {
                                 <div className="count-down bg-black-1 bg-opacity-40 mx-auto lg:px-4 pt-5 pb-4 relative z-10">
                                     {/* <GenericCountDown date={deadline} /> */}
                                     <div className="flex flex-col text-white text-lg md:text-2xl lg:text-4xl mt-5 text-center">
-                                        <div className="xl:text-6xl text-xl font-saira-condensed leading-none tracking-wide">PRE-SALE EVENT ALMOST</div>
-                                        <div className="xl:text-8xl text-lg font-russo-one leading-none pt-4 relative -mr-5" style={{ letterSpacing: "1.9rem"}}>READY!</div>
+                                        <div className="xl:text-6xl text-xl font-saira-condensed leading-none tracking-wide">
+                                            PRE-SALE EVENT ALMOST
+                                        </div>
+                                        <div
+                                            className="xl:text-8xl text-lg font-russo-one leading-none pt-4 relative -mr-5"
+                                            style={{ letterSpacing: '1.9rem' }}
+                                        >
+                                            READY!
+                                        </div>
                                     </div>
                                     <div
                                         className="absolute right-0 left-0 -mx-3"
@@ -267,9 +268,7 @@ const LandingPage = () => {
                         <RenderMarcoSVG width="100%" />
                     </div>
                 </div>
-                <div
-                    className=" bg-blue-5 pt-10 pb-10 lg:pb-24"
-                >
+                <div className=" bg-blue-5 pt-10 pb-10 lg:pb-24">
                     <div className="section">
                         <Row>
                             <Col xs={24} md={12} className="">
@@ -306,11 +305,11 @@ const LandingPage = () => {
                                             <br />
                                             <br />
                                             <span>
-                                                There are 9,000 unique characters
-                                                called wanderers as an initial
-                                                offering and other 100
-                                                special characters aviable in a pre-sale event
-                                                by 0.08 ETH.
+                                                There are 9,000 unique
+                                                characters called wanderers as
+                                                an initial offering and other
+                                                100 special characters aviable
+                                                in a pre-sale event by 0.08 ETH.
                                             </span>
                                             <br />
                                             <br />
@@ -318,8 +317,8 @@ const LandingPage = () => {
                                                 Owning a wanderer gives you
                                                 access to the metaverse as well
                                                 as exclusive benefits to our
-                                                travel partner. Once you mint
-                                                a wanderer you start to receive
+                                                travel partner. Once you mint a
+                                                wanderer you start to receive
                                                 big benefits such as Tokens,
                                                 exclusive promotions in the
                                                 travel platform and more.{' '}
@@ -367,81 +366,8 @@ const LandingPage = () => {
                         COLLECTION
                     </SectionTitle>
                     <div className="css-generic flex-grow pb-5">
-                        <div className="css-generic flex-col w-full lg:w-750px xl:w-1000px space-y-2 xl:space-y-4 space ">
-                            <div
-                                ref={refCollection1}
-                                style={{ height: heightContainerCollection }}
-                                className="css-generic w-full max-w-full"
-                            >
-                                <AnimInOutHorizontal visible={showCollection1}>
-                                    <CollectionContainer>
-                                        <CollectionImage
-                                            size={heightContainerCollection}
-                                            src={utilitiesImages.nft}
-                                        />
-                                        <CollectionImage
-                                            size={heightContainerCollection}
-                                            src={utilitiesImages.nft9}
-                                        />
-                                        <CollectionImage
-                                            size={heightContainerCollection}
-                                            src={utilitiesImages.nft5}
-                                        />
-                                    </CollectionContainer>
-                                </AnimInOutHorizontal>
-                            </div>
-                            <div
-                                ref={refCollection2}
-                                style={{ height: heightContainerCollection }}
-                                className="css-generic w-full max-w-full"
-                            >
-                                <AnimInOutHorizontal
-                                    visible={showCollection2}
-                                    side="right"
-                                >
-                                    <CollectionContainer>
-                                        <CollectionImage
-                                            size={heightContainerCollection}
-                                            src={utilitiesImages.nft1}
-                                        />
-                                        <CollectionImage
-                                            size={heightContainerCollection}
-                                            src={utilitiesImages.nft3}
-                                        />
-                                        <CollectionImage
-                                            size={heightContainerCollection}
-                                            src={utilitiesImages.nft2}
-                                        />
-                                        <CollectionImage
-                                            size={heightContainerCollection}
-                                            src={utilitiesImages.nft7}
-                                        />
-                                    </CollectionContainer>
-                                </AnimInOutHorizontal>
-                            </div>
-                            <div
-                                ref={refCollection3}
-                                style={{ height: heightContainerCollection }}
-                                className="css-generic w-full max-w-full "
-                            >
-                                <AnimInOutHorizontal visible={showCollection3}>
-                                    <CollectionContainer>
-                                        <CollectionImage
-                                            size={heightContainerCollection}
-                                            src={utilitiesImages.nft6}
-                                        />
-                                        <CollectionImage
-                                            size={heightContainerCollection}
-                                            src={utilitiesImages.nft4}
-                                        />
-                                        <CollectionImage
-                                            size={heightContainerCollection}
-                                            src={utilitiesImages.nft8}
-                                        />
-                                    </CollectionContainer>
-                                </AnimInOutHorizontal>
-                            </div>
-                        </div>
+                        {/* Collection */}
+                        <CollectionSection />
                     </div>
                 </div>
                 <div className="bg-blue-5 pt-10 pb-3 lg:pb-20 border-0">
@@ -742,18 +668,15 @@ const LandingPage = () => {
                                         className="max-w-full"
                                     >
                                         <span>
-                                            {"Use either Google Chrome or Brave to visit this page. You will need to have Metamask installed and ETH or MATIC on your wallet. Select as many Wanderers as you want, click the Mint button and approve the transaction. You can see an extended video tutorial "}
+                                            {
+                                                'Use either Google Chrome or Brave to visit this page. You will need to have Metamask installed and ETH or MATIC on your wallet. Select as many Wanderers as you want, click the Mint button and approve the transaction. You can see an extended video tutorial '
+                                            }
                                         </span>
-                                        <a
-                                            href="#"
-                                            className="underline"
-                                        >
-                                            <strong>
-                                                here.
-                                            </strong>
+                                        <a href="#" className="underline">
+                                            <strong>here.</strong>
                                         </a>
                                     </Article>
-                                        <br />
+                                    <br />
                                     <Article
                                         header="Who are The Wanderers?"
                                         headerProps={{
@@ -771,10 +694,19 @@ const LandingPage = () => {
                                         className="max-w-full"
                                     >
                                         <span>
-                                            The adventure began when a small group of adventurers called Wanderers decided to reinitiate an investigation about the earth’s gravitational catastrophe that happened hundreds of years ago. These Wanderers went off to investigate if there were any remaining civilizations or Lands after the catastrophe.
+                                            The adventure began when a small
+                                            group of adventurers called
+                                            Wanderers decided to reinitiate an
+                                            investigation about the earth’s
+                                            gravitational catastrophe that
+                                            happened hundreds of years ago.
+                                            These Wanderers went off to
+                                            investigate if there were any
+                                            remaining civilizations or Lands
+                                            after the catastrophe.
                                         </span>
                                     </Article>
-                                        <br />
+                                    <br />
                                     <Article
                                         header="How to play and earn?"
                                         headerProps={{
@@ -792,11 +724,18 @@ const LandingPage = () => {
                                         className="max-w-full"
                                     >
                                         <span>
-                                            We are working tirelessly to launch the wanderers video game. The game is the place where you can use our token to play and get rewarded in several ways (PVE, PVP, Tournaments and more), once the token has been listed, you can enjoy your rewards in real life.
+                                            We are working tirelessly to launch
+                                            the wanderers video game. The game
+                                            is the place where you can use our
+                                            token to play and get rewarded in
+                                            several ways (PVE, PVP, Tournaments
+                                            and more), once the token has been
+                                            listed, you can enjoy your rewards
+                                            in real life.
                                         </span>
                                         <br />
                                     </Article>
-                                        <br />
+                                    <br />
                                     <Article
                                         header="How to participate in the presale event?"
                                         headerProps={{
@@ -814,7 +753,11 @@ const LandingPage = () => {
                                         className="max-w-full"
                                     >
                                         <span>
-                                            All the basis to participate in the pre-sale event will be announced in our social media, if you are a milestone follower you have more chances to participate.
+                                            All the basis to participate in the
+                                            pre-sale event will be announced in
+                                            our social media, if you are a
+                                            milestone follower you have more
+                                            chances to participate.
                                         </span>
                                     </Article>
                                     <br />
