@@ -608,19 +608,15 @@ const LandingPage = () => {
                                             base="lg"
                                             lg="23px"
                                         >
-                                            We’re not just a common
-                                            NFT project, we’re creating an
-                                            ecosystem where your NFT’s is more
-                                            than Art, we think in our community
-                                            and we want to give you a little
-                                            piece back for the trust put in the
-                                            project. <br /> The token reward you
+                                            {"We are creating an ecosystem where your NFT's are more than Art, we think in our community and we want to give you a little piece back for the trust you put into this project."}
+                                             <br /> 
+                                            The token rewards you
                                             in the ecosystem and has unique
                                             features that you will love!! The
                                             Wanderers travel token, is the
                                             native currency in the ecosystem, it
                                             is based on ERC20 making it highly
-                                            diverse and easy to use. Wait for the token listing
+                                            diverse and easy to use. Token listing coming soon!
                                         </Paragraph>
                                     </LineWrapper>
                                 </Col>
