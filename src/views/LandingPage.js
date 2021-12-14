@@ -822,23 +822,14 @@ const LandingPage = () => {
                                     </HeaderText>
                                 </Col>
                                 <Col xs={24} lg={17} className="pt-4 lg:pt-12">
-                                    <LineWrapper
-                                        side="right"
-                                        decorationBottom="0.7rem"
-                                    >
+                                    
                                         <Paragraph
                                             base="lg"
                                             lg="23px"
                                             className="text-blue-4 lg:pl-44 text-justify"
                                         >
-                                            Become a part of the most important NFT
-                                            project. Big things happen when the
-                                            community is involved in all phases.
-                                            Join us to get the news as soon as they
-                                            come out and follow us for our latest
-                                            announcements.
+                                           
                                         </Paragraph>
-                                    </LineWrapper>
                                 </Col>
                         </Row>
                         <Row className="lg:pt-12 xs:pt-2" gutter={[10, 50]}>
