@@ -94,6 +94,7 @@ module.exports = {
                 'render-mobil':
                     "url('/src/assets/images/backgrounds/render-fondo-mobil.jpg')",
                 earth: "url('/src/assets/images/backgrounds/bakgroundearth.png')",
+                floor: "url('/src/assets/images/backgrounds/fondo-transparencia.png')"
             },
             margin: {
                 84: '21rem',

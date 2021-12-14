@@ -12,6 +12,12 @@ import nft9 from './nfts/1112.jpeg'
 import isla from './isla.png'
 import island from './piedras-fondo.gif'
 import wttCoin from './wtt-coin.png'
+import alex from '../team/mar-alexis.png'
+import kame from '../team/mar-amelie.png'
+import amelie from '../team/mar-kame.png'
+import skullman from '../team/mar-skullman.png'
+import surtek from '../team/mar-surtek.png'
+import dr from '../team/mar-dr.png'
 
 const utilitiesImages = {
     card,
@@ -28,6 +34,12 @@ const utilitiesImages = {
     isla,
     wttCoin,
     island,
+    alex,
+    kame,
+    amelie,
+    skullman,
+    surtek,
+    dr,
 }
 
 export default utilitiesImages

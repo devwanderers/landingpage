@@ -73,19 +73,19 @@ const landImages = [
         id: 4,
         img: utilitiesImages.isla,
         title: '20%',
-        percent: 'Country ambassador',
+        percent: 'Country ambassadors',
     },
     {
         id: 5,
         img: utilitiesImages.isla,
         title: '15%',
-        percent: 'City ambassador',
+        percent: 'City ambassadors',
     },
     {
         id: 6,
         img: utilitiesImages.isla,
         title: '9%',
-        percent: 'Destiny ambassador ',
+        percent: 'Destiny ambassadors',
     },
 ]
 
@@ -130,7 +130,7 @@ const LandingPage = () => {
                     >
                         <Button
                             onClick={() =>
-                                windowOpen('https://discord.gg/7Hapr7WE')
+                                windowOpen('https://discord.gg/thewanderers')
                             }
                             type="link"
                         >
@@ -254,7 +254,7 @@ const LandingPage = () => {
                                     className="bg-dark bg-opacity-50 h-auto text-primary text-xl md:text-2xl lg:text-3xl xl:text-4xl py-2 px-8"
                                     type="primary"
                                     target="blank"
-                                    href="https://discord.gg/7Hapr7WE"
+                                    href="https://discord.gg/thewanderers"
                                 >
                                     JOIN OUR DISCORD
                                 </a>
@@ -308,8 +308,8 @@ const LandingPage = () => {
                                                 There are 9,000 unique
                                                 characters called wanderers as
                                                 an initial offering and other
-                                                100 special characters aviable
-                                                in a pre-sale event by 0.08 ETH.
+                                                250 special characters aviable
+                                                in a pre-sale event by 110 MATIC.
                                             </span>
                                             <br />
                                             <br />
@@ -422,7 +422,7 @@ const LandingPage = () => {
                                         of NTF, now you’re the only owner of
                                         this land, it means that every single
                                         booking completed to the equivalent
-                                        place in the travel platform will pay
+                                        place in our partnet travel platform will pay
                                         you a commission!
                                     </Article>
                                     <Article
@@ -669,7 +669,7 @@ const LandingPage = () => {
                                     >
                                         <span>
                                             {
-                                                'Use either Google Chrome or Brave to visit this page. You will need to have Metamask installed and ETH or MATIC on your wallet. Select as many Wanderers as you want, click the Mint button and approve the transaction. You can see an extended video tutorial '
+                                                'Use either Google Chrome or Brave to visit this page. You will need to have Metamask installed and MATIC on your wallet. Select as many Wanderers as you want, click the Mint button and approve the transaction. You can see an extended video tutorial '
                                             }
                                         </span>
                                         <a href="#" className="underline">
@@ -793,6 +793,244 @@ const LandingPage = () => {
                         </div>
                     </div>
                 </div>
+                <div
+                    className="bg-blue-5 bg-floor bg-no-repeat bg-cover pt-12 pb-24 lg:pt-10 lg:pb-64 relative"
+                    style={{
+                        backgroundPosition: '0% 100%',
+                    }}
+                >
+                    <div className="section">
+                        <Row className="mb-12 lg:mb-16 xs:mb-2" >
+                                <Col
+                                    xs={24}
+                                    lg={7}
+                                    className="text-center lg:text-left"
+                                >
+                                    <HeaderText
+                                        base="4xl"
+                                        lg="89px"
+                                        className="text-primary leading-none tracking-widest"
+                                    >
+                                        Meet
+                                    </HeaderText>
+                                    <HeaderText
+                                        base="2xl"
+                                        lg="53px"
+                                        className="text-info font-semibold leading-none font-saira-condensed lg:relative lg:-right-32"
+                                    >
+                                        The team
+                                    </HeaderText>
+                                </Col>
+                                <Col xs={24} lg={17} className="pt-4 lg:pt-12">
+                                    <LineWrapper
+                                        side="right"
+                                        decorationBottom="0.7rem"
+                                    >
+                                        <Paragraph
+                                            base="lg"
+                                            lg="23px"
+                                            className="text-blue-4 lg:pl-44 text-justify"
+                                        >
+                                            Become a part of the most important NFT
+                                            project. Big things happen when the
+                                            community is involved in all phases.
+                                            Join us to get the news as soon as they
+                                            come out and follow us for our latest
+                                            announcements.
+                                        </Paragraph>
+                                    </LineWrapper>
+                                </Col>
+                        </Row>
+                        <Row className="lg:pt-12 xs:pt-2" gutter={[10, 50]}>
+                            <Col md={8} sm={8} lg={8} xl={8}>
+                                <div className='flex flex-row'>
+                                    <div>
+                                        <img
+                                            className="w-full h-auto"
+                                            src={utilitiesImages.dr}
+                                            alt={utilitiesImages.dr}
+                                        />
+                                    </div>
+                                    <div>
+                                        <Article
+                                            header="Dr. Millan"
+                                            headerProps={{
+                                                className:
+                                                    'mt-8 pl-6 leading-none text-primary',
+                                                base: '1xl',
+                                                lg: '2xl',
+                                            }}
+                                            paragraphProps={{
+                                                className:
+                                                    'text-blue-4 pl-6  text-justify',
+                                                base: 'lg',
+                                                lg: '23px',
+                                            }}
+                                            className="max-w-full"
+                                        >
+                                            COO
+                                        </Article>
+                                    </div>
+                                </div>
+                            </Col>
+                            <Col md={8} sm={8} lg={8} xl={8}>
+                                <div className='flex flex-row'>
+                                    <div>
+                                        <img
+                                            className="w-full h-auto"
+                                            src={utilitiesImages.skullman}
+                                            alt={utilitiesImages.skullman}
+                                        />
+                                    </div>
+                                    <div>
+                                        <Article
+                                            header="Skullman"
+                                            headerProps={{
+                                                className:
+                                                    'mt-8 pl-6 leading-none text-primary',
+                                                base: '1xl',
+                                                lg: '2xl',
+                                            }}
+                                            paragraphProps={{
+                                                className:
+                                                    'text-blue-4 pl-6 text-justify',
+                                                base: 'lg',
+                                                lg: '23px',
+                                            }}
+                                            className="max-w-full"
+                                        >
+                                            CTO
+                                        </Article>
+                                    </div>
+                                </div>
+                            </Col>
+                            <Col md={8} sm={8} lg={8} xl={8}>
+                                <div className='flex flex-row'>
+                                    <div>
+                                        <img
+                                            className="w-full h-auto"
+                                            src={utilitiesImages.alex}
+                                            alt={utilitiesImages.alex}
+                                        />
+                                    </div>
+                                    <div>
+                                        <Article
+                                            header="AlexArt"
+                                            headerProps={{
+                                                className:
+                                                    'mt-8 pl-6 leading-none text-primary',
+                                                base: '1xl',
+                                                lg: '2xl',
+                                            }}
+                                            paragraphProps={{
+                                                className:
+                                                    'text-blue-4 pl-6 text-justify',
+                                                base: 'lg',
+                                                lg: '23px',
+                                            }}
+                                            className="max-w-full"
+                                        >
+                                         Art Director   
+                                        </Article>
+                                    </div>
+                                </div>
+                            </Col>
+                            <Col md={8} sm={8} lg={8} xl={8}>
+                                <div className='flex flex-row'>
+                                    <div>
+                                        <img
+                                            className="w-full h-auto"
+                                            src={utilitiesImages.amelie}
+                                            alt={utilitiesImages.amelie}
+                                        />
+                                    </div>
+                                    <div>
+                                        <Article
+                                            header="Amelie Miller"
+                                            headerProps={{
+                                                className:
+                                                    'mt-8 pl-6 leading-none text-primary',
+                                                base: '1xl',
+                                                lg: '2xl',
+                                            }}
+                                            paragraphProps={{
+                                                className:
+                                                    'text-blue-4 pl-6 ',
+                                                base: 'lg',
+                                                lg: '23px',
+                                            }}
+                                            className="max-w-full"
+                                        >
+                                            Social Media Manager
+                                        </Article>
+                                    </div>
+                                </div>
+                            </Col>
+                            <Col md={8} sm={8} lg={8} xl={8}>
+                                <div className='flex flex-row'>
+                                    <div>
+                                        <img
+                                            className="w-full h-auto"
+                                            src={utilitiesImages.kame}
+                                            alt={utilitiesImages.kame}
+                                        />
+                                    </div>
+                                    <div>
+                                        <Article
+                                            header="Kame"
+                                            headerProps={{
+                                                className:
+                                                    'mt-8 pl-6 leading-none text-primary',
+                                                base: '1xl',
+                                                lg: '2xl',
+                                            }}
+                                            paragraphProps={{
+                                                className:
+                                                    'text-blue-4 pl-6 text-justify',
+                                                base: 'lg',
+                                                lg: '23px',
+                                            }}
+                                            className="max-w-full"
+                                        >
+                                            Marketing Director
+                                        </Article>
+                                    </div>
+                                </div>
+                            </Col>
+                            <Col md={8} sm={8} lg={8} xl={8}>
+                                <div className='flex flex-row'>
+                                    <div>
+                                        <img
+                                            className="w-full h-auto"
+                                            src={utilitiesImages.surtek}
+                                            alt={utilitiesImages.surtek}
+                                        />
+                                    </div>
+                                    <div>
+                                        <Article
+                                            header="Surtek TK"
+                                            headerProps={{
+                                                className:
+                                                    'mt-8 pl-6 leading-none text-primary',
+                                                base: '1xl',
+                                                lg: '2xl',
+                                            }}
+                                            paragraphProps={{
+                                                className:
+                                                    'text-blue-4 pl-6 text-justify',
+                                                base: 'lg',
+                                                lg: '23px',
+                                            }}
+                                            className="max-w-full"
+                                        >
+                                         Strategy   
+                                        </Article>
+                                    </div>
+                                </div>
+                            </Col>
+                        </Row>
+                    </div>
+                </div>
                 <div className="bg-blue-5 pb-20 lg:pb-48">
                     <div className="section">
                         <Row className="mb-12 lg:mb-16">
@@ -901,7 +1139,7 @@ const LandingPage = () => {
                                     <li className="mb-2">
                                         <a
                                             className="text-blue-4 hover:text-gray-400"
-                                            href="https://whitepaper.swapp.ee/"
+                                            href="#"
                                         >
                                             Terms of service
                                         </a>
@@ -909,7 +1147,7 @@ const LandingPage = () => {
                                     <li className=" mb-2">
                                         <a
                                             className="text-blue-4 hover:text-gray-400"
-                                            href="https://app.uniswap.org/#/swap?"
+                                            href="#"
                                         >
                                             Smart Contract
                                         </a>
