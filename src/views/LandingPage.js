@@ -120,7 +120,7 @@ const LandingPage = () => {
 
     return (
         <Layout className="landing-page min-w-minMobileWidth">
-            <Header className="bg-transparent z-30">
+            <Header className="bg-transparent z-30 px-10 md:px-12">
                 <Row className="h-full">
                     <Col xs={18}></Col>
                     <Col
@@ -167,7 +167,7 @@ const LandingPage = () => {
                         </Button>
                         <div className="flex items-end relative -mb-2 pl-2">
                             <button
-                                className="text-white text-2xl border border-white px-3 py-2 rounded-md leading-none"
+                                className="text-white text-xs xl:text-2xl border border-white px-3 py-2 rounded-md leading-none"
                                 onClick={() =>
                                     windowOpen(
                                         'https://thewanderers.sfo3.digitaloceanspaces.com/The%20wanderers%20whitepaper.pdf'
