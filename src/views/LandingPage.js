@@ -120,12 +120,12 @@ const LandingPage = () => {
 
     return (
         <Layout className="landing-page min-w-minMobileWidth">
-            <Header className="bg-transparent z-30 px-10 md:px-12">
+            <Header className="bg-transparent z-30 px-10 lg:px-12">
                 <Row className="h-full">
-                    <Col xs={18}></Col>
+                    <Col md={12} xl={12}></Col>
                     <Col
                         xs={24}
-                        md={6}
+                        xl={12}
                         className="flex justify-center md:justify-end items-center"
                     >
                         <Button
