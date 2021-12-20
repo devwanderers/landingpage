@@ -122,10 +122,10 @@ const LandingPage = () => {
         <Layout className="landing-page min-w-minMobileWidth">
             <Header className="bg-transparent z-30">
                 <Row className="h-full">
-                    <Col xs={20}></Col>
+                    <Col xs={18}></Col>
                     <Col
                         xs={24}
-                        md={4}
+                        md={6}
                         className="flex justify-center md:justify-end items-center"
                     >
                         <Button
@@ -165,6 +165,20 @@ const LandingPage = () => {
                                 color="#1BC09B"
                             />
                         </Button>
+                        <div>
+
+                        <button
+                            className="text-white text-2xl border border-white px-3 py-1 rounded-lg"
+                            onClick={() =>
+                                windowOpen(
+                                    'https://twitter.com/TheWanderersNFT'
+                                )
+                            }
+                            // type="dasheds"
+                        >
+                            White Paper
+                        </button>
+                        </div>
                     </Col>
                 </Row>
             </Header>
@@ -346,8 +360,8 @@ const LandingPage = () => {
                                         <img
                                             className="w-auto h-full object-contain overflow-hidden mx-auto relative"
                                             style={{ bottom: '-3px' }}
-                                            src={utilitiesImages.nft}
-                                            alt={utilitiesImages.nft}
+                                            src={utilitiesImages.nft1wb}
+                                            alt={utilitiesImages.nft1wb}
                                         />
                                     </div>
                                 </div>
@@ -937,7 +951,7 @@ const LandingPage = () => {
                                     </div>
                                     <div>
                                         <Article
-                                            header="Amelie Miller"
+                                            header="Riot Mei"
                                             headerProps={{
                                                 className:
                                                     'mt-8 pl-6 leading-none text-primary',

@@ -1,20 +1,21 @@
 import card from './tarjeta.png'
-import nft from './nfts/nft-personaje.png'
-import nft1 from './nfts/humanoide2.jpeg'
-import nft2 from './nfts/humanoide.jpeg'
-import nft3 from './nfts/255.png'
-import nft4 from './nfts/30.png'
-import nft5 from './nfts/musculos.jpeg'
-import nft6 from './nfts/robot.png'
-import nft7 from './nfts/1075.png'
-import nft8 from './nfts/mona.png'
+import nft from './nfts/1.jpg'
+import nft1 from './nfts/238.png'
+import nft2 from './nfts/400.png'
+import nft3 from './nfts/260.png'
+import nft4 from './nfts/2045.jpg'
+import nft5 from './nfts/8706.jpg'
+import nft6 from './nfts/8001.png'
+import nft7 from './nfts/17.png'
+import nft8 from './nfts/3578.png'
 import nft9 from './nfts/1112.jpeg'
+import nft1wb from './nfts/nobackgroundnnft.png'
 import isla from './isla.png'
 import island from './piedras-fondo.gif'
 import wttCoin from './wtt-coin.png'
 import alex from '../team/mar-alexis.png'
-import kame from '../team/mar-amelie.png'
-import amelie from '../team/mar-kame.png'
+import amelie from '../team/mar-amelie.png'
+import kame from '../team/mar-kame.png'
 import skullman from '../team/mar-skullman.png'
 import surtek from '../team/mar-surtek.png'
 import dr from '../team/mar-dr.png'
@@ -40,6 +41,7 @@ const utilitiesImages = {
     skullman,
     surtek,
     dr,
+    nft1wb
 }
 
 export default utilitiesImages

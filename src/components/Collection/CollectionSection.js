@@ -79,19 +79,19 @@ const CollectionSection = () => {
                             <CollectionContainer>
                                 <CollectionCard
                                     size={heightContainerCollection}
-                                    src={utilitiesImages.nft1}
-                                />
-                                <CollectionCard
-                                    size={heightContainerCollection}
-                                    src={utilitiesImages.nft3}
-                                />
-                                <CollectionCard
-                                    size={heightContainerCollection}
-                                    src={utilitiesImages.nft3}
-                                />
-                                <CollectionCard
-                                    size={heightContainerCollection}
                                     src={utilitiesImages.nft7}
+                                />
+                                <CollectionCard
+                                    size={heightContainerCollection}
+                                    src={utilitiesImages.nft3}
+                                />
+                                <CollectionCard
+                                    size={heightContainerCollection}
+                                    src={utilitiesImages.nft8}
+                                />
+                                <CollectionCard
+                                    size={heightContainerCollection}
+                                    src={utilitiesImages.nft2}
                                 />
                             </CollectionContainer>
                         </motion.div>
@@ -122,11 +122,11 @@ const CollectionSection = () => {
                                 />
                                 <CollectionCard
                                     size={heightContainerCollection}
-                                    src={utilitiesImages.nft4}
+                                    src={utilitiesImages.nft1}
                                 />
                                 <CollectionCard
                                     size={heightContainerCollection}
-                                    src={utilitiesImages.nft8}
+                                    src={utilitiesImages.nft4}
                                 />
                             </CollectionContainer>
                         </motion.div>
