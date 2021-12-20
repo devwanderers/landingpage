@@ -32,7 +32,9 @@ module.exports = {
             minMobileWidth: '375px',
         },
         maxWidth: {
+            '500px': '500px',
             '1000px': '1000px',
+            '1100px': '1100px',
         },
         fontFamily: {
             'russo-one': ['Russo One', 'sans-serif'],
@@ -133,6 +135,7 @@ module.exports = {
         extend: {
             opacity: ['disabled'],
             scale: ['active'],
+            ringWidth: ['focus'],
         },
     },
     plugins: [],
