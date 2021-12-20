@@ -165,19 +165,18 @@ const LandingPage = () => {
                                 color="#1BC09B"
                             />
                         </Button>
-                        <div>
-
-                        <button
-                            className="text-white text-2xl border border-white px-3 py-1 rounded-lg"
-                            onClick={() =>
-                                windowOpen(
-                                    'https://twitter.com/TheWanderersNFT'
-                                )
-                            }
-                            // type="dasheds"
-                        >
-                            White Paper
-                        </button>
+                        <div className="flex items-end relative -mb-2 pl-2">
+                            <button
+                                className="text-white text-2xl border border-white px-3 py-2 rounded-md leading-none"
+                                onClick={() =>
+                                    windowOpen(
+                                        'https://thewanderers.sfo3.digitaloceanspaces.com/The%20wanderers%20whitepaper.pdf'
+                                    )
+                                }
+                                // type="dasheds"
+                            >
+                                White Paper
+                            </button>
                         </div>
                     </Col>
                 </Row>
@@ -323,7 +322,8 @@ const LandingPage = () => {
                                                 characters called wanderers as
                                                 an initial offering and other
                                                 250 special characters aviable
-                                                in a pre-sale event by 110 MATIC.
+                                                in a pre-sale event by 110
+                                                MATIC.
                                             </span>
                                             <br />
                                             <br />
@@ -436,8 +436,8 @@ const LandingPage = () => {
                                         of NTF, now you’re the only owner of
                                         this land, it means that every single
                                         booking completed to the equivalent
-                                        place in our partnet travel platform will pay
-                                        you a commission!
+                                        place in our partnet travel platform
+                                        will pay you a commission!
                                     </Article>
                                     <Article
                                         header="Role in Land"
@@ -548,15 +548,18 @@ const LandingPage = () => {
                                             base="lg"
                                             lg="23px"
                                         >
-                                            {"We are creating an ecosystem where your NFT's are more than Art, we think in our community and we want to give you a little piece back for the trust you put into this project."}
-                                             <br /> 
-                                            The token rewards you
-                                            in the ecosystem and has unique
-                                            features that you will love!! The
-                                            Wanderers travel token, is the
-                                            native currency in the ecosystem, it
-                                            is based on ERC20 making it highly
-                                            diverse and easy to use. Token listing coming soon!
+                                            {
+                                                "We are creating an ecosystem where your NFT's are more than Art, we think in our community and we want to give you a little piece back for the trust you put into this project."
+                                            }
+                                            <br />
+                                            The token rewards you in the
+                                            ecosystem and has unique features
+                                            that you will love!! The Wanderers
+                                            travel token, is the native currency
+                                            in the ecosystem, it is based on
+                                            ERC20 making it highly diverse and
+                                            easy to use. Token listing coming
+                                            soon!
                                         </Paragraph>
                                     </LineWrapper>
                                 </Col>
@@ -814,41 +817,38 @@ const LandingPage = () => {
                     }}
                 >
                     <div className="section">
-                        <Row className="mb-12 lg:mb-16 xs:mb-2" >
-                                <Col
-                                    xs={24}
-                                    lg={7}
-                                    className="text-center lg:text-left"
+                        <Row className="mb-12 lg:mb-16 xs:mb-2">
+                            <Col
+                                xs={24}
+                                lg={7}
+                                className="text-center lg:text-left"
+                            >
+                                <HeaderText
+                                    base="4xl"
+                                    lg="89px"
+                                    className="text-primary leading-none tracking-widest"
                                 >
-                                    <HeaderText
-                                        base="4xl"
-                                        lg="89px"
-                                        className="text-primary leading-none tracking-widest"
-                                    >
-                                        Meet
-                                    </HeaderText>
-                                    <HeaderText
-                                        base="2xl"
-                                        lg="53px"
-                                        className="text-info font-semibold leading-none font-saira-condensed lg:relative lg:-right-32"
-                                    >
-                                        The team
-                                    </HeaderText>
-                                </Col>
-                                <Col xs={24} lg={17} className="pt-4 lg:pt-12">
-                                    
-                                        <Paragraph
-                                            base="lg"
-                                            lg="23px"
-                                            className="text-blue-4 lg:pl-44 text-justify"
-                                        >
-                                           
-                                        </Paragraph>
-                                </Col>
+                                    Meet
+                                </HeaderText>
+                                <HeaderText
+                                    base="2xl"
+                                    lg="53px"
+                                    className="text-info font-semibold leading-none font-saira-condensed lg:relative lg:-right-32"
+                                >
+                                    The team
+                                </HeaderText>
+                            </Col>
+                            <Col xs={24} lg={17} className="pt-4 lg:pt-12">
+                                <Paragraph
+                                    base="lg"
+                                    lg="23px"
+                                    className="text-blue-4 lg:pl-44 text-justify"
+                                ></Paragraph>
+                            </Col>
                         </Row>
                         <Row className="lg:pt-12 xs:pt-2" gutter={[10, 50]}>
                             <Col md={8} sm={8} lg={8} xl={8}>
-                                <div className='flex flex-row'>
+                                <div className="flex flex-row">
                                     <div>
                                         <img
                                             className="w-full h-auto"
@@ -879,7 +879,7 @@ const LandingPage = () => {
                                 </div>
                             </Col>
                             <Col md={8} sm={8} lg={8} xl={8}>
-                                <div className='flex flex-row'>
+                                <div className="flex flex-row">
                                     <div>
                                         <img
                                             className="w-full h-auto"
@@ -910,7 +910,7 @@ const LandingPage = () => {
                                 </div>
                             </Col>
                             <Col md={8} sm={8} lg={8} xl={8}>
-                                <div className='flex flex-row'>
+                                <div className="flex flex-row">
                                     <div>
                                         <img
                                             className="w-full h-auto"
@@ -935,13 +935,13 @@ const LandingPage = () => {
                                             }}
                                             className="max-w-full"
                                         >
-                                         Art Director   
+                                            Art Director
                                         </Article>
                                     </div>
                                 </div>
                             </Col>
                             <Col md={8} sm={8} lg={8} xl={8}>
-                                <div className='flex flex-row'>
+                                <div className="flex flex-row">
                                     <div>
                                         <img
                                             className="w-full h-auto"
@@ -959,8 +959,7 @@ const LandingPage = () => {
                                                 lg: '2xl',
                                             }}
                                             paragraphProps={{
-                                                className:
-                                                    'text-blue-4 pl-6 ',
+                                                className: 'text-blue-4 pl-6 ',
                                                 base: 'lg',
                                                 lg: '23px',
                                             }}
@@ -972,7 +971,7 @@ const LandingPage = () => {
                                 </div>
                             </Col>
                             <Col md={8} sm={8} lg={8} xl={8}>
-                                <div className='flex flex-row'>
+                                <div className="flex flex-row">
                                     <div>
                                         <img
                                             className="w-full h-auto"
@@ -1003,7 +1002,7 @@ const LandingPage = () => {
                                 </div>
                             </Col>
                             <Col md={8} sm={8} lg={8} xl={8}>
-                                <div className='flex flex-row'>
+                                <div className="flex flex-row">
                                     <div>
                                         <img
                                             className="w-full h-auto"
@@ -1028,7 +1027,7 @@ const LandingPage = () => {
                                             }}
                                             className="max-w-full"
                                         >
-                                         Strategy   
+                                            Strategy
                                         </Article>
                                     </div>
                                 </div>
@@ -1084,7 +1083,9 @@ const LandingPage = () => {
                                 type="link"
                                 className="h-16 w-16 lg:h-24 lg:w-24 p-0"
                                 onClick={() =>
-                                    windowOpen('https://discord.gg/thewanderers')
+                                    windowOpen(
+                                        'https://discord.gg/thewanderers'
+                                    )
                                 }
                             >
                                 <OctagonDiscordSVG width="100%" height="100%" />
