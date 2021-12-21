@@ -35,7 +35,7 @@ import {
     OctagonTwitterSVG,
 } from '../assets/svg/icons'
 // import { BackgroundSectionSVG } from '../assets/svg/background'
-import RoadMapSVG from './../assets/svg/utilities/RoadMapSVG'
+// import RoadMapSVG from './../assets/svg/utilities/RoadMapSVG'
 import useWindowDimensions from './../customHooks/useWindowDimensions'
 import { returnValueByScreenWidth } from '../services/stylesServices'
 // import { sectionsImages } from '../assets/images/sections'
@@ -44,6 +44,7 @@ import { Logo1SVG } from '../assets/svg/brand'
 import AnimDisplayFromTop from './../components/Animations/AnimDisplayFromTop'
 import windowOpen from '../services/windowOpen'
 import CollectionSection from '../components/Collection/CollectionSection'
+import { RoadMapMobSVG } from '../assets/svg/utilities'
 
 const { Header, Content } = Layout
 // const { Countdown } = Statistic
@@ -93,7 +94,7 @@ const LandingPage = () => {
     const { width } = useWindowDimensions()
     const [imageIndex, setImageIndex] = useState(0)
     const [collapseFaq, setCollapseFAQ] = useState(true)
-    const [roadKey, setSelectedKey] = useState(1)
+    // const [roadKey, setSelectedKey] = useState(1)
     // const [videoReady, playVideo] = useState(false)
 
     const sliderLandSettings = {
@@ -620,11 +621,8 @@ const LandingPage = () => {
                                 </Article>
                             </div>
 
-                            <div className="css-generic max-w-full">
-                                <RoadMapSVG
-                                    selectedKey={roadKey}
-                                    onSelectedKey={setSelectedKey}
-                                />
+                            <div className="css-generic max-w-full flex justify-center">
+                                <RoadMapMobSVG />
                             </div>
                         </div>
                     </div>
