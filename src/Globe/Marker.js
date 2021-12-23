@@ -1,17 +1,30 @@
 const THREE = require('three')
 
-const calculateHtmlPosition = function () {
+const calculatePositionOnCanvas = function () {
+    const topOffset =
+        this.canvas.getBoundingClientRect().top +
+        document.documentElement.scrollTop
     const widthHalf = this.opts.canvasWidth / 2
     const heightHalf = this.opts.canvasHeight / 2
     const temp = this.marker.position.clone()
     temp.project(this.camera)
     temp.x = temp.x * widthHalf + widthHalf
-    temp.y = -(temp.y * heightHalf) + heightHalf
+    temp.y = -(temp.y * heightHalf) + heightHalf - topOffset
 
     return temp
 }
 
-function Marker(posX, posY, posZ, globe, camera, canvas, htmlContainer, _opts) {
+function Marker(
+    posX,
+    posY,
+    posZ,
+    label,
+    globe,
+    camera,
+    canvas,
+    htmlContainer,
+    _opts
+) {
     this.posX = posX
     this.posY = posY
     this.posZ = posZ
@@ -19,7 +32,9 @@ function Marker(posX, posY, posZ, globe, camera, canvas, htmlContainer, _opts) {
     this.htmlContainer = htmlContainer
     this.showHtml = false
     this.camera = camera
-    this.enableHtml = true
+    this.label = label
+    this.markerHover = false
+    this.canvas = canvas
 
     const opts = {
         canvasWidth: 0,
@@ -30,7 +45,6 @@ function Marker(posX, posY, posZ, globe, camera, canvas, htmlContainer, _opts) {
         lineHeight: 45,
         lineWidth: 8,
         highLightColor: 0x00ff00,
-        data: {},
     }
 
     if (_opts) {
@@ -48,6 +62,7 @@ function Marker(posX, posY, posZ, globe, camera, canvas, htmlContainer, _opts) {
 
     this.markerGeometry = new THREE.CircleGeometry(opts.radius, opts.segments)
     this.markerMaterial = new THREE.MeshBasicMaterial({ color: opts.color })
+    // this.markerMaterial.side = THREE.DoubleSide
     this.marker = new THREE.Mesh(this.markerGeometry, this.markerMaterial)
 
     this.marker.lookAt(this.normal)
@@ -90,39 +105,38 @@ function Marker(posX, posY, posZ, globe, camera, canvas, htmlContainer, _opts) {
 
     this.globe.add(this.marker)
 
-    this.element = document.createElement('div')
-    this.element.textContent = 'Text'
+    // this.element = document.createElement('div')
+    // this.element.textContent = this.label
 
-    this.element.style.color = '#ff0'
-    this.element.style.position = 'absolute'
-    this.element.style.left = 0
-    this.element.style.top = 0
+    // this.element.style.color = '#ff0'
+    // this.element.style.position = 'absolute'
+    // this.element.style.left = 0
+    // this.element.style.top = 0
 }
 
 Marker.prototype.selected = function () {
     this.marker.remove(this.lightTrailMesh1)
     this.marker.remove(this.lightTrailMesh2)
     this.marker.material = this.highlightedMaterial
-
-    if (this.enableHtml) {
-        this.htmlContainer.append(this.element)
-
-        this.showHtml = true
-
-        const position = calculateHtmlPosition.call(this)
-        this.element.style.transform = `translate(50%, -50%) translate(${position.x}px,${position.y}px)`
-    }
+    this.markerHover = true
 }
 
 Marker.prototype.unSelected = function () {
     this.marker.add(this.lightTrailMesh1)
     this.marker.add(this.lightTrailMesh2)
     this.marker.material = this.markerMaterial
+    this.markerHover = false
 
-    if (this.showHtml) {
-        this.htmlContainer.removeChild(this.element)
-        this.showHtml = false
-    }
+    // if (this.showHtml) {
+    //     this.htmlContainer.removeChild(this.element)
+    //     this.showHtml = false
+    // }
+}
+
+Marker.prototype.getMakerPositionOnCanvas = function () {
+    const pos = calculatePositionOnCanvas.call(this)
+    const { x, y, z } = pos
+    return { x, y, z }
 }
 
 Marker.prototype.clearHtml = function () {
@@ -134,10 +148,6 @@ Marker.prototype.clearHtml = function () {
 
 Marker.prototype.setEnabledHtml = function (enable) {
     this.enableHtml = enable
-}
-
-Marker.prototype.getData = function () {
-    return this.opts.data
 }
 
 module.exports = Marker

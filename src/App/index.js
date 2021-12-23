@@ -1,4 +1,5 @@
 import React from 'react'
+import Router from '../Router'
 // import useConnect from '../hooks/useConnect'
 import '../styles/App.less'
 // import { Widget } from '@maticnetwork/wallet-widget'
@@ -6,8 +7,8 @@ import '../styles/App.less'
 // import LandingPage from '../views/LandingPage'
 // import useDeactivateListener from './../hooks/useDeactivateListener'
 // import useEffectOnce from './../hooks/useEffectOnce'
-import MarketView from '../views/MarketView'
-
+// import MarketView from '../views/MarketView'
+// import DefaultLayout from './../components/Layouts/DefaultLayout'
 // const widget = new Widget({
 //     target: '#ethBridge',
 //     appName: 'The_wanderers_bridge',
@@ -27,7 +28,7 @@ const App = () => {
 
     return (
         <React.Fragment>
-            <MarketView />
+            <Router />
         </React.Fragment>
     )
 }

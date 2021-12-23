@@ -1,9 +1,37 @@
 /* eslint-disable no-var */
 const THREE = require('three')
-const CameraControls = require('camera-controls/dist/camera-controls')
+const CameraControls = require('camera-controls/dist/camera-controls.js')
 const TWEEN = require('@tweenjs/tween.js')
 const Marker = require('./Marker')
 const utils = require('./utils')
+
+// const onRest = function () {
+//     this.cameraControls.removeEventListener('rest', onRest)
+//     this.userDragging = false
+//     this.enabledRotation = true
+// }
+
+// const onControlStart = function () {
+//     this.cameraControls.removeEventListener('rest', onRest)
+//     this.userDragging = true
+//     this.enabledRotation = false
+// }
+
+// const onControlEnd = function () {
+//     if (this.cameraControls.active) {
+//         this.cameraControls.addEventListener('rest', onRest)
+//     } else {
+//         onRest()
+//     }
+// }
+
+// const onTransitionStart = () => {
+//     if (this.userDragging) return
+
+//     this.enabledRotation = false
+
+//     this.cameraControls.addEventListener('rest', onRest)
+// }
 
 const addInitialData = function () {
     if (this.data.length === 0) return
@@ -12,9 +40,10 @@ const addInitialData = function () {
         const next = this.data.pop()
         const {
             coordinates: { x, y, z },
+            label,
         } = next
 
-        this.addMarker(x, y, z)
+        this.addMarker(x, y, z, label)
     }
 }
 
@@ -23,17 +52,22 @@ const createGlobe = function () {
         this.scene.remove(this.globe)
     }
 
-    const globeGeo = new THREE.SphereGeometry(this.radius, 40, 30)
+    const globeGeo = new THREE.IcosahedronBufferGeometry(this.radius, 50, 50)
     const globeMaterial = new THREE.MeshBasicMaterial()
-    const textureGlobe = new THREE.TextureLoader().load('img/dot.png')
+    const textureGlobe = new THREE.TextureLoader().load('img/earth-dots.png')
 
-    textureGlobe.wrapS = THREE.RepeatWrapping
-    textureGlobe.wrapT = THREE.RepeatWrapping
-    textureGlobe.repeat.set(80, 80)
+    // textureGlobe.wrapS = THREE.RepeatWrapping
+    // textureGlobe.wrapT = THREE.RepeatWrapping
+    // textureGlobe.repeat.set(80, 80)
 
-    const alphaGlobe = new THREE.TextureLoader().load('img/earth_1.png')
+    // const alphaGlobe = new THREE.TextureLoader().load('img/earth_1.png')
 
-    globeMaterial.map = alphaGlobe
+    globeMaterial.map = textureGlobe
+    // globeMaterial.alphaMap = alphaGlobe
+    globeMaterial.side = THREE.DoubleSide
+    globeMaterial.transparent = true
+    // globeMaterial.wireframe = true
+    globeMaterial.blending = THREE.AdditiveBlending
 
     this.globe = new THREE.Mesh(globeGeo, globeMaterial)
 
@@ -55,7 +89,6 @@ const createArrowHelper = function () {
 }
 
 const raycastGlobe = function () {
-    this.raycaster.setFromCamera(this.pointer, this.camera)
     this.intersect = this.raycaster.intersectObject(this.globe, false)
     if (this.intersect.length > 0) {
         const _intersect = this.intersect[0]
@@ -74,9 +107,7 @@ const raycastGlobe = function () {
 
 const raycastMarkers = function () {
     const meshes = this.markers.reduce((acc, m) => [...acc, m.marker], [])
-    this.prevIntersects = this.intersects
     this.intersects = this.raycaster.intersectObjects(meshes, false)
-
     if (this.intersects.length > 0) {
         const n = new THREE.Vector3()
         n.copy(this.intersects[0].face.normal)
@@ -94,10 +125,11 @@ const raycastMarkers = function () {
 }
 
 const markerAnimate = function () {
+    if (this.intersects.length > this.markers.length) return
     this.markers.forEach(({ marker: o }, i) => {
         if (this.intersectedObject && this.intersectedObject.uuid === o.uuid) {
             this.markers[i].selected()
-        } else {
+        } else if (this.markers[i].markerHover) {
             this.markers[i].unSelected()
         }
     })
@@ -105,8 +137,9 @@ const markerAnimate = function () {
 
 const raycastIntersect = function () {
     this.raycaster.setFromCamera(this.pointer, this.camera)
-    raycastMarkers.call(this)
+    if (this.mode === 'default') raycastMarkers.call(this)
     if (this.mode === 'addMarker') raycastGlobe.call(this)
+    this.raycastInit = true
 }
 
 const setArc3D = function (pointStart, pointEnd, smoothness, color, clockWise) {
@@ -167,7 +200,7 @@ const createPath = function (target) {
         false
     )
 
-    this.scene.add(arc.mesh)
+    // this.scene.add(arc.mesh)
 
     return { points: arc._points, angle: (arc.angle * 180) / Math.PI }
 }
@@ -185,7 +218,7 @@ const zoomIn = function (callback) {
         .start()
 }
 
-const zoomInOut = function (duration, callback) {
+const zoomOut = function (duration, callback) {
     var altitude = this.getCameraAltitude()
     const dolly = { progress: altitude }
 
@@ -236,18 +269,18 @@ const checkCameraAltitude = function () {
     }
 }
 
-const setEnabledMarkersHtml = function () {
-    if (this.prevEnabledMarkersHtml !== this.enabledMarkersHtml) {
-        this.prevEnabledMarkersHtml = this.enabledMarkersHtml
+// const setEnabledMarkersHtml = function () {
+//     if (this.prevEnabledMarkersHtml !== this.enabledMarkersHtml) {
+//         this.prevEnabledMarkersHtml = this.enabledMarkersHtml
 
-        this.markers.forEach((m, i) => {
-            m.setEnabledHtml(this.enabledMarkersHtml)
-            if (!this.enabledMarkersHtml) {
-                m.clearHtml()
-            }
-        })
-    }
-}
+//         this.markers.forEach((m, i) => {
+//             m.setEnabledHtml(this.enabledMarkersHtml)
+//             if (!this.enabledMarkersHtml) {
+//                 m.clearHtml()
+//             }
+//         })
+//     }
+// }
 
 function Globe(width, height, opts = {}) {
     CameraControls.install({ THREE: THREE })
@@ -260,12 +293,13 @@ function Globe(width, height, opts = {}) {
     this.prevMarkerSelected = null
     this.enabledMarkersHtml = true
     this.cameraUpdated = false
-
+    this.enabledRotation = true
+    this.userDragging = false
     // Raycast
     this.intersectedObject = null
-    this.prevIntersects = null
     this.intersects = []
     this.intersect = []
+    this.raycastInit = false
 
     const defaults = {
         minZoom: 325,
@@ -308,10 +342,18 @@ Globe.prototype.init = function (cb) {
     this.cameraControls = new CameraControls(this.camera, this.domElement)
     this.cameraControls.minDistance = this.minZoom
     this.cameraControls.maxDistance = this.maxZoom
+    this.cameraControls.mouseButtons.right = CameraControls.ACTION.NONE
+    this.cameraControls.draggingDampingFactor = 0.45
+    this.cameraControls.azimuthRotateSpeed = 0.2
+    this.cameraControls.polarRotateSpeed = 0.2
+
+    // this.cameraControls.draggingDampingFactor = 1
 
     createGlobe.call(this)
     createArrowHelper.call(this)
+
     this.raycaster = new THREE.Raycaster()
+    // this.initListeners()
 }
 
 Globe.prototype.destroy = function (cb) {
@@ -333,19 +375,22 @@ Globe.prototype.addMarker = function (posX, posY, posZ, label) {
         posX,
         posY,
         posZ,
+        label,
         this.globe,
         this.camera,
         this.domElement,
         this.htmlContainer,
-        { canvasWidth: this.width, canvasHeight: this.height }
+        {
+            canvasWidth: this.width,
+            canvasHeight: this.height,
+        }
     )
-
     this.markers.push(marker)
 
     return marker
 }
 
-Globe.prototype.moveCameraToMarker = function (point) {
+Globe.prototype.moveCameraToMarker = function (point, cb) {
     if (!this.activeTransition) {
         const distance = utils.distanceTo(this.camera.position, point)
         const altitude = this.getCameraAltitude()
@@ -356,17 +401,19 @@ Globe.prototype.moveCameraToMarker = function (point) {
 
         this.cameraControls.enabled = false
         this.activeTransition = true
+        this.enabledRotation = false
 
         TWEEN.removeAll()
         if (altitude !== this.maxZoom && distance > diff * 0.5) {
             this.prevMarkerSelected = point
-            zoomInOut.call(this, distance, () => {
+            zoomOut.call(this, distance, () => {
                 const path = createPath.call(this, point)
 
                 followPath.call(this, path.points, distance, () => {
                     zoomIn.call(this, () => {
                         this.cameraControls.enabled = true
                         this.activeTransition = false
+                        if (typeof cb === 'function') cb()
                     })
                 })
             })
@@ -377,14 +424,41 @@ Globe.prototype.moveCameraToMarker = function (point) {
                 zoomIn.call(this, () => {
                     this.cameraControls.enabled = true
                     this.activeTransition = false
+                    if (typeof cb === 'function') cb()
                 })
             })
         }
     }
 }
 
+Globe.prototype.cameraToOriginalOrbit = function () {
+    if (!this.activeTransition) {
+        const altitude = this.getCameraAltitude()
+        if (altitude === this.maxZoom) return
+
+        this.cameraControls.enabled = false
+        this.activeTransition = true
+        this.enabledRotation = false
+
+        TWEEN.removeAll()
+        zoomOut.call(this, 400, () => {
+            this.cameraControls.enabled = true
+            this.activeTransition = false
+            this.enabledRotation = true
+        })
+    }
+}
+
+Globe.prototype.hasIntersected = function () {
+    return this.intersects.length > 0
+}
+
 Globe.prototype.getCameraAltitude = function () {
     return utils.distanceTo(this.camera.position, new THREE.Vector3(0, 0, 0))
+}
+
+Globe.prototype.stopTweenAnimation = function () {
+    TWEEN.removeAll()
 }
 
 Globe.prototype.tick = function (delta) {
@@ -395,8 +469,6 @@ Globe.prototype.tick = function (delta) {
     if (!this.firstRunTime) {
         this.firstRunTime = Date.now()
     }
-    // console.log(this.data)
-    addInitialData.call(this)
 
     // this.markers.forEach((m) => {
     // 	m.updateElementPosition();
@@ -406,10 +478,16 @@ Globe.prototype.tick = function (delta) {
         this.cameraUpdated = false
         checkCameraAltitude.call(this)
     }
-    setEnabledMarkersHtml.call(this)
+    // setEnabledMarkersHtml.call(this)
+
+    addInitialData.call(this)
 
     raycastIntersect.call(this)
-    markerAnimate.call(this)
+    if (this.raycastInit) markerAnimate.call(this)
+
+    if (!this.hasIntersected() && this.enabledRotation) {
+        this.cameraControls.azimuthAngle -= 10 * delta * THREE.MathUtils.DEG2RAD
+    }
 
     this.cameraControls.update(delta)
     TWEEN.update()

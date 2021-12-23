@@ -35,6 +35,7 @@ module.exports = {
             '500px': '500px',
             '1000px': '1000px',
             '1100px': '1100px',
+            '1300px': '1300px',
         },
         fontFamily: {
             'russo-one': ['Russo One', 'sans-serif'],
