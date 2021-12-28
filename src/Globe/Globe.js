@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 /* eslint-disable no-var */
 const THREE = require('three')
 const CameraControls = require('camera-controls/dist/camera-controls.js')
@@ -107,6 +108,7 @@ const raycastGlobe = function () {
 
 const raycastMarkers = function () {
     const meshes = this.markers.reduce((acc, m) => [...acc, m.marker], [])
+
     this.intersects = this.raycaster.intersectObjects(meshes, false)
     if (this.intersects.length > 0) {
         const n = new THREE.Vector3()
@@ -128,17 +130,20 @@ const markerAnimate = function () {
     if (this.intersects.length > this.markers.length) return
     this.markers.forEach(({ marker: o }, i) => {
         if (this.intersectedObject && this.intersectedObject.uuid === o.uuid) {
-            this.markers[i].selected()
+            if (!this.markers[i].markerHover) this.markers[i].selected()
         } else if (this.markers[i].markerHover) {
-            this.markers[i].unSelected()
+            if (this.markers[i].markerHover) this.markers[i].unSelected()
         }
     })
 }
 
 const raycastIntersect = function () {
+    if (!this.raycaster) this.raycaster = new THREE.Raycaster()
+    console.log('active', this.active)
+
     this.raycaster.setFromCamera(this.pointer, this.camera)
     if (this.mode === 'default') raycastMarkers.call(this)
-    if (this.mode === 'addMarker') raycastGlobe.call(this)
+    // if (this.mode === 'addMarker') raycastGlobe.call(this)
     this.raycastInit = true
 }
 
@@ -208,7 +213,6 @@ const createPath = function (target) {
 const zoomIn = function (callback) {
     var altitude = this.getCameraAltitude()
     const dolly = { progress: altitude }
-
     new TWEEN.Tween(dolly)
         .to({ progress: this.minZoom }, 250)
         .onUpdate(() => {
@@ -285,11 +289,12 @@ const checkCameraAltitude = function () {
 function Globe(width, height, opts = {}) {
     CameraControls.install({ THREE: THREE })
 
+    this.active = false
     this.width = width
     this.height = height
     this.markers = []
     this.activeTransition = false
-    this.pointer = new THREE.Vector2()
+    this.pointer = new THREE.Vector2(-100, 100)
     this.prevMarkerSelected = null
     this.enabledMarkersHtml = true
     this.cameraUpdated = false
@@ -352,7 +357,6 @@ Globe.prototype.init = function (cb) {
     createGlobe.call(this)
     createArrowHelper.call(this)
 
-    this.raycaster = new THREE.Raycaster()
     // this.initListeners()
 }
 
@@ -391,24 +395,28 @@ Globe.prototype.addMarker = function (posX, posY, posZ, label) {
 }
 
 Globe.prototype.moveCameraToMarker = function (point, cb) {
+    const distance = utils.distanceTo(this.camera.position, point)
+    const range = this.minZoom - this.radius
+    if (
+        JSON.stringify(point) === JSON.stringify(this.prevMarkerSelected) &&
+        distance < range
+    ) {
+        return
+    }
+
     if (!this.activeTransition) {
-        const distance = utils.distanceTo(this.camera.position, point)
-        const altitude = this.getCameraAltitude()
-
-        const diff = this.maxZoom - this.minZoom
-
-        if (point === this.prevMarkerSelected && distance < diff * 0.4) return
-
         this.cameraControls.enabled = false
         this.activeTransition = true
         this.enabledRotation = false
 
+        const altitude = this.getCameraAltitude()
+        const diff = this.maxZoom - this.minZoom * 0.4
+
         TWEEN.removeAll()
-        if (altitude !== this.maxZoom && distance > diff * 0.5) {
-            this.prevMarkerSelected = point
+        this.prevMarkerSelected = point
+        if (altitude !== this.maxZoom && distance > diff) {
             zoomOut.call(this, distance, () => {
                 const path = createPath.call(this, point)
-
                 followPath.call(this, path.points, distance, () => {
                     zoomIn.call(this, () => {
                         this.cameraControls.enabled = true
@@ -431,6 +439,14 @@ Globe.prototype.moveCameraToMarker = function (point, cb) {
     }
 }
 
+// Calculate distance from camera to point is greater than a diff
+Globe.prototype.distanceFromCameraToPointRange = function (point, range) {
+    const distance = utils.distanceTo(this.camera.position, point)
+    const diff = (this.maxZoom - this.minZoom) * range
+
+    return distance > diff
+}
+
 Globe.prototype.cameraToOriginalOrbit = function () {
     if (!this.activeTransition) {
         const altitude = this.getCameraAltitude()
@@ -441,6 +457,7 @@ Globe.prototype.cameraToOriginalOrbit = function () {
         this.enabledRotation = false
 
         TWEEN.removeAll()
+
         zoomOut.call(this, 400, () => {
             this.cameraControls.enabled = true
             this.activeTransition = false
@@ -459,6 +476,26 @@ Globe.prototype.getCameraAltitude = function () {
 
 Globe.prototype.stopTweenAnimation = function () {
     TWEEN.removeAll()
+}
+
+Globe.prototype.getMarkerByUUID = function (uuid) {
+    const marker = this.markers.find(({ marker: m }) => {
+        return m.uuid === uuid
+    })
+    return marker
+}
+
+Globe.prototype.getMarkerByLabel = function (label) {
+    const marker = this.markers.find(({ label: l }) => {
+        return l === label
+    })
+    return marker
+}
+
+Globe.prototype.getSelectedMaker = function () {
+    if (this.intersects.length === 0) return -1
+    const markerMesh = this.intersects[0]
+    return this.getMarkerByUUID(markerMesh.object.uuid)
 }
 
 Globe.prototype.tick = function (delta) {

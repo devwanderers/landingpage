@@ -9,6 +9,8 @@ import { AutoComplete, Input, Select, Button, Row, Col } from 'antd'
 import { SearchOutlined } from '@ant-design/icons'
 import { filterSearch } from './../services/filters'
 import { landsImages } from './../assets/images/lands/index'
+import { FrameTopSVG, FrameBottomSVG } from '../assets/svg/frames'
+// import { FrameBottomSVG } from './../assets/svg/frames/index'
 
 const data = [
     {
@@ -109,12 +111,13 @@ const lands = [
 
 const MarketView = () => {
     const globeContainerRef = useRef(null)
+    const globeRef = useRef(null)
     const searchButtonRef = useRef(null)
     const [markers, setMarkers] = useState(data)
     const [globeSizes, setGlobalSizes] = useState({ width: 0, height: 0 })
     const [searchText, setSearchText] = useState()
     const [selectedText, setSelected] = useState()
-    const [markerSelected, setMarkerSelected] = useState()
+    // const [markerSelected, setMarkerSelected] = useState()
 
     useEffectOnce(() => {
         setGlobalSizes({
@@ -134,7 +137,7 @@ const MarketView = () => {
         const marker = markers.filter((m) => m.label === val)[0]
         setSelected(marker.label)
         setSearchText(marker.label)
-        setMarkerSelected(marker.label)
+        globeRef.current.goToMarkerSelected(marker.label)
     }
 
     const handleOnChangeSelectAuto = (val) => {
@@ -146,7 +149,6 @@ const MarketView = () => {
     const handleOnClickMarker = (label) => {
         setSelected(label)
         setSearchText(label)
-        setMarkerSelected(label)
     }
 
     const handleOnSearch = (value) => {
@@ -172,22 +174,25 @@ const MarketView = () => {
         if (e.code === 'Enter') {
             if (searchText === '') {
                 setSelected(undefined)
-                setMarkerSelected(undefined)
-            } else if (selectedText) setMarkerSelected(selectedText)
+
+                globeRef.current.moveCameraToOriginalOrbit()
+                // setMarkerSelected(undefined)
+            } else if (selectedText)
+                globeRef.current.goToMarkerSelected(selectedText)
         }
     }
 
     const onClick = () => {
-        if (selectedText) setMarkerSelected(selectedText)
+        if (selectedText) globeRef.current.goToMarkerSelected(selectedText)
         else if (searchText === '') {
             setSelected(undefined)
-            setMarkerSelected(undefined)
+            globeRef.current.moveCameraToOriginalOrbit()
         }
     }
 
     const onClear = () => {
         setSelected(undefined)
-        setMarkerSelected(undefined)
+        globeRef.current.moveCameraToOriginalOrbit()
     }
 
     const filter = selectedText
@@ -199,14 +204,16 @@ const MarketView = () => {
         []
     )
     const optionsFilter = filterSearch(searchText, options)
+
     return (
-        <div className="w-full pb-10 bg-blue-3">
+        <div className="w-full pb-10 bg-blue-5">
             <div
                 ref={globeContainerRef}
                 className="w-full m-auto"
                 style={{ height: '600px' }}
             >
                 <GlobeComponent
+                    ref={globeRef}
                     data={markers}
                     width={globeSizes.width}
                     height={globeSizes.height}
@@ -214,9 +221,10 @@ const MarketView = () => {
                         setMarkers([...markers, { ...marker, label: '' }])
                     }
                     onClickMarker={handleOnClickMarker}
-                    selectedMarker={markerSelected}
+                    // selectedMarker={markerSelected}
                 />
             </div>
+
             <div className="">
                 <div className="relative max-w-1000px -top-5 flex justify-center items-center m-auto">
                     <Input.Group>
@@ -277,9 +285,9 @@ const MarketView = () => {
                     </Input.Group>
                 </div>
 
-                <div className="max-w-1300px m-auto  relative">
+                <div className="max-w-1300px m-auto relative">
                     <Row
-                        gutter={[12, 12]}
+                        gutter={[12, 20]}
                         className="m-0 px-0"
                         style={{ marginLeft: '0px', marginRight: '0px' }}
                     >
@@ -292,15 +300,27 @@ const MarketView = () => {
                                     xl={6}
                                     className=""
                                 >
-                                    <div className="rounded-lg bg-blue-3 cursor-pointer">
-                                        <div className="w-full h-64 border-2 p-5 border-green-0 rounded-t-md overflow-hidden">
+                                    <div className="rounded-lg  bg-blue-3 cursor-pointer">
+                                        <div className="relative w-full h-64 border-2 p-5 border-green-0 rounded-t-md">
+                                            <div
+                                                className="absolute left-0 right-0 px-20"
+                                                style={{ top: '-9px' }}
+                                            >
+                                                <FrameTopSVG />
+                                            </div>
+                                            <div
+                                                className="absolute left-0 right-0 px-8"
+                                                style={{ bottom: '-12px' }}
+                                            >
+                                                <FrameBottomSVG />
+                                            </div>
                                             <img
                                                 src={f.image}
                                                 alt={f.image}
                                                 className="w-auto h-full m-auto object-cover"
                                             />
                                         </div>
-                                        <div className="px-5 pt-2 pb-4 border-2 border-t-0 border-info rounded-b-md">
+                                        <div className="px-5 pt-5 pb-4 border-2 border-t-0 border-info rounded-b-md">
                                             <div className="text-center text-xl text-info">
                                                 {f.city}
                                             </div>

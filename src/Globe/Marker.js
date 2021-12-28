@@ -118,6 +118,7 @@ Marker.prototype.selected = function () {
     this.marker.remove(this.lightTrailMesh1)
     this.marker.remove(this.lightTrailMesh2)
     this.marker.material = this.highlightedMaterial
+    console.log('selected')
     this.markerHover = true
 }
 

@@ -2,6 +2,7 @@
 import React, { Component } from 'react'
 import Globe from '../../Globe/Globe'
 import * as THREE from 'three'
+import { AnimatePresence, motion } from 'framer-motion'
 
 class GlobeComponent extends Component {
     constructor(props) {
@@ -20,6 +21,7 @@ class GlobeComponent extends Component {
                 }),
                 {}
             ),
+            enableClick: true,
         }
 
         this.canvasRef = React.createRef()
@@ -50,14 +52,6 @@ class GlobeComponent extends Component {
             prevProps.height !== this.props.height
         ) {
             this.updateSize()
-        }
-        if (this.props.selectedMarker !== prevProps.selectedMarker) {
-            if (this.props.selectedMarker) {
-                this.goToMarkerSelected()
-            } else if (prevProps.selectedMarker && !this.props.selectedMarker) {
-                this.globe.prevMarkerSelected = null
-                this.globe.cameraToOriginalOrbit()
-            }
         }
     }
 
@@ -106,28 +100,32 @@ class GlobeComponent extends Component {
     }
 
     handleOnClickMarker = () => {
-        const markerMesh = this.globe.intersects[0]
-        // const point = markerMesh.object.position
-
-        const marker = this.globe.markers.find(({ marker: m }) => {
-            return m.uuid === markerMesh.object.uuid
-        })
-        // const data = marker.getData()
-
+        const marker = this.globe.getSelectedMaker()
+        if (marker === -1) return
+        this.goToMarkerSelected(marker.label)
         this.props.onClickMarker(marker.label)
-        // console.log({ data })
-        // this.globe.moveCameraToMarker(point)
     }
 
-    goToMarkerSelected = () => {
+    goToMarkerSelected = (marker) => {
+        const _marker =
+            typeof marker !== 'string'
+                ? marker
+                : this.globe.getMarkerByLabel(marker)
+        if (_marker === -1) return
+
         this.globe.stopTweenAnimation()
-        const label = this.props.selectedMarker
-        const marker = this.globe.markers.find((m) => {
-            return m.label === label
-        })
         // const data = marker.getData()
-        const point = new THREE.Vector3(marker.posX, marker.posY, marker.posZ)
+        const point = new THREE.Vector3(
+            _marker.posX,
+            _marker.posY,
+            _marker.posZ
+        )
         this.globe.moveCameraToMarker(point)
+    }
+
+    moveCameraToOriginalOrbit = () => {
+        this.globe.prevMarkerSelected = null
+        this.globe.cameraToOriginalOrbit()
     }
 
     updateSize = () => {
@@ -153,6 +151,9 @@ class GlobeComponent extends Component {
     }
 
     onMouseClick = (e) => {
+        if (!this.state.enableClick) return
+
+        this.setState({ enableClick: false })
         if (
             this.globe.intersect.length > 0 &&
             this.globe.mode === 'addMarker'
@@ -160,9 +161,12 @@ class GlobeComponent extends Component {
             this.addMarker()
         }
         if (this.globe.intersects.length > 0) {
-            // this.globe.enabledRotation = false
             this.handleOnClickMarker()
         }
+
+        setTimeout(() => {
+            this.setState({ enableClick: true })
+        }, 1000)
     }
 
     initListeners = () => {
@@ -177,8 +181,6 @@ class GlobeComponent extends Component {
             this.onMouseClick,
             false
         )
-        // this.globe.cameraControls.addEventListener('')
-        // this.globe.cameraControls.addEventListener('sleep', this.onCameraEnd)
     }
 
     removeListeners = () => {
@@ -258,18 +260,18 @@ class GlobeComponent extends Component {
             if (m.markerHover) return m
             return acc
         }, null)
+
         if (marker) {
             const position = marker.getMakerPositionOnCanvas()
             if (
                 JSON.stringify(position) !==
                 JSON.stringify(this.state.marker?.position)
             ) {
-                console.log({ position })
                 this.setState({
                     marker: { label: marker.label, position: position },
                 })
             }
-        } else {
+        } else if (this.state.marker) {
             this.setState({ marker: null })
         }
     }
@@ -300,33 +302,46 @@ class GlobeComponent extends Component {
         return (
             <div className="relative" style={{ width, height }}>
                 <div ref={this.htmlRef} className="absolute left-0 right-0 ">
-                    {marker && (
-                        <div
-                            onClick={() => {
-                                this.handleOnClickMarker()
-                            }}
-                            onWheel={(e) => e.preventDefault()}
-                            className="w-32 cursor-pointer select-none"
-                            style={{
-                                transform: `translate(-50%, -0%) translate(${marker.position.x}px,${marker.position.y}px)`,
-                            }}
-                        >
-                            <div className="h-32 w-32 rounded-full bg-primary p-3">
-                                <div className="w-full h-full bg-info rounded-full overflow-hidden">
-                                    <img
-                                        className="object-cover w-full h-full"
-                                        src={markers[marker.label].image}
-                                        alt={markers[marker.label].image}
-                                    />
+                    <AnimatePresence>
+                        {marker && (
+                            <motion.div
+                                className="w-32 cursor-pointer select-none"
+                                onClick={() => {
+                                    this.handleOnClickMarker()
+                                }}
+                                // onWheel={(e) => e.preventDefault()}
+                                style={{
+                                    transform: `translate(-50%, -0%) translate(${marker.position.x}px,${marker.position.y}px)`,
+                                }}
+                                initial={{
+                                    transform: 'translate(-50%, -0%)',
+                                    x: marker.position.x - 128 / 2,
+                                    y: marker.position.y,
+                                    scale: 0.4,
+                                }}
+                                animate={{ scale: 1 }}
+                                exit={{ scale: 0.4 }}
+                                transition={{
+                                    delay: 0.01,
+                                }}
+                            >
+                                <div className="h-32 w-32 rounded-full bg-primary p-3">
+                                    <div className="w-full h-full bg-info rounded-full overflow-hidden">
+                                        <img
+                                            className="object-cover w-full h-full"
+                                            src={markers[marker.label].image}
+                                            alt={markers[marker.label].image}
+                                        />
+                                    </div>
                                 </div>
-                            </div>
-                            <div className="relative w-full px-2  -top-5 text-white text-center">
-                                <div className="bg-blue-1 w-full">
-                                    {marker.label}
+                                <div className="relative w-full px-2  -top-5 text-white text-center">
+                                    <div className="bg-blue-1 w-full">
+                                        {marker.label}
+                                    </div>
                                 </div>
-                            </div>
-                        </div>
-                    )}
+                            </motion.div>
+                        )}
+                    </AnimatePresence>
                 </div>
                 <div ref={this.canvasRef} className="w-full h-full"></div>
             </div>
