@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 import React, { useState } from 'react'
 import GenericNavBar from './GenericNavbar'
 import { Button, Dropdown, Avatar } from 'antd'
@@ -25,31 +26,11 @@ const NoAuthNavBar = ({ logout, authenticated, ...rest }) => {
         <GenericNavBar
             {...rest}
             rightSection={
-                <React.Fragment>
-                    <Button
-                        type="link"
-                        className="h-full flex-1 btn tracking-wide text-xs lg:text-lg leading-none text-black-1 font-light hover:text-black-1 active:text-black-1 focus:text-black-1"
-                    >
-                        <span>WHITE PAPER</span>
-                    </Button>{' '}
-                    {authenticated && (
-                        <div className="h-full flex justify-center items-center">
-                            <Dropdown overlay={menu} trigger={['click']}>
-                                <a
-                                    className="ant-dropdown-link"
-                                    onClick={(e) => e.preventDefault()}
-                                >
-                                    <Avatar
-                                        style={{ backgroundColor: '#f9a24f' }}
-                                        size="large"
-                                    >
-                                        U
-                                    </Avatar>
-                                </a>
-                            </Dropdown>
-                        </div>
-                    )}
-                </React.Fragment>
+                <div className="flex justify-center items-center">
+                    <button className="border border-blue-2 text-blue-2 text-lg px-12">
+                        Connect
+                    </button>
+                </div>
             }
         />
     ) : (

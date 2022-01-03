@@ -5,12 +5,15 @@ import GlobeComponent from './../components/GlobeComponent/index'
 // import useResponsive from './../hooks/useResponsive'
 import useEventListener from './../hooks/useEventListener'
 import useEffectOnce from './../hooks/useEffectOnce'
-import { AutoComplete, Input, Select, Button, Row, Col } from 'antd'
+import { AutoComplete, Input, Select, Button, Row, Col, Tabs } from 'antd'
 import { SearchOutlined } from '@ant-design/icons'
+
 import { filterSearch } from './../services/filters'
 import { landsImages } from './../assets/images/lands/index'
 import { FrameTopSVG, FrameBottomSVG } from '../assets/svg/frames'
 // import { FrameBottomSVG } from './../assets/svg/frames/index'
+
+const { TabPane } = Tabs
 
 const data = [
     {
@@ -117,6 +120,7 @@ const MarketView = () => {
     const [globeSizes, setGlobalSizes] = useState({ width: 0, height: 0 })
     const [searchText, setSearchText] = useState()
     const [selectedText, setSelected] = useState()
+    // const [tab, setTab] = useState(1)
     // const [markerSelected, setMarkerSelected] = useState()
 
     useEffectOnce(() => {
@@ -206,7 +210,7 @@ const MarketView = () => {
     const optionsFilter = filterSearch(searchText, options)
 
     return (
-        <div className="w-full pb-10 bg-blue-5">
+        <div className="w-full  bg-blue-5">
             <div
                 ref={globeContainerRef}
                 className="w-full m-auto"
@@ -226,7 +230,7 @@ const MarketView = () => {
             </div>
 
             <div className="">
-                <div className="relative max-w-1000px -top-5 flex justify-center items-center m-auto">
+                <div className="relative max-w-1000px -mt-5 flex justify-center items-center m-auto">
                     <Input.Group>
                         <Row>
                             <Col
@@ -284,12 +288,16 @@ const MarketView = () => {
                         </Row>
                     </Input.Group>
                 </div>
-
-                <div className="max-w-1300px m-auto relative">
+            </div>
+            <div className="py-10">
+                <div className="max-w-1300px m-auto relative ">
                     <Row
-                        gutter={[12, 20]}
+                        gutter={[14, 20]}
                         className="m-0 px-0"
-                        style={{ marginLeft: '0px', marginRight: '0px' }}
+                        style={{
+                            marginLeft: '0px',
+                            marginRight: '0px',
+                        }}
                     >
                         {filter.map((f) => {
                             return (
@@ -300,8 +308,8 @@ const MarketView = () => {
                                     xl={6}
                                     className=""
                                 >
-                                    <div className="rounded-lg  bg-blue-3 cursor-pointer">
-                                        <div className="relative w-full h-64 border-2 p-5 border-green-0 rounded-t-md">
+                                    <div className="rounded-lg bg-blue-5 ">
+                                        <div className="relative w-full h-64 border-2 p-5 border-green-0 rounded-t-md cursor-pointer">
                                             <div
                                                 className="absolute left-0 right-0 px-20"
                                                 style={{ top: '-9px' }}
@@ -310,7 +318,9 @@ const MarketView = () => {
                                             </div>
                                             <div
                                                 className="absolute left-0 right-0 px-8"
-                                                style={{ bottom: '-12px' }}
+                                                style={{
+                                                    bottom: '-12px',
+                                                }}
                                             >
                                                 <FrameBottomSVG />
                                             </div>
@@ -320,7 +330,7 @@ const MarketView = () => {
                                                 className="w-auto h-full m-auto object-cover"
                                             />
                                         </div>
-                                        <div className="px-5 pt-5 pb-4 border-2 border-t-0 border-info rounded-b-md">
+                                        <div className="px-5 pt-5 pb-4 border-2 border-t-0 border-info rounded-b-md cursor-pointer">
                                             <div className="text-center text-xl text-info">
                                                 {f.city}
                                             </div>

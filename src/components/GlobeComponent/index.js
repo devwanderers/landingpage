@@ -315,6 +315,7 @@ class GlobeComponent extends Component {
                                 }}
                                 initial={{
                                     transform: 'translate(-50%, -0%)',
+                                    // 128 is the width of div elemnent
                                     x: marker.position.x - 128 / 2,
                                     y: marker.position.y,
                                     scale: 0.4,
