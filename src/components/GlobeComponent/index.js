@@ -40,6 +40,7 @@ class GlobeComponent extends Component {
 
         this.canvasRef.current.appendChild(this.globe.domElement)
         this.globe.init()
+        this.globe.initGui()
         // this.globe.enabledRotation = false
         this.initListeners()
         this.initCameraControlsListeners()

@@ -1,11 +1,13 @@
 /* eslint-disable no-unused-vars */
 /* eslint-disable no-var */
 const THREE = require('three')
+const Lil = require('three/examples/jsm/libs/lil-gui.module.min')
 const CameraControls = require('camera-controls/dist/camera-controls.js')
 const TWEEN = require('@tweenjs/tween.js')
 const Marker = require('./Marker')
 const utils = require('./utils')
 
+const { GUI } = Lil
 // const onRest = function () {
 //     this.cameraControls.removeEventListener('rest', onRest)
 //     this.userDragging = false
@@ -324,6 +326,7 @@ function Globe(width, height, opts = {}) {
 
     this.renderer = new THREE.WebGL1Renderer({ antialias: true })
 
+    // this.renderer.setClearColorHex(0xffffff, 1)
     this.renderer.setPixelRatio(window.devicePixelRatio)
     this.renderer.setSize(window.innerWidth, window.innerHeight)
     this.renderer.sortObjects = false
@@ -333,9 +336,12 @@ function Globe(width, height, opts = {}) {
 
 Globe.prototype.init = function (cb) {
     this.scene = new THREE.Scene()
-    this.scene.add(new THREE.AmbientLight(0x050505))
+    this.scene.background = new THREE.Color(0x03152b)
+    // this.ambientLight = new THREE.AmbientLight()
 
-    this.scene.fog = new THREE.Fog(0x535ef3, 400, 2000)
+    this.scene.add(this.ambientLight)
+
+    // this.scene.fog = new THREE.Fog(0x535ef3, 400, 2000)
 
     this.camera = new THREE.PerspectiveCamera()
     this.camera.aspect = this.width / this.height
@@ -358,6 +364,12 @@ Globe.prototype.init = function (cb) {
     createArrowHelper.call(this)
 
     // this.initListeners()
+}
+
+Globe.prototype.initGui = function () {
+    // const gui = new GUI()
+    // const ambientLightFolder = gui.addFolder('THREE.AmbientLight')
+    // ambientLightFolder.open()
 }
 
 Globe.prototype.destroy = function (cb) {
