@@ -43,6 +43,7 @@
         "react-player": "^2.9.0",
         "react-redux": "^7.2.5",
         "react-scripts": "4.0.3",
+        "react-scroll": "^1.8.4",
         "react-slick": "^0.28.1",
         "react-spring": "^9.3.0",
         "react-svg": "^14.0.14",

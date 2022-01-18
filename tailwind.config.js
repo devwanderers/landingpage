@@ -34,6 +34,7 @@ module.exports = {
         },
         maxWidth: {
             '1000px': '1000px',
+            '1800px': '1800px',
         },
         fontFamily: {
             'russo-one': ['Russo One', 'sans-serif'],
@@ -61,6 +62,7 @@ module.exports = {
                 4: '#688CA5',
                 5: '#03152b',
                 6: '#041B37',
+                7: '#80c4e4',
             },
             black: {
                 1: '#1d1d1b',
@@ -94,7 +96,7 @@ module.exports = {
                 'render-mobil':
                     "url('/src/assets/images/backgrounds/render-fondo-mobil.jpg')",
                 earth: "url('/src/assets/images/backgrounds/bakgroundearth.png')",
-                floor: "url('/src/assets/images/backgrounds/fondo-transparencia.png')"
+                floor: "url('/src/assets/images/backgrounds/fondo-transparencia.png')",
             },
             margin: {
                 84: '21rem',

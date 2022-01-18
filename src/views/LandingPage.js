@@ -1,8 +1,11 @@
+/* eslint-disable no-unused-vars */
 import React, { useState } from 'react'
-import { Layout, Row, Col, Button } from 'antd'
-import { FaDiscord, FaTwitter, FaTelegramPlane } from 'react-icons/fa'
+import { Layout, Row, Col, Button, BackTop } from 'antd'
+// import {} from 'react-icons/fa'
 import Slider from 'react-slick'
 import ReactPlayer from 'react-player/file'
+import { Element, scroller } from 'react-scroll'
+import { BiUpArrowAlt } from 'react-icons/bi'
 // import brandImages from '../assets/images/brand'
 
 // import logo from '../assets/images/brand/logo.png'
@@ -40,13 +43,13 @@ import useWindowDimensions from './../customHooks/useWindowDimensions'
 import { returnValueByScreenWidth } from '../services/stylesServices'
 // import { sectionsImages } from '../assets/images/sections'
 import { RenderMarcoSVG } from './../assets/svg/sections/index'
-import { Logo1SVG } from '../assets/svg/brand'
+import { BrandLogoSVG, Logo1SVG } from '../assets/svg/brand'
 import AnimDisplayFromTop from './../components/Animations/AnimDisplayFromTop'
 import windowOpen from '../services/windowOpen'
 import CollectionSection from '../components/Collection/CollectionSection'
 import { RoadMapMobSVG } from '../assets/svg/utilities'
 
-const { Header, Content } = Layout
+const { Content } = Layout
 // const { Countdown } = Statistic
 
 // const deadline = Date.now() + 1000 * 60 * 60 * 24 * 2 + 1000 * 30 // Moment is also OK
@@ -90,8 +93,62 @@ const landImages = [
     },
 ]
 
+const scrollTo = (name) => {
+    scroller.scrollTo(name, {
+        duration: 800,
+        delay: 0,
+        smooth: 'easeInOutQuart',
+    })
+}
+
+const marketPlaceMenu = [
+    {
+        key: 'mint',
+        label: 'Mint',
+        onClick: () => {
+            scrollTo('mint')
+        },
+    },
+    {
+        key: 'wanderers',
+        label: 'Wanderers',
+        onClick: () => {
+            scrollTo('wanderers')
+        },
+    },
+    {
+        key: 'lands',
+        label: 'Lands',
+        onClick: () => {
+            scrollTo('lands')
+        },
+    },
+    {
+        key: 'token',
+        label: 'Token',
+        onClick: () => {
+            scrollTo('token')
+        },
+    },
+    {
+        key: 'roadMap',
+        label: 'RoadMap',
+        onClick: () => {
+            scrollTo('roadMap')
+        },
+    },
+    {
+        key: 'marketplace',
+        label: 'Marketplace',
+        onClick: () => {
+            window.location.replace('https://thewanderers.io/')
+        },
+    },
+]
+
 const LandingPage = () => {
     const { width } = useWindowDimensions()
+    const [selectedMenu, setMenuIndex] = useState(0)
     const [imageIndex, setImageIndex] = useState(0)
     const [collapseFaq, setCollapseFAQ] = useState(true)
     // const [roadKey, setSelectedKey] = useState(1)
@@ -121,69 +178,113 @@ const LandingPage = () => {
 
     return (
         <Layout className="landing-page min-w-minMobileWidth">
-            <Header className="bg-transparent z-30 px-10 lg:px-12">
-                <Row className="h-full">
-                    <Col md={12} xl={12}></Col>
-                    <Col
-                        xs={24}
-                        xl={12}
-                        className="flex justify-center md:justify-end items-center"
-                    >
-                        <Button
-                            onClick={() =>
-                                windowOpen('https://discord.gg/thewanderers')
-                            }
-                            type="link"
-                        >
-                            <FaDiscord
-                                className="social-icons"
-                                color="#1BC09B"
-                            />
-                        </Button>
-                        <Button
-                            onClick={() =>
-                                windowOpen(
-                                    'https://t.me/joinchat/tXoYj6NupWRlNjEx'
-                                )
-                            }
-                            type="link"
-                        >
-                            <FaTelegramPlane
-                                className="social-icons"
-                                color="#1BC09B"
-                            />
-                        </Button>
-                        <Button
-                            onClick={() =>
-                                windowOpen(
-                                    'https://twitter.com/TheWanderersNFT'
-                                )
-                            }
-                            type="link"
-                        >
-                            <FaTwitter
-                                className="social-icons"
-                                color="#1BC09B"
-                            />
-                        </Button>
-                        <div className="flex items-end relative -mb-2 pl-2">
+            <BackTop>
+                <div className="h-16 w-16 rounded-full flex justify-center items-center bg-primary text-white">
+                    <BiUpArrowAlt className="text-2xl" />
+                </div>
+            </BackTop>
+            <header className="h-24 relative z-50 lg:px-0 text-white bg-blue-5 bg-opacity-25">
+                <div className="max-w-1800px m-auto flex flex-row h-full px-6 2xl:px-0 ">
+                    <div className="mr-20 h-full py-5">
+                        <a className="h-full bg-blue-2">
+                            <div className="h-full">
+                                <BrandLogoSVG width={'100%'} height={'100%'} />
+                            </div>
+                        </a>
+                    </div>
+                    <div className="flex-1 flex items-center  h-full py-6">
+                        <div className=" text-xl font-saira-condensed flex flex-row items-center  h-full space-x-4">
+                            {marketPlaceMenu.map((val, index) => (
+                                <div
+                                    key={`menuNav-${val.key}`}
+                                    className={`h-full  flex justify-center items-center${
+                                        selectedMenu === index
+                                            ? ' border-b-2 border-primary text-primary '
+                                            : ' text-white'
+                                    }`}
+                                >
+                                    <a
+                                        className="px-1"
+                                        target="_blank"
+                                        // href=""
+                                        onClick={() => {
+                                            if (selectedMenu !== index)
+                                                setMenuIndex(index)
+
+                                            val.onClick()
+                                        }}
+                                    >
+                                        {val.label}
+                                    </a>
+                                </div>
+                            ))}
+                        </div>
+                    </div>
+                    <div className="flex flex-row h-full p-6">
+                        <div className="flex flex-row items-center  space-x-2 h-full">
+                            <a
+                                onClick={() =>
+                                    windowOpen(
+                                        'https://discord.gg/thewanderers'
+                                    )
+                                }
+                                className="h-full flex items-center px-1"
+                            >
+                                <div className="h-10 w-10  ">
+                                    <OctagonDiscordSVG
+                                        width="100%"
+                                        height="100%"
+                                    />
+                                </div>
+                            </a>
+                            <a
+                                onClick={() =>
+                                    windowOpen(
+                                        'https://t.me/joinchat/tXoYj6NupWRlNjEx'
+                                    )
+                                }
+                                className="h-full flex items-center px-1"
+                            >
+                                <div className="h-10 w-10 ">
+                                    <OctagonTelegramSVG
+                                        width="100%"
+                                        height="100%"
+                                    />
+                                </div>
+                            </a>
+                            <a
+                                onClick={() =>
+                                    windowOpen(
+                                        'https://twitter.com/TheWanderersNFT'
+                                    )
+                                }
+                                className="h-full flex items-center px-1"
+                            >
+                                <div className="h-10 w-10 ">
+                                    <OctagonTwitterSVG
+                                        width="100%"
+                                        height="100%"
+                                    />
+                                </div>
+                            </a>
+                        </div>
+                        <div className="h-full pl-3">
                             <button
-                                className="text-white text-xs xl:text-3xl border border-white px-3 py-2 rounded-md leading-none"
                                 onClick={() =>
                                     windowOpen(
                                         'https://thewanderers.sfo3.digitaloceanspaces.com/The%20wanderers%20whitepaper.pdf'
                                     )
                                 }
-                                // type="dasheds"
+                                className="text-xl h-full  border border-blue-7 flex justify-center items-center px-4"
                             >
-                                White Paper
+                                Whitepaper
                             </button>
                         </div>
-                    </Col>
-                </Row>
-            </Header>
+                    </div>
+                </div>
+            </header>
             <Content>
-                <div className="-mt-64px pb-1 xl:pb-32 lg:pb-40 relative">
+                <div className="-mt-24 pb-1 xl:pb-32 lg:pb-40 relative">
                     <div className="absolute top-0 left-0 bottom-0 right-0 overflow-hidden">
                         <ReactPlayer
                             className="custom-react-player"
@@ -282,7 +383,10 @@ const LandingPage = () => {
                         <RenderMarcoSVG width="100%" />
                     </div>
                 </div>
-                <div className=" bg-blue-5 pt-10 pb-10 lg:pb-24">
+                <Element
+                    name="mint"
+                    className=" bg-blue-5 pt-10 pb-10 lg:pb-24"
+                >
                     <div className="section">
                         <Row>
                             <Col xs={24} md={12} className="">
@@ -366,11 +470,42 @@ const LandingPage = () => {
                                         />
                                     </div>
                                 </div>
+                                <div className="">
+                                    <div>
+                                        <HeaderText
+                                            base="4xl"
+                                            className="block text-primary mb-2 leading-tight tracking-widest mx-auto"
+                                        >
+                                            Benefits
+                                        </HeaderText>
+                                    </div>
+                                    <div className="">
+                                        <div className="flex">
+                                            <div className="pr-1">
+                                                <HeaderText
+                                                    base="5xl"
+                                                    className="block text-info leading-tight tracking-widest mx-auto font-saira-condensed font-bold"
+                                                >
+                                                    1.
+                                                </HeaderText>
+                                            </div>
+                                            <div className="flex-1">
+                                                <Paragraph className="text-blue-4  text-justify text-lg">
+                                                    Rewarded with 1% per month
+                                                    of the value of their NFT.
+                                                </Paragraph>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
                             </Col>
                         </Row>
                     </div>
-                </div>
-                <div className=" bg-blue-5 lg:pb-32 css-generic lg:flex-row px-10px xl:px-0">
+                </Element>
+                <Element
+                    name="wanderers"
+                    className=" bg-blue-5 lg:pb-32 css-generic lg:flex-row px-10px xl:px-0"
+                >
                     <HeaderText
                         base="4xl"
                         className="block lg:hidden text-primary mb-5 md:mb-10 leading-tight tracking-widest mx-auto"
@@ -384,8 +519,11 @@ const LandingPage = () => {
                         {/* Collection */}
                         <CollectionSection />
                     </div>
-                </div>
-                <div className="bg-blue-5 pt-10 pb-3 lg:pb-20 border-0">
+                </Element>
+                <Element
+                    name="lands"
+                    className="bg-blue-5 pt-10 pb-3 lg:pb-20 border-0"
+                >
                     <div className="section">
                         <Row className=" flex-wrap-reverse lg:flex-wrap">
                             <Col
@@ -467,7 +605,7 @@ const LandingPage = () => {
                             </Col>
                         </Row>
                     </div>
-                </div>
+                </Element>
                 <div className="bg-blue-5 pb-16 relative border-0">
                     <div className="section">
                         <div className="css-generic">
@@ -513,7 +651,10 @@ const LandingPage = () => {
                     }}
                 >
                     <div className="section">
-                        <div className="css-generic flex-grow ">
+                        <Element
+                            name="token"
+                            className="css-generic flex-grow "
+                        >
                             <div className="css-generic items-center">
                                 <HeaderText
                                     base="4xl"
@@ -536,8 +677,8 @@ const LandingPage = () => {
                                     </HeaderText>
                                 </div>
                             </div>
-                        </div>
-                        <div className="css-generic mb-8 lg:mb-20">
+                        </Element>
+                        <Element className="css-generic mb-8 lg:mb-20">
                             <Row>
                                 <Col xs={24} lg={12}>
                                     <LineWrapper
@@ -578,8 +719,11 @@ const LandingPage = () => {
                                     </div>
                                 </Col>
                             </Row>
-                        </div>
-                        <div className="css-generic text-center lg:text-left">
+                        </Element>
+                        <Element
+                            name="roadMap"
+                            className="css-generic text-center lg:text-left"
+                        >
                             <HeaderText
                                 base="4xl"
                                 lg="89px"
@@ -624,7 +768,7 @@ const LandingPage = () => {
                             <div className="css-generic max-w-full flex justify-center">
                                 <RoadMapMobSVG />
                             </div>
-                        </div>
+                        </Element>
                     </div>
                 </div>
                 <div className="bg-blue-5 pt-10 pb-20 lg:pb-44 lg:pt-20">
