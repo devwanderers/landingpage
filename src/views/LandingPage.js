@@ -369,9 +369,10 @@ const LandingPage = () => {
                                     className="bg-dark bg-opacity-50 h-auto text-primary text-xl md:text-2xl lg:text-3xl xl:text-4xl py-2 px-8"
                                     type="primary"
                                     target="blank"
-                                    href="https://discord.gg/thewanderers"
+                                    onClick={() => scrollTo('community')}
+                                    // href="https://discord.gg/thewanderers"
                                 >
-                                    JOIN OUR DISCORD
+                                    JOIN OUR COMMUNITY
                                 </a>
                             </div>
                         </div>
@@ -1177,7 +1178,7 @@ const LandingPage = () => {
                         </Row>
                     </div>
                 </div>
-                <div className="bg-blue-5 pb-20 lg:pb-48">
+                <Element name="community" className="bg-blue-5 pb-20 lg:pb-48">
                     <div className="section">
                         <Row className="mb-12 lg:mb-16">
                             <Col
@@ -1260,7 +1261,7 @@ const LandingPage = () => {
                             </Button>
                         </div>
                     </div>
-                </div>
+                </Element>
             </Content>
             <footer className="bg-blue-5 py-12 border-blue-4 border-solid border-t hidden lg:block">
                 <div className="section">
