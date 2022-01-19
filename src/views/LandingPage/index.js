@@ -127,7 +127,7 @@ const LandingPage = () => {
     const handleCollapseFaq = () => {
         setCollapseFAQ(!collapseFaq)
     }
-
+    console.log('Init')
     return (
         <Layout
             className=" flex flex-col min-h-screen"
