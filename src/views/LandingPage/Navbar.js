@@ -52,7 +52,7 @@ const marketPlaceMenu = [
         key: 'marketplace',
         label: 'Marketplace',
         onClick: () => {
-            window.location.replace('https://marketplace.thewanderers.io')
+            window.location.replace('#')
         },
     },
 ]
