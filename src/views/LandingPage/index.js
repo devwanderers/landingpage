@@ -12,16 +12,16 @@ import { BiUpArrowAlt } from 'react-icons/bi'
 // import { DiscordIcon } from '../components/CustomIcons'
 // import { SiDiscord } from 'react-icons/si'
 // import GenericCountDown from './../components/CountDowns/GenericCountDown'
-import Article from '../components/DisplayText/Article'
-import SectionTitle from '../components/Sections/SectionTitle'
-import utilitiesImages from '../assets/images/utilities'
-import { LineWrapper } from './../components/Wrappers/LineWrapper'
-import HeaderText from './../components/DisplayText/Header'
-import NextArrowControl from '../components/CustomSliderControls/NextArrowControl'
-import PrevArrowControl from '../components/CustomSliderControls/PrevArrowControl'
-import Paragraph from './../components/DisplayText/Paragraph'
+import Article from '../../components/DisplayText/Article'
+import SectionTitle from '../../components/Sections/SectionTitle'
+import utilitiesImages from '../../assets/images/utilities'
+import { LineWrapper } from '../../components/Wrappers/LineWrapper'
+import HeaderText from '../../components/DisplayText/Header'
+import NextArrowControl from '../../components/CustomSliderControls/NextArrowControl'
+import PrevArrowControl from '../../components/CustomSliderControls/PrevArrowControl'
+import Paragraph from '../../components/DisplayText/Paragraph'
 // import { IslandSVG } from '../assets/svg/utilities'
-import islandVideo from '../assets/images/backgrounds/FLOAT-ISLAND.mp4'
+import islandVideo from '../../assets/images/backgrounds/FLOAT-ISLAND.mp4'
 import {
     FrameCounterTopSVG,
     FrameCounterBottomSVG,
@@ -29,25 +29,26 @@ import {
     FrameFAQBottomSVG,
     FrameCharacterSVG,
     // FrameCounterHeaderSVG,
-} from '../assets/svg/frames'
+} from '../../assets/svg/frames'
 // import FrameCounterHeaderCustom from '../assets/svg/frames/FrameCounterHeaderCustom'
 import {
     DownArrowSVG,
     OctagonDiscordSVG,
     OctagonTelegramSVG,
     OctagonTwitterSVG,
-} from '../assets/svg/icons'
+} from '../../assets/svg/icons'
 // import { BackgroundSectionSVG } from '../assets/svg/background'
 // import RoadMapSVG from './../assets/svg/utilities/RoadMapSVG'
-import useWindowDimensions from './../customHooks/useWindowDimensions'
-import { returnValueByScreenWidth } from '../services/stylesServices'
+import useWindowDimensions from '../../customHooks/useWindowDimensions'
+import { returnValueByScreenWidth } from '../../services/stylesServices'
 // import { sectionsImages } from '../assets/images/sections'
-import { RenderMarcoSVG } from './../assets/svg/sections/index'
-import { BrandLogoSVG, Logo1SVG } from '../assets/svg/brand'
-import AnimDisplayFromTop from './../components/Animations/AnimDisplayFromTop'
-import windowOpen from '../services/windowOpen'
-import CollectionSection from '../components/Collection/CollectionSection'
-import { RoadMapMobSVG } from '../assets/svg/utilities'
+import { RenderMarcoSVG } from '../../assets/svg/sections/index'
+import { BrandLogoSVG, Logo1SVG } from '../../assets/svg/brand'
+import AnimDisplayFromTop from '../../components/Animations/AnimDisplayFromTop'
+import windowOpen from '../../services/windowOpen'
+import CollectionSection from '../../components/Collection/CollectionSection'
+import { RoadMapMobSVG } from '../../assets/svg/utilities'
+import Navbar from './Navbar'
 
 const { Content } = Layout
 // const { Countdown } = Statistic
@@ -101,53 +102,8 @@ const scrollTo = (name) => {
     })
 }
 
-const marketPlaceMenu = [
-    {
-        key: 'mint',
-        label: 'Mint',
-        onClick: () => {
-            scrollTo('mint')
-        },
-    },
-    {
-        key: 'wanderers',
-        label: 'Wanderers',
-        onClick: () => {
-            scrollTo('wanderers')
-        },
-    },
-    {
-        key: 'lands',
-        label: 'Lands',
-        onClick: () => {
-            scrollTo('lands')
-        },
-    },
-    {
-        key: 'token',
-        label: 'Token',
-        onClick: () => {
-            scrollTo('token')
-        },
-    },
-    {
-        key: 'roadMap',
-        label: 'RoadMap',
-        onClick: () => {
-            scrollTo('roadMap')
-        },
-    },
-    {
-        key: 'marketplace',
-        label: 'Marketplace',
-        onClick: () => {
-            window.location.replace('https://thewanderers.io/')
-        },
-    },
-]
-
 const LandingPage = () => {
-    const { width } = useWindowDimensions()
+    const { innerWidth } = useWindowDimensions()
     const [selectedMenu, setMenuIndex] = useState(0)
     const [imageIndex, setImageIndex] = useState(0)
     const [collapseFaq, setCollapseFAQ] = useState(true)
@@ -160,7 +116,7 @@ const LandingPage = () => {
         lazyLoad: true,
         autoplay: true,
         speed: 300,
-        slidesToShow: width < 768 ? 1 : 3,
+        slidesToShow: innerWidth < 768 ? 1 : 3,
         centerMode: true,
         centerPadding: 0,
         nextArrow: <NextArrowControl />,
@@ -172,117 +128,17 @@ const LandingPage = () => {
         setCollapseFAQ(!collapseFaq)
     }
 
-    // const handlePlayVideo = () => {
-    //     playVideo(!videoReady)
-    // }
-
     return (
-        <Layout className="landing-page min-w-minMobileWidth">
+        <Layout
+            className=" flex flex-col min-h-screen"
+            style={{ minWidth: '425px' }}
+        >
             <BackTop>
-                <div className="h-16 w-16 rounded-full flex justify-center items-center bg-primary text-white">
+                <div className="h-12 w-12 lg:h-16 lg:w-16 rounded-full flex justify-center items-center bg-primary text-white">
                     <BiUpArrowAlt className="text-2xl" />
                 </div>
             </BackTop>
-            <header className="h-24 relative z-50 lg:px-0 text-white bg-blue-5 bg-opacity-25">
-                <div className="max-w-1800px m-auto flex flex-row h-full px-6 2xl:px-0 ">
-                    <div className="mr-20 h-full py-5">
-                        <a className="h-full bg-blue-2">
-                            <div className="h-full">
-                                <BrandLogoSVG width={'100%'} height={'100%'} />
-                            </div>
-                        </a>
-                    </div>
-                    <div className="flex-1 flex items-center  h-full py-6">
-                        <div className=" text-xl font-saira-condensed flex flex-row items-center  h-full space-x-4">
-                            {marketPlaceMenu.map((val, index) => (
-                                <div
-                                    key={`menuNav-${val.key}`}
-                                    className={`h-full  flex justify-center items-center${
-                                        selectedMenu === index
-                                            ? ' border-b-2 border-primary text-primary '
-                                            : ' text-white'
-                                    }`}
-                                >
-                                    <a
-                                        className="px-1"
-                                        target="_blank"
-                                        // href=""
-                                        onClick={() => {
-                                            if (selectedMenu !== index)
-                                                setMenuIndex(index)
-
-                                            val.onClick()
-                                        }}
-                                    >
-                                        {val.label}
-                                    </a>
-                                </div>
-                            ))}
-                        </div>
-                    </div>
-                    <div className="flex flex-row h-full p-6">
-                        <div className="flex flex-row items-center  space-x-2 h-full">
-                            <a
-                                onClick={() =>
-                                    windowOpen(
-                                        'https://discord.gg/thewanderers'
-                                    )
-                                }
-                                className="h-full flex items-center px-1"
-                            >
-                                <div className="h-10 w-10  ">
-                                    <OctagonDiscordSVG
-                                        width="100%"
-                                        height="100%"
-                                    />
-                                </div>
-                            </a>
-                            <a
-                                onClick={() =>
-                                    windowOpen(
-                                        'https://t.me/joinchat/tXoYj6NupWRlNjEx'
-                                    )
-                                }
-                                className="h-full flex items-center px-1"
-                            >
-                                <div className="h-10 w-10 ">
-                                    <OctagonTelegramSVG
-                                        width="100%"
-                                        height="100%"
-                                    />
-                                </div>
-                            </a>
-                            <a
-                                onClick={() =>
-                                    windowOpen(
-                                        'https://twitter.com/TheWanderersNFT'
-                                    )
-                                }
-                                className="h-full flex items-center px-1"
-                            >
-                                <div className="h-10 w-10 ">
-                                    <OctagonTwitterSVG
-                                        width="100%"
-                                        height="100%"
-                                    />
-                                </div>
-                            </a>
-                        </div>
-                        <div className="h-full pl-3">
-                            <button
-                                onClick={() =>
-                                    windowOpen(
-                                        'https://thewanderers.sfo3.digitaloceanspaces.com/The%20wanderers%20whitepaper.pdf'
-                                    )
-                                }
-                                className="text-xl h-full  border border-blue-7 flex justify-center items-center px-4"
-                            >
-                                Whitepaper
-                            </button>
-                        </div>
-                    </div>
-                </div>
-            </header>
+            <Navbar />
             <Content>
                 <div className="-mt-24 pb-1 xl:pb-32 lg:pb-40 relative">
                     <div className="absolute top-0 left-0 bottom-0 right-0 overflow-hidden">
@@ -301,7 +157,7 @@ const LandingPage = () => {
                         />
                     </div>
                     <div className="absolute top-0 left-0 bottom-0 right-0 overflow-hidden">
-                        {/* <video width="100%" height="100%" controls autoPlay={true} src={islandVideo} type="video/mp4"/> */}
+                        {/* <video innerWidth="100%" height="100%" controls autoPlay={true} src={islandVideo} type="video/mp4"/> */}
                     </div>
                     <div className="section mx-auto pt-64px mb-20 h-screen">
                         <div className="css-generic h-full flex-col justify-between py-4 md:py-6 lg:px-28 xl:px-36 lg:py-10">
@@ -326,11 +182,11 @@ const LandingPage = () => {
                                         className="absolute right-0 left-0 -mx-3"
                                         style={{
                                             top: returnValueByScreenWidth(
-                                                width,
+                                                innerWidth,
                                                 {
-                                                    base: '-6px',
-                                                    md: '-11px',
-                                                    lg: '-10px',
+                                                    base: '-10px',
+                                                    sm: '-16px',
+                                                    md: '-18px',
                                                     xl: '-18px',
                                                 }
                                             ),
@@ -340,7 +196,17 @@ const LandingPage = () => {
                                     </div>
                                     <div
                                         className="absolute right-0 left-0 -mx-3"
-                                        style={{ bottom: '-18px' }}
+                                        style={{
+                                            bottom: returnValueByScreenWidth(
+                                                innerWidth,
+                                                {
+                                                    base: '-10px',
+                                                    sm: '-16px',
+                                                    md: '-18px',
+                                                    xl: '-18px',
+                                                }
+                                            ),
+                                        }}
                                     >
                                         <FrameCounterBottomSVG
                                             width="100%"
@@ -351,7 +217,7 @@ const LandingPage = () => {
                                 {/* <div className="css-generic">
                                     <div className="css-generic px-12 md:px-16 xl:px-20 text-center mx-auto relative">
                                         <div className="absolute right-0 left-0 top-0">
-                                            <FrameCounterHeaderCustom width="100%" />
+                                            <FrameCounterHeaderCustom innerWidth="100%" />
                                         </div>
                                         <HeaderText
                                             base="xl"
@@ -461,7 +327,7 @@ const LandingPage = () => {
                                 className="px-12 lg:px-10 xl:px-12 pt-5"
                             >
                                 <div className="css-generic relative">
-                                    <FrameCharacterSVG width="100%" />
+                                    <FrameCharacterSVG innerWidth="100%" />
                                     <div className=" absolute top-0 right-0 bottom-0 left-0 pt-16 pb-10 lg:pt-20 lg:pb-16">
                                         <img
                                             className="w-auto h-full object-contain overflow-hidden mx-auto relative"
@@ -494,6 +360,39 @@ const LandingPage = () => {
                                                 <Paragraph className="text-blue-4  text-justify text-lg">
                                                     Rewarded with 1% per month
                                                     of the value of their NFT.
+                                                </Paragraph>
+                                            </div>
+                                        </div>
+                                        <div className="flex">
+                                            <div className="pr-1">
+                                                <HeaderText
+                                                    base="5xl"
+                                                    className="block text-info leading-tight tracking-widest mx-auto font-saira-condensed font-bold"
+                                                >
+                                                    2.
+                                                </HeaderText>
+                                            </div>
+                                            <div className="flex-1">
+                                                <Paragraph className="text-blue-4  text-justify text-lg">
+                                                    Get great discounts our
+                                                    partner travel platform.
+                                                </Paragraph>
+                                            </div>
+                                        </div>
+                                        <div className="flex">
+                                            <div className="pr-1">
+                                                <HeaderText
+                                                    base="5xl"
+                                                    className="block text-info leading-tight tracking-widest mx-auto font-saira-condensed font-bold"
+                                                >
+                                                    3.
+                                                </HeaderText>
+                                            </div>
+                                            <div className="flex-1">
+                                                <Paragraph className="text-blue-4  text-justify text-lg">
+                                                    Receive 1% of the subsequent
+                                                    resales of this NFT in
+                                                    tokens.
                                                 </Paragraph>
                                             </div>
                                         </div>
@@ -538,7 +437,7 @@ const LandingPage = () => {
                                         src={utilitiesImages.island}
                                         alt={utilitiesImages.island}
                                     />
-                                    {/* <IslandSVG width="100%" /> */}
+                                    {/* <IslandSVG innerWidth="100%" /> */}
                                 </div>
                             </Col>
                             <Col xs={24} lg={12}>
@@ -779,13 +678,13 @@ const LandingPage = () => {
                                 className="absolute left-0 right-0"
                                 style={{ top: '-8px' }}
                             >
-                                <FrameFAQTopSVG width="100%" />
+                                <FrameFAQTopSVG innerWidth="100%" />
                             </div>
                             <div
                                 className="absolute left-0 right-0"
                                 style={{ bottom: 0 }}
                             >
-                                <FrameFAQBottomSVG width="100%" />
+                                <FrameFAQBottomSVG innerWidth="100%" />
                             </div>
                             <div className="css-generic justify-center items-center flex-row">
                                 <div
@@ -1231,7 +1130,10 @@ const LandingPage = () => {
                                     )
                                 }
                             >
-                                <OctagonDiscordSVG width="100%" height="100%" />
+                                <OctagonDiscordSVG
+                                    innerWidth="100%"
+                                    height="100%"
+                                />
                             </Button>
                             <Button
                                 type="link"
@@ -1243,7 +1145,7 @@ const LandingPage = () => {
                                 }
                             >
                                 <OctagonTelegramSVG
-                                    width="100%"
+                                    innerWidth="100%"
                                     height="100%"
                                 />
                             </Button>
@@ -1257,7 +1159,10 @@ const LandingPage = () => {
                                     )
                                 }
                             >
-                                <OctagonTwitterSVG width="100%" height="100%" />
+                                <OctagonTwitterSVG
+                                    innerWidth="100%"
+                                    height="100%"
+                                />
                             </Button>
                         </div>
                     </div>
@@ -1269,7 +1174,7 @@ const LandingPage = () => {
                         <div className="css-generic flex-grow max-h-full w-6/12 ">
                             <div className="css-generic items-center w-64">
                                 <div className="css-generic w-full mb-3 px-8">
-                                    <Logo1SVG width="100%" />
+                                    <Logo1SVG innerWidth="100%" />
                                 </div>
                                 <HeaderText
                                     base="2xl"
