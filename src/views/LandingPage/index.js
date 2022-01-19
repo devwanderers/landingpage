@@ -358,8 +358,8 @@ const LandingPage = () => {
                                             </div>
                                             <div className="flex-1">
                                                 <Paragraph className="text-blue-4  text-justify text-lg">
-                                                    Rewarded with 1% per month
-                                                    of the value of their NFT.
+                                                    Up to 24% ROI just by
+                                                    holding
                                                 </Paragraph>
                                             </div>
                                         </div>
