@@ -11,7 +11,7 @@ import { scInteractionReducerSelector } from '../store/reducers/scInteractionRed
 import { returnPromise } from '../services/promises'
 import useInterval from './useInterval'
 
-const nftAvatar = 1000000000000000000
+const nftAvatar = 100000000000000
 
 const mintResultConverToArray = (res) => {
     const {

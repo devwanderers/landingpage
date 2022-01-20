@@ -1930,11 +1930,6 @@
     "@types/yargs" "^16.0.0"
     chalk "^4.0.0"
 
-"@maticnetwork/wallet-widget@^1.3.0":
-  version "1.3.0"
-  resolved "https://registry.yarnpkg.com/@maticnetwork/wallet-widget/-/wallet-widget-1.3.0.tgz#ad0297c72c09c865a851dff693c2a766a2658618"
-  integrity sha512-94/egJoN1/7p9DJc/wOlGXP1wTtoLLMtkg3+6LDc0lwzVrQEbM67awljAC1eX4rGLfJH1kx+RWXV+ri6nlBHeA==
-
 "@nodelib/fs.scandir@2.1.5":
   version "2.1.5"
   resolved "https://registry.yarnpkg.com/@nodelib/fs.scandir/-/fs.scandir-2.1.5.tgz#7619c2eb21b25483f6d167548b4cfd5a7488c3d5"
