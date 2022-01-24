@@ -65,7 +65,6 @@ const Navbar = () => {
     const handleOnClickBurger = () => {
         setShowDrawer(!showDrawer)
     }
-    console.log({ innerWidth })
 
     return innerWidth > 768 ? (
         <header className="h-24 relative z-50 lg:px-0 text-white bg-blue-5 bg-opacity-25">
