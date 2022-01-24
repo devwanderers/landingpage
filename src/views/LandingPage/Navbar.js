@@ -48,13 +48,13 @@ const marketPlaceMenu = [
             scrollTo('roadMap')
         },
     },
-    {
-        key: 'marketplace',
-        label: 'Marketplace',
-        onClick: () => {
-            window.location.replace('https://marketplace.thewanderers.io')
-        },
-    },
+    // {
+    //     key: 'marketplace',
+    //     label: 'Marketplace',
+    //     onClick: () => {
+    //         window.location.replace('https://marketplace.thewanderers.io')
+    //     },
+    // },
 ]
 
 const Navbar = () => {
