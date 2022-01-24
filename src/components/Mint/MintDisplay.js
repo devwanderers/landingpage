@@ -106,6 +106,12 @@ const MintDisplay = ({ data = example }) => {
             setIndex(index - 1)
         }
     }
+
+    const imageIpfsURI = data[index]?.nftData.image
+    const imageUri = imageIpfsURI.replace(
+        /^ipfs?:\/\//,
+        'https://wanderers.mypinata.cloud/ipfs/'
+    )
     return (
         <React.Fragment>
             <Row gutter={[20, 10]} className="my-5 ">
@@ -131,8 +137,8 @@ const MintDisplay = ({ data = example }) => {
                                 </div>
                                 <img
                                     className="w-full h-auto"
-                                    src={data[index]?.nftData.image}
-                                    alt={data[index]?.nftData.image}
+                                    src={imageUri}
+                                    alt={imageUri}
                                 />
                             </div>
                         </Col>

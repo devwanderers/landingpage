@@ -80,7 +80,7 @@ const MintSection = (props) => {
                             </div>
                             <div className="text-2xl text-right">
                                 <span className="leading-none">
-                                    Price .06 ETH
+                                    Price 110 Matic
                                 </span>
                             </div>
                         </div>

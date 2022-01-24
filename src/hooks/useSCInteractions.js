@@ -11,7 +11,7 @@ import { scInteractionReducerSelector } from '../store/reducers/scInteractionRed
 import { returnPromise } from '../services/promises'
 import useInterval from './useInterval'
 
-const nftAvatar = 100000000000000
+const nftAvatar = 50000000000000000
 
 const mintResultConverToArray = (res) => {
     const {
@@ -79,7 +79,12 @@ const useSCInteractions = () => {
                             const tokenUri = await contract.methods
                                 .tokenURI(val)
                                 .call()
-                            const response = await fetch(tokenUri)
+                            const uri = tokenUri.replace(
+                                /^ipfs?:\/\//,
+                                'https://wanderers.mypinata.cloud/ipfs/'
+                            )
+
+                            const response = await fetch(uri)
                             const nftData = await response.json()
                             resolve({
                                 tokenId: val,
@@ -123,6 +128,7 @@ const useSCInteractions = () => {
                     .mint(account, amount)
                     .send({ from: account, value: nftAvatar * amount })
 
+                console.log({ mintAvatar })
                 const transformedData = mintResultConverToArray(mintAvatar)
                 setMinting(transformedData)
             } catch (error) {

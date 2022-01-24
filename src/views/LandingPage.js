@@ -40,7 +40,7 @@ import { Logo1SVG } from '../assets/svg/brand'
 import AnimDisplayFromTop from './../components/Animations/AnimDisplayFromTop'
 import SliderIslands from '../components/LandingComponent/SliderIslands'
 import MintSection from '../components/Mint/MintSection'
-import ConnectPolygonBridge from '../components/Buttons/ConnectPolygonBridge'
+// import ConnectPolygonBridge from '../components/Buttons/ConnectPolygonBridge'
 
 const { Header, Content } = Layout
 // const { Countdown } = Statistic
@@ -108,7 +108,7 @@ const LandingPage = () => {
                             />
                         </Button>
                         <div className="ml-2 relative -mb-2">
-                            <ConnectPolygonBridge />
+                            {/* <ConnectPolygonBridge /> */}
                         </div>
                     </Col>
                 </Row>
