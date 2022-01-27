@@ -11,6 +11,7 @@ import { BiUpArrowAlt } from 'react-icons/bi'
 // import logo from '../assets/images/brand/logo.png'
 // import { DiscordIcon } from '../components/CustomIcons'
 // import { SiDiscord } from 'react-icons/si'
+import MintSection from './../../components/Mint/MintSection'
 import GenericCountDown from '../../components/CountDowns/GenericCountDown'
 import Article from '../../components/DisplayText/Article'
 import SectionTitle from '../../components/Sections/SectionTitle'
@@ -163,8 +164,9 @@ const LandingPage = () => {
                         <div className="css-generic h-full flex-col justify-between py-4 md:py-6 lg:px-28 xl:px-36 lg:py-10">
                             <div className="pt-10 lg:pt-0 w-80 lg:w-96 mx-auto  pb-6">
                                 <Logo1SVG width="100%" />
-                            </div>
-                            <div className="mb-10 z-20">
+                            </div>{' '}
+                            <MintSection />
+                            {/* <div className="mb-10 z-20">
                                 <div className="count-down bg-black-1 bg-opacity-40 mx-auto lg:px-4 pt-5 pb-4 relative z-10">
                                     <GenericCountDown date={deadline} />
                                     <div className="flex text-white text-lg md:text-2xl lg:text-4xl mt-5">
@@ -173,17 +175,6 @@ const LandingPage = () => {
                                         <div className="flex-1">MINUTES</div>
                                         <div className="flex-1">SECONDS</div>
                                     </div>
-                                    {/* <div className="flex flex-col text-white text-lg md:text-2xl lg:text-4xl mt-5 text-center">
-                                        <div className="xl:text-6xl text-xl font-saira-condensed leading-none tracking-wide">
-                                            PRE-SALE EVENT ALMOST
-                                        </div>
-                                        <div
-                                            className="xl:text-8xl text-lg font-russo-one leading-none pt-4 relative -mr-5"
-                                            style={{ letterSpacing: '1.9rem' }}
-                                        >
-                                            READY!
-                                        </div>
-                                    </div> */}
                                     <div
                                         className="absolute right-0 left-0 -mx-3"
                                         style={{
@@ -238,7 +229,7 @@ const LandingPage = () => {
                                         </HeaderText>
                                     </div>
                                 </div>
-                            </div>
+                            </div> */}
                             <div className="text-center z-20">
                                 <a
                                     className="bg-dark bg-opacity-50 h-auto text-primary text-xl md:text-2xl lg:text-3xl xl:text-4xl py-2 px-8"

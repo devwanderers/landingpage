@@ -52,6 +52,12 @@ module.exports = {
             transparent: 'transparent',
             dark: '#171230',
             darker: '#090416',
+            green: {
+                0: '#15a9be',
+                1: '#243c49',
+                2: '#2a4655',
+                3: '#337184',
+            },
             aqua: {
                 1: '#7CC4D1',
             },
@@ -108,6 +114,7 @@ module.exports = {
             padding: {
                 '64px': '64px',
                 '10px': '10px',
+                '50px': '50px',
             },
             width: {
                 '100px': '100px',
@@ -121,9 +128,16 @@ module.exports = {
                 '1100px': '1100px',
             },
         },
+        backgroundColor: (theme) => ({
+            ...theme('colors'),
+        }),
+        textColor: (theme) => theme('colors'),
     },
     variants: {
-        extend: {},
+        extend: {
+            opacity: ['disabled'],
+            scale: ['active'],
+        },
     },
     plugins: [],
 }

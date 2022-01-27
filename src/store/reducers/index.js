@@ -3,6 +3,7 @@ import { persistReducer } from 'redux-persist'
 import storage from 'redux-persist/lib/storage'
 
 import globalTypes from './globalTypes'
+import scInteractionReducer from './scInteractionReducer/scInteractionReducer'
 
 const persistConfig = {
     key: 'root',
@@ -10,7 +11,9 @@ const persistConfig = {
     whitelist: [],
 }
 
-const appReducer = combineReducers({})
+const appReducer = combineReducers({
+    scInteraction: scInteractionReducer,
+})
 
 const rootReducer = (state, action) => {
     if (action.type === globalTypes.LOG_OUT) {
