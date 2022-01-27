@@ -256,11 +256,12 @@ const MintDisplay = ({ data = example }) => {
                         Add NFT
                     </Button>
                     <Button
+                        onClick={() => console.log('OpenSea Link')}
                         className="flex-1 border-none bg-info hover:bg-info
                                             focus:bg-info text-white hover:text-white focus:text-white"
                         size="large"
                     >
-                        Marketplace
+                        Secondary Marketplace
                     </Button>
                     <Button
                         className="flex-1 border-solid border-1 border-info bg-transparent

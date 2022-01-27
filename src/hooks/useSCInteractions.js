@@ -124,11 +124,20 @@ const useSCInteractions = () => {
                     AvatarDestinareAbi,
                     process.env.REACT_APP_AVATAR_DESTINARE_CONTRACT_ADDRESS
                 )
-                const mintAvatar = await contract.methods
-                    .mint(account, amount)
-                    .send({ from: account, value: nftAvatar * amount })
+                const whiteListed = await contract.methods
+                    .whitelisted(account)
+                    .call()
+                let mintAvatar
+                if (!whiteListed) {
+                    mintAvatar = await contract.methods
+                        .mint(account, amount)
+                        .send({ from: account, value: nftAvatar * amount })
+                } else {
+                    mintAvatar = await contract.methods
+                        .mint(account, amount)
+                        .send({ from: account, value: 0 })
+                }
 
-                console.log({ mintAvatar })
                 const transformedData = mintResultConverToArray(mintAvatar)
                 setMinting(transformedData)
             } catch (error) {
