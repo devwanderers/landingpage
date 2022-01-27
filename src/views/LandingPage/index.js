@@ -11,7 +11,7 @@ import { BiUpArrowAlt } from 'react-icons/bi'
 // import logo from '../assets/images/brand/logo.png'
 // import { DiscordIcon } from '../components/CustomIcons'
 // import { SiDiscord } from 'react-icons/si'
-// import GenericCountDown from './../components/CountDowns/GenericCountDown'
+import GenericCountDown from '../../components/CountDowns/GenericCountDown'
 import Article from '../../components/DisplayText/Article'
 import SectionTitle from '../../components/Sections/SectionTitle'
 import utilitiesImages from '../../assets/images/utilities'
@@ -30,7 +30,7 @@ import {
     FrameCharacterSVG,
     // FrameCounterHeaderSVG,
 } from '../../assets/svg/frames'
-// import FrameCounterHeaderCustom from '../assets/svg/frames/FrameCounterHeaderCustom'
+import FrameCounterHeaderCustom from '../../assets/svg/frames/FrameCounterHeaderCustom'
 import {
     DownArrowSVG,
     OctagonDiscordSVG,
@@ -53,7 +53,7 @@ import Navbar from './Navbar'
 const { Content } = Layout
 // const { Countdown } = Statistic
 
-// const deadline = Date.now() + 1000 * 60 * 60 * 24 * 2 + 1000 * 30 // Moment is also OK
+const deadline = new Date('February 15, 2022 11:00:00')
 
 const landImages = [
     {
@@ -166,8 +166,14 @@ const LandingPage = () => {
                             </div>
                             <div className="mb-10 z-20">
                                 <div className="count-down bg-black-1 bg-opacity-40 mx-auto lg:px-4 pt-5 pb-4 relative z-10">
-                                    {/* <GenericCountDown date={deadline} /> */}
-                                    <div className="flex flex-col text-white text-lg md:text-2xl lg:text-4xl mt-5 text-center">
+                                    <GenericCountDown date={deadline} />
+                                    <div className="flex text-white text-lg md:text-2xl lg:text-4xl mt-5">
+                                        <div className="flex-1">DAYS</div>
+                                        <div className="flex-1">HOURS</div>
+                                        <div className="flex-1">MINUTES</div>
+                                        <div className="flex-1">SECONDS</div>
+                                    </div>
+                                    {/* <div className="flex flex-col text-white text-lg md:text-2xl lg:text-4xl mt-5 text-center">
                                         <div className="xl:text-6xl text-xl font-saira-condensed leading-none tracking-wide">
                                             PRE-SALE EVENT ALMOST
                                         </div>
@@ -177,7 +183,7 @@ const LandingPage = () => {
                                         >
                                             READY!
                                         </div>
-                                    </div>
+                                    </div> */}
                                     <div
                                         className="absolute right-0 left-0 -mx-3"
                                         style={{
@@ -214,10 +220,13 @@ const LandingPage = () => {
                                         />
                                     </div>
                                 </div>
-                                {/* <div className="css-generic">
+                                <div className="css-generic">
                                     <div className="css-generic px-12 md:px-16 xl:px-20 text-center mx-auto relative">
                                         <div className="absolute right-0 left-0 top-0">
-                                            <FrameCounterHeaderCustom innerWidth="100%" />
+                                            <FrameCounterHeaderCustom
+                                                innerWidth="100%"
+                                                // backgroundColor="2fb39b"
+                                            />
                                         </div>
                                         <HeaderText
                                             base="xl"
@@ -228,7 +237,7 @@ const LandingPage = () => {
                                             MINT STARTS
                                         </HeaderText>
                                     </div>
-                                </div> */}
+                                </div>
                             </div>
                             <div className="text-center z-20">
                                 <a
@@ -1126,11 +1135,11 @@ const LandingPage = () => {
                                 className="h-16 w-16 lg:h-24 lg:w-24 p-0"
                                 onClick={() =>
                                     windowOpen(
-                                        'https://discord.gg/thewanderers'
+                                        'https://t.me/joinchat/tXoYj6NupWRlNjEx'
                                     )
                                 }
                             >
-                                <OctagonDiscordSVG
+                                <OctagonTelegramSVG
                                     innerWidth="100%"
                                     height="100%"
                                 />
@@ -1140,11 +1149,11 @@ const LandingPage = () => {
                                 className="h-16 w-16 lg:h-24 lg:w-24 p-0"
                                 onClick={() =>
                                     windowOpen(
-                                        'https://t.me/joinchat/tXoYj6NupWRlNjEx'
+                                        'https://discord.gg/thewanderers'
                                     )
                                 }
                             >
-                                <OctagonTelegramSVG
+                                <OctagonDiscordSVG
                                     innerWidth="100%"
                                     height="100%"
                                 />
