@@ -3,11 +3,7 @@ import IncreaseDecreaseInput from '../Inputs/IncreaseDecreaseInput'
 import { useWeb3React } from '@web3-react/core'
 import useAuth from './../../hooks/useAuth'
 // import { returnValueByScreenWidth } from '../../services/stylesServices'
-import useResponsive from './../../hooks/useResponsive'
-import {
-    FrameCounterBottomSVG,
-    FrameCounterTopSVG,
-} from '../../assets/svg/frames'
+// import useResponsive from './../../hooks/useResponsive'
 import ModalMint from './ModalMint'
 import { supportedChainIds } from './../../constants/chainNetworks'
 import { setupNetwork } from './../../services/wallet'
@@ -21,12 +17,6 @@ const MintSection = (props) => {
     const { account, chainId } = useWeb3React()
     const [mintAmount, setMintAmount] = useState(0)
     const [visibleModal, setVisibleModal] = useState(false)
-    const [topPos] = useResponsive({
-        base: '-6px',
-        md: '-7px',
-        lg: '-6px',
-        xl: '-8px',
-    })
 
     const handleShowMintModal = () => {
         setVisibleModal(!visibleModal)
@@ -66,7 +56,10 @@ const MintSection = (props) => {
                 // mintAmount={mintAmount}
                 minting={minting}
             />
-            <div className="w-full md:w-8/12 lg:w-6/12 bg-black-1 bg-opacity-40 px-10 py-6 relative mx-auto lg:mx-0 mb-5">
+            <div
+                className="w-full md:w-8/12 lg:w-6/12 bg-black-1 bg-opacity-40 px-10 py-6 relative mx-auto lg:mx-0 mb-5"
+                // style={{ borderColor: '#2fb39b' }}
+            >
                 <div>
                     <div className="relative">
                         <div className="text-white">
@@ -123,19 +116,29 @@ const MintSection = (props) => {
                         </div>
                     </div>
                 </div>
-                <div
-                    className="absolute right-0 left-0 top-0"
-                    style={{
-                        top: topPos,
-                    }}
-                >
-                    <FrameCounterTopSVG width="100%" />
+                <div className="absolute right-0 left-0 top-0">
+                    <div
+                        className="w-full mx-auto "
+                        style={{ height: '1px', backgroundColor: '#2fb39b' }}
+                    ></div>
                 </div>
-                <div
-                    className="absolute right-0 left-0 "
-                    style={{ bottom: '-2px' }}
-                >
-                    <FrameCounterBottomSVG width="100%" height="100%" />
+                <div className="absolute right-0 left-0 top-0">
+                    <div
+                        className="w-6/12 mx-auto "
+                        style={{ height: '4px', backgroundColor: '#2fb39b' }}
+                    ></div>
+                </div>
+                <div className="absolute right-0 left-0 bottom-0">
+                    <div
+                        className="w-full mx-auto "
+                        style={{ height: '1px', backgroundColor: '#2fb39b' }}
+                    ></div>
+                </div>
+                <div className="absolute right-0 left-0 bottom-0">
+                    <div
+                        className="w-6/12 mx-auto "
+                        style={{ height: '4px', backgroundColor: '#2fb39b' }}
+                    ></div>
                 </div>
             </div>
         </React.Fragment>

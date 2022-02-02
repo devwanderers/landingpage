@@ -20,6 +20,7 @@ const store = configureStore()
 function getLibrary(provider) {
     return new Web3(provider)
 }
+
 ReactDOM.render(
     <React.StrictMode>
         <Web3ReactProvider getLibrary={getLibrary}>

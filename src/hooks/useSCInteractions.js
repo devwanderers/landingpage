@@ -1,5 +1,5 @@
 /* eslint-disable no-unused-vars */
-import { useState, useCallback } from 'react'
+import { useState, useCallback, useRef } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
 import { useWeb3React } from '@web3-react/core'
 import { injected } from '../wallet/connectors'
@@ -8,10 +8,12 @@ import AvatarDestinareAbi from '../abi/AvatarDestinare.json'
 import useEffectOnce from './useEffectOnce'
 import * as scActions from '../store/reducers/scInteractionReducer/actions'
 import { scInteractionReducerSelector } from '../store/reducers/scInteractionReducer/selectors'
-import { returnPromise } from '../services/promises'
+import { abortablePromise, returnPromise } from '../services/promises'
 import useInterval from './useInterval'
+import useDeepCompareEffect from './useDeepCompareEffect'
 
-const nftAvatar = 50000000000000000
+const publicPrice = 5e16
+const presalePrice = 4e16
 
 const mintResultConverToArray = (res) => {
     const {
@@ -47,13 +49,16 @@ const ntfObjectToArray = (data) => {
 }
 
 const useSCInteractions = () => {
+    const [fetchingData, setFetchingData] = useState(false)
     const [minting, setFetchingMinting] = useState(false)
     const [mintingError, setMintingError] = useState(null)
+    const [error, setError] = useState(false)
     // Estado traido del reducer
     const scInteractions = useSelector(scInteractionReducerSelector)
     const dispatch = useDispatch()
 
     // Acciones conectadas con dispatch
+    const setData = (data) => dispatch(scActions.setData(data))
     const setMinting = (data) => dispatch(scActions.setMinting(data))
     const setMinted = (data) => dispatch(scActions.setMinted(data))
     const clearMinting = () => dispatch(scActions.clearMinting())
@@ -62,7 +67,13 @@ const useSCInteractions = () => {
     const { active, library, activate, deactivate, account, chainId } =
         useWeb3React()
 
-    const [walletAuth, setWalletAuth] = useLocalStorage('walletAuth', false)
+    const refController = useRef(new AbortController())
+
+    const abortCalls = () => {
+        const controller = refController.current
+        controller.abort()
+        refController.current = new AbortController()
+    }
 
     async function getTokenUris() {
         if (scInteractions.minting.length === 0) return
@@ -112,6 +123,58 @@ const useSCInteractions = () => {
             })
     }
 
+    const getContractData = ({ signal }) => {
+        return abortablePromise({ signal }, async (resolve, reject) => {
+            try {
+                const contract = new library.eth.Contract(
+                    AvatarDestinareAbi,
+                    process.env.REACT_APP_AVATAR_DESTINARE_CONTRACT_ADDRESS
+                )
+                const onlyWhitelisted = await contract.methods
+                    .onlyWhitelisted(account)
+                    .call()
+
+                const whitelisted = await contract.methods
+                    .whitelisted(account)
+                    .call()
+
+                resolve({ onlyWhitelisted, whitelisted })
+            } catch (err) {
+                console.log({ err })
+                reject(err)
+            }
+        })
+    }
+
+    const getData = useCallback(async () => {
+        if (!fetchingData && library?.eth && account) {
+            setFetchingData(true)
+            const controller = refController.current
+            try {
+                const signal = controller.signal
+                const data = await getContractData({
+                    signal,
+                })
+                setTimeout(() => {
+                    setData({
+                        ...data,
+                    })
+                    setFetchingData(false)
+                }, 600)
+            } catch (err) {
+                setTimeout(() => {
+                    setFetchingData(false)
+                }, 600)
+                if (err?.name === 'AbortError') {
+                    console.log('Promise Aborted')
+                } else {
+                    setError(true)
+                    console.log(err)
+                }
+            }
+        }
+    }, [library, account, fetchingData])
+
     const mintAvatar = useCallback(
         async (amount) => {
             if (!active) setMintingError('Wallet not connected')
@@ -124,18 +187,27 @@ const useSCInteractions = () => {
                     AvatarDestinareAbi,
                     process.env.REACT_APP_AVATAR_DESTINARE_CONTRACT_ADDRESS
                 )
-                const whiteListed = await contract.methods
+                const activePresale = await contract.methods
+                    .onlyWhitelisted()
+                    .call()
+
+                const whitelisted = await contract.methods
                     .whitelisted(account)
                     .call()
+
                 let mintAvatar
-                if (!whiteListed) {
-                    mintAvatar = await contract.methods
-                        .mint(account, amount)
-                        .send({ from: account, value: nftAvatar * amount })
-                } else {
+                if (whitelisted > 0) {
                     mintAvatar = await contract.methods
                         .mint(account, amount)
                         .send({ from: account, value: 0 })
+                } else if (activePresale && whitelisted === 0) {
+                    mintAvatar = await contract.methods
+                        .mint(account, amount)
+                        .send({ from: account, value: presalePrice * amount })
+                } else {
+                    mintAvatar = await contract.methods
+                        .mint(account, amount)
+                        .send({ from: account, value: publicPrice * amount })
                 }
 
                 const transformedData = mintResultConverToArray(mintAvatar)
@@ -153,6 +225,8 @@ const useSCInteractions = () => {
         setFetchingMinting(false)
         setMintingError(null)
     }, [mintingError])
+
+    useDeepCompareEffect(() => {}, [library, account])
 
     useInterval(
         () => {
