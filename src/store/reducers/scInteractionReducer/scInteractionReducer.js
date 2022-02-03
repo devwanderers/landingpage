@@ -2,10 +2,11 @@ import { createReducer } from '@reduxjs/toolkit'
 import * as mintAction from './actions'
 
 const initialState = {
-    data: {
-        onlyWhitelisted: false,
-        whitelisted: 0,
-    },
+    data: null,
+    // {
+    //     onlyWhitelisted: false,
+    //     whitelisted: 0,
+    // },
     minting: [],
     minted: [],
 }
@@ -31,6 +32,10 @@ const scInteractionReducer = createReducer(initialState, (builder) => {
         .addCase(mintAction.setData, (state, { payload }) => ({
             ...state,
             data: payload,
+        }))
+        .addCase(mintAction.clearData, (state) => ({
+            ...state,
+            data: null,
         }))
 })
 

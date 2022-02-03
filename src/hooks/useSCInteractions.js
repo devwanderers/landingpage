@@ -50,6 +50,7 @@ const ntfObjectToArray = (data) => {
 
 const useSCInteractions = () => {
     const [fetchingData, setFetchingData] = useState(false)
+    const [currentAccount, setCurrentAccount] = useState(null)
     const [minting, setFetchingMinting] = useState(false)
     const [mintingError, setMintingError] = useState(null)
     const [error, setError] = useState(false)
@@ -63,11 +64,14 @@ const useSCInteractions = () => {
     const setMinted = (data) => dispatch(scActions.setMinted(data))
     const clearMinting = () => dispatch(scActions.clearMinting())
     const clearMinted = () => dispatch(scActions.clearMinted())
+    const resetData = () => dispatch(scActions.clearData())
 
     const { active, library, activate, deactivate, account, chainId } =
         useWeb3React()
 
     const refController = useRef(new AbortController())
+
+    const { data } = scInteractions
 
     const abortCalls = () => {
         const controller = refController.current
@@ -131,13 +135,15 @@ const useSCInteractions = () => {
                     process.env.REACT_APP_AVATAR_DESTINARE_CONTRACT_ADDRESS
                 )
                 const onlyWhitelisted = await contract.methods
-                    .onlyWhitelisted(account)
+                    .onlyWhitelisted()
                     .call()
 
                 const whitelisted = await contract.methods
                     .whitelisted(account)
                     .call()
-
+                    .then((res) => {
+                        return { tickets: parseInt(res[0]), active: res[1] }
+                    })
                 resolve({ onlyWhitelisted, whitelisted })
             } catch (err) {
                 console.log({ err })
@@ -155,6 +161,7 @@ const useSCInteractions = () => {
                 const data = await getContractData({
                     signal,
                 })
+                console.log({ data })
                 setTimeout(() => {
                     setData({
                         ...data,
@@ -194,13 +201,17 @@ const useSCInteractions = () => {
                 const whitelisted = await contract.methods
                     .whitelisted(account)
                     .call()
+                    .then((res) => {
+                        return { tickets: parseInt(res[0]), active: res[1] }
+                    })
 
                 let mintAvatar
-                if (whitelisted > 0) {
+                console.log({ whitelisted })
+                if (whitelisted.active && whitelisted.tickets > 0) {
                     mintAvatar = await contract.methods
                         .mint(account, amount)
                         .send({ from: account, value: 0 })
-                } else if (activePresale && whitelisted === 0) {
+                } else if (activePresale && whitelisted.active) {
                     mintAvatar = await contract.methods
                         .mint(account, amount)
                         .send({ from: account, value: presalePrice * amount })
@@ -218,7 +229,7 @@ const useSCInteractions = () => {
                 setMintingError(error)
             }
         },
-        [active, library]
+        [active, library, account]
     )
 
     const resetError = useCallback(() => {
@@ -226,7 +237,21 @@ const useSCInteractions = () => {
         setMintingError(null)
     }, [mintingError])
 
-    useDeepCompareEffect(() => {}, [library, account])
+    useDeepCompareEffect(() => {
+        if (!account && fetchingData) {
+            // reloadData(true)
+            setFetchingData(false)
+            abortCalls()
+        } else if (!data && !fetchingData && !error) {
+            getData()
+        } else if (currentAccount !== account) {
+            setCurrentAccount(account)
+            if (currentAccount) {
+                if (fetchingData) abortCalls()
+                resetData()
+            }
+        }
+    }, [library, account, data, fetchingData])
 
     useInterval(
         () => {
@@ -234,7 +259,10 @@ const useSCInteractions = () => {
         },
         minting ? 5000 : null
     )
+
     return {
+        data,
+        fetchingData,
         mintAvatar,
         mintData: scInteractions.minted,
         minting,

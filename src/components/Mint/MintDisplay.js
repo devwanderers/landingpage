@@ -145,7 +145,8 @@ const MintDisplay = ({ data = example }) => {
                         <Col span={24}>
                             <div className="bg-green-1 border-2 border-green-3 p-4">
                                 <h2 className="text-info text-xl lg:text-2xl font-bold leading-none">
-                                    {data[index]?.nftData.name}
+                                    {data[index]?.nftData.name} #
+                                    {data[index].tokenId}
                                 </h2>
                                 <div className="mt-2">
                                     <h3 className="text-green-0 text-base lg:text-lg">

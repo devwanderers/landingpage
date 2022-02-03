@@ -1,6 +1,7 @@
 /* eslint-disable no-unused-vars */
 import React, { useState } from 'react'
 import { Layout, Row, Col, Button, BackTop } from 'antd'
+import SliderIslands from './../../components/LandingComponent/SliderIslands'
 // import {} from 'react-icons/fa'
 import Slider from 'react-slick'
 import ReactPlayer from 'react-player/file'
@@ -18,8 +19,6 @@ import SectionTitle from '../../components/Sections/SectionTitle'
 import utilitiesImages from '../../assets/images/utilities'
 import { LineWrapper } from '../../components/Wrappers/LineWrapper'
 import HeaderText from '../../components/DisplayText/Header'
-import NextArrowControl from '../../components/CustomSliderControls/NextArrowControl'
-import PrevArrowControl from '../../components/CustomSliderControls/PrevArrowControl'
 import Paragraph from '../../components/DisplayText/Paragraph'
 // import { IslandSVG } from '../assets/svg/utilities'
 import islandVideo from '../../assets/images/backgrounds/FLOAT-ISLAND.mp4'
@@ -106,29 +105,14 @@ const scrollTo = (name) => {
 const LandingPage = () => {
     const { innerWidth } = useWindowDimensions()
     const [selectedMenu, setMenuIndex] = useState(0)
-    const [imageIndex, setImageIndex] = useState(0)
     const [collapseFaq, setCollapseFAQ] = useState(true)
     // const [roadKey, setSelectedKey] = useState(1)
     // const [videoReady, playVideo] = useState(false)
 
-    const sliderLandSettings = {
-        dots: false,
-        infinite: true,
-        lazyLoad: true,
-        autoplay: true,
-        speed: 300,
-        slidesToShow: innerWidth < 768 ? 1 : 3,
-        centerMode: true,
-        centerPadding: 0,
-        nextArrow: <NextArrowControl />,
-        prevArrow: <PrevArrowControl />,
-        beforeChange: (_, next) => setImageIndex(next),
-    }
-
     const handleCollapseFaq = () => {
         setCollapseFAQ(!collapseFaq)
     }
-    console.log('Init')
+
     return (
         <Layout
             className=" flex flex-col min-h-screen"
@@ -508,40 +492,7 @@ const LandingPage = () => {
                 </Element>
                 <div className="bg-blue-5 pb-16 relative border-0">
                     <div className="section">
-                        <div className="css-generic">
-                            <Slider className="px-12" {...sliderLandSettings}>
-                                {landImages.map(({ id, img }, idx) => (
-                                    <div
-                                        key={`land-${id}`}
-                                        className={
-                                            idx === imageIndex
-                                                ? 'landSlide activeSlide'
-                                                : 'landSlide'
-                                        }
-                                    >
-                                        <img src={img} alt={img} />
-                                    </div>
-                                ))}
-                            </Slider>
-                        </div>
-                        <div className="css-generic items-center mt-5">
-                            <HeaderText
-                                className="leading-tight text-primary tracking-widest"
-                                base="3xl"
-                                lg="40px"
-                            >
-                                {landImages[imageIndex] &&
-                                    landImages[imageIndex]?.title}
-                            </HeaderText>
-                            <HeaderText
-                                className="leading-none text-info font-saira-condensed font-semibold"
-                                base="xl"
-                                lg="27px"
-                            >
-                                {landImages[imageIndex] &&
-                                    landImages[imageIndex]?.percent}
-                            </HeaderText>
-                        </div>
+                        <SliderIslands landImages={landImages} />
                     </div>
                 </div>
                 <div
@@ -904,7 +855,7 @@ const LandingPage = () => {
                                             headerProps={{
                                                 className:
                                                     'mt-8 pl-6 leading-none text-primary',
-                                                base: '1xl',
+                                                base: 'xl',
                                                 lg: '2xl',
                                             }}
                                             paragraphProps={{
@@ -935,7 +886,7 @@ const LandingPage = () => {
                                             headerProps={{
                                                 className:
                                                     'mt-8 pl-6 leading-none text-primary',
-                                                base: '1xl',
+                                                base: 'xl',
                                                 lg: '2xl',
                                             }}
                                             paragraphProps={{
@@ -966,7 +917,7 @@ const LandingPage = () => {
                                             headerProps={{
                                                 className:
                                                     'mt-8 pl-6 leading-none text-primary',
-                                                base: '1xl',
+                                                base: 'xl',
                                                 lg: '2xl',
                                             }}
                                             paragraphProps={{
@@ -997,7 +948,7 @@ const LandingPage = () => {
                                             headerProps={{
                                                 className:
                                                     'mt-8 pl-6 leading-none text-primary',
-                                                base: '1xl',
+                                                base: 'xl',
                                                 lg: '2xl',
                                             }}
                                             paragraphProps={{
@@ -1027,7 +978,7 @@ const LandingPage = () => {
                                             headerProps={{
                                                 className:
                                                     'mt-8 pl-6 leading-none text-primary',
-                                                base: '1xl',
+                                                base: 'xl',
                                                 lg: '2xl',
                                             }}
                                             paragraphProps={{
@@ -1058,7 +1009,7 @@ const LandingPage = () => {
                                             headerProps={{
                                                 className:
                                                     'mt-8 pl-6 leading-none text-primary',
-                                                base: '1xl',
+                                                base: 'xl',
                                                 lg: '2xl',
                                             }}
                                             paragraphProps={{

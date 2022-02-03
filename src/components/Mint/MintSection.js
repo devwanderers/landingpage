@@ -1,6 +1,9 @@
+/* eslint-disable no-unused-vars */
 import React, { useState } from 'react'
 import IncreaseDecreaseInput from '../Inputs/IncreaseDecreaseInput'
 import { useWeb3React } from '@web3-react/core'
+import { Spin } from 'antd'
+import { LoadingOutlined } from '@ant-design/icons'
 import useAuth from './../../hooks/useAuth'
 // import { returnValueByScreenWidth } from '../../services/stylesServices'
 // import useResponsive from './../../hooks/useResponsive'
@@ -10,13 +13,26 @@ import { setupNetwork } from './../../services/wallet'
 import useSCInteractions from './../../hooks/useSCInteractions'
 import useDeepCompareEffect from './../../hooks/useDeepCompareEffect'
 
-const MintSection = (props) => {
-    const { mintAvatar, mintData, minting, mintingError, resetError } =
-        useSCInteractions()
+const antIcon = (
+    <LoadingOutlined style={{ fontSize: 50, color: 'white' }} spin />
+)
+
+const MintSection = () => {
+    const [maxMint, setMaxMint] = useState(0)
     const { login, logout } = useAuth()
     const { account, chainId } = useWeb3React()
     const [mintAmount, setMintAmount] = useState(0)
     const [visibleModal, setVisibleModal] = useState(false)
+
+    const {
+        data,
+        fetchingData,
+        mintAvatar,
+        mintData,
+        minting,
+        mintingError,
+        resetError,
+    } = useSCInteractions()
 
     const handleShowMintModal = () => {
         setVisibleModal(!visibleModal)
@@ -34,6 +50,21 @@ const MintSection = (props) => {
             mintAvatar(mintAmount)
         }
     }
+
+    useDeepCompareEffect(() => {
+        if (data) {
+            const { whitelisted, onlyWhitelisted } = data
+            if (whitelisted.active && whitelisted.tickets > 0) {
+                setMaxMint(whitelisted.tickets)
+            } else if (onlyWhitelisted && whitelisted.active) {
+                setMaxMint(5)
+            } else if (!onlyWhitelisted) {
+                setMaxMint(15)
+            } else {
+                setMaxMint(0)
+            }
+        }
+    }, [data])
 
     useDeepCompareEffect(() => {
         if (!visibleModal) return
@@ -82,8 +113,12 @@ const MintSection = (props) => {
                                 onValueChange={(val) => {
                                     setMintAmount(val)
                                 }}
-                            ></IncreaseDecreaseInput>
-                            <span className="text-xl">Max 15 mints per tx</span>
+                                maxValue={maxMint}
+                                disabled={!data || maxMint === 0}
+                            />
+                            <span className="text-xl">
+                                Max {maxMint} mints per tx
+                            </span>
                         </div>
                         <div className="flex justify-center mt-4 space-x-3">
                             {!account ? (
@@ -104,7 +139,7 @@ const MintSection = (props) => {
                                 </button>
                             )}
                             <button
-                                disabled={!account}
+                                disabled={!account || maxMint === 0}
                                 onClick={() => {
                                     mint()
                                 }}
@@ -119,27 +154,44 @@ const MintSection = (props) => {
                 <div className="absolute right-0 left-0 top-0">
                     <div
                         className="w-full mx-auto "
-                        style={{ height: '1px', backgroundColor: '#2fb39b' }}
+                        style={{
+                            height: '1px',
+                            backgroundColor: '#2fb39b',
+                        }}
                     ></div>
                 </div>
                 <div className="absolute right-0 left-0 top-0">
                     <div
                         className="w-6/12 mx-auto "
-                        style={{ height: '4px', backgroundColor: '#2fb39b' }}
+                        style={{
+                            height: '4px',
+                            backgroundColor: '#2fb39b',
+                        }}
                     ></div>
                 </div>
                 <div className="absolute right-0 left-0 bottom-0">
                     <div
                         className="w-full mx-auto "
-                        style={{ height: '1px', backgroundColor: '#2fb39b' }}
+                        style={{
+                            height: '1px',
+                            backgroundColor: '#2fb39b',
+                        }}
                     ></div>
                 </div>
                 <div className="absolute right-0 left-0 bottom-0">
                     <div
                         className="w-6/12 mx-auto "
-                        style={{ height: '4px', backgroundColor: '#2fb39b' }}
+                        style={{
+                            height: '4px',
+                            backgroundColor: '#2fb39b',
+                        }}
                     ></div>
                 </div>
+                {fetchingData && (
+                    <div className="absolute inset-0 bg-gray-800 bg-opacity-30 flex justify-center items-center">
+                        <Spin indicator={antIcon} />
+                    </div>
+                )}
             </div>
         </React.Fragment>
     )

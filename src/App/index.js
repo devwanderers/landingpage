@@ -15,6 +15,7 @@ const App = () => {
         ReactGA.initialize('G-4TR2JXTP2D')
         // ReactGA.pageview(window.location.pathname + window.location.search)
     })
+    console.log('APP')
     return (
         <React.Fragment>
             <LandingPage />
