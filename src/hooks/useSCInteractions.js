@@ -119,6 +119,7 @@ const useSCInteractions = () => {
                 setFetchingMinting(false)
                 clearMinting()
                 setMinted(values)
+                getData()
                 // callBack(values)
             })
             .catch((reason) => {
@@ -142,8 +143,10 @@ const useSCInteractions = () => {
                     .whitelisted(account)
                     .call()
                     .then((res) => {
+                        console.log({ res })
                         return { tickets: parseInt(res[0]), active: res[1] }
                     })
+                console.log({ whitelisted })
                 resolve({ onlyWhitelisted, whitelisted })
             } catch (err) {
                 console.log({ err })
@@ -204,14 +207,14 @@ const useSCInteractions = () => {
                     .then((res) => {
                         return { tickets: parseInt(res[0]), active: res[1] }
                     })
-
+                console.log({ amount, account })
                 let mintAvatar
-                console.log({ whitelisted })
                 if (whitelisted.active && whitelisted.tickets > 0) {
                     mintAvatar = await contract.methods
                         .mint(account, amount)
                         .send({ from: account, value: 0 })
                 } else if (activePresale && whitelisted.active) {
+                    console.log({ amount })
                     mintAvatar = await contract.methods
                         .mint(account, amount)
                         .send({ from: account, value: presalePrice * amount })
