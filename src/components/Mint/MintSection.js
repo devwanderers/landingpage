@@ -17,8 +17,12 @@ const antIcon = (
     <LoadingOutlined style={{ fontSize: 50, color: 'white' }} spin />
 )
 
+const publicPrice = 5e16
+const presalePrice = 4e16
+
 const MintSection = () => {
     const [maxMint, setMaxMint] = useState(0)
+    const [priceMint, setPrice] = useState('110')
     const { login, logout } = useAuth()
     const { account, chainId } = useWeb3React()
     const [mintAmount, setMintAmount] = useState(0)
@@ -55,13 +59,18 @@ const MintSection = () => {
         if (data) {
             const { whitelisted, onlyWhitelisted } = data
             if (whitelisted.active && whitelisted.tickets > 0) {
-                setMaxMint(whitelisted.tickets)
+                if (whitelisted.tickets <= 5) setMaxMint(whitelisted.tickets)
+                else setMaxMint(5)
+                setPrice('FREE')
             } else if (onlyWhitelisted && whitelisted.active) {
                 setMaxMint(5)
+                setPrice('100')
             } else if (!onlyWhitelisted) {
                 setMaxMint(15)
+                setPrice('110')
             } else {
                 setMaxMint(0)
+                setPrice('110')
             }
         }
     }, [data])
@@ -104,7 +113,7 @@ const MintSection = () => {
                             </div>
                             <div className="text-2xl text-right">
                                 <span className="leading-none">
-                                    Price 110 Matic
+                                    Price {priceMint} Matic
                                 </span>
                             </div>
                         </div>
