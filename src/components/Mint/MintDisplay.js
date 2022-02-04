@@ -145,8 +145,7 @@ const MintDisplay = ({ data = example }) => {
                         <Col span={24}>
                             <div className="bg-green-1 border-2 border-green-3 p-4">
                                 <h2 className="text-info text-xl lg:text-2xl font-bold leading-none">
-                                    {data[index]?.nftData.name} #
-                                    {data[index].tokenId}
+                                    {data[index]?.nftData.name}
                                 </h2>
                                 <div className="mt-2">
                                     <h3 className="text-green-0 text-base lg:text-lg">
@@ -168,9 +167,9 @@ const MintDisplay = ({ data = example }) => {
                                 <p className="text-base lg:text-lg">Renegate</p>
                             </div>
                             <div>
-                                <h3 className="text-green-0 text-base md:text-lg lg:text-xl mb-2">
+                                {/* <h3 className="text-green-0 text-base md:text-lg lg:text-xl mb-2">
                                     Rarity
-                                </h3>
+                                </h3> */}
                                 <p className="text-base lg:text-lg">
                                     20% Anormaly
                                 </p>
