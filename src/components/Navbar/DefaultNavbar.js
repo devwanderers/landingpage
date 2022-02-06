@@ -1,5 +1,6 @@
 /* eslint-disable no-unused-vars */
 import React, { useState } from 'react'
+import { useHistory } from 'react-router'
 import { BrandLogoSVG } from '../../assets/svg/brand'
 import windowOpen from './../../services/windowOpen'
 import useWindowSize from './../../hooks/useWindowSize'
@@ -11,56 +12,64 @@ import {
 import { Drawer } from 'antd'
 import { scrollTo } from '../../services/react-scroll-utils'
 import { GiHamburgerMenu } from 'react-icons/gi'
-
-const marketPlaceMenu = [
-    {
-        key: 'mint',
-        label: 'Mint',
-        onClick: () => {
-            scrollTo('mint')
-        },
-    },
-    {
-        key: 'wanderers',
-        label: 'Wanderers',
-        onClick: () => {
-            scrollTo('wanderers')
-        },
-    },
-    {
-        key: 'lands',
-        label: 'Lands',
-        onClick: () => {
-            scrollTo('lands')
-        },
-    },
-    {
-        key: 'token',
-        label: 'Token',
-        onClick: () => {
-            scrollTo('token')
-        },
-    },
-    {
-        key: 'roadMap',
-        label: 'RoadMap',
-        onClick: () => {
-            scrollTo('roadMap')
-        },
-    },
-    // {
-    //     key: 'marketplace',
-    //     label: 'Marketplace',
-    //     onClick: () => {
-    //         window.location.replace('https://marketplace.thewanderers.io')
-    //     },
-    // },
-]
+import { HomePath, WhitelistPath } from '../../constants/routerConstants'
 
 const DefaultNavbar = () => {
     const [selectedMenu, setMenuIndex] = useState(0)
     const [showDrawer, setShowDrawer] = useState(false)
     const { innerWidth } = useWindowSize()
+    const history = useHistory()
+    const marketPlaceMenu = [
+        {
+            key: 'mint',
+            label: 'Mint',
+            onClick: () => {
+                scrollTo('mint')
+            },
+        },
+        {
+            key: 'wanderers',
+            label: 'Wanderers',
+            onClick: () => {
+                scrollTo('wanderers')
+            },
+        },
+        {
+            key: 'lands',
+            label: 'Lands',
+            onClick: () => {
+                scrollTo('lands')
+            },
+        },
+        {
+            key: 'token',
+            label: 'Token',
+            onClick: () => {
+                scrollTo('token')
+            },
+        },
+        {
+            key: 'roadMap',
+            label: 'RoadMap',
+            onClick: () => {
+                scrollTo('roadMap')
+            },
+        },
+        {
+            key: 'whiteList',
+            label: 'Whitelist',
+            onClick: () => {
+                history.push(WhitelistPath)
+            },
+        },
+        // {
+        //     key: 'marketplace',
+        //     label: 'Marketplace',
+        //     onClick: () => {
+        //         window.location.replace('https://marketplace.thewanderers.io')
+        //     },
+        // },
+    ]
 
     const handleOnClickBurger = () => {
         setShowDrawer(!showDrawer)
@@ -72,7 +81,13 @@ const DefaultNavbar = () => {
                 <div className=" sm:mr-10 xl:mr-20 h-full py-5">
                     <a className="h-full bg-blue-2">
                         <div className="h-full">
-                            <BrandLogoSVG width={'100%'} height={'100%'} />
+                            <BrandLogoSVG
+                                width={'100%'}
+                                height={'100%'}
+                                onClick={() => {
+                                    history.push(HomePath)
+                                }}
+                            />
                         </div>
                     </a>
                 </div>
