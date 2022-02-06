@@ -57,7 +57,7 @@ const marketPlaceMenu = [
     // },
 ]
 
-const Navbar = () => {
+const DefaultNavbar = () => {
     const [selectedMenu, setMenuIndex] = useState(0)
     const [showDrawer, setShowDrawer] = useState(false)
     const { innerWidth } = useWindowSize()
@@ -68,7 +68,7 @@ const Navbar = () => {
 
     return innerWidth > 768 ? (
         <header className="h-24 relative z-50 lg:px-0 text-white bg-blue-5 bg-opacity-25">
-            <div className="max-w-1800px m-auto flex flex-row h-full px-6 2xl:px-0 ">
+            <div className="max-w-1800px m-auto flex flex-row h-full px-6 3xl:px-0 ">
                 <div className=" sm:mr-10 xl:mr-20 h-full py-5">
                     <a className="h-full bg-blue-2">
                         <div className="h-full">
@@ -267,4 +267,4 @@ const Navbar = () => {
     )
 }
 
-export default Navbar
+export default DefaultNavbar

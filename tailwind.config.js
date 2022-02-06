@@ -63,6 +63,9 @@ module.exports = {
                 5: '#03152b',
                 6: '#041B37',
                 7: '#80c4e4',
+                8: '#75b2c4',
+                9: '#1e3755',
+                10: '#728294',
             },
             black: {
                 1: '#1d1d1b',
@@ -81,6 +84,8 @@ module.exports = {
             '6xl': '4rem',
             '7xl': '5rem',
             '8xl': '6rem',
+            '9xl': '7rem',
+            '10xl': '8rem',
             '2-75rem': '2.75rem',
             '2rem': '2rem',
             '89px': '89px',
@@ -90,13 +95,23 @@ module.exports = {
             '27px': '27px',
             '34px': '34px',
         },
+        letterSpacing: {
+            widest: '0.2em',
+        },
         extend: {
             backgroundImage: {
-                render: "url('/src/assets/images/backgrounds/render-fondo.jpg')",
+                render:
+                    "url('/src/assets/images/backgrounds/render-fondo.jpg')",
                 'render-mobil':
                     "url('/src/assets/images/backgrounds/render-fondo-mobil.jpg')",
-                earth: "url('/src/assets/images/backgrounds/bakgroundearth3.png')",
-                floor: "url('/src/assets/images/backgrounds/fondo-transparencia.png')",
+                earth:
+                    "url('/src/assets/images/backgrounds/bakgroundearth3.png')",
+                floor:
+                    "url('/src/assets/images/backgrounds/fondo-transparencia.png')",
+                whitelistSlider:
+                    "url('/src/assets/images/backgrounds/whitelist-slider-desktop.jpeg')",
+                whiteListBottom:
+                    "url('/src/assets/images/backgrounds/bg-whitelist-bottom.png')",
             },
             margin: {
                 84: '21rem',
@@ -106,6 +121,8 @@ module.exports = {
                 '-1px': '-1px',
             },
             padding: {
+                '10%': '10%',
+                '25%': '25%',
                 '64px': '64px',
                 '10px': '10px',
             },

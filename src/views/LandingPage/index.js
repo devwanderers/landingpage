@@ -20,6 +20,7 @@ import HeaderText from '../../components/DisplayText/Header'
 import NextArrowControl from '../../components/CustomSliderControls/NextArrowControl'
 import PrevArrowControl from '../../components/CustomSliderControls/PrevArrowControl'
 import Paragraph from '../../components/DisplayText/Paragraph'
+import DefaultNavbar from '../../components/Navbar/DefaultNavbar'
 // import { IslandSVG } from '../assets/svg/utilities'
 import islandVideo from '../../assets/images/backgrounds/FLOAT-ISLAND.mp4'
 import {
@@ -48,7 +49,6 @@ import AnimDisplayFromTop from '../../components/Animations/AnimDisplayFromTop'
 import windowOpen from '../../services/windowOpen'
 import CollectionSection from '../../components/Collection/CollectionSection'
 import { RoadMapMobSVG } from '../../assets/svg/utilities'
-import Navbar from './Navbar'
 
 const { Content } = Layout
 // const { Countdown } = Statistic
@@ -130,7 +130,7 @@ const LandingPage = () => {
     console.log('Init')
     return (
         <Layout
-            className=" flex flex-col min-h-screen"
+            className="flex flex-col min-h-screen"
             style={{ minWidth: '425px' }}
         >
             <BackTop>
@@ -138,7 +138,7 @@ const LandingPage = () => {
                     <BiUpArrowAlt className="text-2xl" />
                 </div>
             </BackTop>
-            <Navbar />
+            <DefaultNavbar />
             <Content>
                 <div className="-mt-24 pb-1 xl:pb-32 lg:pb-40 relative">
                     <div className="absolute top-0 left-0 bottom-0 right-0 overflow-hidden">
@@ -155,9 +155,6 @@ const LandingPage = () => {
                             onError={(e) => console.log('error', e)}
                             onStart={() => console.log('playing')}
                         />
-                    </div>
-                    <div className="absolute top-0 left-0 bottom-0 right-0 overflow-hidden">
-                        {/* <video innerWidth="100%" height="100%" controls autoPlay={true} src={islandVideo} type="video/mp4"/> */}
                     </div>
                     <div className="section mx-auto pt-64px mb-20 h-screen">
                         <div className="css-generic h-full flex-col justify-between py-4 md:py-6 lg:px-28 xl:px-36 lg:py-10">

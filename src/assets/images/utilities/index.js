@@ -13,6 +13,7 @@ import nft1wb from './nfts/nobackgroundnnft.png'
 import isla from './isla.png'
 import island from './piedras-fondo.gif'
 import wttCoin from './wtt-coin.png'
+import wallet from './wallet.png'
 import alex from '../team/mar-alexis.png'
 import amelie from '../team/mar-amelie.png'
 import kame from '../team/mar-kame.png'
@@ -41,7 +42,8 @@ const utilitiesImages = {
     skullman,
     surtek,
     dr,
-    nft1wb
+    nft1wb,
+    wallet,
 }
 
 export default utilitiesImages

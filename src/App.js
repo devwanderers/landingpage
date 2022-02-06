@@ -6,9 +6,9 @@ import './styles/App.less'
 // import { useThemeSwitcher } from 'react-css-theme-switcher'
 // import { Button } from 'antd'
 // import { UseEffectHook } from './hooks/UseEffectHook'
-// import Router from './Router'
+import Router from './Router'
 // import AuthLayout from './components/Layouts/AuthLayout'
-import LandingPage from './views/LandingPage'
+// import LandingPage from './views/LandingPage'
 
 const App = () => {
     // const [isDarkMode, setIsDarkMode] = React.useState()
@@ -23,7 +23,10 @@ const App = () => {
     // const handleClick = () => {}
 
     return (
-        <LandingPage />
+        <React.Fragment>
+            <Router />
+        </React.Fragment>
+        // <LandingPage />
         // {/* <NoAuthLayout>
         //     <Button>Test</Button>
         //     <h1>The current theme is: {currentTheme}</h1>
