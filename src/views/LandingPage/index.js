@@ -166,14 +166,14 @@ const LandingPage = () => {
                             </div>
                             <div className="mb-10 z-20">
                                 <div className="count-down bg-black-1 bg-opacity-40 mx-auto lg:px-4 pt-5 pb-4 relative z-10">
-                                    <GenericCountDown date={deadline} />
+                                    {/* <GenericCountDown date={deadline} />
                                     <div className="flex text-white text-lg md:text-2xl lg:text-4xl mt-5">
                                         <div className="flex-1">DAYS</div>
                                         <div className="flex-1">HOURS</div>
                                         <div className="flex-1">MINUTES</div>
                                         <div className="flex-1">SECONDS</div>
-                                    </div>
-                                    {/* <div className="flex flex-col text-white text-lg md:text-2xl lg:text-4xl mt-5 text-center">
+                                    </div> */}
+                                    <div className="flex flex-col text-white text-lg md:text-2xl lg:text-4xl mt-5 text-center">
                                         <div className="xl:text-6xl text-xl font-saira-condensed leading-none tracking-wide">
                                             PRE-SALE EVENT ALMOST
                                         </div>
@@ -183,7 +183,7 @@ const LandingPage = () => {
                                         >
                                             READY!
                                         </div>
-                                    </div> */}
+                                    </div>
                                     <div
                                         className="absolute right-0 left-0 -mx-3"
                                         style={{
