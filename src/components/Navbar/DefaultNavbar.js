@@ -55,13 +55,13 @@ const DefaultNavbar = () => {
                 scrollTo('roadMap')
             },
         },
-        {
-            key: 'whiteList',
-            label: 'Whitelist',
-            onClick: () => {
-                history.push(WhitelistPath)
-            },
-        },
+        // {
+        //     key: 'whiteList',
+        //     label: 'Whitelist',
+        //     onClick: () => {
+        //         history.push(WhitelistPath)
+        //     },
+        // },
         // {
         //     key: 'marketplace',
         //     label: 'Marketplace',
