@@ -300,8 +300,7 @@ const LandingPage = () => {
                                                 characters called wanderers as
                                                 an initial offering and other
                                                 250 special characters aviable
-                                                in a pre-sale event by 110
-                                                MATIC.
+                                                in a pre-sale event by 0.25 ETH.
                                             </span>
                                             <br />
                                             <br />
@@ -315,7 +314,7 @@ const LandingPage = () => {
                                                 exclusive promotions in the
                                                 travel platform and more.{' '}
                                                 <a
-                                                    href="#"
+                                                    href="https://thewanderers.sfo3.digitaloceanspaces.com/The%20wanderers%20whitepaper.pdf"
                                                     className="underline"
                                                 >
                                                     <strong>
@@ -734,10 +733,13 @@ const LandingPage = () => {
                                     >
                                         <span>
                                             {
-                                                'Use either Google Chrome or Brave to visit this page. You will need to have Metamask installed and MATIC on your wallet. Select as many Wanderers as you want, click the Mint button and approve the transaction. You can see an extended video tutorial '
+                                                'Use either Google Chrome or Brave to visit this page. You will need to have Metamask installed and ETH on your wallet. Select as many Wanderers as you want, click the Mint button and approve the transaction. You can see an extended video tutorial '
                                             }
                                         </span>
-                                        <a href="#" className="underline">
+                                        <a
+                                            href="https://www.youtube.com/watch?v=dbDxSyBWWYU&t=1s&ab_channel=TheWanderersMetaverse"
+                                            className="underline"
+                                        >
                                             <strong>here.</strong>
                                         </a>
                                     </Article>
