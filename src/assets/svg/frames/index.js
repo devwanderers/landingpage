@@ -7,6 +7,8 @@ import { ReactComponent as FrameFAQBottom } from './faq-m2.svg'
 import { ReactComponent as FrameCharacter } from './marco-personaje.svg'
 import { ReactComponent as FrameNftTop } from './m1-nft-card.svg'
 import { ReactComponent as FrameNftBottom } from './m2-nft-card.svg'
+import { ReactComponent as FrameWhiteListTop } from './whitelist-slider1.svg'
+import { ReactComponent as FrameWhiteListBottom } from './whitelist-slider2.svg'
 
 export const FrameCounterSVG = FrameCounter
 export const FrameCounterTopSVG = FrameCounterTop
@@ -17,3 +19,5 @@ export const FrameFAQBottomSVG = FrameFAQBottom
 export const FrameCharacterSVG = FrameCharacter
 export const FrameNftTopSVG = FrameNftTop
 export const FrameNftBottomSVG = FrameNftBottom
+export const FrameWhiteListTopSVG = FrameWhiteListTop
+export const FrameWhiteListBottomSVG = FrameWhiteListBottom

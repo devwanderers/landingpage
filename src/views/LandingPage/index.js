@@ -20,6 +20,7 @@ import utilitiesImages from '../../assets/images/utilities'
 import { LineWrapper } from '../../components/Wrappers/LineWrapper'
 import HeaderText from '../../components/DisplayText/Header'
 import Paragraph from '../../components/DisplayText/Paragraph'
+import DefaultNavbar from '../../components/Navbar/DefaultNavbar'
 // import { IslandSVG } from '../assets/svg/utilities'
 import islandVideo from '../../assets/images/backgrounds/FLOAT-ISLAND.mp4'
 import {
@@ -48,7 +49,6 @@ import AnimDisplayFromTop from '../../components/Animations/AnimDisplayFromTop'
 import windowOpen from '../../services/windowOpen'
 import CollectionSection from '../../components/Collection/CollectionSection'
 import { RoadMapMobSVG } from '../../assets/svg/utilities'
-import Navbar from './Navbar'
 
 const { Content } = Layout
 // const { Countdown } = Statistic
@@ -115,7 +115,7 @@ const LandingPage = () => {
 
     return (
         <Layout
-            className=" flex flex-col min-h-screen"
+            className="flex flex-col min-h-screen"
             style={{ minWidth: '425px' }}
         >
             <BackTop>
@@ -123,7 +123,7 @@ const LandingPage = () => {
                     <BiUpArrowAlt className="text-2xl" />
                 </div>
             </BackTop>
-            <Navbar />
+            <DefaultNavbar />
             <Content>
                 <div className="-mt-24 pb-1 xl:pb-32 lg:pb-40 relative">
                     <div className="absolute top-0 left-0 bottom-0 right-0 overflow-hidden">
@@ -141,9 +141,6 @@ const LandingPage = () => {
                             onStart={() => console.log('playing')}
                         />
                     </div>
-                    <div className="absolute top-0 left-0 bottom-0 right-0 overflow-hidden">
-                        {/* <video innerWidth="100%" height="100%" controls autoPlay={true} src={islandVideo} type="video/mp4"/> */}
-                    </div>
                     <div className="section mx-auto pt-64px mb-20 h-screen">
                         <div className="css-generic h-full flex-col justify-between py-4 md:py-6 lg:px-28 xl:px-36 lg:py-10">
                             <div className="pt-10 lg:pt-0 w-80 lg:w-96 mx-auto  pb-6">
@@ -152,12 +149,23 @@ const LandingPage = () => {
                             <MintSection />
                             {/* <div className="mb-10 z-20">
                                 <div className="count-down bg-black-1 bg-opacity-40 mx-auto lg:px-4 pt-5 pb-4 relative z-10">
-                                    <GenericCountDown date={deadline} />
+                                    {/* <GenericCountDown date={deadline} />
                                     <div className="flex text-white text-lg md:text-2xl lg:text-4xl mt-5">
                                         <div className="flex-1">DAYS</div>
                                         <div className="flex-1">HOURS</div>
                                         <div className="flex-1">MINUTES</div>
                                         <div className="flex-1">SECONDS</div>
+                                    </div> */}
+                                    <div className="flex flex-col text-white text-lg md:text-2xl lg:text-4xl mt-5 text-center">
+                                        <div className="xl:text-6xl text-xl font-saira-condensed leading-none tracking-wide">
+                                            PRE-SALE EVENT ALMOST
+                                        </div>
+                                        <div
+                                            className="xl:text-8xl text-lg font-russo-one leading-none pt-4 relative -mr-5"
+                                            style={{ letterSpacing: '1.9rem' }}
+                                        >
+                                            READY!
+                                        </div>
                                     </div>
                                     <div
                                         className="absolute right-0 left-0 -mx-3"
@@ -278,8 +286,7 @@ const LandingPage = () => {
                                                 characters called wanderers as
                                                 an initial offering and other
                                                 250 special characters aviable
-                                                in a pre-sale event by 110
-                                                MATIC.
+                                                in a pre-sale event by 0.25 ETH.
                                             </span>
                                             <br />
                                             <br />
@@ -293,7 +300,7 @@ const LandingPage = () => {
                                                 exclusive promotions in the
                                                 travel platform and more.{' '}
                                                 <a
-                                                    href="#"
+                                                    href="https://thewanderers.sfo3.digitaloceanspaces.com/The%20wanderers%20whitepaper.pdf"
                                                     className="underline"
                                                 >
                                                     <strong>
@@ -679,10 +686,13 @@ const LandingPage = () => {
                                     >
                                         <span>
                                             {
-                                                'Use either Google Chrome or Brave to visit this page. You will need to have Metamask installed and MATIC on your wallet. Select as many Wanderers as you want, click the Mint button and approve the transaction. You can see an extended video tutorial '
+                                                'Use either Google Chrome or Brave to visit this page. You will need to have Metamask installed and ETH on your wallet. Select as many Wanderers as you want, click the Mint button and approve the transaction. You can see an extended video tutorial '
                                             }
                                         </span>
-                                        <a href="#" className="underline">
+                                        <a
+                                            href="https://www.youtube.com/watch?v=dbDxSyBWWYU&t=1s&ab_channel=TheWanderersMetaverse"
+                                            className="underline"
+                                        >
                                             <strong>here.</strong>
                                         </a>
                                     </Article>
