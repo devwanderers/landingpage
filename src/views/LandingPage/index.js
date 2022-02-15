@@ -39,9 +39,8 @@ import windowOpen from '../../services/windowOpen'
 import CollectionSection from '../../components/Collection/CollectionSection'
 import { RoadMapMobSVG } from '../../assets/svg/utilities'
 import Benefits from './Benefits'
-import TeamProfile from './TeamProfile'
 import Faq from './Faq'
-import Teams from './Teams'
+import MeetTeam from './MeetTeam'
 import AnimateTransition from '../../components/Animations/AnimateTransition'
 import { useInView } from 'react-intersection-observer'
 import Mint from './Mint'
@@ -154,7 +153,7 @@ const LandingPage = () => {
                     </div>
                     <div className="section mx-auto pt-64px mb-20 h-screen">
                         <div className="css-generic h-full flex-col justify-between py-4 md:py-6 lg:px-28 xl:px-36 lg:py-10">
-                            <div className="pt-10 lg:pt-0 w-80 lg:w-96 mx-auto  pb-6">
+                            <div className="pt-10 w-80 lg:w-96 mx-auto  pb-6">
                                 <Logo1SVG width="100%" />
                             </div>
                             <div className="mb-10 z-20">
@@ -171,10 +170,10 @@ const LandingPage = () => {
                                             PRE-SALE EVENT ALMOST
                                         </div>
                                         <div
-                                            className="xl:text-8xl text-lg font-russo-one leading-none pt-4 relative -mr-5"
-                                            style={{ letterSpacing: '1.9rem' }}
+                                            className="xl:text-6xl text-lg font-russo-one leading-none pt-4 relative -mr-5"
+                                            style={{ letterSpacing: '0.8rem' }}
                                         >
-                                            READY!
+                                            LAUNCHING SOON!
                                         </div>
                                     </div>
                                     <div
@@ -465,7 +464,7 @@ const LandingPage = () => {
                             </HeaderText>
                             <div className="css-generic mx-auto w-full lg:w-8/12">
                                 <Article
-                                    header="1. Road Map"
+                                    header="Road Map"
                                     subHeader="February 2022"
                                     headerProps={{
                                         className:
@@ -499,7 +498,7 @@ const LandingPage = () => {
 
                             <div className="css-generic max-w-full flex justify-center">
                                 <RoadMapSvg
-                                    currentStep={1}
+                                    currentStep={3}
                                     width="100%"
                                     height="100%"
                                 />
@@ -545,47 +544,7 @@ const LandingPage = () => {
                         </div>
                     </div>
                 </div>
-
-                <Element
-                    name="team"
-                    className="bg-blue-5 bg-floor bg-no-repeat bg-cover pt-12 pb-24 lg:pt-10 lg:pb-64 relative"
-                    style={{
-                        backgroundPosition: '0% 100%',
-                    }}
-                >
-                    <div className="section">
-                        <Row className="mb-12 lg:mb-16 xs:mb-2">
-                            <Col
-                                xs={24}
-                                lg={7}
-                                className="text-center lg:text-left"
-                            >
-                                <HeaderText
-                                    base="4xl"
-                                    lg="89px"
-                                    className="text-primary leading-none tracking-widest"
-                                >
-                                    Meet
-                                </HeaderText>
-                                <HeaderText
-                                    base="2xl"
-                                    lg="53px"
-                                    className="text-info font-semibold leading-none font-saira-condensed lg:relative lg:-right-32"
-                                >
-                                    The team
-                                </HeaderText>
-                            </Col>
-                            <Col xs={24} lg={17} className="pt-4 lg:pt-12">
-                                <Paragraph
-                                    base="lg"
-                                    lg="23px"
-                                    className="text-blue-4 lg:pl-44 text-justify"
-                                ></Paragraph>
-                            </Col>
-                        </Row>
-                        <Teams />
-                    </div>
-                </Element>
+                <MeetTeam />
                 <Element name="community" className="bg-blue-5 pb-20 lg:pb-48">
                     <div className="section">
                         <Row className="mb-12 lg:mb-16">
@@ -682,7 +641,7 @@ const LandingPage = () => {
                                     base="2xl"
                                     className="text-blue-4 font-semibold font-saira-condensed"
                                 >
-                                    9,000 unique Wanderers
+                                    9,000 Unique Nomadz
                                 </HeaderText>
                             </div>
                         </div>

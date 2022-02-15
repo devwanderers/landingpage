@@ -49,17 +49,17 @@ const DefaultNavbar = () => {
             },
         },
         {
-            key: 'team',
-            label: 'Team',
-            onClick: () => {
-                scrollTo('team')
-            },
-        },
-        {
             key: 'roadMap',
             label: 'RoadMap',
             onClick: () => {
                 scrollTo('roadMap')
+            },
+        },
+        {
+            key: 'team',
+            label: 'Team',
+            onClick: () => {
+                scrollTo('team')
             },
         },
         // {
