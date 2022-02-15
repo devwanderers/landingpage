@@ -1,1 +1,1 @@
-export const supportedChainIds = [137, 1337, 80001]
+export const supportedChainIds = [1, 4]

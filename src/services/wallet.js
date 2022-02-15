@@ -9,14 +9,16 @@ export const setupNetwork = async () => {
                 params: [
                     {
                         chainId: `0x${chainId.toString(16)}`,
-                        chainName: 'Polygon',
+                        chainName: 'Ethereum',
                         nativeCurrency: {
-                            name: 'MATIC',
-                            symbol: 'MATIC',
+                            name: 'ETH',
+                            symbol: 'ETH',
                             decimals: 18,
                         },
-                        rpcUrls: ['https://polygon-rpc.com/'],
-                        blockExplorerUrls: ['https://polygonscan.com/'],
+                        rpcUrls: [
+                            'https://mainnet.infura.io/v3/9aa3d95b3bc440fa88ea12eaa4456161',
+                        ],
+                        blockExplorerUrls: ['https://etherscan.io/'],
                     },
                 ],
             })
@@ -41,7 +43,7 @@ export const registerToken = async () => {
             options: {
                 address:
                     process.env.REACT_APP_AVATAR_DESTINARE_CONTRACT_ADDRESS,
-                symbol: 'WTT',
+                symbol: 'NLD',
                 decimals: 0,
                 // image: `${BASE_URL}/images/tokens/${tokenAddress}.png`,
             },
