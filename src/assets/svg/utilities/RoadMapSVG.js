@@ -1,5 +1,6 @@
+/* eslint-disable no-unused-vars */
 import * as React from 'react'
-import { motion } from 'framer-motion'
+import { motion, useViewportScroll } from 'framer-motion'
 
 const RoadMapSVG = ({ currentStep, ...restProps }) => {
     return (
