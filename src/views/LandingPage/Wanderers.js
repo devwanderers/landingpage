@@ -7,7 +7,7 @@ import CollectionSection from './../../components/Collection/CollectionSection'
 const Wanderers = () => {
     return (
         <Element
-            name="wanderers"
+            name="nomadz"
             className=" bg-blue-5 lg:pb-32 css-generic lg:flex-row px-10px xl:px-0"
         >
             <HeaderText

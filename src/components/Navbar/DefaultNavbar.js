@@ -28,10 +28,10 @@ const DefaultNavbar = () => {
             },
         },
         {
-            key: 'wanderers',
-            label: 'Wanderers',
+            key: 'nomadz',
+            label: 'Nomadz',
             onClick: () => {
-                scrollTo('wanderers')
+                scrollTo('nomadz')
             },
         },
         {
