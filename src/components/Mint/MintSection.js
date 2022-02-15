@@ -17,12 +17,12 @@ const antIcon = (
     <LoadingOutlined style={{ fontSize: 50, color: 'white' }} spin />
 )
 
-const publicPrice = 5e16
-const presalePrice = 4e16
+const publicPrice = 25e16
+const presalePrice = 15e16
 
 const MintSection = () => {
     const [maxMint, setMaxMint] = useState(0)
-    const [priceMint, setPrice] = useState('110 MATIC')
+    const [priceMint, setPrice] = useState('0.25 ETH')
     const { login, logout } = useAuth()
     const { account, chainId } = useWeb3React()
     const [mintAmount, setMintAmount] = useState(0)
@@ -64,13 +64,13 @@ const MintSection = () => {
                 setPrice('FREE')
             } else if (onlyWhitelisted && whitelisted.active) {
                 setMaxMint(5)
-                setPrice('100 MATIC')
+                setPrice('0.15 ETH')
             } else if (!onlyWhitelisted) {
                 setMaxMint(15)
-                setPrice('110 MATIC')
+                setPrice('0.25 ETH')
             } else {
                 setMaxMint(0)
-                setPrice('110 MATIC')
+                setPrice('0.25 ETH')
             }
         }
     }, [data])
@@ -107,8 +107,8 @@ const MintSection = () => {
                                 <span className="font-bold text-5xl leading-none">
                                     9,000
                                 </span>
-                                <span className="font-bold text-4xl leading-none">
-                                    WANDERERS
+                                <span className="font-bold text-5xl leading-none">
+                                    Nomadz
                                 </span>
                             </div>
                             <div className="text-2xl text-right">

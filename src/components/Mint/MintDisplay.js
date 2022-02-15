@@ -57,8 +57,8 @@ const example = [
         tokenUri:
             'https://wanderers.mypinata.cloud/ipfs/QmUe1xnFLh4xiodfBeRUTMcJQTEMJBNbqgMRkevqyDHChR/5.json',
         nftData: {
-            name: 'Wanderers #12',
-            description: 'Wanderer ',
+            name: 'Nomad #12',
+            description: 'Nomadland NFT is the first project with real life pasive incomes.',
             image: 'https://wanderers.mypinata.cloud/ipfs/QmdbYAh4RwHRasoZmWBagzBpuZrSKLQ544JqT7EZzZCrQV',
             dna: '9b64578024cc6c53622161ae85795655487e271b',
             edition: 11,
@@ -145,13 +145,15 @@ const MintDisplay = ({ data = example }) => {
                         <Col span={24}>
                             <div className="bg-green-1 border-2 border-green-3 p-4">
                                 <h2 className="text-info text-xl lg:text-2xl font-bold leading-none">
-                                    {data[index]?.nftData.name}
+                                    {/* {data[index]?.nftData.name} */}
+                                    Nomadzland Unrevealed
                                 </h2>
                                 <div className="mt-2">
                                     <h3 className="text-green-0 text-base lg:text-lg">
                                         About
                                     </h3>
-                                    <p>{data[index]?.nftData.description}</p>
+                                    {/* <p>{data[index]?.nftData.description}</p> */}
+                                    <p>Nomadzland the first project with real pasive incomes.</p>
                                 </div>
                             </div>
                         </Col>
@@ -164,14 +166,14 @@ const MintDisplay = ({ data = example }) => {
                                 <h3 className="text-green-0 text-base md:text-lg lg:text-xl mb-2">
                                     Class
                                 </h3>
-                                <p className="text-base lg:text-lg">Renegate</p>
+                                <p className="text-base lg:text-lg">Alliance</p>
                             </div>
                             <div>
-                                {/* <h3 className="text-green-0 text-base md:text-lg lg:text-xl mb-2">
-                                    Rarity
-                                </h3> */}
+                                <h3 className="text-green-0 text-base md:text-lg lg:text-xl mb-2">
+                                    Nomad ID
+                                </h3>
                                 <p className="text-base lg:text-lg">
-                                    20% Anormaly
+                                    12
                                 </p>
                             </div>
                         </div>
@@ -193,19 +195,15 @@ const MintDisplay = ({ data = example }) => {
                                                         <span className="font-bold  ">
                                                             Type:{' '}
                                                         </span>
-                                                        {val.trait_type}
+                                                        {/* {val.trait_type} */}
+                                                        Unrevealed
                                                     </div>
                                                     <div>
                                                         <span className=" font-bold">
                                                             Value:{' '}
                                                         </span>
-                                                        {val.value}
-                                                    </div>
-                                                    <div>
-                                                        <span className=" font-bold">
-                                                            Rarity:{' '}
-                                                        </span>
-                                                        {val.rarity}
+                                                        {/* {val.value} */}
+                                                        Unrevealed
                                                     </div>
                                                 </div>
                                             )
