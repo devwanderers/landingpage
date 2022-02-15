@@ -667,7 +667,7 @@ const Whitelist = () => {
                                         base="2xl"
                                         className="text-blue-4 font-semibold font-saira-condensed"
                                     >
-                                        9,000 unique Wanderers
+                                        9,000 Unique Nomadz
                                     </HeaderText>
                                 </div>
                             </div>
