@@ -1,8 +1,97 @@
 /* eslint-disable no-unused-vars */
-import * as React from 'react'
-import { motion, useViewportScroll } from 'framer-motion'
+import React, { useEffect, useRef, useState } from 'react'
+import {
+    motion,
+    useViewportScroll,
+    useTransform,
+    useSpring,
+} from 'framer-motion'
+import useSize from './../../../hooks/useSize'
+import { useElementOffsetTop } from './../../../hooks/useElementOffsetTop'
+import useWindowSize from './../../../hooks/useWindowSize'
 
 const RoadMapSVG = ({ currentStep, ...restProps }) => {
+    const { scrollY } = useViewportScroll()
+    const { innerHeight } = useWindowSize()
+
+    const [completed1, setCompleted1] = useState(false)
+    const [completed2, setCompleted2] = useState(false)
+    const [completed3, setCompleted3] = useState(false)
+    const [completed4, setCompleted4] = useState(false)
+    const [completed5, setCompleted5] = useState(false)
+
+    const step1Ref = useRef(null)
+    const step2Ref = useRef(null)
+    const step3Ref = useRef(null)
+    const step4Ref = useRef(null)
+    const step5Ref = useRef(null)
+    const step6Ref = useRef(null)
+
+    const step1Offset = useElementOffsetTop(step1Ref)
+    const step2Offset = useElementOffsetTop(step2Ref)
+    const step3Offset = useElementOffsetTop(step3Ref)
+    const step4Offset = useElementOffsetTop(step4Ref)
+    const step5Offset = useElementOffsetTop(step5Ref)
+    const step6Offset = useElementOffsetTop(step6Ref)
+
+    const screenHeightHalf = innerHeight * 0.5
+
+    const step1ToStep2 = useTransform(
+        scrollY,
+        [step1Offset - screenHeightHalf, step2Offset - screenHeightHalf],
+        [-100, 0]
+    )
+
+    const step2ToStep3 = useTransform(
+        scrollY,
+        [step2Offset - screenHeightHalf, step3Offset - screenHeightHalf],
+        [-100, 0]
+    )
+    const step3ToStep4 = useTransform(
+        scrollY,
+        [step3Offset - screenHeightHalf, step4Offset - screenHeightHalf],
+        [-100, 0]
+    )
+
+    const step4ToStep5 = useTransform(
+        scrollY,
+        [step4Offset - screenHeightHalf, step5Offset - screenHeightHalf],
+        [-100, 0]
+    )
+    const step5ToStep6 = useTransform(
+        scrollY,
+        [step5Offset - screenHeightHalf, step6Offset - screenHeightHalf],
+        [-100, 0]
+    )
+
+    useEffect(
+        () =>
+            step1ToStep2.onChange((v) => {
+                console.log({ v: v > -1, v1: v })
+                setCompleted1(v > -1)
+            }),
+        [step1ToStep2]
+    )
+
+    useEffect(
+        () => step2ToStep3.onChange((v) => setCompleted2(v > -1)),
+        [step2ToStep3]
+    )
+
+    useEffect(
+        () => step3ToStep4.onChange((v) => setCompleted3(v > -1)),
+        [step3ToStep4]
+    )
+
+    useEffect(
+        () => step4ToStep5.onChange((v) => setCompleted4(v > -1)),
+        [step4ToStep5]
+    )
+
+    useEffect(() =>
+        step5ToStep6.onChange((v) => setCompleted5(v > -1), [step5ToStep6])
+    )
+
     return (
         <svg
             id="Capa_1"
@@ -994,7 +1083,7 @@ const RoadMapSVG = ({ currentStep, ...restProps }) => {
                     strokeWidth: '0.5px',
                 }}
             />
-            <line
+            <motion.line
                 x1={238.75}
                 y1={107.39}
                 x2={238.75}
@@ -1003,10 +1092,12 @@ const RoadMapSVG = ({ currentStep, ...restProps }) => {
                     fill: 'none',
                     stroke: '#fff',
                     strokeMiterlimit: 10,
-                    strokeWidth: currentStep > 1 ? '2px' : '0.5px',
+                    strokeWidth: '2px',
+                    strokeDashoffset: step1ToStep2,
+                    strokeDasharray: 100,
                 }}
             />
-            <line
+            <motion.line
                 x1={238.75}
                 y1={199.39}
                 x2={238.75}
@@ -1015,10 +1106,12 @@ const RoadMapSVG = ({ currentStep, ...restProps }) => {
                     fill: 'none',
                     stroke: '#fff',
                     strokeMiterlimit: 10,
-                    strokeWidth: currentStep > 2 ? '2px' : '0.5px',
+                    strokeWidth: '2px',
+                    strokeDashoffset: step2ToStep3,
+                    strokeDasharray: 100,
                 }}
             />
-            <line
+            <motion.line
                 x1={238.75}
                 y1={292.39}
                 x2={238.75}
@@ -1027,10 +1120,12 @@ const RoadMapSVG = ({ currentStep, ...restProps }) => {
                     fill: 'none',
                     stroke: '#fff',
                     strokeMiterlimit: 10,
-                    strokeWidth: currentStep > 3 ? '2px' : '0.5px',
+                    strokeWidth: '2px',
+                    strokeDashoffset: step3ToStep4,
+                    strokeDasharray: 100,
                 }}
             />
-            <line
+            <motion.line
                 x1={238.75}
                 y1={387.39}
                 x2={238.75}
@@ -1039,10 +1134,12 @@ const RoadMapSVG = ({ currentStep, ...restProps }) => {
                     fill: 'none',
                     stroke: '#fff',
                     strokeMiterlimit: 10,
-                    strokeWidth: currentStep > 4 ? '2px' : '0.5px',
+                    strokeWidth: '2px',
+                    strokeDashoffset: step4ToStep5,
+                    strokeDasharray: 100,
                 }}
             />
-            <line
+            <motion.line
                 x1={238.75}
                 y1={482.39}
                 x2={238.75}
@@ -1051,7 +1148,9 @@ const RoadMapSVG = ({ currentStep, ...restProps }) => {
                     fill: 'none',
                     stroke: '#fff',
                     strokeMiterlimit: 10,
-                    strokeWidth: currentStep > 5 ? '2px' : '0.5px',
+                    strokeWidth: '2px',
+                    strokeDashoffset: step5ToStep6,
+                    strokeDasharray: 100,
                 }}
             />
             <polyline
@@ -1100,6 +1199,7 @@ const RoadMapSVG = ({ currentStep, ...restProps }) => {
                 }}
             />
             <rect
+                ref={step1Ref}
                 x={237.7}
                 y={20.48}
                 width={11.9}
@@ -1117,13 +1217,14 @@ const RoadMapSVG = ({ currentStep, ...restProps }) => {
                 }}
             />
             <rect
+                ref={step2Ref}
                 x={237.7}
                 y={105.48}
                 width={11.9}
                 height={11.9}
                 transform="translate(-12.24 200.88) rotate(-45)"
                 style={{
-                    fill: currentStep > 1 ? '#3bb396' : '#03152b',
+                    fill: completed1 ? '#3bb396' : '#03152b',
                 }}
             />
             <path
@@ -1134,13 +1235,14 @@ const RoadMapSVG = ({ currentStep, ...restProps }) => {
                 }}
             />
             <rect
+                ref={step3Ref}
                 x={237.7}
                 y={197.48}
                 width={11.9}
                 height={11.9}
                 transform="translate(-77.29 227.83) rotate(-45)"
                 style={{
-                    fill: currentStep > 2 ? '#3bb396' : '#03152b',
+                    fill: completed2 ? '#3bb396' : '#03152b',
                 }}
             />
             <path
@@ -1151,13 +1253,14 @@ const RoadMapSVG = ({ currentStep, ...restProps }) => {
                 }}
             />
             <rect
+                ref={step4Ref}
                 x={237.7}
                 y={290.48}
                 width={11.9}
                 height={11.9}
                 transform="translate(-143.05 255.07) rotate(-45)"
                 style={{
-                    fill: currentStep > 3 ? '#3bb396' : '#03152b',
+                    fill: completed3 ? '#3bb396' : '#03152b',
                 }}
             />
             <path
@@ -1168,13 +1271,14 @@ const RoadMapSVG = ({ currentStep, ...restProps }) => {
                 }}
             />
             <rect
+                ref={step5Ref}
                 x={237.7}
                 y={385.48}
                 width={11.9}
                 height={11.9}
                 transform="translate(-210.23 282.89) rotate(-45)"
                 style={{
-                    fill: currentStep > 4 ? '#3bb396' : '#03152b',
+                    fill: completed4 ? '#3bb396' : '#03152b',
                 }}
             />
             <path
@@ -1185,13 +1289,14 @@ const RoadMapSVG = ({ currentStep, ...restProps }) => {
                 }}
             />
             <rect
+                ref={step6Ref}
                 x={237.7}
                 y={479.48}
                 width={11.9}
                 height={11.9}
                 transform="translate(-276.7 310.43) rotate(-45)"
                 style={{
-                    fill: currentStep > 5 ? '#3bb396' : '#03152b',
+                    fill: completed5 ? '#3bb396' : '#03152b',
                 }}
             />
             <path

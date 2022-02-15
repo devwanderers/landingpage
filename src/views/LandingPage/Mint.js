@@ -10,7 +10,7 @@ import Benefits from './Benefits'
 
 const Mint = (props) => {
     const [nftFrameRef, nftFrameInview] = useInView({
-        threshold: 0.4,
+        threshold: 1,
         triggerOnce: true,
     })
     return (

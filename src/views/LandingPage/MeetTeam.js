@@ -7,6 +7,7 @@ import utilitiesImages from '../../assets/images/utilities'
 import HeaderText from '../../components/DisplayText/Header'
 import Paragraph from '../../components/DisplayText/Paragraph'
 import Article from './../../components/DisplayText/Article'
+import AnimateTransition from './../../components/Animations/AnimateTransition'
 
 const teams = [
     { image: utilitiesImages.dr, name: 'Dr. Millan', description: 'COO' },
@@ -65,10 +66,18 @@ const TeamProfile = ({ image, name, description }) => {
 }
 
 const Teams = () => {
-    const [refTeam, teamInView] = useInView({
+    const collectionConfig = {
         threshold: 1,
         triggerOnce: true,
+    }
+    const [refTeam, teamInView] = useInView({
+        threshold: 0.7,
+        triggerOnce: true,
     })
+
+    const [titleRef, titleInView] = useInView(collectionConfig)
+    const [subTitleRef, subTitleInView] = useInView(collectionConfig)
+
     const controls = useAnimation()
 
     const teamsVariant = {
@@ -114,20 +123,31 @@ const Teams = () => {
             <div className="section">
                 <Row className="mb-12 lg:mb-16 xs:mb-2">
                     <Col xs={24} lg={7} className="text-center lg:text-left">
-                        <HeaderText
-                            base="4xl"
-                            lg="89px"
-                            className="text-primary leading-none tracking-widest"
-                        >
-                            Meet
-                        </HeaderText>
-                        <HeaderText
-                            base="2xl"
-                            lg="53px"
-                            className="text-info font-semibold leading-none font-saira-condensed lg:relative lg:-right-32"
-                        >
-                            The team
-                        </HeaderText>
+                        <div ref={titleRef}>
+                            <AnimateTransition visible={titleInView}>
+                                <HeaderText
+                                    base="4xl"
+                                    lg="89px"
+                                    className="text-primary leading-none tracking-widest"
+                                >
+                                    Meet
+                                </HeaderText>
+                            </AnimateTransition>
+                        </div>
+                        <div ref={subTitleRef}>
+                            <AnimateTransition
+                                visible={subTitleInView}
+                                transitionFrom="right"
+                            >
+                                <HeaderText
+                                    base="2xl"
+                                    lg="53px"
+                                    className="text-info font-semibold leading-none font-saira-condensed lg:relative lg:-right-32"
+                                >
+                                    The team
+                                </HeaderText>
+                            </AnimateTransition>
+                        </div>
                     </Col>
                     <Col xs={24} lg={17} className="pt-4 lg:pt-12">
                         <Paragraph

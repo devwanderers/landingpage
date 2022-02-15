@@ -1,13 +1,10 @@
-/* eslint-disable no-unused-vars */
 import React, { useState } from 'react'
 import { Layout, Row, Col, Button, BackTop } from 'antd'
 import Slider from 'react-slick'
 import ReactPlayer from 'react-player/file'
 import { Element, scroller } from 'react-scroll'
 import { BiUpArrowAlt } from 'react-icons/bi'
-import GenericCountDown from '../../components/CountDowns/GenericCountDown'
 import Article from '../../components/DisplayText/Article'
-import SectionTitle from '../../components/Sections/SectionTitle'
 import utilitiesImages from '../../assets/images/utilities'
 import { LineWrapper } from '../../components/Wrappers/LineWrapper'
 import HeaderText from '../../components/DisplayText/Header'
@@ -21,7 +18,6 @@ import {
     FrameCounterBottomSVG,
     FrameFAQTopSVG,
     FrameFAQBottomSVG,
-    FrameCharacterSVG,
 } from '../../assets/svg/frames'
 import FrameCounterHeaderCustom from '../../assets/svg/frames/FrameCounterHeaderCustom'
 import {
@@ -33,22 +29,17 @@ import {
 import useWindowDimensions from '../../customHooks/useWindowDimensions'
 import { returnValueByScreenWidth } from '../../services/stylesServices'
 import { RenderMarcoSVG } from '../../assets/svg/sections/index'
-import { BrandLogoSVG, Logo1SVG } from '../../assets/svg/brand'
-import AnimDisplayFromTop from '../../components/Animations/AnimDisplayFromTop'
 import windowOpen from '../../services/windowOpen'
-import CollectionSection from '../../components/Collection/CollectionSection'
-import { RoadMapMobSVG } from '../../assets/svg/utilities'
-import Benefits from './Benefits'
 import Faq from './Faq'
 import MeetTeam from './MeetTeam'
-import AnimateTransition from '../../components/Animations/AnimateTransition'
-import { useInView } from 'react-intersection-observer'
 import Mint from './Mint'
 import Wanderers from './Wanderers'
-import RoadMapSvg from '../../assets/svg/utilities/RoadMapSVG'
+import RoadMap from './RoadMap'
+import useScrollTop from '../../hooks/useScrollTop'
+import Token from './Token'
+import { Logo1SVG } from '../../assets/svg/brand'
 
 const { Content } = Layout
-const deadline = new Date('February 15, 2022 11:00:00')
 
 const landImages = [
     {
@@ -98,8 +89,8 @@ const scrollTo = (name) => {
 }
 
 const LandingPage = () => {
+    useScrollTop()
     const { innerWidth } = useWindowDimensions()
-    const [selectedMenu, setMenuIndex] = useState(0)
     const [imageIndex, setImageIndex] = useState(0)
     const [collapseFaq, setCollapseFAQ] = useState(true)
     // const [roadKey, setSelectedKey] = useState(1)
@@ -122,7 +113,6 @@ const LandingPage = () => {
     const handleCollapseFaq = () => {
         setCollapseFAQ(!collapseFaq)
     }
-    console.log('Init')
     return (
         <Layout
             className="flex flex-col min-h-screen"
@@ -166,9 +156,6 @@ const LandingPage = () => {
                                         <div className="flex-1">SECONDS</div>
                                     </div> */}
                                     <div className="flex flex-col text-white text-lg md:text-2xl lg:text-4xl mt-5 text-center">
-                                        <div className="xl:text-6xl text-xl font-saira-condensed leading-none tracking-wide">
-                                            PRE-SALE EVENT ALMOST
-                                        </div>
                                         <div
                                             className="xl:text-6xl text-lg font-russo-one leading-none pt-4 relative -mr-5"
                                             style={{ letterSpacing: '0.8rem' }}
@@ -382,129 +369,8 @@ const LandingPage = () => {
                         backgroundPosition: '0% 100%',
                     }}
                 >
-                    <div className="section">
-                        <Element
-                            name="token"
-                            className="css-generic flex-grow "
-                        >
-                            <div className="css-generic items-center">
-                                <HeaderText
-                                    base="4xl"
-                                    lg="89px"
-                                    className="text-primary leading-none tracking-widest"
-                                >
-                                    WTT
-                                </HeaderText>
-                            </div>
-                            <div className="css-generic"></div>
-                            <div className="css-generic flex-row flex-grow max-h-full ">
-                                <div className="css-generic hidden lg:flex flex-1"></div>
-                                <div className="css-generic flex-1  text-center lg:text-left lg:pl-8">
-                                    <HeaderText
-                                        base="2xl"
-                                        lg="53px"
-                                        className="text-info leading-none font-saira-condensed font-semibold"
-                                    >
-                                        Token
-                                    </HeaderText>
-                                </div>
-                            </div>
-                        </Element>
-                        <Element className="css-generic mb-8 lg:mb-20">
-                            <Row>
-                                <Col xs={24} lg={12}>
-                                    <LineWrapper
-                                        side="right"
-                                        decorationBottom="0.7rem"
-                                    >
-                                        <Paragraph
-                                            className=" text-blue-4 text-justify"
-                                            base="lg"
-                                            lg="23px"
-                                        >
-                                            {
-                                                'We are creating an ecosystem where your NFTs are more than Art. We believe in our community and was to give you a piece back for the trust you put into this project. '
-                                            }
-                                            <br />
-                                            The token rewards you will receive
-                                            in the ecosystem has unique features
-                                            you will love!! The Nomadz Travel
-                                            Token is the native currency in the
-                                            ecosystem, it is based on ERC-20
-                                            making it highly diverse and easy to
-                                            use. Token listening is coming soon!
-                                        </Paragraph>
-                                    </LineWrapper>
-                                </Col>
-                                <Col
-                                    xs={24}
-                                    lg={12}
-                                    className="flex justify-center lg:pl-5"
-                                >
-                                    <div className="w-6/12 lg:w-full">
-                                        <img
-                                            className="w-full h-auto"
-                                            src={utilitiesImages.wttCoin}
-                                            alt={utilitiesImages.wttCoin}
-                                        />
-                                    </div>
-                                </Col>
-                            </Row>
-                        </Element>
-                        <Element
-                            name="roadMap"
-                            className="css-generic text-center lg:text-left"
-                        >
-                            <HeaderText
-                                base="4xl"
-                                lg="89px"
-                                className="text-primary leading-none tracking-widest mb-10 lg:mb-28"
-                            >
-                                Road Map
-                            </HeaderText>
-                            <div className="css-generic mx-auto w-full lg:w-8/12">
-                                <Article
-                                    header="Road Map"
-                                    subHeader="February 2022"
-                                    headerProps={{
-                                        className:
-                                            'leading-tight text-info text-center lg:text-left',
-                                        base: '3xl',
-                                        lg: '40px',
-                                    }}
-                                    subHeaderProps={{
-                                        className:
-                                            'leading-tight text-blue-4 font-saira-condensed font-semibold mb-4',
-                                        base: 'xl',
-                                        lg: '27px',
-                                    }}
-                                    paragraphProps={{
-                                        className:
-                                            'mb-8 text-blue-4  text-justify',
-                                        base: 'lg',
-                                        lg: '23px',
-                                    }}
-                                >
-                                    Unlike many other projects, our project has
-                                    been created to be in the market for the
-                                    long run. That is why our roadmap is more
-                                    complex and detailed than more projects. The
-                                    team is working tirelessly to accomplish all
-                                    the goals set forth in the roadmap. We’ll be
-                                    keeping you updated through social media
-                                    every step of the way.
-                                </Article>
-                            </div>
-
-                            <div className="css-generic max-w-full flex justify-center">
-                                <RoadMapSvg
-                                    currentStep={3}
-                                    width="100%"
-                                    height="100%"
-                                />
-                            </div>
-                        </Element>
-                    </div>
+                    <Token />
+                    <RoadMap />
                 </div>
                 <div className="bg-blue-5 pt-10 pb-20 lg:pb-44 lg:pt-20">
                     <div className="section">

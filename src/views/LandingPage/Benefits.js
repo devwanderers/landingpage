@@ -6,7 +6,7 @@ import AnimateTransition from './../../components/Animations/AnimateTransition'
 
 const Benefits = () => {
     const collectionConfig = {
-        threshold: 0.5,
+        threshold: 1,
         triggerOnce: true,
     }
 
