@@ -55,6 +55,13 @@ const DefaultNavbar = () => {
                 scrollTo('roadMap')
             },
         },
+        {
+            key: 'team',
+            label: 'Team',
+            onClick: () => {
+                scrollTo('team')
+            },
+        },
         // {
         //     key: 'whiteList',
         //     label: 'Whitelist',

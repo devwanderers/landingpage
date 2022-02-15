@@ -21,7 +21,6 @@ import { LineWrapper } from '../../components/Wrappers/LineWrapper'
 import HeaderText from '../../components/DisplayText/Header'
 import Paragraph from '../../components/DisplayText/Paragraph'
 import DefaultNavbar from '../../components/Navbar/DefaultNavbar'
-// import { IslandSVG } from '../assets/svg/utilities'
 import islandVideo from '../../assets/images/backgrounds/FLOAT-ISLAND.mp4'
 import {
     FrameCounterTopSVG,
@@ -29,7 +28,6 @@ import {
     FrameFAQTopSVG,
     FrameFAQBottomSVG,
     FrameCharacterSVG,
-    // FrameCounterHeaderSVG,
 } from '../../assets/svg/frames'
 import FrameCounterHeaderCustom from '../../assets/svg/frames/FrameCounterHeaderCustom'
 import {
@@ -38,21 +36,24 @@ import {
     OctagonTelegramSVG,
     OctagonTwitterSVG,
 } from '../../assets/svg/icons'
-// import { BackgroundSectionSVG } from '../assets/svg/background'
-// import RoadMapSVG from './../assets/svg/utilities/RoadMapSVG'
 import useWindowDimensions from '../../customHooks/useWindowDimensions'
 import { returnValueByScreenWidth } from '../../services/stylesServices'
-// import { sectionsImages } from '../assets/images/sections'
 import { RenderMarcoSVG } from '../../assets/svg/sections/index'
 import { BrandLogoSVG, Logo1SVG } from '../../assets/svg/brand'
 import AnimDisplayFromTop from '../../components/Animations/AnimDisplayFromTop'
 import windowOpen from '../../services/windowOpen'
 import CollectionSection from '../../components/Collection/CollectionSection'
 import { RoadMapMobSVG } from '../../assets/svg/utilities'
+import Benefits from './Benefits'
+import Faq from './Faq'
+import MeetTeam from './MeetTeam'
+import AnimateTransition from '../../components/Animations/AnimateTransition'
+import { useInView } from 'react-intersection-observer'
+import Mint from './Mint'
+import Wanderers from './Wanderers'
+import RoadMapSvg from '../../assets/svg/utilities/RoadMapSVG'
 
 const { Content } = Layout
-// const { Countdown } = Statistic
-
 const deadline = new Date('February 15, 2022 11:00:00')
 
 const landImages = [
@@ -143,7 +144,7 @@ const LandingPage = () => {
                     </div>
                     <div className="section mx-auto pt-64px mb-20 h-screen">
                         <div className="css-generic h-full flex-col justify-between py-4 md:py-6 lg:px-28 xl:px-36 lg:py-10">
-                            <div className="pt-10 lg:pt-0 w-80 lg:w-96 mx-auto  pb-6">
+                            <div className="pt-10 w-80 lg:w-96 mx-auto  pb-6">
                                 <Logo1SVG width="100%" />
                             </div>{' '}
                             <MintSection />
@@ -161,10 +162,10 @@ const LandingPage = () => {
                                             PRE-SALE EVENT ALMOST
                                         </div>
                                         <div
-                                            className="xl:text-8xl text-lg font-russo-one leading-none pt-4 relative -mr-5"
-                                            style={{ letterSpacing: '1.9rem' }}
+                                            className="xl:text-6xl text-lg font-russo-one leading-none pt-4 relative -mr-5"
+                                            style={{ letterSpacing: '0.8rem' }}
                                         >
-                                            READY!
+                                            LAUNCHING SOON!
                                         </div>
                                     </div>
                                     <div
@@ -207,7 +208,7 @@ const LandingPage = () => {
                                     <div className="css-generic px-12 md:px-16 xl:px-20 text-center mx-auto relative">
                                         <div className="absolute right-0 left-0 top-0">
                                             <FrameCounterHeaderCustom
-                                                innerWidth="100%"
+                                                width="100%"
                                                 // backgroundColor="2fb39b"
                                             />
                                         </div>
@@ -242,175 +243,8 @@ const LandingPage = () => {
                         <RenderMarcoSVG width="100%" />
                     </div>
                 </div>
-                <Element
-                    name="mint"
-                    className=" bg-blue-5 pt-10 pb-10 lg:pb-24"
-                >
-                    <div className="section">
-                        <Row>
-                            <Col xs={24} md={12} className="">
-                                <div className="w-full">
-                                    <div className="w-full xl:pr-16">
-                                        <Article
-                                            header="9,000"
-                                            subHeader="Unique Wanderers"
-                                            headerProps={{
-                                                className:
-                                                    'mb-1 leading-none text-primary text-center lg:text-left',
-                                                base: '4xl',
-                                                lg: '89px',
-                                            }}
-                                            subHeaderProps={{
-                                                className:
-                                                    'mb-4 font-saira-condensed leading-none text-info font-semibold  text-center lg:text-left',
-                                                base: '2xl',
-                                                lg: '53px',
-                                            }}
-                                            paragraphProps={{
-                                                className:
-                                                    'text-blue-4  text-justify',
-                                                base: 'lg',
-                                                lg: '23px',
-                                            }}
-                                            className="max-w-full"
-                                        >
-                                            <span>
-                                                {
-                                                    " We’ve created a completely virtual metaverse in which all the tourist destinations offered by our travel partner are represented as NFT's within our platform known as Lands or Roles. Such destinations can be owned by you, or a group of adventurers called Wanderers who are also represented as unique handmade NFT's."
-                                                }
-                                            </span>
-                                            <br />
-                                            <br />
-                                            <span>
-                                                There are 9,000 unique
-                                                characters called wanderers as
-                                                an initial offering and other
-                                                250 special characters aviable
-                                                in a pre-sale event by 0.25 ETH.
-                                            </span>
-                                            <br />
-                                            <br />
-                                            <span>
-                                                Owning a wanderer gives you
-                                                access to the metaverse as well
-                                                as exclusive benefits to our
-                                                travel partner. Once you mint a
-                                                wanderer you start to receive
-                                                big benefits such as Tokens,
-                                                exclusive promotions in the
-                                                travel platform and more.{' '}
-                                                <a
-                                                    href="https://thewanderers.sfo3.digitaloceanspaces.com/The%20wanderers%20whitepaper.pdf"
-                                                    className="underline"
-                                                >
-                                                    <strong>
-                                                        Read the white paper.
-                                                    </strong>
-                                                </a>
-                                            </span>
-                                        </Article>
-                                    </div>
-                                </div>
-                            </Col>
-                            <Col
-                                xs={24}
-                                md={12}
-                                className="px-12 lg:px-10 xl:px-12 pt-5"
-                            >
-                                <div className="css-generic relative">
-                                    <FrameCharacterSVG innerWidth="100%" />
-                                    <div className=" absolute top-0 right-0 bottom-0 left-0 pt-16 pb-10 lg:pt-20 lg:pb-16">
-                                        <img
-                                            className="w-auto h-full object-contain overflow-hidden mx-auto relative"
-                                            style={{ bottom: '-3px' }}
-                                            src={utilitiesImages.nft1wb}
-                                            alt={utilitiesImages.nft1wb}
-                                        />
-                                    </div>
-                                </div>
-                                <div className="">
-                                    <div>
-                                        <HeaderText
-                                            base="4xl"
-                                            className="block text-primary mb-2 leading-tight tracking-widest mx-auto"
-                                        >
-                                            Benefits
-                                        </HeaderText>
-                                    </div>
-                                    <div className="">
-                                        <div className="flex">
-                                            <div className="pr-1">
-                                                <HeaderText
-                                                    base="5xl"
-                                                    className="block text-info leading-tight tracking-widest mx-auto font-saira-condensed font-bold"
-                                                >
-                                                    1.
-                                                </HeaderText>
-                                            </div>
-                                            <div className="flex-1">
-                                                <Paragraph className="text-blue-4  text-justify text-lg">
-                                                    Up to 24% ROI just by
-                                                    holding
-                                                </Paragraph>
-                                            </div>
-                                        </div>
-                                        <div className="flex">
-                                            <div className="pr-1">
-                                                <HeaderText
-                                                    base="5xl"
-                                                    className="block text-info leading-tight tracking-widest mx-auto font-saira-condensed font-bold"
-                                                >
-                                                    2.
-                                                </HeaderText>
-                                            </div>
-                                            <div className="flex-1">
-                                                <Paragraph className="text-blue-4  text-justify text-lg">
-                                                    Get great discounts our
-                                                    partner travel platform.
-                                                </Paragraph>
-                                            </div>
-                                        </div>
-                                        <div className="flex">
-                                            <div className="pr-1">
-                                                <HeaderText
-                                                    base="5xl"
-                                                    className="block text-info leading-tight tracking-widest mx-auto font-saira-condensed font-bold"
-                                                >
-                                                    3.
-                                                </HeaderText>
-                                            </div>
-                                            <div className="flex-1">
-                                                <Paragraph className="text-blue-4  text-justify text-lg">
-                                                    Receive 1% of the subsequent
-                                                    resales of this NFT in
-                                                    tokens.
-                                                </Paragraph>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </Col>
-                        </Row>
-                    </div>
-                </Element>
-                <Element
-                    name="wanderers"
-                    className=" bg-blue-5 lg:pb-32 css-generic lg:flex-row px-10px xl:px-0"
-                >
-                    <HeaderText
-                        base="4xl"
-                        className="block lg:hidden text-primary mb-5 md:mb-10 leading-tight tracking-widest mx-auto"
-                    >
-                        COLLECTION
-                    </HeaderText>
-                    <SectionTitle className="hidden lg:flex">
-                        COLLECTION
-                    </SectionTitle>
-                    <div className="css-generic flex-grow pb-5">
-                        {/* Collection */}
-                        <CollectionSection />
-                    </div>
-                </Element>
+                <Mint />
+                <Wanderers />
                 <Element
                     name="lands"
                     className="bg-blue-5 pt-10 pb-3 lg:pb-20 border-0"
@@ -428,7 +262,6 @@ const LandingPage = () => {
                                         src={utilitiesImages.island}
                                         alt={utilitiesImages.island}
                                     />
-                                    {/* <IslandSVG innerWidth="100%" /> */}
                                 </div>
                             </Col>
                             <Col xs={24} lg={12}>
@@ -549,17 +382,16 @@ const LandingPage = () => {
                                             lg="23px"
                                         >
                                             {
-                                                "We are creating an ecosystem where your NFT's are more than Art, we think in our community and we want to give you a little piece back for the trust you put into this project."
+                                                'We are creating an ecosystem where your NFTs are more than Art. We believe in our community and was to give you a piece back for the trust you put into this project. '
                                             }
                                             <br />
-                                            The token rewards you in the
-                                            ecosystem and has unique features
-                                            that you will love!! The Wanderers
-                                            travel token, is the native currency
-                                            in the ecosystem, it is based on
-                                            ERC20 making it highly diverse and
-                                            easy to use. Token listing coming
-                                            soon!
+                                            The token rewards you will receive
+                                            in the ecosystem has unique features
+                                            you will love!! The Nomadz Travel
+                                            Token is the native currency in the
+                                            ecosystem, it is based on ERC-20
+                                            making it highly diverse and easy to
+                                            use. Token listening is coming soon!
                                         </Paragraph>
                                     </LineWrapper>
                                 </Col>
@@ -591,8 +423,8 @@ const LandingPage = () => {
                             </HeaderText>
                             <div className="css-generic mx-auto w-full lg:w-8/12">
                                 <Article
-                                    header="1. Road Map"
-                                    subHeader="December 12nd"
+                                    header="Road Map"
+                                    subHeader="February 2022"
                                     headerProps={{
                                         className:
                                             'leading-tight text-info text-center lg:text-left',
@@ -612,19 +444,23 @@ const LandingPage = () => {
                                         lg: '23px',
                                     }}
                                 >
-                                    Unlike many other projects our project has
+                                    Unlike many other projects, our project has
                                     been created to be in the market for the
                                     long run. That is why our roadmap is more
-                                    complex and detailed than most projects. The
+                                    complex and detailed than more projects. The
                                     team is working tirelessly to accomplish all
-                                    the goals set in the roadmap according to
-                                    dates. We’ll keep you updated through our
-                                    social media channels!
+                                    the goals set forth in the roadmap. We’ll be
+                                    keeping you updated through social media
+                                    every step of the way.
                                 </Article>
                             </div>
 
                             <div className="css-generic max-w-full flex justify-center">
-                                <RoadMapMobSVG />
+                                <RoadMapSvg
+                                    currentStep={3}
+                                    width="100%"
+                                    height="100%"
+                                />
                             </div>
                         </Element>
                     </div>
@@ -636,13 +472,13 @@ const LandingPage = () => {
                                 className="absolute left-0 right-0"
                                 style={{ top: '-8px' }}
                             >
-                                <FrameFAQTopSVG innerWidth="100%" />
+                                <FrameFAQTopSVG width="100%" />
                             </div>
                             <div
                                 className="absolute left-0 right-0"
                                 style={{ bottom: 0 }}
                             >
-                                <FrameFAQBottomSVG innerWidth="100%" />
+                                <FrameFAQBottomSVG width="100%" />
                             </div>
                             <div className="css-generic justify-center items-center flex-row">
                                 <div
@@ -663,381 +499,11 @@ const LandingPage = () => {
                                     <DownArrowSVG />
                                 </div>
                             </div>
-                            <AnimDisplayFromTop
-                                visible={!collapseFaq}
-                                className="overflow-hidden css-generic"
-                            >
-                                <div className="css-generic px-10 lg:px-20 pt-10 ">
-                                    <Article
-                                        header="How to buy my NFT?"
-                                        headerProps={{
-                                            className:
-                                                'mb-1 leading-none text-info',
-                                            base: '2xl',
-                                            lg: '3xl',
-                                        }}
-                                        paragraphProps={{
-                                            className:
-                                                'text-blue-4  text-justify',
-                                            base: 'lg',
-                                            lg: '23px',
-                                        }}
-                                        className="max-w-full"
-                                    >
-                                        <span>
-                                            {
-                                                'Use either Google Chrome or Brave to visit this page. You will need to have Metamask installed and ETH on your wallet. Select as many Wanderers as you want, click the Mint button and approve the transaction. You can see an extended video tutorial '
-                                            }
-                                        </span>
-                                        <a
-                                            href="https://www.youtube.com/watch?v=dbDxSyBWWYU&t=1s&ab_channel=TheWanderersMetaverse"
-                                            className="underline"
-                                        >
-                                            <strong>here.</strong>
-                                        </a>
-                                    </Article>
-                                    <br />
-                                    <Article
-                                        header="Who are The Wanderers?"
-                                        headerProps={{
-                                            className:
-                                                'mb-1 leading-none text-info',
-                                            base: '2xl',
-                                            lg: '3xl',
-                                        }}
-                                        paragraphProps={{
-                                            className:
-                                                'text-blue-4  text-justify',
-                                            base: 'lg',
-                                            lg: '23px',
-                                        }}
-                                        className="max-w-full"
-                                    >
-                                        <span>
-                                            The adventure began when a small
-                                            group of adventurers called
-                                            Wanderers decided to reinitiate an
-                                            investigation about the earth’s
-                                            gravitational catastrophe that
-                                            happened hundreds of years ago.
-                                            These Wanderers went off to
-                                            investigate if there were any
-                                            remaining civilizations or Lands
-                                            after the catastrophe.
-                                        </span>
-                                    </Article>
-                                    <br />
-                                    <Article
-                                        header="How to play and earn?"
-                                        headerProps={{
-                                            className:
-                                                'mb-1 leading-none text-info',
-                                            base: '2xl',
-                                            lg: '3xl',
-                                        }}
-                                        paragraphProps={{
-                                            className:
-                                                'text-blue-4  text-justify',
-                                            base: 'lg',
-                                            lg: '23px',
-                                        }}
-                                        className="max-w-full"
-                                    >
-                                        <span>
-                                            We are working tirelessly to launch
-                                            the wanderers video game. The game
-                                            is the place where you can use our
-                                            token to play and get rewarded in
-                                            several ways (PVE, PVP, Tournaments
-                                            and more), once the token has been
-                                            listed, you can enjoy your rewards
-                                            in real life.
-                                        </span>
-                                        <br />
-                                    </Article>
-                                    <br />
-                                    <Article
-                                        header="How to participate in the presale event?"
-                                        headerProps={{
-                                            className:
-                                                'mb-1 leading-none text-info',
-                                            base: 'base',
-                                            lg: '3xl',
-                                        }}
-                                        paragraphProps={{
-                                            className:
-                                                'text-blue-4  text-justify',
-                                            base: 'lg',
-                                            lg: '23px',
-                                        }}
-                                        className="max-w-full"
-                                    >
-                                        <span>
-                                            All the basis to participate in the
-                                            pre-sale event will be announced in
-                                            our social media, if you are a
-                                            milestone follower you have more
-                                            chances to participate.
-                                        </span>
-                                    </Article>
-                                    <br />
-                                    {/* <Article
-                                        header="Why Polygon?"
-                                        headerProps={{
-                                            className:
-                                                'mb-1 leading-none text-info',
-                                            base: 'base',
-                                            lg: '3xl',
-                                        }}
-                                        paragraphProps={{
-                                            className:
-                                                'text-blue-4  text-justify',
-                                            base: 'lg',
-                                            lg: '23px',
-                                        }}
-                                        className="max-w-full"
-                                    >
-                                        <span>
-                                            Lorem ipsum dolor sit amet,
-                                            consectetuer adipiscing elit, sed
-                                            diam nonummy nibh euismod tincidunt
-                                            ut laoreet dolore magna aliquam erat
-                                            volutpat. Ut wisi enim ad minim
-                                            veniam, quis nostrud exerci tation
-                                            ullamcorper suscipit lobortis nisl.
-                                        </span>
-                                    </Article> */}
-                                </div>
-                            </AnimDisplayFromTop>
-                            {/* {!collapseFaq && <div className=""></div>} */}
+                            <Faq visible={!collapseFaq} />
                         </div>
                     </div>
                 </div>
-                <div
-                    className="bg-blue-5 bg-floor bg-no-repeat bg-cover pt-12 pb-24 lg:pt-10 lg:pb-64 relative"
-                    style={{
-                        backgroundPosition: '0% 100%',
-                    }}
-                >
-                    <div className="section">
-                        <Row className="mb-12 lg:mb-16 xs:mb-2">
-                            <Col
-                                xs={24}
-                                lg={7}
-                                className="text-center lg:text-left"
-                            >
-                                <HeaderText
-                                    base="4xl"
-                                    lg="89px"
-                                    className="text-primary leading-none tracking-widest"
-                                >
-                                    Meet
-                                </HeaderText>
-                                <HeaderText
-                                    base="2xl"
-                                    lg="53px"
-                                    className="text-info font-semibold leading-none font-saira-condensed lg:relative lg:-right-32"
-                                >
-                                    The team
-                                </HeaderText>
-                            </Col>
-                            <Col xs={24} lg={17} className="pt-4 lg:pt-12">
-                                <Paragraph
-                                    base="lg"
-                                    lg="23px"
-                                    className="text-blue-4 lg:pl-44 text-justify"
-                                ></Paragraph>
-                            </Col>
-                        </Row>
-                        <Row className="lg:pt-12 xs:pt-2" gutter={[10, 50]}>
-                            <Col md={8} sm={8} lg={8} xl={8}>
-                                <div className="flex flex-row">
-                                    <div>
-                                        <img
-                                            className="w-full h-auto"
-                                            src={utilitiesImages.dr}
-                                            alt={utilitiesImages.dr}
-                                        />
-                                    </div>
-                                    <div>
-                                        <Article
-                                            header="Dr. Millan"
-                                            headerProps={{
-                                                className:
-                                                    'mt-8 pl-6 leading-none text-primary',
-                                                base: 'xl',
-                                                lg: '2xl',
-                                            }}
-                                            paragraphProps={{
-                                                className:
-                                                    'text-blue-4 pl-6  text-justify',
-                                                base: 'lg',
-                                                lg: '23px',
-                                            }}
-                                            className="max-w-full"
-                                        >
-                                            COO
-                                        </Article>
-                                    </div>
-                                </div>
-                            </Col>
-                            <Col md={8} sm={8} lg={8} xl={8}>
-                                <div className="flex flex-row">
-                                    <div>
-                                        <img
-                                            className="w-full h-auto"
-                                            src={utilitiesImages.skullman}
-                                            alt={utilitiesImages.skullman}
-                                        />
-                                    </div>
-                                    <div>
-                                        <Article
-                                            header="Skullman"
-                                            headerProps={{
-                                                className:
-                                                    'mt-8 pl-6 leading-none text-primary',
-                                                base: 'xl',
-                                                lg: '2xl',
-                                            }}
-                                            paragraphProps={{
-                                                className:
-                                                    'text-blue-4 pl-6 text-justify',
-                                                base: 'lg',
-                                                lg: '23px',
-                                            }}
-                                            className="max-w-full"
-                                        >
-                                            CTO
-                                        </Article>
-                                    </div>
-                                </div>
-                            </Col>
-                            <Col md={8} sm={8} lg={8} xl={8}>
-                                <div className="flex flex-row">
-                                    <div>
-                                        <img
-                                            className="w-full h-auto"
-                                            src={utilitiesImages.alex}
-                                            alt={utilitiesImages.alex}
-                                        />
-                                    </div>
-                                    <div>
-                                        <Article
-                                            header="AlexArt"
-                                            headerProps={{
-                                                className:
-                                                    'mt-8 pl-6 leading-none text-primary',
-                                                base: 'xl',
-                                                lg: '2xl',
-                                            }}
-                                            paragraphProps={{
-                                                className:
-                                                    'text-blue-4 pl-6 text-justify',
-                                                base: 'lg',
-                                                lg: '23px',
-                                            }}
-                                            className="max-w-full"
-                                        >
-                                            Art Director
-                                        </Article>
-                                    </div>
-                                </div>
-                            </Col>
-                            <Col md={8} sm={8} lg={8} xl={8}>
-                                <div className="flex flex-row">
-                                    <div>
-                                        <img
-                                            className="w-full h-auto"
-                                            src={utilitiesImages.amelie}
-                                            alt={utilitiesImages.amelie}
-                                        />
-                                    </div>
-                                    <div>
-                                        <Article
-                                            header="Riot Mei"
-                                            headerProps={{
-                                                className:
-                                                    'mt-8 pl-6 leading-none text-primary',
-                                                base: 'xl',
-                                                lg: '2xl',
-                                            }}
-                                            paragraphProps={{
-                                                className: 'text-blue-4 pl-6 ',
-                                                base: 'lg',
-                                                lg: '23px',
-                                            }}
-                                            className="max-w-full"
-                                        >
-                                            Social Media Manager
-                                        </Article>
-                                    </div>
-                                </div>
-                            </Col>
-                            <Col md={8} sm={8} lg={8} xl={8}>
-                                <div className="flex flex-row">
-                                    <div>
-                                        <img
-                                            className="w-full h-auto"
-                                            src={utilitiesImages.kame}
-                                            alt={utilitiesImages.kame}
-                                        />
-                                    </div>
-                                    <div>
-                                        <Article
-                                            header="Kame"
-                                            headerProps={{
-                                                className:
-                                                    'mt-8 pl-6 leading-none text-primary',
-                                                base: 'xl',
-                                                lg: '2xl',
-                                            }}
-                                            paragraphProps={{
-                                                className:
-                                                    'text-blue-4 pl-6 text-justify',
-                                                base: 'lg',
-                                                lg: '23px',
-                                            }}
-                                            className="max-w-full"
-                                        >
-                                            Marketing Director
-                                        </Article>
-                                    </div>
-                                </div>
-                            </Col>
-                            <Col md={8} sm={8} lg={8} xl={8}>
-                                <div className="flex flex-row">
-                                    <div>
-                                        <img
-                                            className="w-full h-auto"
-                                            src={utilitiesImages.surtek}
-                                            alt={utilitiesImages.surtek}
-                                        />
-                                    </div>
-                                    <div>
-                                        <Article
-                                            header="Surtek TK"
-                                            headerProps={{
-                                                className:
-                                                    'mt-8 pl-6 leading-none text-primary',
-                                                base: 'xl',
-                                                lg: '2xl',
-                                            }}
-                                            paragraphProps={{
-                                                className:
-                                                    'text-blue-4 pl-6 text-justify',
-                                                base: 'lg',
-                                                lg: '23px',
-                                            }}
-                                            className="max-w-full"
-                                        >
-                                            Strategy
-                                        </Article>
-                                    </div>
-                                </div>
-                            </Col>
-                        </Row>
-                    </div>
-                </div>
+                <MeetTeam />
                 <Element name="community" className="bg-blue-5 pb-20 lg:pb-48">
                     <div className="section">
                         <Row className="mb-12 lg:mb-16">
@@ -1072,11 +538,10 @@ const LandingPage = () => {
                                         className="text-blue-4 lg:pl-44 text-justify"
                                     >
                                         Become a part of the most important NFT
-                                        project. Big things happen when the
-                                        community is involved in all phases.
-                                        Join us to get the news as soon as they
-                                        come out and follow us for our latest
-                                        announcements.
+                                        project. Big things happen community is
+                                        involved in all phases. Join us to get
+                                        the news as soon as they come out and
+                                        follow us for our latest announcements.
                                     </Paragraph>
                                 </LineWrapper>
                             </Col>
@@ -1092,7 +557,7 @@ const LandingPage = () => {
                                 }
                             >
                                 <OctagonTelegramSVG
-                                    innerWidth="100%"
+                                    width="100%"
                                     height="100%"
                                 />
                             </Button>
@@ -1105,10 +570,7 @@ const LandingPage = () => {
                                     )
                                 }
                             >
-                                <OctagonDiscordSVG
-                                    innerWidth="100%"
-                                    height="100%"
-                                />
+                                <OctagonDiscordSVG width="100%" height="100%" />
                             </Button>
 
                             <Button
@@ -1120,10 +582,7 @@ const LandingPage = () => {
                                     )
                                 }
                             >
-                                <OctagonTwitterSVG
-                                    innerWidth="100%"
-                                    height="100%"
-                                />
+                                <OctagonTwitterSVG width="100%" height="100%" />
                             </Button>
                         </div>
                     </div>
@@ -1135,13 +594,13 @@ const LandingPage = () => {
                         <div className="css-generic flex-grow max-h-full w-6/12 ">
                             <div className="css-generic items-center w-64">
                                 <div className="css-generic w-full mb-3 px-8">
-                                    <Logo1SVG innerWidth="100%" />
+                                    <Logo1SVG width="100%" />
                                 </div>
                                 <HeaderText
                                     base="2xl"
                                     className="text-blue-4 font-semibold font-saira-condensed"
                                 >
-                                    9,000 unique Wanderers
+                                    9,000 Unique Nomadz
                                 </HeaderText>
                             </div>
                         </div>
