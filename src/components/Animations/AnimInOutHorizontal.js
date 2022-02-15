@@ -3,7 +3,12 @@ import React from 'react'
 import { AnimatePresence, motion } from 'framer-motion'
 import PropTypes from 'prop-types'
 
-const AnimInOutHorizontal = ({ visible, children, side = 'left' }) => {
+const AnimInOutHorizontal = ({
+    visible,
+    children,
+    side = 'left',
+    duration = 0.5,
+}) => {
     const transitionX = side === 'left' ? -200 : 200
     // const transitions = useTransition(!!visible, {
     //     from: { opacity: 0, x: transitionX },
@@ -33,7 +38,7 @@ const AnimInOutHorizontal = ({ visible, children, side = 'left' }) => {
                         x: transitionX,
                     }}
                     transition={{
-                        duration: 0.5,
+                        duration,
                         type: 'spring',
                         // bounce: 0.2,
                         // ease: 'circInOut',
