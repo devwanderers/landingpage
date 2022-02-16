@@ -145,15 +145,13 @@ const MintDisplay = ({ data = example }) => {
                         <Col span={24}>
                             <div className="bg-green-1 border-2 border-green-3 p-4">
                                 <h2 className="text-info text-xl lg:text-2xl font-bold leading-none">
-                                    {/* {data[index]?.nftData.name} */}
-                                    Nomadzland Unrevealed
+                                    {data[index]?.nftData.name}
                                 </h2>
                                 <div className="mt-2">
                                     <h3 className="text-green-0 text-base lg:text-lg">
                                         About
                                     </h3>
-                                    {/* <p>{data[index]?.nftData.description}</p> */}
-                                    <p>Nomadzland the first project with real pasive incomes.</p>
+                                    <p>{data[index]?.nftData.description}</p>
                                 </div>
                             </div>
                         </Col>
@@ -162,18 +160,13 @@ const MintDisplay = ({ data = example }) => {
                 <Col xs={24} sm={16} md={16} lg={16} xl={16}>
                     <div className="bg-green-1 border-2 border-green-3 h-full p-4">
                         <div className="flex space-x-5 flex-wrap leading-none mb-4">
-                            <div>
-                                <h3 className="text-green-0 text-base md:text-lg lg:text-xl mb-2">
-                                    Class
-                                </h3>
-                                <p className="text-base lg:text-lg">Alliance</p>
-                            </div>
+                            
                             <div>
                                 <h3 className="text-green-0 text-base md:text-lg lg:text-xl mb-2">
                                     Nomad ID
                                 </h3>
                                 <p className="text-base lg:text-lg">
-                                    12
+                                    {data[index]?.nftData.edition}
                                 </p>
                             </div>
                         </div>
@@ -195,15 +188,13 @@ const MintDisplay = ({ data = example }) => {
                                                         <span className="font-bold  ">
                                                             Type:{' '}
                                                         </span>
-                                                        {/* {val.trait_type} */}
-                                                        Unrevealed
+                                                        {val.trait_type}
                                                     </div>
                                                     <div>
                                                         <span className=" font-bold">
                                                             Value:{' '}
                                                         </span>
-                                                        {/* {val.value} */}
-                                                        Unrevealed
+                                                        {val.value}
                                                     </div>
                                                 </div>
                                             )
