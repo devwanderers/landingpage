@@ -17,6 +17,7 @@ import wallet from './wallet.png'
 import alex from '../team/mar-alexis.png'
 import amelie from '../team/mar-amelie.png'
 import kame from '../team/mar-kame.png'
+import angel from '../team/mar-angel.png'
 import skullman from '../team/mar-skullman.png'
 import kizzy from '../team/mar-2kizzy.png'
 import tina from '../team/mar-2tina.png'
@@ -62,6 +63,7 @@ const utilitiesImages = {
     kizzy,
     tina,
     xavier,
+    angel,
 }
 
 export default utilitiesImages

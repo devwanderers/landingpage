@@ -10,7 +10,7 @@ import Article from './../../components/DisplayText/Article'
 import AnimateTransition from './../../components/Animations/AnimateTransition'
 
 const teams = [
-    // { image: utilitiesImages.dr, name: 'Dr. Millan', description: 'COO' },
+    { image: utilitiesImages.angel, name: 'Luis S.', subtitle: 'Team Lead' },
     {
         image: utilitiesImages.tina,
         name: 'Tina',
@@ -43,13 +43,13 @@ const teams = [
         description:
             'Passionate in creating and building communities, creative in all kinds of circumstances and with an optimistic social vision.',
     },
-    {
-        image: utilitiesImages.surtek,
-        name: 'Surtek TK',
-        subtitle: 'Mod',
-        description:
-            'Always looking for the good side, she is committed to her work, always attentive to the needs of the community and actively participates in the conversations.,',
-    },
+    // {
+    //     image: utilitiesImages.surtek,
+    //     name: 'Surtek TK',
+    //     subtitle: 'Mod',
+    //     description:
+    //         'Always looking for the good side, she is committed to her work, always attentive to the needs of the community and actively participates in the conversations.,',
+    // },
 ]
 
 const TeamProfile = ({ image, name, subtitle, description }) => {
