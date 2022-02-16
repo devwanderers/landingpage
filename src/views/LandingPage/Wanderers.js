@@ -4,6 +4,7 @@ import HeaderText from './../../components/DisplayText/Header'
 import SectionTitle from './../../components/Sections/SectionTitle'
 import CollectionSection from './../../components/Collection/CollectionSection'
 import { RadioGraphySVG } from '../../assets/svg/sections'
+import Article from '../../components/DisplayText/Article'
 
 const Wanderers = () => {
     return (
@@ -24,16 +25,26 @@ const Wanderers = () => {
                     <CollectionSection />
                 </div>
             </div>
-            <div className=" max-w-1000px mx-auto mt-20 px-8 lg:px-0">
-                <div className="text-center mb-2">
-                    <HeaderText
-                        base="4xl"
-                        className=" text-primary mb-5 md:mb-10 leading-tight tracking-widest mx-auto"
+            <div className=" max-w-1400px mx-auto mt-20 px-6 md:px-10 lg:px-14">
+                <div className="text-center mb-2 w-full lg:w-8/12 mx-auto">
+                    <Article
+                        header={'Radiography'}
+                        headerProps={{
+                            className:
+                                'text-primary text-4xl lg:text-89px mb-5 md:mb-10 leading-tight tracking-widest mx-auto',
+                        }}
+                        paragraphProps={{
+                            className:
+                                'text-blue-4 text-justify text-lg lg:text-23px mb-6 lg:mb-16',
+                        }}
                     >
-                        Radiography
-                    </HeaderText>
+                        Each Nomad can have up to 15 different characteristics
+                        besides their race, in order for each one to be unique
+                        we have over 500 hand drawn elements to create the
+                        uniqueness of our Nomadz
+                    </Article>
                 </div>
-                <div className="w-full">
+                <div className="w-full px-0 lg:px-16">
                     <RadioGraphySVG width={'100%'} height="100%" />
                 </div>
             </div>

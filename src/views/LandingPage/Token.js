@@ -7,6 +7,7 @@ import Paragraph from './../../components/DisplayText/Paragraph'
 import utilitiesImages from '../../assets/images/utilities'
 import AnimateTransition from './../../components/Animations/AnimateTransition'
 import { useInView } from 'react-intersection-observer'
+import { whitePaperLink } from './../../constants/linksContants'
 
 const Token = () => {
     const collectionConfig = {
@@ -78,17 +79,24 @@ const Token = () => {
                                         lg="23px"
                                     >
                                         {
-                                            'We are creating an ecosystem where your NFTs are more than Art. We believe in our community and was to give you a piece back for the trust you put into this project.'
+                                            'Thanks to the alliance with their partners, Nomadzland NFT offers a solution to all art and investment lovers in a single project. We want to share part of its revenues with all the members in the metaverse grantend as our partner token.'
                                         }
                                         <br />
                                         <br />
                                         The token rewards you will receive in
                                         the ecosystem has unique features you
-                                        will love!! The Nomadz Travel Token is
-                                        the native currency in the ecosystem, it
-                                        is based on ERC-20 making it highly
-                                        diverse and easy to use. Token listening
-                                        is coming soon!
+                                        will love!! DDOT is the native currency
+                                        of Nomadzland´s metaverse. The token is
+                                        based on ERC-20 token protocols.{' '}
+                                        <a
+                                            href={whitePaperLink}
+                                            className="underline"
+                                        >
+                                            <strong>
+                                                Read the white paper for more
+                                                info.
+                                            </strong>
+                                        </a>
                                     </Paragraph>
                                 </AnimateTransition>
                             </div>

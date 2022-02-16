@@ -65,19 +65,19 @@ const landImages = [
     {
         id: 4,
         img: utilitiesImages.oro,
-        title: '20%',
+        title: '2%-20%',
         percent: 'Country ambassadors',
     },
     {
         id: 5,
         img: utilitiesImages.plata,
-        title: '15%',
+        title: '1%-10%',
         percent: 'City ambassadors',
     },
     {
         id: 6,
         img: utilitiesImages.bronce,
-        title: '9%',
+        title: '0.9%-9%',
         percent: 'Destiny ambassadors',
     },
 ]
@@ -241,16 +241,16 @@ const LandingPage = () => {
                 <Wanderers />
                 <Element
                     name="lands"
-                    className="bg-blue-5 pt-10 pb-3 lg:pb-20 border-0"
+                    className="bg-blue-5 pt-10 pb-3 lg:pb-16 border-0"
                 >
-                    <div className="max-w-1400px mx-auto px-6 md:px-10 lg:px-14 ">
+                    <div className="max-w-1400px mx-auto px-6 md:px-10 lg:px-14 pb-6 lg:pb-32">
                         <Row className=" flex-wrap-reverse lg:flex-wrap">
                             <Col
                                 xs={24}
                                 lg={12}
                                 className="hidden lg:flex justify-center pr-10"
                             >
-                                <div className="w-6/12 md:w-5/12 lg:w-10/12 xl:w-full py-5 ">
+                                <div className="w-6/12 md:w-5/12 lg:w-10/12 xl:w-full pt-10 ">
                                     <ReactPlayer
                                         // className="custom-react-player"
                                         width="100%"
@@ -273,7 +273,7 @@ const LandingPage = () => {
                                         lg="89px"
                                         className="text-primary leading-tight tracking-widest text-center lg:text-left"
                                     >
-                                        NFT
+                                        Metaverse
                                     </HeaderText>
                                 </div>
 
@@ -283,7 +283,22 @@ const LandingPage = () => {
                                     decorationBottom="0.7rem"
                                 >
                                     <Article
-                                        header="Lands"
+                                        paragraphProps={{
+                                            className:
+                                                ' text-blue-4 text-justify mb-8',
+                                            base: 'lg',
+                                            lg: '23px',
+                                        }}
+                                    >
+                                        We have created an utterly virtual
+                                        metaverse in which our partner’s tourist
+                                        destinations are represented as NFT’s
+                                        within our platform known as Lands or
+                                        Roles. You or a group of adventurers
+                                        called Nomadz can own such destinations.
+                                    </Article>
+                                    <Article
+                                        header="Prime NFTs"
                                         headerProps={{
                                             className:
                                                 'mb-4 font-saira-condensed leading-none text-info font-semibold  text-center lg:text-left',
@@ -304,8 +319,9 @@ const LandingPage = () => {
                                         place in our partnet travel platform
                                         will pay you a commission!
                                     </Article>
+
                                     <Article
-                                        header="Role in Land"
+                                        header="Ambassador NFTs"
                                         headerProps={{
                                             className:
                                                 'mb-4 font-saira-condensed leading-none text-info font-semibold  text-center lg:text-left',
@@ -334,6 +350,29 @@ const LandingPage = () => {
                 </Element>
                 <div className="bg-blue-5 pb-16 relative border-0">
                     <div className="max-w-1400px mx-auto px-6 md:px-10 lg:px-14 ">
+                        <div className="text-center mb-2 w-full lg:w-8/12 mx-auto">
+                            <Article
+                                header={'Rewards Distribution'}
+                                headerProps={{
+                                    className:
+                                        'text-primary text-4xl lg:text-89px mb-5 md:mb-10 leading-tight tracking-widest mx-auto',
+                                }}
+                                paragraphProps={{
+                                    className: 'mb-8 text-blue-4 text-justify',
+                                    base: 'lg',
+                                    lg: '23px',
+                                }}
+                            >
+                                There is two different kinda of NFTS and three
+                                different categories within them. The Prime Nft
+                                consist of the Countries, Cities and Destinies
+                                and all distribute a percentage of profit sales
+                                to the owner of each unique NFT. The Ambassador
+                                NFT also consist of all three categories but is
+                                divided into smaller percentages as there is ten
+                                copies of such NFT
+                            </Article>
+                        </div>
                         <div className="flex flex-col">
                             <Slider className="px-12" {...sliderLandSettings}>
                                 {landImages.map(({ id, img }, idx) => (

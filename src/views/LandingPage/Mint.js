@@ -82,7 +82,7 @@ const Mint = (props) => {
                                         incentives granted in DDOT (our partner
                                         token), exclusive promotions in our
                                         partner travel platform and more. Read
-                                        the white paper.
+                                        the white paper.{' '}
                                         <a
                                             href={whitePaperLink}
                                             className="underline"

@@ -10,16 +10,26 @@ import Article from './../../components/DisplayText/Article'
 import AnimateTransition from './../../components/Animations/AnimateTransition'
 
 const teams = [
-    { image: utilitiesImages.angel, name: 'Luis S.', subtitle: 'Team Lead' },
+    {
+        image: utilitiesImages.angel,
+        name: 'Luis S.',
+        subtitle: 'Team Lead',
+        description:
+            "Developer and blockchain engineer who is passionate about constant learning, new technologies, best practices, and also knowledge transfer. He's fully compromised with the project and the team.",
+    },
     {
         image: utilitiesImages.tina,
         name: 'Tina',
         subtitle: 'Project Manager',
+        description:
+            'Lorem, ipsum dolor sit amet consectetur adipisicing elit. Debitis, nostrum.',
     },
     {
         image: utilitiesImages.kizzy,
         name: 'Kizzy',
         subtitle: 'Project Manager',
+        description:
+            'Lorem, ipsum dolor sit amet consectetur adipisicing elit. Debitis, nostrum.',
     },
     {
         image: utilitiesImages.skullman,
@@ -248,7 +258,7 @@ const Teams = () => {
                     <motion.div
                         ref={refTeam}
                         initial="hidden"
-                        className="grid grid-cols-2 md:grid-cols-3 gap-5"
+                        className="grid grid-cols-2 lg:grid-cols-3 gap-5"
                         variants={teamsVariant}
                         animate={controls}
                     >

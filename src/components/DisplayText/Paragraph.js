@@ -18,7 +18,7 @@ const Paragraph = ({ children, className, ...restProps }) => {
 
 Paragraph.defaultProps = {
     className: 'text-blue-4',
-    base: 'xl',
+    // base: 'xl',
 }
 
 Paragraph.propTypes = {
