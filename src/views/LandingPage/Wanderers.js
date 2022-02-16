@@ -3,7 +3,7 @@ import { Element } from 'react-scroll'
 import HeaderText from './../../components/DisplayText/Header'
 import SectionTitle from './../../components/Sections/SectionTitle'
 import CollectionSection from './../../components/Collection/CollectionSection'
-import { RadioGraphicSVG } from '../../assets/svg/sections'
+import { RadioGraphySVG } from '../../assets/svg/sections'
 
 const Wanderers = () => {
     return (
@@ -24,17 +24,17 @@ const Wanderers = () => {
                     <CollectionSection />
                 </div>
             </div>
-            <div className=" max-w-1000px mx-auto mt-10 px-5 lg:px-0">
+            <div className=" max-w-1000px mx-auto mt-20 px-5 lg:px-0">
                 <div className="text-center mb-2">
                     <HeaderText
                         base="4xl"
                         className=" text-primary mb-5 md:mb-10 leading-tight tracking-widest mx-auto"
                     >
-                        Radiographic
+                        Radiography
                     </HeaderText>
                 </div>
                 <div className="w-full ">
-                    <RadioGraphicSVG width={'100%'} height="100%" />
+                    <RadioGraphySVG width={'100%'} height="100%" />
                 </div>
             </div>
         </Element>

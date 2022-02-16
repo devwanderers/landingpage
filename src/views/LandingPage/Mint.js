@@ -9,6 +9,7 @@ import AnimateTransition from '../../components/Animations/AnimateTransition'
 import utilitiesImages from '../../assets/images/utilities'
 import Benefits from './Benefits'
 import useResponsive from './../../hooks/useResponsive'
+import { whitePaperLink } from './../../constants/linksContants'
 
 const Mint = (props) => {
     const [nftFrameRef, nftFrameInview] = useInView({
@@ -67,6 +68,13 @@ const Mint = (props) => {
                                     <br />
                                     <br />
                                     <span>
+                                        {
+                                            "Our partner grants month to month 50% of its earnings from various concepts established in the strategic union with The Nomadz, who will deliver them to be distributed in the NFT's ecosystem."
+                                        }
+                                    </span>
+                                    <br />
+                                    <br />
+                                    <span>
                                         Owning a Nomadz gives you access to the
                                         metaverse as well as exclusive benefits
                                         to our travel partner. Once you mint a
@@ -75,7 +83,7 @@ const Mint = (props) => {
                                         promotions in the travel platform and
                                         more.{' '}
                                         <a
-                                            href="https://thewanderers.sfo3.digitaloceanspaces.com/The%20wanderers%20whitepaper.pdf"
+                                            href={whitePaperLink}
                                             className="underline"
                                         >
                                             <strong>

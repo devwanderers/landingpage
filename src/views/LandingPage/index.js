@@ -14,6 +14,7 @@ import PrevArrowControl from '../../components/CustomSliderControls/PrevArrowCon
 import Paragraph from '../../components/DisplayText/Paragraph'
 import DefaultNavbar from '../../components/Navbar/DefaultNavbar'
 import islandVideo from '../../assets/images/backgrounds/FLOAT-ISLAND.mp4'
+import territories from '../../assets/videos/territories.mp4'
 import {
     FrameCounterTopSVG,
     FrameCounterBottomSVG,
@@ -27,10 +28,7 @@ import {
     OctagonTelegramSVG,
     OctagonTwitterSVG,
 } from '../../assets/svg/icons'
-import {
-    RadioGraphicSVG,
-    RenderMarcoSVG,
-} from './../../assets/svg/sections/index'
+import { RenderMarcoSVG } from './../../assets/svg/sections/index'
 import useWindowDimensions from '../../customHooks/useWindowDimensions'
 import { returnValueByScreenWidth } from '../../services/stylesServices'
 import windowOpen from '../../services/windowOpen'
@@ -163,40 +161,42 @@ const LandingPage = () => {
                                             </div>
                                         </div>
                                     </div>
-                                    <div
-                                        className="absolute right-0 left-0 -mx-3"
-                                        style={{
-                                            top: returnValueByScreenWidth(
-                                                width,
-                                                {
-                                                    base: '-10px',
-                                                    sm: '-16px',
-                                                    md: '-18px',
-                                                    xl: '-18px',
-                                                }
-                                            ),
-                                        }}
-                                    >
-                                        <FrameCounterTopSVG width="100%" />
+
+                                    <div className="absolute right-0 left-0 top-0">
+                                        <div
+                                            className="w-full mx-auto "
+                                            style={{
+                                                height: '1px',
+                                                backgroundColor: '#2fb39b',
+                                            }}
+                                        ></div>
                                     </div>
-                                    <div
-                                        className="absolute right-0 left-0 -mx-3"
-                                        style={{
-                                            bottom: returnValueByScreenWidth(
-                                                width,
-                                                {
-                                                    base: '-10px',
-                                                    sm: '-16px',
-                                                    md: '-18px',
-                                                    xl: '-18px',
-                                                }
-                                            ),
-                                        }}
-                                    >
-                                        <FrameCounterBottomSVG
-                                            width="100%"
-                                            height="100%"
-                                        />
+                                    <div className="absolute right-0 left-0 top-0">
+                                        <div
+                                            className="w-6/12 mx-auto "
+                                            style={{
+                                                height: '4px',
+                                                backgroundColor: '#2fb39b',
+                                            }}
+                                        ></div>
+                                    </div>
+                                    <div className="absolute right-0 left-0 bottom-0">
+                                        <div
+                                            className="w-full mx-auto "
+                                            style={{
+                                                height: '1px',
+                                                backgroundColor: '#2fb39b',
+                                            }}
+                                        ></div>
+                                    </div>
+                                    <div className="absolute right-0 left-0 bottom-0">
+                                        <div
+                                            className="w-6/12 mx-auto "
+                                            style={{
+                                                height: '4px',
+                                                backgroundColor: '#2fb39b',
+                                            }}
+                                        ></div>
                                     </div>
                                 </div>
                                 <div className="flex">
@@ -248,13 +248,21 @@ const LandingPage = () => {
                             <Col
                                 xs={24}
                                 lg={12}
-                                className="hidden lg:flex justify-center "
+                                className="hidden lg:flex justify-center pr-10"
                             >
-                                <div className="w-6/12 md:w-5/12 lg:w-10/12 xl:w-8/12 mx-auto">
-                                    <img
-                                        className="w-full"
-                                        src={utilitiesImages.island}
-                                        alt={utilitiesImages.island}
+                                <div className="w-6/12 md:w-5/12 lg:w-10/12 xl:w-full py-5 ">
+                                    <ReactPlayer
+                                        // className="custom-react-player"
+                                        width="100%"
+                                        height="100%"
+                                        controls={false}
+                                        loop={true}
+                                        playing={true}
+                                        url={territories}
+                                        muted={true}
+                                        // onReady={handlePlayVideo}
+                                        onError={(e) => console.log('error', e)}
+                                        onStart={() => console.log('playing')}
                                     />
                                 </div>
                             </Col>
@@ -496,10 +504,10 @@ const LandingPage = () => {
             </Content>
             <footer className="bg-blue-5 py-12 border-blue-4 border-solid border-t hidden lg:block">
                 <div className="max-w-1400px mx-auto px-6 md:px-10 lg:px-14">
-                    <div className="flex flex-row justify-between">
-                        <div className="flex flex-grow max-h-full w-6/12 ">
-                            <div className="flex items-center w-64">
-                                <div className="flex w-full mb-3 px-8">
+                    <div className="flex flex-row justify-between w-full ">
+                        <div className=" max-h-full ">
+                            <div className="flex flex-row items-center ">
+                                <div className="flex mb-3 px-8 w-64">
                                     <Logo1SVG width="100%" />
                                 </div>
                                 <HeaderText
@@ -510,7 +518,7 @@ const LandingPage = () => {
                                 </HeaderText>
                             </div>
                         </div>
-                        <div className="flex flex-grow max-h-full w-6/12  items-center">
+                        <div className="max-h-full  items-center">
                             <div className="flex flex-col">
                                 <h5 className="text-capitalize text-xl text-blue-4 tracking-wide font-bold mb-2">
                                     Home

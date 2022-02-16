@@ -13,6 +13,7 @@ import { Drawer } from 'antd'
 import { scrollTo } from '../../services/react-scroll-utils'
 import { GiHamburgerMenu } from 'react-icons/gi'
 import { HomePath, WhitelistPath } from '../../constants/routerConstants'
+import { whitePaperLink } from './../../constants/linksContants'
 
 const DefaultNavbar = () => {
     const [selectedMenu, setMenuIndex] = useState(0)
@@ -168,11 +169,7 @@ const DefaultNavbar = () => {
                     </div>
                     <div className="hidden lg:block h-full pl-3">
                         <button
-                            onClick={() =>
-                                windowOpen(
-                                    'https://thewanderers.sfo3.digitaloceanspaces.com/The%20wanderers%20whitepaper.pdf'
-                                )
-                            }
+                            onClick={() => windowOpen(whitePaperLink)}
                             className="text-xl h-full  border border-blue-7 flex justify-center items-center px-4"
                         >
                             Whitepaper
@@ -252,11 +249,7 @@ const DefaultNavbar = () => {
                 </div>
                 <div className="">
                     <button
-                        onClick={() =>
-                            windowOpen(
-                                'https://thewanderers.sfo3.digitaloceanspaces.com/The%20wanderers%20whitepaper.pdf'
-                            )
-                        }
+                        onClick={() => windowOpen(whitePaperLink)}
                         className="text-xl h-full  border border-blue-7 flex justify-center items-center px-4"
                     >
                         Whitepaper
