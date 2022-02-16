@@ -24,36 +24,38 @@ const Token = () => {
             name="token"
             className="max-w-1400px mx-auto px-6 md:px-10 lg:px-14"
         >
-            <div className="css-generic flex-grow mb-10">
+            <div className="flex ">
                 <div
                     ref={titleRef}
-                    className="css-generic items-center overflow-hidden"
+                    className="flex-1 flex justify-center overflow-hidden "
                 >
                     <AnimateTransition visible={titleInView}>
                         <HeaderText
                             base="4xl"
                             lg="89px"
-                            className="text-primary leading-none tracking-widest"
+                            className="text-primary leading-none tracking-widest "
                         >
                             DDOT
                         </HeaderText>
                     </AnimateTransition>
                 </div>
-                <div className="css-generic"></div>
-                <div className="css-generic flex-row flex-grow max-h-full ">
-                    <div className="css-generic hidden lg:flex flex-1"></div>
+            </div>
+            <div className="flex mb-10">
+                <div className="flex-1 hidden lg:block"></div>
+                <div className="flex-1 flex flex-row  max-h-full ">
                     <div
                         ref={subTitleRef}
-                        className="css-generic flex-1  text-center lg:text-left lg:pl-8  overflow-hidden"
+                        className="flex-1  text-center lg:text-left lg:text-left lg:pl-8  overflow-hidden"
                     >
                         <AnimateTransition
                             visible={subTitleInView}
                             transitionFrom="right"
+                            className="w-full"
                         >
                             <HeaderText
                                 base="2xl"
                                 lg="53px"
-                                className="text-info leading-none font-saira-condensed font-semibold"
+                                className="text-info leading-none font-saira-condensed font-semibold "
                             >
                                 Our Partner Token
                             </HeaderText>
@@ -61,7 +63,7 @@ const Token = () => {
                     </div>
                 </div>
             </div>
-            <div className="css-generic mb-8 lg:mb-20">
+            <div className=" mb-8 lg:mb-20">
                 <Row>
                     <Col xs={24} lg={12}>
                         <LineWrapper side="right" decorationBottom="0.7rem">

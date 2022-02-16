@@ -20,7 +20,7 @@ const Wanderers = () => {
                 <SectionTitle className="hidden lg:flex">
                     COLLECTION
                 </SectionTitle>
-                <div className="css-generic flex-grow pb-8">
+                <div className="flex flex-grow pb-8">
                     {/* Collection */}
                     <CollectionSection />
                 </div>

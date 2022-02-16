@@ -26,11 +26,11 @@ const CollectionSection = () => {
         duration: 0.4,
     }
     return (
-        <div className="css-generic flex-col w-full lg:w-750px xl:w-1300px space-y-2 xl:space-y-4 space ">
+        <div className="flex flex-col w-full lg:w-750px xl:w-1300px space-y-2 xl:space-y-4 space ">
             <div
                 ref={refCol1}
                 style={{ height: heightContainerCollection }}
-                className="css-generic w-full max-w-full overflow-hidden"
+                className=" w-full max-w-full overflow-hidden"
             >
                 <AnimateTransition
                     visible={showCol1}
@@ -55,7 +55,7 @@ const CollectionSection = () => {
             <div
                 ref={refCol2}
                 style={{ height: heightContainerCollection }}
-                className="css-generic w-full max-w-full overflow-hidden"
+                className=" w-full max-w-full overflow-hidden"
             >
                 <AnimateTransition
                     visible={showCol2}
@@ -86,7 +86,7 @@ const CollectionSection = () => {
             <div
                 ref={refCol3}
                 style={{ height: heightContainerCollection }}
-                className="css-generic w-full max-w-full overflow-hidden"
+                className=" w-full max-w-full overflow-hidden"
             >
                 <AnimateTransition
                     visible={showCol3}

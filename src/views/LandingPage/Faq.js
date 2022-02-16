@@ -105,9 +105,9 @@ const Faq = ({ visible }) => {
             initial="hidden"
             animate={visible ? 'show' : 'hidden'}
             variants={container}
-            className="overflow-hidden css-generic"
+            className="overflow-hidden"
         >
-            <div className="css-generic px-10 lg:px-20 pt-10 overflow-hidden">
+            <div className=" px-10 lg:px-20 pt-10 overflow-hidden">
                 {faqs.map((faq) => {
                     return (
                         <motion.div key={`faq-${faq.id}`} variants={faqItem}>

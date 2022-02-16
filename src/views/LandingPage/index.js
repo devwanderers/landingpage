@@ -420,7 +420,7 @@ const LandingPage = () => {
                 </div>
                 <div className="bg-blue-5 pt-10 pb-20 lg:pb-44 lg:pt-20">
                     <div className="max-w-1400px mx-auto px-6 md:px-10 lg:px-14 ">
-                        <div className="flex flex-col relative bg-blue-6 bg-opacity-40 py-10">
+                        <div className="flex flex-col relative bg-blue-6 bg-opacity-40 py-5 lg:py-10">
                             <div
                                 className="absolute left-0 right-0"
                                 style={{ top: '-8px' }}
@@ -439,6 +439,7 @@ const LandingPage = () => {
                                     onClick={handleCollapseFaq}
                                 >
                                     <HeaderText
+                                        base="4xl"
                                         lg="89px"
                                         className="text-primary leading-none tracking-widest mr-2"
                                     >
@@ -446,10 +447,10 @@ const LandingPage = () => {
                                     </HeaderText>
                                 </div>
                                 <div
-                                    className="flex w-10 cursor-pointer"
+                                    className="flex w-12 lg:w-16 cursor-pointer"
                                     onClick={handleCollapseFaq}
                                 >
-                                    <DownArrowSVG />
+                                    <DownArrowSVG width={'100%'} />
                                 </div>
                             </div>
                             <Faq visible={!collapseFaq} />

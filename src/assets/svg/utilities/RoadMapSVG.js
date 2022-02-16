@@ -99,7 +99,7 @@ const RoadgMapSVG = (props) => {
                     isolation: 'isolate',
                     fontSize: '14.025400161743164px',
                     fill: '#39b396',
-                    fontFamily: 'RussoOne-Regular, Russo One',
+                    fontFamily: 'RussoOne, Russo One',
                 }}
             >
                 {'Q1 2022'}
@@ -110,7 +110,7 @@ const RoadgMapSVG = (props) => {
                     isolation: 'isolate',
                     fontSize: '14.025400161743164px',
                     fill: '#10b4ea',
-                    fontFamily: 'RussoOne-Regular, Russo One',
+                    fontFamily: 'RussoOne, Russo One',
                 }}
             >
                 {'Launchpad'}
@@ -231,23 +231,29 @@ const RoadgMapSVG = (props) => {
                     fill: '#698da6',
                     fontFamily: 'SairaCondensed-Medium, Saira Condensed',
                     fontWeight: 500,
-                    letterSpacing: '-0.015010693247906192em',
+                    letterSpacing: '-0.030021386495812385em',
                 }}
             >
                 {'T'}
             </text>
-            <text
-                transform="translate(137.63 78.25)"
+            <g
                 style={{
                     isolation: 'isolate',
-                    fontSize: '12.946499824523926px',
-                    fill: '#698da6',
-                    fontFamily: 'SairaCondensed-Medium, Saira Condensed',
-                    fontWeight: 500,
                 }}
             >
-                <tspan xmlSpace="preserve">{' d'}</tspan>
-            </text>
+                <text
+                    transform="translate(137.63 78.25)"
+                    style={{
+                        isolation: 'isolate',
+                        fontSize: '12.946499824523926px',
+                        fill: '#698da6',
+                        fontFamily: 'SairaCondensed-Medium, Saira Condensed',
+                        fontWeight: 500,
+                    }}
+                >
+                    <tspan xmlSpace="preserve">{' d'}</tspan>
+                </text>
+            </g>
             <text
                 transform="translate(145.91 78.25)"
                 style={{
@@ -290,7 +296,7 @@ const RoadgMapSVG = (props) => {
                     isolation: 'isolate',
                     fontSize: '14.025400161743164px',
                     fill: '#39b396',
-                    fontFamily: 'RussoOne-Regular, Russo One',
+                    fontFamily: 'RussoOne, Russo One',
                 }}
             >
                 {'Q1 2022'}
@@ -301,7 +307,7 @@ const RoadgMapSVG = (props) => {
                     isolation: 'isolate',
                     fontSize: '14.025400161743164px',
                     fill: '#10b4ea',
-                    fontFamily: 'RussoOne-Regular, Russo One',
+                    fontFamily: 'RussoOne, Russo One',
                 }}
             >
                 {'Nomadzland Communi'}
@@ -312,7 +318,7 @@ const RoadgMapSVG = (props) => {
                     isolation: 'isolate',
                     fontSize: '14.025400161743164px',
                     fill: '#10b4ea',
-                    fontFamily: 'RussoOne-Regular, Russo One',
+                    fontFamily: 'RussoOne, Russo One',
                 }}
             >
                 {'t'}
@@ -323,7 +329,7 @@ const RoadgMapSVG = (props) => {
                     isolation: 'isolate',
                     fontSize: '14.025400161743164px',
                     fill: '#10b4ea',
-                    fontFamily: 'RussoOne-Regular, Russo One',
+                    fontFamily: 'RussoOne, Russo One',
                 }}
             >
                 {'y'}
@@ -706,7 +712,7 @@ const RoadgMapSVG = (props) => {
                     isolation: 'isolate',
                     fontSize: '14.025400161743164px',
                     fill: '#39b396',
-                    fontFamily: 'RussoOne-Regular, Russo One',
+                    fontFamily: 'RussoOne, Russo One',
                 }}
             >
                 {'Q2 2022'}
@@ -717,7 +723,7 @@ const RoadgMapSVG = (props) => {
                     isolation: 'isolate',
                     fontSize: '14.025400161743164px',
                     fill: '#10b4ea',
-                    fontFamily: 'RussoOne-Regular, Russo One',
+                    fontFamily: 'RussoOne, Russo One',
                 }}
             >
                 {'Nomadzland p'}
@@ -728,7 +734,7 @@ const RoadgMapSVG = (props) => {
                     isolation: 'isolate',
                     fontSize: '14.025400161743164px',
                     fill: '#10b4ea',
-                    fontFamily: 'RussoOne-Regular, Russo One',
+                    fontFamily: 'RussoOne, Russo One',
                 }}
             >
                 {'r'}
@@ -739,7 +745,7 @@ const RoadgMapSVG = (props) => {
                     isolation: 'isolate',
                     fontSize: '14.025400161743164px',
                     fill: '#10b4ea',
-                    fontFamily: 'RussoOne-Regular, Russo One',
+                    fontFamily: 'RussoOne, Russo One',
                 }}
             >
                 {'eseason'}
@@ -860,30 +866,36 @@ const RoadgMapSVG = (props) => {
                     fill: '#698da6',
                     fontFamily: 'SairaCondensed-Medium, Saira Condensed',
                     fontWeight: 500,
-                    letterSpacing: '-0.015010693247906192em',
+                    letterSpacing: '-0.030021386495812385em',
                 }}
             >
                 {'T'}
             </text>
-            <text
-                transform="translate(130.52 257.46)"
+            <g
                 style={{
                     isolation: 'isolate',
-                    fontSize: '12.946499824523926px',
-                    fill: '#698da6',
-                    fontFamily: 'SairaCondensed-Medium, Saira Condensed',
-                    fontWeight: 500,
                 }}
             >
-                <tspan xmlSpace="preserve">{' minting period'}</tspan>
-            </text>
+                <text
+                    transform="translate(130.52 257.46)"
+                    style={{
+                        isolation: 'isolate',
+                        fontSize: '12.946499824523926px',
+                        fill: '#698da6',
+                        fontFamily: 'SairaCondensed-Medium, Saira Condensed',
+                        fontWeight: 500,
+                    }}
+                >
+                    <tspan xmlSpace="preserve">{' minting period'}</tspan>
+                </text>
+            </g>
             <text
                 transform="translate(276.61 284.56)"
                 style={{
                     isolation: 'isolate',
                     fontSize: '14.025400161743164px',
                     fill: '#39b396',
-                    fontFamily: 'RussoOne-Regular, Russo One',
+                    fontFamily: 'RussoOne, Russo One',
                 }}
             >
                 {'Q2 2022'}
@@ -894,7 +906,7 @@ const RoadgMapSVG = (props) => {
                     isolation: 'isolate',
                     fontSize: '14.025400161743164px',
                     fill: '#10b4ea',
-                    fontFamily: 'RussoOne-Regular, Russo One',
+                    fontFamily: 'RussoOne, Russo One',
                 }}
             >
                 {'Nomadzland season 1'}
@@ -919,7 +931,7 @@ const RoadgMapSVG = (props) => {
                     fill: '#698da6',
                     fontFamily: 'SairaCondensed-Medium, Saira Condensed',
                     fontWeight: 500,
-                    letterSpacing: '-0.015010693247906192em',
+                    letterSpacing: '-0.030021386495812385em',
                 }}
             >
                 {'T'}
@@ -937,7 +949,7 @@ const RoadgMapSVG = (props) => {
                 {'r'}
             </text>
             <text
-                transform="translate(300.06 335.35)"
+                transform="translate(300.48 335.35)"
                 style={{
                     isolation: 'isolate',
                     fontSize: '12.946499824523926px',
@@ -946,104 +958,74 @@ const RoadgMapSVG = (props) => {
                     fontWeight: 500,
                 }}
             >
-                {'elease, IDO'}
-            </text>
-            <text
-                transform="translate(353.34 335.35)"
-                style={{
-                    isolation: 'isolate',
-                    fontSize: '12.946499824523926px',
-                    fill: '#698da6',
-                    fontFamily: 'SairaCondensed-Medium, Saira Condensed',
-                    fontWeight: 500,
-                    letterSpacing: '-0.015010693247906192em',
-                }}
-            >
-                {'T'}
-            </text>
-            <text
-                transform="translate(356.94 335.35)"
-                style={{
-                    isolation: 'isolate',
-                    fontSize: '12.946499824523926px',
-                    fill: '#698da6',
-                    fontFamily: 'SairaCondensed-Medium, Saira Condensed',
-                    fontWeight: 500,
-                }}
-            >
-                {'o'}
-            </text>
-            <text
-                transform="translate(362.6 335.35)"
-                style={{
-                    isolation: 'isolate',
-                    fontSize: '12.946499824523926px',
-                    fill: '#698da6',
-                    fontFamily: 'SairaCondensed-Medium, Saira Condensed',
-                    fontWeight: 500,
-                }}
-            >
-                {'k'}
-            </text>
-            <text
-                transform="translate(367.85 335.35)"
-                style={{
-                    isolation: 'isolate',
-                    fontSize: '12.946499824523926px',
-                    fill: '#698da6',
-                    fontFamily: 'SairaCondensed-Medium, Saira Condensed',
-                    fontWeight: 500,
-                }}
-            >
-                {'en,'}
-            </text>
-            <text
-                transform="translate(384.41 335.35)"
-                style={{
-                    isolation: 'isolate',
-                    fontSize: '12.946499824523926px',
-                    fill: '#698da6',
-                    fontFamily: 'SairaCondensed-Medium, Saira Condensed',
-                    fontWeight: 500,
-                }}
-            >
-                {'t'}
-            </text>
-            <text
-                transform="translate(388.01 335.35)"
-                style={{
-                    isolation: 'isolate',
-                    fontSize: '12.946499824523926px',
-                    fill: '#698da6',
-                    fontFamily: 'SairaCondensed-Medium, Saira Condensed',
-                    fontWeight: 500,
-                }}
-            >
-                {'o'}
-            </text>
-            <text
-                transform="translate(393.67 335.35)"
-                style={{
-                    isolation: 'isolate',
-                    fontSize: '12.946499824523926px',
-                    fill: '#698da6',
-                    fontFamily: 'SairaCondensed-Medium, Saira Condensed',
-                    fontWeight: 500,
-                }}
-            >
-                {'k'}
-            </text>
-            <text
-                transform="translate(398.93 335.35)"
-                style={{
-                    isolation: 'isolate',
-                    fontSize: '12.946499824523926px',
-                    fill: '#698da6',
-                    fontFamily: 'SairaCondensed-Medium, Saira Condensed',
-                    fontWeight: 500,
-                }}
-            >
-                {'en sale,'}
+                {'elease, IDO DD'}
+                <tspan
+                    x={66.13}
+                    y={0}
+                    style={{
+                        letterSpacing: '-0.006977332288599612em',
+                    }}
+                >
+                    {'O'}
+                </tspan>
+                <tspan
+                    x={72.71}
+                    y={0}
+                    style={{
+                        letterSpacing: '-0.015010693247906192em',
+                    }}
+                >
+                    {'T'}
+                </tspan>
+                <tspan x={77.87} y={0} />
+                <tspan
+                    x={80.36}
+                    y={0}
+                    style={{
+                        letterSpacing: '-0.030021386495812385em',
+                    }}
+                >
+                    {'T'}
+                </tspan>
+                <tspan x={85.33} y={0}>
+                    {'o'}
+                </tspan>
+                <tspan
+                    x={90.99}
+                    y={0}
+                    style={{
+                        letterSpacing: '-0.009994557062048093em',
+                    }}
+                >
+                    {'k'}
+                </tspan>
+                <tspan x={96.23} y={0}>
+                    {'en, '}
+                </tspan>
+                <tspan
+                    x={112.79}
+                    y={0}
+                    style={{
+                        letterSpacing: '-0.004978420876189994em',
+                    }}
+                >
+                    {'t'}
+                </tspan>
+                <tspan x={116.39} y={0}>
+                    {'o'}
+                </tspan>
+                <tspan
+                    x={122.04}
+                    y={0}
+                    style={{
+                        letterSpacing: '-0.009994557062048093em',
+                    }}
+                >
+                    {'k'}
+                </tspan>
+                <tspan x={127.29} y={0}>
+                    {'en sale, '}
+                </tspan>
             </text>
             <text
                 transform="translate(276.61 350.89)"
@@ -1055,31 +1037,25 @@ const RoadgMapSVG = (props) => {
                     fontWeight: 500,
                 }}
             >
-                {'LAND & ROL p'}
-            </text>
-            <text
-                transform="translate(339.23 350.89)"
-                style={{
-                    isolation: 'isolate',
-                    fontSize: '12.946499824523926px',
-                    fill: '#698da6',
-                    fontFamily: 'SairaCondensed-Medium, Saira Condensed',
-                    fontWeight: 500,
-                }}
-            >
-                {'r'}
-            </text>
-            <text
-                transform="translate(342.97 350.89)"
-                style={{
-                    isolation: 'isolate',
-                    fontSize: '12.946499824523926px',
-                    fill: '#698da6',
-                    fontFamily: 'SairaCondensed-Medium, Saira Condensed',
-                    fontWeight: 500,
-                }}
-            >
-                {'esale'}
+                {'Prime & Ambassador p'}
+                <tspan
+                    x={104.02}
+                    y={0}
+                    style={{
+                        letterSpacing: '-0.0050161361858581em',
+                    }}
+                >
+                    {'r'}
+                </tspan>
+                <tspan
+                    x={107.76}
+                    y={0}
+                    style={{
+                        letterSpacing: '0.00003771530966810601em',
+                    }}
+                >
+                    {'esale'}
+                </tspan>
             </text>
             <text
                 transform="translate(145.61 379.52)"
@@ -1087,7 +1063,7 @@ const RoadgMapSVG = (props) => {
                     isolation: 'isolate',
                     fontSize: '14.025400161743164px',
                     fill: '#39b396',
-                    fontFamily: 'RussoOne-Regular, Russo One',
+                    fontFamily: 'RussoOne, Russo One',
                 }}
             >
                 {'Q2 2022'}
@@ -1098,7 +1074,7 @@ const RoadgMapSVG = (props) => {
                     isolation: 'isolate',
                     fontSize: '14.025400161743164px',
                     fill: '#10b4ea',
-                    fontFamily: 'RussoOne-Regular, Russo One',
+                    fontFamily: 'RussoOne, Russo One',
                 }}
             >
                 {'Nomadzland me'}
@@ -1109,7 +1085,7 @@ const RoadgMapSVG = (props) => {
                     isolation: 'isolate',
                     fontSize: '14.025400161743164px',
                     fill: '#10b4ea',
-                    fontFamily: 'RussoOne-Regular, Russo One',
+                    fontFamily: 'RussoOne, Russo One',
                 }}
             >
                 {'t'}
@@ -1120,7 +1096,7 @@ const RoadgMapSVG = (props) => {
                     isolation: 'isolate',
                     fontSize: '14.025400161743164px',
                     fill: '#10b4ea',
-                    fontFamily: 'RussoOne-Regular, Russo One',
+                    fontFamily: 'RussoOne, Russo One',
                 }}
             >
                 {'a'}
@@ -1131,7 +1107,7 @@ const RoadgMapSVG = (props) => {
                     isolation: 'isolate',
                     fontSize: '14.025400161743164px',
                     fill: '#10b4ea',
-                    fontFamily: 'RussoOne-Regular, Russo One',
+                    fontFamily: 'RussoOne, Russo One',
                 }}
             >
                 {'v'}
@@ -1142,7 +1118,7 @@ const RoadgMapSVG = (props) => {
                     isolation: 'isolate',
                     fontSize: '14.025400161743164px',
                     fill: '#10b4ea',
-                    fontFamily: 'RussoOne-Regular, Russo One',
+                    fontFamily: 'RussoOne, Russo One',
                 }}
             >
                 {'erse'}
@@ -1253,10 +1229,10 @@ const RoadgMapSVG = (props) => {
                     fontWeight: 500,
                 }}
             >
-                {'es, LAND & ROL sale,'}
+                {'es, Prime & Ambassador '}
             </text>
             <text
-                transform="translate(48.58 445.85)"
+                transform="translate(71.71 445.85)"
                 style={{
                     isolation: 'isolate',
                     fontSize: '12.946499824523926px',
@@ -1268,7 +1244,7 @@ const RoadgMapSVG = (props) => {
                 {'s'}
             </text>
             <text
-                transform="translate(53.4 445.85)"
+                transform="translate(76.53 445.85)"
                 style={{
                     isolation: 'isolate',
                     fontSize: '12.946499824523926px',
@@ -1280,7 +1256,7 @@ const RoadgMapSVG = (props) => {
                 {'t'}
             </text>
             <text
-                transform="translate(56.94 445.85)"
+                transform="translate(80.07 445.85)"
                 style={{
                     isolation: 'isolate',
                     fontSize: '12.946499824523926px',
@@ -1292,7 +1268,7 @@ const RoadgMapSVG = (props) => {
                 {'a'}
             </text>
             <text
-                transform="translate(62.43 445.85)"
+                transform="translate(85.56 445.85)"
                 style={{
                     isolation: 'isolate',
                     fontSize: '12.946499824523926px',
@@ -1304,7 +1280,7 @@ const RoadgMapSVG = (props) => {
                 {'r'}
             </text>
             <text
-                transform="translate(66.36 445.85)"
+                transform="translate(89.49 445.85)"
                 style={{
                     isolation: 'isolate',
                     fontSize: '12.946499824523926px',
@@ -1316,7 +1292,7 @@ const RoadgMapSVG = (props) => {
                 {'t'}
             </text>
             <text
-                transform="translate(72.5 445.85)"
+                transform="translate(95.63 445.85)"
                 style={{
                     isolation: 'isolate',
                     fontSize: '12.946499824523926px',
@@ -1328,7 +1304,7 @@ const RoadgMapSVG = (props) => {
                 {'s'}
             </text>
             <text
-                transform="translate(77.32 445.85)"
+                transform="translate(100.45 445.85)"
                 style={{
                     isolation: 'isolate',
                     fontSize: '12.946499824523926px',
@@ -1340,7 +1316,7 @@ const RoadgMapSVG = (props) => {
                 {'t'}
             </text>
             <text
-                transform="translate(80.85 445.85)"
+                transform="translate(105.04 445.85)"
                 style={{
                     isolation: 'isolate',
                     fontSize: '12.946499824523926px',
@@ -1352,7 +1328,7 @@ const RoadgMapSVG = (props) => {
                 {'aking periods, CMC li'}
             </text>
             <text
-                transform="translate(174.56 445.85)"
+                transform="translate(198.75 445.85)"
                 style={{
                     isolation: 'isolate',
                     fontSize: '12.946499824523926px',
@@ -1364,7 +1340,7 @@ const RoadgMapSVG = (props) => {
                 {'s'}
             </text>
             <text
-                transform="translate(179.36 445.85)"
+                transform="translate(203.55 445.85)"
                 style={{
                     isolation: 'isolate',
                     fontSize: '12.946499824523926px',
@@ -1376,7 +1352,7 @@ const RoadgMapSVG = (props) => {
                 {'ting,'}
             </text>
             <text
-                transform="translate(131.95 461.38)"
+                transform="translate(111.68 461.38)"
                 style={{
                     isolation: 'isolate',
                     fontSize: '12.946499824523926px',
@@ -1393,7 +1369,7 @@ const RoadgMapSVG = (props) => {
                     isolation: 'isolate',
                     fontSize: '14.025400161743164px',
                     fill: '#39b396',
-                    fontFamily: 'RussoOne-Regular, Russo One',
+                    fontFamily: 'RussoOne, Russo One',
                 }}
             >
                 {'Q3 2022'}
@@ -1404,7 +1380,7 @@ const RoadgMapSVG = (props) => {
                     isolation: 'isolate',
                     fontSize: '14.025400161743164px',
                     fill: '#10b4ea',
-                    fontFamily: 'RussoOne-Regular, Russo One',
+                    fontFamily: 'RussoOne, Russo One',
                 }}
             >
                 {'Nomadzland season 2'}
@@ -1573,7 +1549,7 @@ const RoadgMapSVG = (props) => {
                     strokeMiterlimit: 10,
                     strokeWidth: '0.5px',
                 }}
-            />{' '}
+            />
             <motion.line
                 x1={238.95}
                 y1={107.4}
@@ -1691,106 +1667,108 @@ const RoadgMapSVG = (props) => {
             />
             <rect
                 ref={step1Ref}
-                x={232.9}
+                x={232.95}
                 y={16.42}
                 width={11.9}
                 height={11.9}
-                transform="translate(54.19 175.44) rotate(-45)"
+                transform="translate(54.16 175.48) rotate(-45)"
                 style={{
                     fill: '#3bb396',
                 }}
             />
             <path
-                d="M238.9,15.4l7,7-7,7-7-7,7-7m0-2.8L237.5,14l-7,7-1.4,1.4,1.4,1.4,7,7,1.4,1.4,1.4-1.4,7-7,1.4-1.4L247.3,21l-7-7A18.48,18.48,0,0,1,238.9,12.6Z"
-                transform="translate(0.05 0)"
+                d="M239,15.4l7,7-7,7-7-7,7-7m0-2.8-1.4,1.4-7,7-1.4,1.4,1.4,1.4,7,7,1.4,1.4,1.4-1.4,7-7,1.4-1.4-1.4-1.4-7-7A18.49,18.49,0,0,1,239,12.6Z"
                 style={{
                     fill: '#fff',
                 }}
             />
             <rect
                 ref={step2Ref}
-                x={232.9}
+                x={232.95}
                 y={101.42}
                 width={11.9}
                 height={11.9}
-                transform="translate(-5.91 200.34) rotate(-45)"
-                style={{
-                    fill: completed1 ? '#3bb396' : '#03152b',
-                }}
+                transform="translate(-5.95 200.38) rotate(-45)"
+                style={{ fill: completed1 ? '#3bb396' : '#03152b' }}
             />
             <path
-                d="M238.9,100.4l7,7-7,7-7-7,7-7m0-2.8L237.5,99l-7,7-1.4,1.4,1.4,1.4,7,7,1.4,1.4,1.4-1.4,7-7,1.4-1.4-1.4-1.4-7-7-1.4-1.4Z"
-                transform="translate(0.05 0)"
-                style={{ fill: '#fff' }}
+                d="M239,100.4l7,7-7,7-7-7,7-7m0-2.8-1.4,1.4-7,7-1.4,1.4,1.4,1.4,7,7,1.4,1.4,1.4-1.4,7-7,1.4-1.4-1.4-1.4-7-7Z"
+                style={{
+                    fill: '#fff',
+                }}
             />
             <rect
                 ref={step3Ref}
-                x={232.9}
+                x={232.95}
                 y={193.42}
                 width={11.9}
                 height={11.9}
-                transform="translate(-70.97 227.29) rotate(-45)"
+                transform="translate(-71.01 227.32) rotate(-45)"
                 style={{ fill: completed2 ? '#3bb396' : '#03152b' }}
             />
             <path
-                d="M238.9,192.4l7,7-7,7-7-7,7-7m0-2.8-1.4,1.4-7,7-1.4,1.4,1.4,1.4,7,7,1.4,1.4,1.4-1.4,7-7,1.4-1.4-1.4-1.4-7-7Z"
-                transform="translate(0.05 0)"
+                d="M239,192.4l7,7-7,7-7-7,7-7m0-2.8-1.4,1.4-7,7-1.4,1.4,1.4,1.4,7,7,1.4,1.4,1.4-1.4,7-7,1.4-1.4-1.4-1.4-7-7Z"
                 style={{
                     fill: '#fff',
                 }}
             />
             <rect
                 ref={step4Ref}
-                x={232.9}
-                y={286.42}
+                x={232.95}
+                y={286.41}
                 width={11.9}
                 height={11.9}
-                transform="translate(-136.73 254.52) rotate(-45)"
-                style={{
-                    fill: completed3 ? '#3bb396' : '#03152b',
-                }}
+                transform="translate(-136.76 254.56) rotate(-45)"
+                style={{ fill: completed3 ? '#3bb396' : '#03152b' }}
             />
             <path
-                d="M238.9,285.4l7,7-7,7-7-7,7-7m0-2.8-1.4,1.4-7,7-1.4,1.4,1.4,1.4,7,7,1.4,1.4,1.4-1.4,7-7,1.4-1.4-1.4-1.4-7-7Z"
-                transform="translate(0.05 0)"
+                d="M239,285.4l7,7-7,7-7-7,7-7m0-2.8-1.4,1.4-7,7-1.4,1.4,1.4,1.4,7,7,1.4,1.4,1.4-1.4,7-7,1.4-1.4-1.4-1.4-7-7Z"
                 style={{
                     fill: '#fff',
                 }}
             />
             <rect
                 ref={step5Ref}
-                x={232.9}
+                x={232.95}
                 y={381.41}
                 width={11.9}
                 height={11.9}
-                transform="translate(-203.9 282.35) rotate(-45)"
-                style={{
-                    fill: completed4 ? '#3bb396' : '#03152b',
-                }}
+                transform="translate(-203.94 282.38) rotate(-45)"
+                style={{ fill: completed4 ? '#3bb396' : '#03152b' }}
             />
             <path
-                d="M238.9,380.4l7,7-7,7-7-7,7-7m0-2.8-1.4,1.4-7,7-1.4,1.4,1.4,1.4,7,7,1.4,1.4,1.4-1.4,7-7,1.4-1.4-1.4-1.4-7-7Z"
-                transform="translate(0.05 0)"
+                d="M239,380.4l7,7-7,7-7-7,7-7m0-2.8-1.4,1.4-7,7-1.4,1.4,1.4,1.4,7,7,1.4,1.4,1.4-1.4,7-7,1.4-1.4-1.4-1.4-7-7Z"
                 style={{
                     fill: '#fff',
                 }}
             />
             <rect
                 ref={step6Ref}
-                x={232.9}
+                x={232.96}
                 y={475.41}
                 width={11.9}
                 height={11.9}
-                transform="translate(-270.36 309.88) rotate(-45)"
+                transform="translate(-270.4 309.92) rotate(-45)"
                 style={{ fill: completed5 ? '#3bb396' : '#03152b' }}
             />
             <path
-                d="M238.9,474.4l7,7-7,7-7-7,7-7m0-2.8-1.4,1.4-7,7-1.4,1.4,1.4,1.4,7,7,1.4,1.4,1.4-1.4,7-7,1.4-1.4-1.4-1.4-7-7Z"
-                transform="translate(0.05 0)"
+                d="M239,474.4l7,7-7,7-7-7,7-7m0-2.8-1.4,1.4-7,7-1.4,1.4,1.4,1.4,7,7,1.4,1.4,1.4-1.4,7-7,1.4-1.4-1.4-1.4-7-7Z"
                 style={{
                     fill: '#fff',
                 }}
             />
+            <text
+                transform="translate(46.86 445.85)"
+                style={{
+                    isolation: 'isolate',
+                    fontSize: '12.946499824523926px',
+                    fill: '#698da6',
+                    fontFamily: 'SairaCondensed-Medium, Saira Condensed',
+                    fontWeight: 500,
+                }}
+            >
+                {'sale,'}
+            </text>
         </svg>
     )
 }

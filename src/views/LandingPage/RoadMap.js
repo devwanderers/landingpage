@@ -18,7 +18,7 @@ const RoadMap = (props) => {
             name="roadMap"
             className="max-w-1400px mx-auto px-6 md:px-10 lg:px-14"
         >
-            <div className="css-generic text-center lg:text-left">
+            <div className=" text-center lg:text-left">
                 <div ref={titleRef}>
                     <AnimateTransition visible={titleInView}>
                         <HeaderText
@@ -30,7 +30,7 @@ const RoadMap = (props) => {
                         </HeaderText>
                     </AnimateTransition>
                 </div>
-                <div className="css-generic mx-auto w-full lg:w-8/12">
+                <div className=" mx-auto w-full lg:w-8/12">
                     <Article
                         header="Road Map"
                         subHeader="February 2022"
@@ -61,7 +61,7 @@ const RoadMap = (props) => {
                     </Article>
                 </div>
 
-                <div className="css-generic max-w-full flex justify-center">
+                <div className="max-w-full flex justify-center">
                     <RoadMapSVG width="100%" height="100%" />
                 </div>
             </div>

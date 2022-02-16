@@ -11,10 +11,10 @@ export const LineWrapper = ({
 }) => {
     return (
         <div
-            className={`css-generic w-full max-h-full flex flex-grow relative ${className}`}
+            className={` w-full max-h-full flex flex-grow relative ${className}`}
         >
             <div
-                className={`css-generic ${
+                className={` ${
                     side === 'left' ? 'lg:pl-14' : 'lg:pr-14'
                 } pt-2 lg:pt-10`}
             >

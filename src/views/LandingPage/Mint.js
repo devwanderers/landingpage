@@ -99,7 +99,7 @@ const Mint = (props) => {
                     <Col xs={24} md={10} className="pt-5 ">
                         <div
                             ref={nftFrameRef}
-                            className="css-generic relative overflow-hidden w-10/12 mx-auto"
+                            className=" relative overflow-hidden w-10/12 mx-auto"
                         >
                             <FrameCharacterSVG width="100%" />
 
