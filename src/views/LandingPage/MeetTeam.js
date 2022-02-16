@@ -24,29 +24,29 @@ const teams = [
     {
         image: utilitiesImages.skullman,
         name: 'Brandon S.',
-        subtitle: 'CTO',
+        subtitle: 'Dev',
         description:
-            '5+ years in system engineering , lifelong gamer, methodical and creative, he is a commited person that doesnt hesitate on learning more about and going above and beyond. Extraordinary skills in software development.',
+            '8+ years in system engineering , lifelong gamer, methodical and creative, he is a commited person that doesnt hesitate on learning more about and going above and beyond. Extraordinary skills in software development.',
+    },
+    {
+        image: utilitiesImages.kame,
+        name: 'Kame',
+        subtitle: 'Principal Designer',
+        description:
+            'Fearless designer with a great sense of humor. 6+ years of experience endorse her talent and dedication. She is characterized for being a very creative and daring person when it comes to design. Not to mention her love for cats',
     },
 
     {
         image: utilitiesImages.amelie,
         name: 'Riot Mei',
-        subtitle: 'Social Media Manager',
+        subtitle: 'Head Mod',
         description:
             'Passionate in creating and building communities, creative in all kinds of circumstances and with an optimistic social vision.',
     },
     {
-        image: utilitiesImages.kame,
-        name: 'Kame',
-        subtitle: 'Marketing Director',
-        description:
-            'Fearless designer with a great sense of humor. 6+ years of experience endorse her talent and dedication. She is characterized for being a very creative and daring person when it comes to design. Not to mention her love for cats',
-    },
-    {
         image: utilitiesImages.surtek,
         name: 'Surtek TK',
-        subtitle: 'Strategy',
+        subtitle: 'Mod',
         description:
             'Always looking for the good side, she is committed to her work, always attentive to the needs of the community and actively participates in the conversations.,',
     },
@@ -216,7 +216,7 @@ const Teams = () => {
                                 />
                             </div>
                             <Article
-                                header={'AlexArt'}
+                                header={'Alex S.'}
                                 subHeader="Artist"
                                 headerProps={{
                                     className:
