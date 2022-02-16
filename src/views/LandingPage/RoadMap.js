@@ -24,7 +24,7 @@ const RoadMap = (props) => {
                         <HeaderText
                             base="4xl"
                             lg="89px"
-                            className="text-primary leading-none tracking-widest mb-10 lg:mb-24"
+                            className="text-primary leading-none tracking-widest mb-10 lg:mb-20"
                         >
                             Road Map
                         </HeaderText>
@@ -32,7 +32,7 @@ const RoadMap = (props) => {
                 </div>
                 <div className=" mx-auto w-full lg:w-8/12">
                     <Article
-                        header="Road Map"
+                        // header="Road Map"
                         subHeader="February 2022"
                         headerProps={{
                             className:

@@ -25,15 +25,17 @@ const Article = ({
 
     return (
         <div className={`flex flex-col ${className}`}>
-            <div ref={titleRef} className=" overflow-hidden">
-                <AnimateTransition
-                    className="w-full overflow-hidden"
-                    visible={titleInView}
-                    transitionFrom="left"
-                >
-                    <Header {...headerProps}>{header}</Header>
-                </AnimateTransition>
-            </div>
+            {header && (
+                <div ref={titleRef} className=" overflow-hidden">
+                    <AnimateTransition
+                        className="w-full overflow-hidden"
+                        visible={titleInView}
+                        transitionFrom="left"
+                    >
+                        <Header {...headerProps}>{header}</Header>
+                    </AnimateTransition>
+                </div>
+            )}
             {subHeader && (
                 <div ref={subTitleRef} className=" overflow-hidden">
                     <AnimateTransition
