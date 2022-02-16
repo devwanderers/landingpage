@@ -7,7 +7,7 @@ import { RadioGraphySVG } from '../../assets/svg/sections'
 
 const Wanderers = () => {
     return (
-        <Element name="nomadz" className=" bg-blue-5 lg:pb-32 ">
+        <Element name="nomadz" className=" bg-blue-5 pb-16 lg:pb-32 ">
             {' '}
             <div className="flex flex-col lg:flex-row px-10px xl:px-0">
                 <HeaderText
@@ -24,7 +24,7 @@ const Wanderers = () => {
                     <CollectionSection />
                 </div>
             </div>
-            <div className=" max-w-1000px mx-auto mt-20 px-5 lg:px-0">
+            <div className=" max-w-1000px mx-auto mt-20 px-8 lg:px-0">
                 <div className="text-center mb-2">
                     <HeaderText
                         base="4xl"
@@ -33,7 +33,7 @@ const Wanderers = () => {
                         Radiography
                     </HeaderText>
                 </div>
-                <div className="w-full ">
+                <div className="w-full">
                     <RadioGraphySVG width={'100%'} height="100%" />
                 </div>
             </div>
