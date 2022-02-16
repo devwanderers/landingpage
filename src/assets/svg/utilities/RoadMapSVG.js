@@ -7,10 +7,10 @@ import {
     useSpring,
 } from 'framer-motion'
 import useSize from './../../../hooks/useSize'
-import { useElementOffsetTop } from './../../../hooks/useElementOffsetTop'
+import { useRefScrollProgress } from '../../../hooks/useRefScrollProgress'
 import useWindowSize from './../../../hooks/useWindowSize'
 
-const RoadMapSVG = ({ currentStep, ...restProps }) => {
+const RoadMapSVG = ({ ...restProps }) => {
     const { scrollY } = useViewportScroll()
     const { innerHeight } = useWindowSize()
 
@@ -20,54 +20,46 @@ const RoadMapSVG = ({ currentStep, ...restProps }) => {
     const [completed4, setCompleted4] = useState(false)
     const [completed5, setCompleted5] = useState(false)
 
-    const step1Ref = useRef(null)
-    const step2Ref = useRef(null)
-    const step3Ref = useRef(null)
-    const step4Ref = useRef(null)
-    const step5Ref = useRef(null)
-    const step6Ref = useRef(null)
-
-    const step1Offset = useElementOffsetTop(step1Ref)
-    const step2Offset = useElementOffsetTop(step2Ref)
-    const step3Offset = useElementOffsetTop(step3Ref)
-    const step4Offset = useElementOffsetTop(step4Ref)
-    const step5Offset = useElementOffsetTop(step5Ref)
-    const step6Offset = useElementOffsetTop(step6Ref)
+    const { ref: step1Ref, start: start1 } = useRefScrollProgress()
+    const { ref: step2Ref, start: start2 } = useRefScrollProgress()
+    const { ref: step3Ref, start: start3 } = useRefScrollProgress()
+    const { ref: step4Ref, start: start4 } = useRefScrollProgress()
+    const { ref: step5Ref, start: start5 } = useRefScrollProgress()
+    const { ref: step6Ref, start: start6 } = useRefScrollProgress()
 
     const screenHeightHalf = innerHeight * 0.5
 
     const step1ToStep2 = useTransform(
         scrollY,
-        [step1Offset - screenHeightHalf, step2Offset - screenHeightHalf],
+        [start1 - screenHeightHalf, start2 - screenHeightHalf],
         [-100, 0]
     )
 
     const step2ToStep3 = useTransform(
         scrollY,
-        [step2Offset - screenHeightHalf, step3Offset - screenHeightHalf],
+        [start2 - screenHeightHalf, start3 - screenHeightHalf],
         [-100, 0]
     )
     const step3ToStep4 = useTransform(
         scrollY,
-        [step3Offset - screenHeightHalf, step4Offset - screenHeightHalf],
+        [start3 - screenHeightHalf, start4 - screenHeightHalf],
         [-100, 0]
     )
 
     const step4ToStep5 = useTransform(
         scrollY,
-        [step4Offset - screenHeightHalf, step5Offset - screenHeightHalf],
+        [start4 - screenHeightHalf, start5 - screenHeightHalf],
         [-100, 0]
     )
     const step5ToStep6 = useTransform(
         scrollY,
-        [step5Offset - screenHeightHalf, step6Offset - screenHeightHalf],
+        [start5 - screenHeightHalf, start6 - screenHeightHalf],
         [-100, 0]
     )
 
     useEffect(
         () =>
             step1ToStep2.onChange((v) => {
-                console.log({ v: v > -1, v1: v })
                 setCompleted1(v > -1)
             }),
         [step1ToStep2]

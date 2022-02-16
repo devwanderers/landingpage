@@ -11,13 +11,13 @@ const routes = [
         componentProps: { routes: [] },
         exact: true,
     },
-    {
-        name: 'Whitelist',
-        path: paths.WhitelistPath,
-        route: Route,
-        componentProps: { routes: [] },
-        exact: true,
-    },
+    // {
+    //     name: 'Whitelist',
+    //     path: paths.WhitelistPath,
+    //     route: Route,
+    //     componentProps: { routes: [] },
+    //     exact: true,
+    // },
 ]
 
 export default routes

@@ -69,8 +69,9 @@ const Token = () => {
                                         lg="23px"
                                     >
                                         {
-                                            'We are creating an ecosystem where your NFTs are more than Art. We believe in our community and was to give you a piece back for the trust you put into this project. '
+                                            'We are creating an ecosystem where your NFTs are more than Art. We believe in our community and was to give you a piece back for the trust you put into this project.'
                                         }
+                                        <br />
                                         <br />
                                         The token rewards you will receive in
                                         the ecosystem has unique features you

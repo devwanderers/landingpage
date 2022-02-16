@@ -10,36 +10,49 @@ import Article from './../../components/DisplayText/Article'
 import AnimateTransition from './../../components/Animations/AnimateTransition'
 
 const teams = [
-    { image: utilitiesImages.dr, name: 'Dr. Millan', description: 'COO' },
-    { image: utilitiesImages.skullman, name: 'Brandon S.', description: 'CTO' },
+    // { image: utilitiesImages.dr, name: 'Dr. Millan', description: 'COO' },
+    {
+        image: utilitiesImages.surtek,
+        name: 'Tina',
+        subtitle: 'Project Manager',
+    },
+    {
+        image: utilitiesImages.surtek,
+        name: 'Kizzy',
+        subtitle: 'Project Manager',
+    },
+    {
+        image: utilitiesImages.skullman,
+        name: 'Brandon S.',
+        subtitle: 'CTO',
+        description:
+            '5+ years in system engineering , lifelong gamer, methodical and creative, he is a commited person that doesnt hesitate on learning more about and going above and beyond. Extraordinary skills in software development.',
+    },
+
     {
         image: utilitiesImages.amelie,
         name: 'Riot Mei',
-        description: 'Social Media Manager',
+        subtitle: 'Social Media Manager',
+        description:
+            'Passionate in creating and building communities, creative in all kinds of circumstances and with an optimistic social vision.',
     },
     {
         image: utilitiesImages.kame,
         name: 'Kame',
-        description: 'Marketing Director',
+        subtitle: 'Marketing Director',
+        description:
+            'Fearless designer with a great sense of humor. 6+ years of experience endorse her talent and dedication. She is characterized for being a very creative and daring person when it comes to design. Not to mention her love for cats',
     },
     {
         image: utilitiesImages.surtek,
         name: 'Surtek TK',
-        description: 'Strategy',
+        subtitle: 'Strategy',
+        description:
+            'Always looking for the good side, she is committed to her work, always attentive to the needs of the community and actively participates in the conversations.,',
     },
-    {
-        image: utilitiesImages.surtek,
-        name: 'Tina',
-        description: 'Project Manager',
-    },
-    // {
-    //     image: utilitiesImages.surtek,
-    //     name: 'Kizzys',
-    //     description: 'Project Manager',
-    // },
 ]
 
-const TeamProfile = ({ image, name, description }) => {
+const TeamProfile = ({ image, name, subtitle, description }) => {
     return (
         <div className="flex flex-col items-center overflow-hidden">
             <div className="h-16 w-16 md:h-24 md:w-24">
@@ -51,14 +64,13 @@ const TeamProfile = ({ image, name, description }) => {
                         {name}
                     </div>
                     <div className="text-blue-4 text-center text-lg lg:text-23px">
-                        {description}
+                        {subtitle}
                     </div>
                 </div>
             </div>
-            <div className="w-full px-2 ">
+            <div className="w-full px-2 pt-2">
                 <p className="text-blue-4 text-justify text-lg">
-                    Lorem ipsum dolor sit amet consectetur, adipisicing elit.
-                    Minus voluptates nostrum quia!
+                    {description}
                 </p>
             </div>
         </div>
@@ -163,17 +175,21 @@ const Teams = () => {
                             <div className="h-24 w-24 md:h-32 md:w-32 mb-2">
                                 <img
                                     className="w-full h-auto"
-                                    src={utilitiesImages.alex}
-                                    alt={utilitiesImages.alex}
+                                    src={utilitiesImages.dr}
+                                    alt={utilitiesImages.dr}
                                 />
                             </div>
                             <Article
-                                header={'AlexArt'}
+                                header={'Xavier G.'}
+                                subHeader="Founder"
                                 headerProps={{
                                     className:
-                                        'leading-tight text-info text-center mb-2',
-                                    base: '3xl',
-                                    lg: '40px',
+                                        'leading-tight text-info text-center mb-1',
+                                }}
+                                subHeaderProps={{
+                                    className: 'text-blue-4 text-center mb-2',
+                                    base: 'lg',
+                                    lg: '23px',
                                 }}
                                 paragraphProps={{
                                     className: 'text-blue-4  text-justify',
@@ -181,11 +197,14 @@ const Teams = () => {
                                     lg: '23px',
                                 }}
                             >
-                                {' '}
-                                Lorem ipsum, dolor sit amet consectetur
-                                adipisicing elit. Ipsa consequatur ducimus ullam
-                                eius! Non quibusdam aliquid vero, asperiores
-                                dicta illo?{' '}
+                                We are motivated to make this work because we
+                                want to show the community that NFTS aren’t only
+                                digital art with high values, we want to show
+                                the power behind them and what better way to do
+                                it than by adding real utility to our project
+                                through our partners real life business which
+                                gives people the opportunity to generate passive
+                                income and lots of benefits.
                             </Article>
                         </div>
                         <div className="flex-1 flex flex-col items-center">
@@ -198,11 +217,15 @@ const Teams = () => {
                             </div>
                             <Article
                                 header={'AlexArt'}
+                                subHeader="Artist"
                                 headerProps={{
                                     className:
-                                        'leading-tight text-info text-center mb-2',
-                                    base: '3xl',
-                                    lg: '40px',
+                                        'leading-tight text-info text-center mb-1',
+                                }}
+                                subHeaderProps={{
+                                    className: 'text-blue-4 text-center mb-2',
+                                    base: 'lg',
+                                    lg: '23px',
                                 }}
                                 paragraphProps={{
                                     className: 'text-blue-4  text-justify',
@@ -210,11 +233,13 @@ const Teams = () => {
                                     lg: '23px',
                                 }}
                             >
-                                {' '}
-                                Lorem ipsum, dolor sit amet consectetur
-                                adipisicing elit. Ipsa consequatur ducimus ullam
-                                eius! Non quibusdam aliquid vero, asperiores
-                                dicta illo?{' '}
+                                One day Xavier contacted me while I was working
+                                as a free lancer and he told me about the
+                                project because he liked the art I’ve previously
+                                created. I fell in love with the idea and the
+                                concept of the characters as well as the
+                                opportunity to show my art through this amazing
+                                project
                             </Article>
                         </div>
                     </div>
@@ -235,6 +260,7 @@ const Teams = () => {
                             <TeamProfile
                                 image={t.image}
                                 name={t.name}
+                                subtitle={t.subtitle}
                                 description={t.description}
                             />
                         </motion.div>

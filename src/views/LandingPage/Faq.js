@@ -25,14 +25,14 @@ const faqs = [
     },
     {
         id: '2',
-        title: 'Who are The Wanderers?',
+        title: 'Who are Nomadzlands NFT?',
         detail: (
             <span>
                 The adventure began when a small group of adventurers called
-                Wanderers decided to reinitiate an investigation about the
-                earth’s gravitational catastrophe that happened hundreds of
-                years ago. These Wanderers went off to investigate if there were
-                any remaining civilizations or Lands after the catastrophe.
+                Nomadz decided to reinitiate an investigation about the earth’s
+                gravitational catastrophe that happened hundreds of years ago.
+                These Nomadz went off to investigate if there were any remaining
+                civilizations or Lands after the catastrophe.
             </span>
         ),
     },

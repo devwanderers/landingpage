@@ -44,37 +44,37 @@ const { Content } = Layout
 const landImages = [
     {
         id: 1,
-        img: utilitiesImages.isla,
+        img: utilitiesImages.usaLand,
         title: '25%',
         percent: 'Country',
     },
     {
         id: 2,
-        img: utilitiesImages.isla,
+        img: utilitiesImages.parisLand,
         title: '10%',
         percent: 'City',
     },
     {
         id: 3,
-        img: utilitiesImages.isla,
+        img: utilitiesImages.sydneyLand,
         title: '6%',
         percent: 'Destiny',
     },
     {
         id: 4,
-        img: utilitiesImages.isla,
+        img: utilitiesImages.oro,
         title: '20%',
         percent: 'Country ambassadors',
     },
     {
         id: 5,
-        img: utilitiesImages.isla,
+        img: utilitiesImages.plata,
         title: '15%',
         percent: 'City ambassadors',
     },
     {
         id: 6,
-        img: utilitiesImages.isla,
+        img: utilitiesImages.bronce,
         title: '9%',
         percent: 'Destiny ambassadors',
     },
@@ -158,9 +158,9 @@ const LandingPage = () => {
                                     <div className="flex flex-col text-white text-lg md:text-2xl lg:text-4xl mt-5 text-center">
                                         <div
                                             className="xl:text-6xl text-lg font-russo-one leading-none pt-4 relative -mr-5"
-                                            style={{ letterSpacing: '0.8rem' }}
+                                            style={{ letterSpacing: '1.2rem' }}
                                         >
-                                            LAUNCHING SOON!
+                                            LAUNCHING SOON
                                         </div>
                                     </div>
                                     <div

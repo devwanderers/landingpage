@@ -59,7 +59,7 @@ const RoadMap = (props) => {
                 </div>
 
                 <div className="css-generic max-w-full flex justify-center">
-                    <RoadMapSVG currentStep={3} width="100%" height="100%" />
+                    <RoadMapSVG width="100%" height="100%" />
                 </div>
             </div>
         </Element>

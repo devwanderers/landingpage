@@ -20,6 +20,12 @@ import kame from '../team/mar-kame.png'
 import skullman from '../team/mar-skullman.png'
 import surtek from '../team/mar-surtek.png'
 import dr from '../team/mar-dr.png'
+import usaLand from './usaland.png'
+import sydneyLand from './sydneyLand.png'
+import parisLand from './parisLand.png'
+import bronce from './bronce.png'
+import oro from './oro.png'
+import plata from './plata.png'
 
 const utilitiesImages = {
     card,
@@ -44,6 +50,12 @@ const utilitiesImages = {
     dr,
     nft1wb,
     wallet,
+    usaLand,
+    sydneyLand,
+    parisLand,
+    bronce,
+    oro,
+    plata,
 }
 
 export default utilitiesImages
