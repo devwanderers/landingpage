@@ -83,7 +83,7 @@ const Teams = () => {
         triggerOnce: true,
     }
     const [refTeam, teamInView] = useInView({
-        threshold: 0.7,
+        threshold: 0.3,
         triggerOnce: true,
     })
 

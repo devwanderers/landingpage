@@ -114,7 +114,7 @@ const LandingPage = () => {
         setCollapseFAQ(!collapseFaq)
     }
     return (
-        <Layout className=" block min-w-minMobileWidth">
+        <Layout className="block min-w-minMobileWidth">
             <BackTop>
                 <div className="h-12 w-12 lg:h-16 lg:w-16 rounded-full flex justify-center items-center bg-primary text-white">
                     <BiUpArrowAlt className="text-2xl" />

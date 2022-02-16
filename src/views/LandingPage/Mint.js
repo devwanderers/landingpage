@@ -79,9 +79,10 @@ const Mint = (props) => {
                                         metaverse as well as exclusive benefits
                                         to our travel partner. Once you mint a
                                         Nomad you start to receive big
-                                        incentives such as Tokens, exclusive
-                                        promotions in the travel platform and
-                                        more.{' '}
+                                        incentives granted in DDOT (our partner
+                                        token), exclusive promotions in our
+                                        partner travel platform and more. Read
+                                        the white paper.
                                         <a
                                             href={whitePaperLink}
                                             className="underline"
