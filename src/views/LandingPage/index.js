@@ -27,7 +27,10 @@ import {
     OctagonTelegramSVG,
     OctagonTwitterSVG,
 } from '../../assets/svg/icons'
-import { RenderMarcoSVG } from './../../assets/svg/sections/index'
+import {
+    RadioGraphicSVG,
+    RenderMarcoSVG,
+} from './../../assets/svg/sections/index'
 import useWindowDimensions from '../../customHooks/useWindowDimensions'
 import { returnValueByScreenWidth } from '../../services/stylesServices'
 import windowOpen from '../../services/windowOpen'

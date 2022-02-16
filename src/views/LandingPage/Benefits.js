@@ -41,7 +41,7 @@ const Benefits = () => {
                             visible={benefit1Inview}
                             transitionFrom="left"
                         >
-                            <Paragraph className="text-blue-4  text-justify text-lg">
+                            <Paragraph className="text-blue-4  text-justify text-base md:text-lg">
                                 Access to Lands & Roles Marketplace
                             </Paragraph>
                         </AnimateTransition>
@@ -63,7 +63,7 @@ const Benefits = () => {
                             visible={benefit2Inview}
                             transitionFrom="left"
                         >
-                            <Paragraph className="text-blue-4  text-justify text-lg">
+                            <Paragraph className="text-blue-4  text-justify text-base md:text-lg">
                                 Get great discounts our partner travel platform.
                             </Paragraph>
                         </AnimateTransition>
@@ -85,7 +85,7 @@ const Benefits = () => {
                             visible={benefit3Inview}
                             transitionFrom="left"
                         >
-                            <Paragraph className="text-blue-4  text-justify text-lg">
+                            <Paragraph className="text-blue-4  text-justify text-base md:text-lg">
                                 Receive 1% of the subsequent resales of this NFT
                                 in tokens.
                             </Paragraph>
