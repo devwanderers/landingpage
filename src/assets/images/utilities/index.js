@@ -18,6 +18,9 @@ import alex from '../team/mar-alexis.png'
 import amelie from '../team/mar-amelie.png'
 import kame from '../team/mar-kame.png'
 import skullman from '../team/mar-skullman.png'
+import kizzy from '../team/mar-2kizzy.png'
+import tina from '../team/mar-2tina.png'
+import xavier from '../team/mar-xavier g..png'
 import surtek from '../team/mar-surtek.png'
 import dr from '../team/mar-dr.png'
 import usaLand from './usaland.png'
@@ -56,6 +59,9 @@ const utilitiesImages = {
     bronce,
     oro,
     plata,
+    kizzy,
+    tina,
+    xavier,
 }
 
 export default utilitiesImages

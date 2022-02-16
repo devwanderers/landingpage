@@ -12,12 +12,12 @@ import AnimateTransition from './../../components/Animations/AnimateTransition'
 const teams = [
     // { image: utilitiesImages.dr, name: 'Dr. Millan', description: 'COO' },
     {
-        image: utilitiesImages.surtek,
+        image: utilitiesImages.tina,
         name: 'Tina',
         subtitle: 'Project Manager',
     },
     {
-        image: utilitiesImages.surtek,
+        image: utilitiesImages.kizzy,
         name: 'Kizzy',
         subtitle: 'Project Manager',
     },
@@ -132,7 +132,7 @@ const Teams = () => {
                 backgroundPosition: '0% 100%',
             }}
         >
-            <div className="section">
+            <div className="max-w-1100px mx-auto pb-6 md:px-10 lg:pb-14">
                 <Row className="mb-12 lg:mb-16 xs:mb-2">
                     <Col xs={24} lg={7} className="text-center lg:text-left">
                         <div ref={titleRef}>
@@ -175,8 +175,8 @@ const Teams = () => {
                             <div className="h-24 w-24 md:h-32 md:w-32 mb-2">
                                 <img
                                     className="w-full h-auto"
-                                    src={utilitiesImages.dr}
-                                    alt={utilitiesImages.dr}
+                                    src={utilitiesImages.xavier}
+                                    alt={utilitiesImages.xavier}
                                 />
                             </div>
                             <Article

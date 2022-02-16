@@ -43,13 +43,8 @@ const referrerOptions = [
 ]
 
 const Whitelist = () => {
-    const {
-        verifySponsorId,
-        addUser,
-        fetching,
-        verified,
-        setIdVerified,
-    } = whiteListApi()
+    const { verifySponsorId, addUser, fetching, verified, setIdVerified } =
+        whiteListApi()
     const [referralOpt, setReferralOpt] = useState('id')
     const [byId, setbyId] = useState(true)
     const [verifiedWallet, setVerifiedWallet] = useState(false)
@@ -132,7 +127,7 @@ const Whitelist = () => {
             <DefaultNavbar />
             <Content className="bg-blue-5">
                 <div className="bg-whitelistSlider bg-no-repeat bg-cover -mt-24 pb-1 xl:pb-32 lg:pb-40 relative">
-                    <div className="section mx-auto h-screen">
+                    <div className="max-w-1100px mx-auto pb-6 md:pb-10 lg:pb-14  h-screen">
                         <div className="css-generic h-full flex-col justify-center">
                             <div className="count-down bg-black-1 bg-opacity-50 py-8 relative">
                                 <div className="text-white">
@@ -656,7 +651,7 @@ const Whitelist = () => {
                     </Formik>
                 </div>
                 <footer className="bg-blue-5 py-12 hidden lg:block">
-                    <div className="section">
+                    <div className="max-w-1100px mx-auto pb-6 md:pb-10 lg:pb-14">
                         <div className="css-generic flex-row justify-between">
                             <div className="css-generic flex-grow max-h-full w-6/12 ">
                                 <div className="css-generic items-center w-64">

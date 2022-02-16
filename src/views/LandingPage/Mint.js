@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 import React from 'react'
 import { useInView } from 'react-intersection-observer'
 import { Element } from 'react-scroll'
@@ -14,12 +15,12 @@ const Mint = (props) => {
         triggerOnce: true,
     })
     return (
-        <Element name="mint" className=" bg-blue-5 pt-10 pb-10 lg:pb-24">
-            <div className="section">
+        <Element name="mint" className="bg-blue-5  pb-10 lg:pb-24">
+            <div className="max-w-1100px mx-auto px-6 md:px-10 lg:px-14 ">
                 <Row>
                     <Col xs={24} md={12} className="">
                         <div className="w-full">
-                            <div className="w-full xl:pr-16">
+                            <div className="w-full pt-10 xl:pr-16">
                                 <Article
                                     header="9,000"
                                     subHeader="Unique Nomadz"
@@ -79,7 +80,7 @@ const Mint = (props) => {
                             </div>
                         </div>
                     </Col>
-                    <Col
+                    {/* <Col
                         xs={24}
                         md={12}
                         className="px-12 lg:px-10 xl:px-12 pt-5"
@@ -111,7 +112,7 @@ const Mint = (props) => {
                             </div>
                         </div>
                         <Benefits />
-                    </Col>
+                    </Col> */}
                 </Row>
             </div>
         </Element>

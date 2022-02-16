@@ -19,7 +19,10 @@ const Token = () => {
     const [tokenRef, tokenInView] = useInView(collectionConfig)
 
     return (
-        <Element name="token" className="section">
+        <Element
+            name="token"
+            className="max-w-1100px mx-auto px-6 md:px-10 lg:px-14"
+        >
             <div className="css-generic flex-grow ">
                 <div ref={titleRef} className="css-generic items-center">
                     <AnimateTransition visible={titleInView}>

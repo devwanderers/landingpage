@@ -40,7 +40,7 @@ const Benefits = () => {
                             transitionFrom="left"
                         >
                             <Paragraph className="text-blue-4  text-justify text-lg">
-                                Up to 24% ROI just by holding
+                                Access to Lands & Roles Marketplace
                             </Paragraph>
                         </AnimateTransition>
                     </div>

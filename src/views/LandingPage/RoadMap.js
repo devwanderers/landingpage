@@ -14,7 +14,10 @@ const RoadMap = (props) => {
     const [titleRef, titleInView] = useInView(collectionConfig)
 
     return (
-        <Element name="roadMap" className="section">
+        <Element
+            name="roadMap"
+            className="max-w-1100px mx-auto px-6 md:px-10 lg:px-14"
+        >
             <div className="css-generic text-center lg:text-left">
                 <div ref={titleRef}>
                     <AnimateTransition visible={titleInView}>

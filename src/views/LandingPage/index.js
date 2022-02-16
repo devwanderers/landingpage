@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 import React, { useState } from 'react'
 import { Layout, Row, Col, Button, BackTop } from 'antd'
 import Slider from 'react-slick'
@@ -26,9 +27,9 @@ import {
     OctagonTelegramSVG,
     OctagonTwitterSVG,
 } from '../../assets/svg/icons'
+import { RenderMarcoSVG } from './../../assets/svg/sections/index'
 import useWindowDimensions from '../../customHooks/useWindowDimensions'
 import { returnValueByScreenWidth } from '../../services/stylesServices'
-import { RenderMarcoSVG } from '../../assets/svg/sections/index'
 import windowOpen from '../../services/windowOpen'
 import Faq from './Faq'
 import MeetTeam from './MeetTeam'
@@ -90,11 +91,9 @@ const scrollTo = (name) => {
 
 const LandingPage = () => {
     useScrollTop()
-    const { innerWidth } = useWindowDimensions()
+    const { width } = useWindowDimensions()
     const [imageIndex, setImageIndex] = useState(0)
     const [collapseFaq, setCollapseFAQ] = useState(true)
-    // const [roadKey, setSelectedKey] = useState(1)
-    // const [videoReady, playVideo] = useState(false)
 
     const sliderLandSettings = {
         dots: false,
@@ -102,7 +101,7 @@ const LandingPage = () => {
         lazyLoad: true,
         autoplay: true,
         speed: 300,
-        slidesToShow: innerWidth < 768 ? 1 : 3,
+        slidesToShow: width < 768 ? 1 : 3,
         centerMode: true,
         centerPadding: 0,
         nextArrow: <NextArrowControl />,
@@ -114,10 +113,7 @@ const LandingPage = () => {
         setCollapseFAQ(!collapseFaq)
     }
     return (
-        <Layout
-            className="flex flex-col min-h-screen"
-            style={{ minWidth: '425px' }}
-        >
+        <Layout className=" block min-w-minMobileWidth">
             <BackTop>
                 <div className="h-12 w-12 lg:h-16 lg:w-16 rounded-full flex justify-center items-center bg-primary text-white">
                     <BiUpArrowAlt className="text-2xl" />
@@ -125,7 +121,7 @@ const LandingPage = () => {
             </BackTop>
             <DefaultNavbar />
             <Content>
-                <div className="-mt-24 pb-1 xl:pb-32 lg:pb-40 relative">
+                <div className="-mt-24 pb-1 xl:pb-32 lg:pb-40 relative ">
                     <div className="absolute top-0 left-0 bottom-0 right-0 overflow-hidden">
                         <ReactPlayer
                             className="custom-react-player"
@@ -141,33 +137,34 @@ const LandingPage = () => {
                             onStart={() => console.log('playing')}
                         />
                     </div>
-                    <div className="section mx-auto pt-64px mb-20 h-screen">
-                        <div className="css-generic h-full flex-col justify-between py-4 md:py-6 lg:px-28 xl:px-36 lg:py-10">
-                            <div className="pt-10 w-80 lg:w-96 mx-auto  pb-6">
+                    <div className="h-screen relative max-w-1100px mx-auto px-6 md:px-10 lg:px-14 pt-64px mb-20">
+                        <div className="h-full flex flex-col justify-between py-4 md:py-6 lg:px-28 xl:px-36 lg:py-10">
+                            <div className="w-80 lg:w-96 mx-auto pt-10 pb-6">
                                 <Logo1SVG width="100%" />
                             </div>
-                            <div className="mb-10 z-20">
-                                <div className="count-down bg-black-1 bg-opacity-40 mx-auto lg:px-4 pt-5 pb-4 relative z-10">
-                                    {/* <GenericCountDown date={deadline} />
-                                    <div className="flex text-white text-lg md:text-2xl lg:text-4xl mt-5">
-                                        <div className="flex-1">DAYS</div>
-                                        <div className="flex-1">HOURS</div>
-                                        <div className="flex-1">MINUTES</div>
-                                        <div className="flex-1">SECONDS</div>
-                                    </div> */}
-                                    <div className="flex flex-col text-white text-lg md:text-2xl lg:text-4xl mt-5 text-center">
-                                        <div
-                                            className="xl:text-6xl text-lg font-russo-one leading-none pt-4 relative -mr-5"
-                                            style={{ letterSpacing: '1.2rem' }}
-                                        >
-                                            LAUNCHING SOON
+                            <div className="mb-10 z-20 px-4 md:px-12">
+                                <div className="count-down bg-black-1 bg-opacity-40 mx-auto lg:px-4 py-8  relative z-10 ">
+                                    <div className="flex justify-center text-white text-lg md:text-2xl lg:text-4xl text-center">
+                                        <div className="flex flex-col">
+                                            <div
+                                                className="text-4xl md:text-5xl lg:text-6xl font-russo-one leading-none   tracking-widest "
+                                                // style={{ letterSpacing: '1.2rem' }}
+                                            >
+                                                LAUNCHING
+                                            </div>
+                                            <div
+                                                className="text-4xl md:text-5xl lg:text-6xl font-russo-one leading-none relative tracking-widest "
+                                                // style={{ letterSpacing: '1.2rem' }}
+                                            >
+                                                SOON
+                                            </div>
                                         </div>
                                     </div>
                                     <div
                                         className="absolute right-0 left-0 -mx-3"
                                         style={{
                                             top: returnValueByScreenWidth(
-                                                innerWidth,
+                                                width,
                                                 {
                                                     base: '-10px',
                                                     sm: '-16px',
@@ -183,7 +180,7 @@ const LandingPage = () => {
                                         className="absolute right-0 left-0 -mx-3"
                                         style={{
                                             bottom: returnValueByScreenWidth(
-                                                innerWidth,
+                                                width,
                                                 {
                                                     base: '-10px',
                                                     sm: '-16px',
@@ -199,8 +196,8 @@ const LandingPage = () => {
                                         />
                                     </div>
                                 </div>
-                                <div className="css-generic">
-                                    <div className="css-generic px-12 md:px-16 xl:px-20 text-center mx-auto relative">
+                                <div className="flex">
+                                    <div className="flex px-12 md:px-16 xl:px-20 text-center mx-auto relative">
                                         <div className="absolute right-0 left-0 top-0">
                                             <FrameCounterHeaderCustom
                                                 width="100%"
@@ -224,7 +221,6 @@ const LandingPage = () => {
                                     type="primary"
                                     target="blank"
                                     onClick={() => scrollTo('community')}
-                                    // href="https://discord.gg/thewanderers"
                                 >
                                     JOIN OUR COMMUNITY
                                 </a>
@@ -239,12 +235,12 @@ const LandingPage = () => {
                     </div>
                 </div>
                 <Mint />
-                <Wanderers />
-                <Element
+                {/* <Wanderers /> */}
+                {/* <Element
                     name="lands"
                     className="bg-blue-5 pt-10 pb-3 lg:pb-20 border-0"
                 >
-                    <div className="section">
+                    <div className="max-w-1100px mx-auto px-6 md:px-10 lg:px-14 ">
                         <Row className=" flex-wrap-reverse lg:flex-wrap">
                             <Col
                                 xs={24}
@@ -324,10 +320,10 @@ const LandingPage = () => {
                             </Col>
                         </Row>
                     </div>
-                </Element>
-                <div className="bg-blue-5 pb-16 relative border-0">
-                    <div className="section">
-                        <div className="css-generic">
+                </Element> */}
+                {/* <div className="bg-blue-5 pb-16 relative border-0">
+                    <div className="max-w-1100px mx-auto px-6 md:px-10 lg:px-14 ">
+                        <div className="flex flex-col ">
                             <Slider className="px-12" {...sliderLandSettings}>
                                 {landImages.map(({ id, img }, idx) => (
                                     <div
@@ -343,7 +339,7 @@ const LandingPage = () => {
                                 ))}
                             </Slider>
                         </div>
-                        <div className="css-generic items-center mt-5">
+                        <div className="flex flex-col items-center mt-5">
                             <HeaderText
                                 className="leading-tight text-primary tracking-widest"
                                 base="3xl"
@@ -362,8 +358,8 @@ const LandingPage = () => {
                             </HeaderText>
                         </div>
                     </div>
-                </div>
-                <div
+                </div> */}
+                {/* <div
                     className="bg-blue-5 bg-earth bg-no-repeat bg-cover pt-12 pb-4 lg:pt-48 lg:pb-48 relative"
                     style={{
                         backgroundPosition: '0% 100%',
@@ -371,10 +367,10 @@ const LandingPage = () => {
                 >
                     <Token />
                     <RoadMap />
-                </div>
-                <div className="bg-blue-5 pt-10 pb-20 lg:pb-44 lg:pt-20">
-                    <div className="section">
-                        <div className="css-generic relative bg-blue-6 bg-opacity-40 py-10">
+                </div> */}
+                {/* <div className="bg-blue-5 pt-10 pb-20 lg:pb-44 lg:pt-20">
+                    <div className="max-w-1100px mx-auto px-6 md:px-10 lg:px-14 ">
+                        <div className="flex flex-col relative bg-blue-6 bg-opacity-40 py-10">
                             <div
                                 className="absolute left-0 right-0"
                                 style={{ top: '-8px' }}
@@ -387,9 +383,9 @@ const LandingPage = () => {
                             >
                                 <FrameFAQBottomSVG width="100%" />
                             </div>
-                            <div className="css-generic justify-center items-center flex-row">
+                            <div className="flex flex-row justify-center items-center ">
                                 <div
-                                    className="css-generic cursor-pointer select-none"
+                                    className="flex cursor-pointer select-none"
                                     onClick={handleCollapseFaq}
                                 >
                                     <HeaderText
@@ -400,7 +396,7 @@ const LandingPage = () => {
                                     </HeaderText>
                                 </div>
                                 <div
-                                    className="css-generic w-10 cursor-pointer"
+                                    className="flex w-10 cursor-pointer"
                                     onClick={handleCollapseFaq}
                                 >
                                     <DownArrowSVG />
@@ -409,10 +405,10 @@ const LandingPage = () => {
                             <Faq visible={!collapseFaq} />
                         </div>
                     </div>
-                </div>
-                <MeetTeam />
-                <Element name="community" className="bg-blue-5 pb-20 lg:pb-48">
-                    <div className="section">
+                </div> */}
+                {/* <MeetTeam /> */}
+                {/* <Element name="community" className="bg-blue-5 pb-20 lg:pb-48">
+                    <div className="max-w-1100px mx-auto px-6 md:px-10 lg:px-14 ">
                         <Row className="mb-12 lg:mb-16">
                             <Col
                                 xs={24}
@@ -453,7 +449,7 @@ const LandingPage = () => {
                                 </LineWrapper>
                             </Col>
                         </Row>
-                        <div className="css-generic flex-row justify-center space-x-8 lg:space-x-10">
+                        <div className="flex flex-row justify-center space-x-8 lg:space-x-10">
                             <Button
                                 type="link"
                                 className="h-16 w-16 lg:h-24 lg:w-24 p-0"
@@ -493,14 +489,14 @@ const LandingPage = () => {
                             </Button>
                         </div>
                     </div>
-                </Element>
+                </Element> */}
             </Content>
             <footer className="bg-blue-5 py-12 border-blue-4 border-solid border-t hidden lg:block">
-                <div className="section">
-                    <div className="css-generic flex-row justify-between">
-                        <div className="css-generic flex-grow max-h-full w-6/12 ">
-                            <div className="css-generic items-center w-64">
-                                <div className="css-generic w-full mb-3 px-8">
+                <div className="max-w-1100px mx-auto px-6 md:px-10 lg:px-14">
+                    <div className="flex flex-row justify-between">
+                        <div className="flex flex-grow max-h-full w-6/12 ">
+                            <div className="flex items-center w-64">
+                                <div className="flex w-full mb-3 px-8">
                                     <Logo1SVG width="100%" />
                                 </div>
                                 <HeaderText
@@ -511,8 +507,8 @@ const LandingPage = () => {
                                 </HeaderText>
                             </div>
                         </div>
-                        <div className="css-generic flex-grow max-h-full w-6/12  items-center">
-                            <div className="css-generic">
+                        <div className="flex flex-grow max-h-full w-6/12  items-center">
+                            <div className="flex flex-col">
                                 <h5 className="text-capitalize text-xl text-blue-4 tracking-wide font-bold mb-2">
                                     Home
                                 </h5>

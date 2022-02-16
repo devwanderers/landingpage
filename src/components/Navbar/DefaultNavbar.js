@@ -17,7 +17,7 @@ import { HomePath, WhitelistPath } from '../../constants/routerConstants'
 const DefaultNavbar = () => {
     const [selectedMenu, setMenuIndex] = useState(0)
     const [showDrawer, setShowDrawer] = useState(false)
-    const { innerWidth } = useWindowSize()
+    const { width } = useWindowSize()
     const history = useHistory()
     const marketPlaceMenu = [
         {
@@ -82,7 +82,7 @@ const DefaultNavbar = () => {
         setShowDrawer(!showDrawer)
     }
 
-    return innerWidth > 768 ? (
+    return width > 768 ? (
         <header className="h-24 relative z-50 lg:px-0 text-white bg-blue-5 bg-opacity-25">
             <div className="max-w-1800px m-auto flex flex-row h-full px-6 3xl:px-0 ">
                 <div className=" sm:mr-10 xl:mr-20 h-full py-5">
