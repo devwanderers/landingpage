@@ -42,7 +42,7 @@ const faqs = [
         detail: (
             <React.Fragment>
                 <span>
-                    We are working tirelessly to launch the wanderers video
+                    We are working tirelessly to launch the nomadzlands video
                     game. The game is the place where you can use our token to
                     play and get rewarded in several ways (PVE, PVP, Tournaments
                     and more), once the token has been listed, you can enjoy
