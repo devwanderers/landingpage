@@ -68,7 +68,7 @@ const TeamProfile = ({ image, name, subtitle, description }) => {
                     </div>
                 </div>
             </div>
-            <div className="w-full px-2 pt-2">
+            <div className="w-full  pt-2">
                 <p className="text-blue-4 text-justify text-lg">
                     {description}
                 </p>
@@ -132,10 +132,10 @@ const Teams = () => {
                 backgroundPosition: '0% 100%',
             }}
         >
-            <div className="max-w-1100px mx-auto pb-6 md:px-10 lg:pb-14">
+            <div className="max-w-1400px mx-auto pb-6 px-5 md:px-10 lg:px-14">
                 <Row className="mb-12 lg:mb-16 xs:mb-2">
                     <Col xs={24} lg={7} className="text-center lg:text-left">
-                        <div ref={titleRef}>
+                        <div ref={titleRef} className="overflow-hidden">
                             <AnimateTransition visible={titleInView}>
                                 <HeaderText
                                     base="4xl"
@@ -146,7 +146,7 @@ const Teams = () => {
                                 </HeaderText>
                             </AnimateTransition>
                         </div>
-                        <div ref={subTitleRef}>
+                        <div ref={subTitleRef} className="overflow-hidden">
                             <AnimateTransition
                                 visible={subTitleInView}
                                 transitionFrom="right"
@@ -169,7 +169,7 @@ const Teams = () => {
                         ></Paragraph>
                     </Col>
                 </Row>
-                <div className="w-10/12 md:w-full mx-auto ">
+                <div className="md:w-full mx-auto ">
                     <div className="flex flex-col md:flex-row space-y-3 md:space-y-0 md:space-x-10 pb-16 md:pb-12">
                         <div className="flex-1 flex flex-col items-center ">
                             <div className="h-24 w-24 md:h-32 md:w-32 mb-2">
@@ -244,28 +244,30 @@ const Teams = () => {
                         </div>
                     </div>
                 </div>
-                <motion.div
-                    ref={refTeam}
-                    initial="hidden"
-                    className="grid grid-cols-2 md:grid-cols-3 gap-5"
-                    variants={teamsVariant}
-                    animate={controls}
-                >
-                    {teams.map((t) => (
-                        <motion.div
-                            className=" justify-self-auto "
-                            variants={teamItem}
-                            key={`team-${t.name}`}
-                        >
-                            <TeamProfile
-                                image={t.image}
-                                name={t.name}
-                                subtitle={t.subtitle}
-                                description={t.description}
-                            />
-                        </motion.div>
-                    ))}
-                </motion.div>
+                <div className=" overflow-hidden">
+                    <motion.div
+                        ref={refTeam}
+                        initial="hidden"
+                        className="grid grid-cols-2 md:grid-cols-3 gap-5"
+                        variants={teamsVariant}
+                        animate={controls}
+                    >
+                        {teams.map((t) => (
+                            <motion.div
+                                className=" justify-self-auto "
+                                variants={teamItem}
+                                key={`team-${t.name}`}
+                            >
+                                <TeamProfile
+                                    image={t.image}
+                                    name={t.name}
+                                    subtitle={t.subtitle}
+                                    description={t.description}
+                                />
+                            </motion.div>
+                        ))}
+                    </motion.div>
+                </div>
             </div>
         </Element>
     )

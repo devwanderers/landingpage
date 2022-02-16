@@ -8,17 +8,24 @@ import { FrameCharacterSVG } from '../../assets/svg/frames'
 import AnimateTransition from '../../components/Animations/AnimateTransition'
 import utilitiesImages from '../../assets/images/utilities'
 import Benefits from './Benefits'
+import useResponsive from './../../hooks/useResponsive'
 
 const Mint = (props) => {
     const [nftFrameRef, nftFrameInview] = useInView({
         threshold: 1,
         triggerOnce: true,
     })
+    const nftBottom = useResponsive({
+        base: '-4px',
+        md: '-6px',
+        lg: '-15px',
+        xl: '',
+    })
     return (
         <Element name="mint" className="bg-blue-5  pb-10 lg:pb-24">
-            <div className="max-w-1100px mx-auto px-6 md:px-10 lg:px-14 ">
+            <div className="max-w-1400px mx-auto px-6 md:px-10 lg:px-14 ">
                 <Row>
-                    <Col xs={24} md={12} className="">
+                    <Col xs={24} md={14} className="">
                         <div className="w-full">
                             <div className="w-full pt-10 xl:pr-16">
                                 <Article
@@ -80,21 +87,23 @@ const Mint = (props) => {
                             </div>
                         </div>
                     </Col>
-                    {/* <Col
-                        xs={24}
-                        md={12}
-                        className="px-12 lg:px-10 xl:px-12 pt-5"
-                    >
+                    <Col xs={24} md={10} className="pt-5 ">
                         <div
                             ref={nftFrameRef}
-                            className="css-generic relative overflow-hidden"
+                            className="css-generic relative overflow-hidden w-10/12 mx-auto"
                         >
                             <FrameCharacterSVG width="100%" />
 
-                            <div className=" absolute top-0 right-0 bottom-0 left-0 pt-16 pb-10 lg:pt-20 lg:pb-16 ">
+                            <div
+                                className="absolute right-0 left-0 mx-auto"
+                                style={{
+                                    width: '70%',
+                                    bottom: '9.5%',
+                                }}
+                            >
                                 <div
-                                    className="w-full h-full overflow-hidden relative"
-                                    style={{ bottom: '-10px' }}
+                                    className="w-full h-full overflow-hidden relative "
+                                    // style={{ bottom: nftBottom }}
                                 >
                                     <AnimateTransition
                                         visible={nftFrameInview}
@@ -111,8 +120,10 @@ const Mint = (props) => {
                                 </div>
                             </div>
                         </div>
-                        <Benefits />
-                    </Col> */}
+                        <div className="w-10/12 mx-auto">
+                            <Benefits />
+                        </div>
+                    </Col>
                 </Row>
             </div>
         </Element>

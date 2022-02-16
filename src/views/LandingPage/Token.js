@@ -21,17 +21,20 @@ const Token = () => {
     return (
         <Element
             name="token"
-            className="max-w-1100px mx-auto px-6 md:px-10 lg:px-14"
+            className="max-w-1400px mx-auto px-6 md:px-10 lg:px-14"
         >
-            <div className="css-generic flex-grow ">
-                <div ref={titleRef} className="css-generic items-center">
+            <div className="css-generic flex-grow mb-10">
+                <div
+                    ref={titleRef}
+                    className="css-generic items-center overflow-hidden"
+                >
                     <AnimateTransition visible={titleInView}>
                         <HeaderText
                             base="4xl"
                             lg="89px"
                             className="text-primary leading-none tracking-widest"
                         >
-                            NLD
+                            DDOT
                         </HeaderText>
                     </AnimateTransition>
                 </div>
@@ -40,7 +43,7 @@ const Token = () => {
                     <div className="css-generic hidden lg:flex flex-1"></div>
                     <div
                         ref={subTitleRef}
-                        className="css-generic flex-1  text-center lg:text-left lg:pl-8"
+                        className="css-generic flex-1  text-center lg:text-left lg:pl-8  overflow-hidden"
                     >
                         <AnimateTransition
                             visible={subTitleInView}
@@ -51,7 +54,7 @@ const Token = () => {
                                 lg="53px"
                                 className="text-info leading-none font-saira-condensed font-semibold"
                             >
-                                Token
+                                Our Partner Token
                             </HeaderText>
                         </AnimateTransition>
                     </div>
@@ -61,7 +64,10 @@ const Token = () => {
                 <Row>
                     <Col xs={24} lg={12}>
                         <LineWrapper side="right" decorationBottom="0.7rem">
-                            <div ref={paragraphRef}>
+                            <div
+                                ref={paragraphRef}
+                                className=" overflow-hidden"
+                            >
                                 <AnimateTransition
                                     visible={paragraphInView}
                                     transitionFrom="bottom"
@@ -91,9 +97,12 @@ const Token = () => {
                     <Col
                         xs={24}
                         lg={12}
-                        className="flex justify-center lg:pl-5"
+                        className="flex justify-center lg:pl-5  overflow-hidden"
                     >
-                        <div ref={tokenRef} className="w-6/12 lg:w-full">
+                        <div
+                            ref={tokenRef}
+                            className="w-6/12 lg:w-10/12 xl:w-8/12"
+                        >
                             <AnimateTransition
                                 visible={tokenInView}
                                 transitionFrom="right"

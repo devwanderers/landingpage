@@ -16,7 +16,7 @@ const RoadMap = (props) => {
     return (
         <Element
             name="roadMap"
-            className="max-w-1100px mx-auto px-6 md:px-10 lg:px-14"
+            className="max-w-1400px mx-auto px-6 md:px-10 lg:px-14"
         >
             <div className="css-generic text-center lg:text-left">
                 <div ref={titleRef}>

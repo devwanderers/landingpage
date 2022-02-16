@@ -29,6 +29,8 @@ const Benefits = () => {
                     <div className="pr-1" ref={benefit1Ref}>
                         <HeaderText
                             base="5xl"
+                            md="4xl"
+                            lg="5xl"
                             className="block text-info leading-tight tracking-widest mx-auto font-saira-condensed font-bold"
                         >
                             1.
@@ -49,6 +51,8 @@ const Benefits = () => {
                     <div className="pr-1" ref={benefit2Ref}>
                         <HeaderText
                             base="5xl"
+                            md="4xl"
+                            lg="5xl"
                             className="block text-info leading-tight tracking-widest mx-auto font-saira-condensed font-bold"
                         >
                             2.
@@ -69,6 +73,8 @@ const Benefits = () => {
                     <div className="pr-1" ref={benefit3Ref}>
                         <HeaderText
                             base="5xl"
+                            md="4xl"
+                            lg="5xl"
                             className="block text-info leading-tight tracking-widest mx-auto font-saira-condensed font-bold"
                         >
                             3.

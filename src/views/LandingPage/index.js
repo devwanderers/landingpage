@@ -137,7 +137,7 @@ const LandingPage = () => {
                             onStart={() => console.log('playing')}
                         />
                     </div>
-                    <div className="h-screen relative max-w-1100px mx-auto px-6 md:px-10 lg:px-14 pt-64px mb-20">
+                    <div className="h-screen relative max-w-1400px mx-auto px-6 md:px-10 lg:px-14 pt-64px mb-20">
                         <div className="h-full flex flex-col justify-between py-4 md:py-6 lg:px-28 xl:px-36 lg:py-10">
                             <div className="w-80 lg:w-96 mx-auto pt-10 pb-6">
                                 <Logo1SVG width="100%" />
@@ -235,12 +235,12 @@ const LandingPage = () => {
                     </div>
                 </div>
                 <Mint />
-                {/* <Wanderers /> */}
-                {/* <Element
+                <Wanderers />
+                <Element
                     name="lands"
                     className="bg-blue-5 pt-10 pb-3 lg:pb-20 border-0"
                 >
-                    <div className="max-w-1100px mx-auto px-6 md:px-10 lg:px-14 ">
+                    <div className="max-w-1400px mx-auto px-6 md:px-10 lg:px-14 ">
                         <Row className=" flex-wrap-reverse lg:flex-wrap">
                             <Col
                                 xs={24}
@@ -320,10 +320,10 @@ const LandingPage = () => {
                             </Col>
                         </Row>
                     </div>
-                </Element> */}
-                {/* <div className="bg-blue-5 pb-16 relative border-0">
-                    <div className="max-w-1100px mx-auto px-6 md:px-10 lg:px-14 ">
-                        <div className="flex flex-col ">
+                </Element>
+                <div className="bg-blue-5 pb-16 relative border-0">
+                    <div className="max-w-1400px mx-auto px-6 md:px-10 lg:px-14 ">
+                        <div className="flex flex-col">
                             <Slider className="px-12" {...sliderLandSettings}>
                                 {landImages.map(({ id, img }, idx) => (
                                     <div
@@ -358,8 +358,8 @@ const LandingPage = () => {
                             </HeaderText>
                         </div>
                     </div>
-                </div> */}
-                {/* <div
+                </div>
+                <div
                     className="bg-blue-5 bg-earth bg-no-repeat bg-cover pt-12 pb-4 lg:pt-48 lg:pb-48 relative"
                     style={{
                         backgroundPosition: '0% 100%',
@@ -367,9 +367,9 @@ const LandingPage = () => {
                 >
                     <Token />
                     <RoadMap />
-                </div> */}
-                {/* <div className="bg-blue-5 pt-10 pb-20 lg:pb-44 lg:pt-20">
-                    <div className="max-w-1100px mx-auto px-6 md:px-10 lg:px-14 ">
+                </div>
+                <div className="bg-blue-5 pt-10 pb-20 lg:pb-44 lg:pt-20">
+                    <div className="max-w-1400px mx-auto px-6 md:px-10 lg:px-14 ">
                         <div className="flex flex-col relative bg-blue-6 bg-opacity-40 py-10">
                             <div
                                 className="absolute left-0 right-0"
@@ -405,10 +405,10 @@ const LandingPage = () => {
                             <Faq visible={!collapseFaq} />
                         </div>
                     </div>
-                </div> */}
-                {/* <MeetTeam /> */}
-                {/* <Element name="community" className="bg-blue-5 pb-20 lg:pb-48">
-                    <div className="max-w-1100px mx-auto px-6 md:px-10 lg:px-14 ">
+                </div>
+                <MeetTeam />
+                <Element name="community" className="bg-blue-5 pb-20 lg:pb-48">
+                    <div className="max-w-1400px mx-auto px-6 md:px-10 lg:px-14 ">
                         <Row className="mb-12 lg:mb-16">
                             <Col
                                 xs={24}
@@ -489,10 +489,10 @@ const LandingPage = () => {
                             </Button>
                         </div>
                     </div>
-                </Element> */}
+                </Element>
             </Content>
             <footer className="bg-blue-5 py-12 border-blue-4 border-solid border-t hidden lg:block">
-                <div className="max-w-1100px mx-auto px-6 md:px-10 lg:px-14">
+                <div className="max-w-1400px mx-auto px-6 md:px-10 lg:px-14">
                     <div className="flex flex-row justify-between">
                         <div className="flex flex-grow max-h-full w-6/12 ">
                             <div className="flex items-center w-64">

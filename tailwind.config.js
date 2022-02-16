@@ -36,6 +36,7 @@ module.exports = {
         maxWidth: {
             '1000px': '1000px',
             '1100px': '1100px',
+            '1400px': '1400px',
             '1800px': '1800px',
         },
         fontFamily: {
@@ -134,6 +135,7 @@ module.exports = {
                 '750px': '750px',
                 '900px': '900px',
                 '1000px': '1000px',
+                '1300px': '1300px',
                 '1025px': '1025px',
                 '1100px': '1100px',
             },
