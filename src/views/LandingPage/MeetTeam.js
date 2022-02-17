@@ -22,14 +22,14 @@ const teams = [
         name: 'Tina',
         subtitle: 'Project Manager',
         description:
-            'Lorem, ipsum dolor sit amet consectetur adipisicing elit. Debitis, nostrum.',
+            'Creative social media strategist with a passion for building communities and uplifting people to their fullest potential. She has over 10 years of experience in the financial services sector and is part one of a two woman team overseeing Nomadzland NFT.',
     },
     {
         image: utilitiesImages.kizzy,
         name: 'Kizzy',
         subtitle: 'Project Manager',
         description:
-            'Lorem, ipsum dolor sit amet consectetur adipisicing elit. Debitis, nostrum.',
+            'Full Time investor in Crypto, DeFi and NFTs with 10+ years in financial services and social media marketing. My goal is and always will be to build communities with the intent for everyone to succeed in all they strive to accomplish. Honored to be one of two women driving the boat to bring NomadzLand NFT to its full potential.',
     },
     {
         image: utilitiesImages.skullman,

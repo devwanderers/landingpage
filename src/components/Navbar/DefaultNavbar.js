@@ -37,7 +37,7 @@ const DefaultNavbar = () => {
         },
         {
             key: 'lands',
-            label: 'Lands',
+            label: 'Metaverse',
             onClick: () => {
                 scrollTo('lands')
             },

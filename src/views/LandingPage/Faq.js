@@ -32,7 +32,7 @@ const faqs = [
                 Nomadz decided to reinitiate an investigation about the earth’s
                 gravitational catastrophe that happened hundreds of years ago.
                 These Nomadz went off to investigate if there were any remaining
-                civilizations or Lands after the catastrophe.
+                civilizations or lands after the catastrophe.
             </span>
         ),
     },
