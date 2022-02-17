@@ -14,7 +14,7 @@ import useWindowSize from './../../../hooks/useWindowSize'
 
 const RoadgMapSVG = (props) => {
     const { scrollY } = useViewportScroll()
-    const { innerHeight } = useWindowSize()
+    const { height } = useWindowSize()
 
     const [completed1, setCompleted1] = useState(false)
     const [completed2, setCompleted2] = useState(false)
@@ -29,7 +29,7 @@ const RoadgMapSVG = (props) => {
     const { ref: step5Ref, start: start5 } = useRefScrollProgress()
     const { ref: step6Ref, start: start6 } = useRefScrollProgress()
 
-    const screenHeightHalf = innerHeight * 0.5
+    const screenHeightHalf = height * 0.5
 
     const step1ToStep2 = useTransform(
         scrollY,

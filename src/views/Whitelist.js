@@ -24,6 +24,7 @@ import { Logo1SVG } from '../assets/svg/brand'
 import utilitiesImages from '../assets/images/utilities'
 import { returnValueByScreenWidth } from '../services/stylesServices'
 import { validations } from '../services/yupValidations'
+import useWindowSize from './../hooks/useWindowSize'
 
 const { Content } = Layout
 
@@ -43,6 +44,7 @@ const referrerOptions = [
 ]
 
 const Whitelist = () => {
+    const { width } = useWindowSize()
     const { verifySponsorId, addUser, fetching, verified, setIdVerified } =
         whiteListApi()
     const [referralOpt, setReferralOpt] = useState('id')
@@ -173,7 +175,7 @@ const Whitelist = () => {
                                         className="absolute right-0 left-0 -mx-3"
                                         style={{
                                             top: returnValueByScreenWidth(
-                                                innerWidth,
+                                                width,
                                                 {
                                                     base: '-10px',
                                                     sm: '-16px',
@@ -189,7 +191,7 @@ const Whitelist = () => {
                                         className="absolute right-0 left-0 -mx-3"
                                         style={{
                                             bottom: returnValueByScreenWidth(
-                                                innerWidth,
+                                                width,
                                                 {
                                                     base: '-10px',
                                                     sm: '-16px',

@@ -86,7 +86,7 @@ const DefaultNavbar = () => {
     return width > 768 ? (
         <header className="h-24 relative z-50 lg:px-0 text-white bg-blue-5 bg-opacity-25">
             <div className="max-w-1800px m-auto flex flex-row h-full px-6 3xl:px-0 ">
-                <div className=" sm:mr-10 xl:mr-20 h-full py-5">
+                <div className=" sm:mr-10 xl:mr-20 h-full py-5 ">
                     <a className="h-full bg-blue-2">
                         <div className="h-full">
                             <BrandLogoSVG
@@ -258,9 +258,9 @@ const DefaultNavbar = () => {
             </Drawer>
             <header className="h-24 relative z-50 lg:px-0 text-white bg-blue-5  bg-opacity-25">
                 <div className=" m-auto flex justify-between h-full px-6">
-                    <div className=" sm:mr-10 xl:mr-20 h-full py-5">
+                    <div className=" sm:mr-10 xl:mr-20 h-full py-5 ">
                         <a className="h-full bg-blue-2">
-                            <div className="h-full">
+                            <div className="h-full w-12">
                                 <BrandLogoSVG width={'100%'} height={'100%'} />
                             </div>
                         </a>

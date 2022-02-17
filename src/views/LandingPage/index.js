@@ -29,7 +29,6 @@ import {
     OctagonTwitterSVG,
 } from '../../assets/svg/icons'
 import { RenderMarcoSVG } from './../../assets/svg/sections/index'
-import useWindowDimensions from '../../customHooks/useWindowDimensions'
 import { returnValueByScreenWidth } from '../../services/stylesServices'
 import windowOpen from '../../services/windowOpen'
 import Faq from './Faq'
@@ -40,6 +39,7 @@ import RoadMap from './RoadMap'
 import useScrollTop from '../../hooks/useScrollTop'
 import Token from './Token'
 import { Logo1SVG } from '../../assets/svg/brand'
+import useWindowSize from '../../hooks/useWindowSize'
 
 const { Content } = Layout
 
@@ -92,7 +92,7 @@ const scrollTo = (name) => {
 
 const LandingPage = () => {
     useScrollTop()
-    const { width } = useWindowDimensions()
+    const { width } = useWindowSize()
     const [imageIndex, setImageIndex] = useState(0)
     const [collapseFaq, setCollapseFAQ] = useState(true)
 
