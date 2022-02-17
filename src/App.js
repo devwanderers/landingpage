@@ -9,8 +9,10 @@ import './styles/App.less'
 import AppRouter from './Router'
 // import AuthLayout from './components/Layouts/AuthLayout'
 // import LandingPage from './views/LandingPage'
+import useGoogleAnalytics from './hooks/useGoogleAnalytics'
 
 const App = () => {
+    useGoogleAnalytics()
     return <AppRouter />
 }
 
