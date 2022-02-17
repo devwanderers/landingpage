@@ -293,8 +293,8 @@ const LandingPage = () => {
                                         We have created an utterly virtual
                                         metaverse in which our partner’s tourist
                                         destinations are represented as NFT’s
-                                        within our platform known as Lands or
-                                        Roles. You or a group of adventurers
+                                        within our platform known as Prime or
+                                        Ambassador. You or a group of adventurers
                                         called Nomadz can own such destinations.
                                     </Article>
                                     <Article
@@ -314,7 +314,7 @@ const LandingPage = () => {
                                     >
                                         Feel the power!! Once you get this class
                                         of NTF, now you’re the only owner of
-                                        this land, it means that every single
+                                        this Prime NFT, it means that every single
                                         booking completed to the equivalent
                                         place in our partnet travel platform
                                         will pay you a commission!
@@ -335,12 +335,12 @@ const LandingPage = () => {
                                             lg: '23px',
                                         }}
                                     >
-                                        As the role in land NFT you and 9 others
+                                        As the Ambassador you and 9 others
                                         will guard the land, by doing so, you
                                         will also be rewarded with a commission
                                         when a booking has been completed, but
                                         in a smaller percentage. In other words,
-                                        you’re working for the land owner but
+                                        you’re working for the Prime NFT owner but
                                         whom will share revenue with you.
                                     </Article>
                                 </LineWrapper>

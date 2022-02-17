@@ -42,7 +42,7 @@ const Benefits = () => {
                             transitionFrom="left"
                         >
                             <Paragraph className="text-blue-4  text-justify text-base md:text-lg lg:text-xl">
-                                Access to Lands & Roles Marketplace
+                                Access to Prime & Ambassador NFTs Marketplace
                             </Paragraph>
                         </AnimateTransition>
                     </div>
