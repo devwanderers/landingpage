@@ -42,7 +42,7 @@ const Benefits = () => {
                             transitionFrom="left"
                         >
                             <Paragraph className="text-blue-4  text-justify text-base md:text-lg lg:text-xl">
-                                Access to Prime & Ambassador NFTs Marketplace
+                                Access to Prime & Ambassador NFTs Marketplace.
                             </Paragraph>
                         </AnimateTransition>
                     </div>
@@ -86,8 +86,7 @@ const Benefits = () => {
                             transitionFrom="left"
                         >
                             <Paragraph className="text-blue-4  text-justify  text-base md:text-lg lg:text-xl">
-                                Receive 1% of the subsequent resales of this NFT
-                                in tokens.
+                                Every Nft holder will receive one territory Nft and will be able to receive up to two token airdrops supplied by our partner.
                             </Paragraph>
                         </AnimateTransition>
                     </div>

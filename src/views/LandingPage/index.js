@@ -367,10 +367,10 @@ const LandingPage = () => {
                                 different categories within them. The Prime Nft
                                 consist of the Countries, Cities and Destinies
                                 and all distribute a percentage of profit sales
-                                to the owner of each unique NFT. The Ambassador
-                                NFT also consist of all three categories but is
-                                divided into smaller percentages as there is ten
-                                copies of such NFT
+                                given by our partner to the owner of each unique NFT. 
+                                The Ambassador NFT also consist of all three 
+                                categories but is divided into smaller 
+                                percentages as there is ten copies of such NFT
                             </Article>
                         </div>
                         <div className="flex flex-col">
