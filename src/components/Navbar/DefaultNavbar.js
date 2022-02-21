@@ -157,7 +157,7 @@ const DefaultNavbar = () => {
                         <a
                             onClick={() =>
                                 windowOpen(
-                                    'https://twitter.com/TheWanderersNFT'
+                                    'https://twitter.com/NomadzlandNFT'
                                 )
                             }
                             className="h-full flex items-center px-1"
@@ -238,7 +238,7 @@ const DefaultNavbar = () => {
                     </a>
                     <a
                         onClick={() =>
-                            windowOpen('https://twitter.com/TheWanderersNFT')
+                            windowOpen('https://twitter.com/NomadzlandNFT')
                         }
                         className="h-full flex items-center px-1"
                     >

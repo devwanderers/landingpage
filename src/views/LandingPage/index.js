@@ -532,7 +532,7 @@ const LandingPage = () => {
                                 className="h-16 w-16 lg:h-24 lg:w-24 p-0"
                                 onClick={() =>
                                     windowOpen(
-                                        'https://twitter.com/TheWanderersNFT'
+                                        'https://twitter.com/NomadzlandNFT'
                                     )
                                 }
                             >
