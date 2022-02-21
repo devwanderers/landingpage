@@ -27,6 +27,7 @@ import {
     OctagonDiscordSVG,
     OctagonTelegramSVG,
     OctagonTwitterSVG,
+    OctagonInstagramSVG,
 } from '../../assets/svg/icons'
 import { RenderMarcoSVG } from './../../assets/svg/sections/index'
 import { returnValueByScreenWidth } from '../../services/stylesServices'
@@ -506,9 +507,31 @@ const LandingPage = () => {
                                 className="h-16 w-16 lg:h-24 lg:w-24 p-0"
                                 onClick={() =>
                                     windowOpen(
-                                        'https://t.me/joinchat/tXoYj6NupWRlNjEx'
+                                        'https://twitter.com/NomadzlandNFT'
                                     )
                                 }
+                            >
+                                <OctagonTwitterSVG width="100%" height="100%" />
+                            </Button>
+                            <Button
+                                type="link"
+                                className="h-16 w-16 lg:h-24 lg:w-24 p-0"
+                                onClick={() =>
+                                    windowOpen(
+                                        'https://www.instagram.com/nomadzlandnft'
+                                    )
+                                }
+                            >
+                                <OctagonInstagramSVG width="100%" height="100%" />
+                            </Button>
+                            <Button
+                                type="link"
+                                className="h-16 w-16 lg:h-24 lg:w-24 p-0 pointer-events-none"
+                                // onClick={() =>
+                                //     windowOpen(
+                                //         'https://t.me/joinchat/tXoYj6NupWRlNjEx'
+                                //     )
+                                // }
                             >
                                 <OctagonTelegramSVG
                                     width="100%"
@@ -517,26 +540,14 @@ const LandingPage = () => {
                             </Button>
                             <Button
                                 type="link"
-                                className="h-16 w-16 lg:h-24 lg:w-24 p-0"
-                                onClick={() =>
-                                    windowOpen(
-                                        'https://discord.gg/thewanderers'
-                                    )
-                                }
+                                className="h-16 w-16 lg:h-24 lg:w-24 p-0 pointer-events-none"
+                                // onClick={() =>
+                                //     windowOpen(
+                                //         'https://discord.gg/thewanderers'
+                                //     )
+                                // }
                             >
                                 <OctagonDiscordSVG width="100%" height="100%" />
-                            </Button>
-
-                            <Button
-                                type="link"
-                                className="h-16 w-16 lg:h-24 lg:w-24 p-0"
-                                onClick={() =>
-                                    windowOpen(
-                                        'https://twitter.com/NomadzlandNFT'
-                                    )
-                                }
-                            >
-                                <OctagonTwitterSVG width="100%" height="100%" />
                             </Button>
                         </div>
                     </div>

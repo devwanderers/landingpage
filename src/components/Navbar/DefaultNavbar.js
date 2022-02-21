@@ -8,6 +8,7 @@ import {
     OctagonDiscordSVG,
     OctagonTelegramSVG,
     OctagonTwitterSVG,
+    OctagonInstagramSVG
 } from './../../assets/svg/icons/index'
 import { Drawer } from 'antd'
 import { scrollTo } from '../../services/react-scroll-utils'
@@ -131,31 +132,6 @@ const DefaultNavbar = () => {
                     <div className="flex flex-row items-center space-x-2 h-full">
                         <a
                             onClick={() =>
-                                windowOpen('https://discord.gg/thewanderers')
-                            }
-                            className="h-full flex items-center px-1"
-                        >
-                            <div className="h-10 w-10  ">
-                                <OctagonDiscordSVG width="100%" height="100%" />
-                            </div>
-                        </a>
-                        <a
-                            onClick={() =>
-                                windowOpen(
-                                    'https://t.me/joinchat/tXoYj6NupWRlNjEx'
-                                )
-                            }
-                            className="h-full flex items-center px-1"
-                        >
-                            <div className="h-10 w-10 ">
-                                <OctagonTelegramSVG
-                                    width="100%"
-                                    height="100%"
-                                />
-                            </div>
-                        </a>
-                        <a
-                            onClick={() =>
                                 windowOpen(
                                     'https://twitter.com/NomadzlandNFT'
                                 )
@@ -164,6 +140,43 @@ const DefaultNavbar = () => {
                         >
                             <div className="h-10 w-10 ">
                                 <OctagonTwitterSVG width="100%" height="100%" />
+                            </div>
+                        </a>
+                        <a
+                            onClick={() =>
+                                windowOpen(
+                                    'https://www.instagram.com/nomadzlandnft'
+                                )
+                            }
+                            className="h-full flex items-center px-1"
+                        >
+                            <div className="h-10 w-10 ">
+                                <OctagonInstagramSVG width="100%" height="100%" />
+                            </div>
+                        </a>
+                        <a
+                            // onClick={() =>
+                            //     windowOpen('https://discord.gg/thewanderers')
+                            // }
+                            className="h-full flex items-center px-1 pointer-events-none"
+                        >
+                            <div className="h-10 w-10  ">
+                                <OctagonDiscordSVG width="100%" height="100%" />
+                            </div>
+                        </a>
+                        <a
+                            // onClick={() =>
+                            //     windowOpen(
+                            //         'https://t.me/joinchat/tXoYj6NupWRlNjEx'
+                            //     )
+                            // }
+                            className="h-full flex items-center px-1 pointer-events-none"
+                        >
+                            <div className="h-10 w-10 ">
+                                <OctagonTelegramSVG
+                                    width="100%"
+                                    height="100%"
+                                />
                             </div>
                         </a>
                     </div>
@@ -218,32 +231,42 @@ const DefaultNavbar = () => {
                 <div className="flex flex-row items-center space-x-2 mb-4">
                     <a
                         onClick={() =>
-                            windowOpen('https://discord.gg/thewanderers')
-                        }
-                        className="h-full flex items-center px-1"
-                    >
-                        <div className="h-10 w-10  ">
-                            <OctagonDiscordSVG width="100%" height="100%" />
-                        </div>
-                    </a>
-                    <a
-                        onClick={() =>
-                            windowOpen('https://t.me/joinchat/tXoYj6NupWRlNjEx')
-                        }
-                        className="h-full flex items-center px-1"
-                    >
-                        <div className="h-10 w-10 ">
-                            <OctagonTelegramSVG width="100%" height="100%" />
-                        </div>
-                    </a>
-                    <a
-                        onClick={() =>
                             windowOpen('https://twitter.com/NomadzlandNFT')
                         }
                         className="h-full flex items-center px-1"
                     >
                         <div className="h-10 w-10 ">
                             <OctagonTwitterSVG width="100%" height="100%" />
+                        </div>
+                    </a>
+                    <a
+                        onClick={() =>
+                            windowOpen('https://www.instagram.com/nomadzlandnft')
+                        }
+                        className="h-full flex items-center px-1"
+                    >
+                        <div className="h-10 w-10 ">
+                            <OctagonInstagramSVG width="100%" height="100%" />
+                        </div>
+                    </a>
+                    <a
+                        // onClick={() =>
+                        //     windowOpen('https://discord.gg/thewanderers')
+                        // }
+                        className="h-full flex items-center px-1 pointer-events-none"
+                    >
+                        <div className="h-10 w-10  ">
+                            <OctagonDiscordSVG width="100%" height="100%" />
+                        </div>
+                    </a>
+                    <a
+                        // onClick={() =>
+                        //     windowOpen('https://t.me/joinchat/tXoYj6NupWRlNjEx')
+                        // }
+                        className="h-full flex items-center px-1 pointer-events-none"
+                    >
+                        <div className="h-10 w-10 ">
+                            <OctagonTelegramSVG width="100%" height="100%" />
                         </div>
                     </a>
                 </div>

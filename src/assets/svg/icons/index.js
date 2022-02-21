@@ -7,6 +7,7 @@ import { ReactComponent as DownArrow } from './down-arrow.svg'
 import { ReactComponent as OctagonDiscord } from './ico-discord.svg'
 import { ReactComponent as OctagonTelegram } from './ico-telegram.svg'
 import { ReactComponent as OctagonTwitter } from './ico-twitter.svg'
+import { ReactComponent as OctagonInstagram } from './ico-instagram.svg'
 
 export const DiscordSVG = Discord
 export const TwitterSVG = Twitter
@@ -17,3 +18,4 @@ export const DownArrowSVG = DownArrow
 export const OctagonDiscordSVG = OctagonDiscord
 export const OctagonTelegramSVG = OctagonTelegram
 export const OctagonTwitterSVG = OctagonTwitter
+export const OctagonInstagramSVG = OctagonInstagram
