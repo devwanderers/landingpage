@@ -6,7 +6,7 @@ const useGoogleAnalytics = () => {
     const history = useHistory()
 
     useEffectOnce(() => {
-        ReactGA.initialize('G-4TR2JXTP2D')
+        ReactGA.initialize('UA-186217071-3')
         history.listen((location) => ReactGA.pageview(location.pathname))
     })
 }
