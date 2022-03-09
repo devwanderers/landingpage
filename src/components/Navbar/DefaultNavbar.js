@@ -2,19 +2,19 @@
 import React, { useState } from 'react'
 import { useHistory } from 'react-router'
 import { BrandLogoSVG } from '../../assets/svg/brand'
-import windowOpen from './../../services/windowOpen'
+import { windowOpen, windowLocationPush } from './../../services/windowServices'
 import useWindowSize from './../../hooks/useWindowSize'
 import {
     OctagonDiscordSVG,
     OctagonTelegramSVG,
     OctagonTwitterSVG,
-    OctagonInstagramSVG
+    OctagonInstagramSVG,
 } from './../../assets/svg/icons/index'
 import { Drawer } from 'antd'
 import { scrollTo } from '../../services/react-scroll-utils'
 import { GiHamburgerMenu } from 'react-icons/gi'
 import { HomePath, WhitelistPath } from '../../constants/routerConstants'
-import { whitePaperLink } from './../../constants/linksContants'
+import { destinareLink, whitePaperLink } from './../../constants/linksContants'
 
 const DefaultNavbar = () => {
     const [selectedMenu, setMenuIndex] = useState(0)
@@ -64,20 +64,13 @@ const DefaultNavbar = () => {
                 scrollTo('team')
             },
         },
-        // {
-        //     key: 'whiteList',
-        //     label: 'Whitelist',
-        //     onClick: () => {
-        //         history.push(WhitelistPath)
-        //     },
-        // },
-        // {
-        //     key: 'marketplace',
-        //     label: 'Marketplace',
-        //     onClick: () => {
-        //         window.location.replace('https://marketplace.thewanderers.io')
-        //     },
-        // },
+        {
+            key: 'destinare',
+            label: 'Destinare.io',
+            onClick: () => {
+                windowLocationPush(destinareLink)
+            },
+        },
     ]
 
     const handleOnClickBurger = () => {
@@ -132,9 +125,7 @@ const DefaultNavbar = () => {
                     <div className="flex flex-row items-center space-x-2 h-full">
                         <a
                             onClick={() =>
-                                windowOpen(
-                                    'https://twitter.com/NomadzlandNFT'
-                                )
+                                windowOpen('https://twitter.com/NomadzlandNFT')
                             }
                             className="h-full flex items-center px-1"
                         >
@@ -151,7 +142,10 @@ const DefaultNavbar = () => {
                             className="h-full flex items-center px-1"
                         >
                             <div className="h-10 w-10 ">
-                                <OctagonInstagramSVG width="100%" height="100%" />
+                                <OctagonInstagramSVG
+                                    width="100%"
+                                    height="100%"
+                                />
                             </div>
                         </a>
                         <a
@@ -241,7 +235,9 @@ const DefaultNavbar = () => {
                     </a>
                     <a
                         onClick={() =>
-                            windowOpen('https://www.instagram.com/nomadzlandnft')
+                            windowOpen(
+                                'https://www.instagram.com/nomadzlandnft'
+                            )
                         }
                         className="h-full flex items-center px-1"
                     >

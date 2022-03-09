@@ -64,7 +64,8 @@ const Benefits = () => {
                             transitionFrom="left"
                         >
                             <Paragraph className="text-blue-4  text-justify  text-base md:text-lg lg:text-xl">
-                                Get great discounts our partner travel platform.
+                                Unlock great discounts from our partner travel
+                                platform.
                             </Paragraph>
                         </AnimateTransition>
                     </div>
@@ -86,7 +87,9 @@ const Benefits = () => {
                             transitionFrom="left"
                         >
                             <Paragraph className="text-blue-4  text-justify  text-base md:text-lg lg:text-xl">
-                                Every Nft holder will receive one territory Nft and will be able to receive up to two token airdrops supplied by our partner.
+                                Every Nft holder will receive one territory Nft
+                                and will be able to receive up to two token
+                                airdrops supplied by our partner.
                             </Paragraph>
                         </AnimateTransition>
                     </div>

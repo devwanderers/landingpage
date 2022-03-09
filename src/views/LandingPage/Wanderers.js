@@ -38,10 +38,9 @@ const Wanderers = () => {
                                 'text-blue-4 text-justify text-lg lg:text-23px mb-6 lg:mb-16',
                         }}
                     >
-                        Each Nomad can have up to 15 different characteristics
-                        besides their race, in order for each one to be unique
-                        we have over 500 hand drawn elements to create the
-                        uniqueness of our Nomadz
+                        Each Nomad can have up to 16 different characteristics,
+                        and in order for each one to be unique we have over 500
+                        hand drawn elements.
                     </Article>
                 </div>
                 <div className="w-full px-0 lg:px-16">

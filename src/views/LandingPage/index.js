@@ -31,7 +31,7 @@ import {
 } from '../../assets/svg/icons'
 import { RenderMarcoSVG } from './../../assets/svg/sections/index'
 import { returnValueByScreenWidth } from '../../services/stylesServices'
-import windowOpen from '../../services/windowOpen'
+import { windowOpen } from '../../services/windowServices'
 import Faq from './Faq'
 import MeetTeam from './MeetTeam'
 import Mint from './Mint'
@@ -41,43 +41,33 @@ import useScrollTop from '../../hooks/useScrollTop'
 import Token from './Token'
 import { Logo1SVG } from '../../assets/svg/brand'
 import useWindowSize from '../../hooks/useWindowSize'
+import nftsImages from '../../assets/images/nfts'
 
 const { Content } = Layout
 
+// TODO change percents
 const landImages = [
     {
         id: 1,
-        img: utilitiesImages.usaLand,
+        img: nftsImages.france,
         title: '25%',
         percent: 'Country',
     },
     {
-        id: 2,
-        img: utilitiesImages.parisLand,
-        title: '10%',
-        percent: 'City',
-    },
-    {
         id: 3,
-        img: utilitiesImages.sydneyLand,
+        img: nftsImages.paris,
         title: '6%',
         percent: 'Destiny',
     },
     {
         id: 4,
-        img: utilitiesImages.oro,
+        img: nftsImages.gold,
         title: '2%-20%',
         percent: 'Country ambassadors',
     },
     {
-        id: 5,
-        img: utilitiesImages.plata,
-        title: '1%-10%',
-        percent: 'City ambassadors',
-    },
-    {
         id: 6,
-        img: utilitiesImages.bronce,
+        img: nftsImages.silver,
         title: '0.9%-9%',
         percent: 'Destiny ambassadors',
     },
@@ -114,6 +104,7 @@ const LandingPage = () => {
     const handleCollapseFaq = () => {
         setCollapseFAQ(!collapseFaq)
     }
+
     return (
         <Layout className="block min-w-minMobileWidth">
             <BackTop>
@@ -291,12 +282,15 @@ const LandingPage = () => {
                                             lg: '23px',
                                         }}
                                     >
-                                        We have created an utterly virtual
-                                        metaverse in which our partner’s tourist
-                                        destinations are represented as NFT’s
-                                        within our platform known as Prime or
-                                        Ambassador. You or a group of adventurers
-                                        called Nomadz can own such destinations.
+                                        We’ve created a completely virtual
+                                        metaverse in which all tourist
+                                        destinations offered by our travel
+                                        partner are represented as NFTs within
+                                        our platform known as Lands or Roles.
+                                        These destinations can be owned by you,
+                                        or a group of adventurers called Nomadz,
+                                        who are also represented as unique
+                                        handmade NFTs.
                                     </Article>
                                     <Article
                                         header="Prime NFTs"
@@ -315,10 +309,10 @@ const LandingPage = () => {
                                     >
                                         Feel the power!! Once you get this class
                                         of NTF, now you’re the only owner of
-                                        this Prime NFT, it means that every single
-                                        booking completed to the equivalent
-                                        place in our partnet travel platform
-                                        will pay you a commission!
+                                        this Prime NFT, it means that every
+                                        single booking completed to the
+                                        equivalent place in our partnet travel
+                                        platform will pay you a commission!
                                     </Article>
 
                                     <Article
@@ -336,13 +330,13 @@ const LandingPage = () => {
                                             lg: '23px',
                                         }}
                                     >
-                                        As the Ambassador you and 9 others
-                                        will guard the land, by doing so, you
-                                        will also be rewarded with a commission
-                                        when a booking has been completed, but
-                                        in a smaller percentage. In other words,
-                                        you’re working for the Prime NFT owner but
-                                        whom will share revenue with you.
+                                        As the Ambassador you and 9 others will
+                                        guard the land, by doing so, you will
+                                        also be rewarded with a commission when
+                                        a booking has been completed, but in a
+                                        smaller percentage. In other words,
+                                        you’re working for the Prime NFT owner
+                                        but whom will share revenue with you.
                                     </Article>
                                 </LineWrapper>
                             </Col>
@@ -368,9 +362,9 @@ const LandingPage = () => {
                                 different categories within them. The Prime Nft
                                 consist of the Countries, Cities and Destinies
                                 and all distribute a percentage of profit sales
-                                given by our partner to the owner of each unique NFT. 
-                                The Ambassador NFT also consist of all three 
-                                categories but is divided into smaller 
+                                given by our partner to the owner of each unique
+                                NFT. The Ambassador NFT also consist of all
+                                three categories but is divided into smaller
                                 percentages as there is ten copies of such NFT
                             </Article>
                         </div>
@@ -522,7 +516,10 @@ const LandingPage = () => {
                                     )
                                 }
                             >
-                                <OctagonInstagramSVG width="100%" height="100%" />
+                                <OctagonInstagramSVG
+                                    width="100%"
+                                    height="100%"
+                                />
                             </Button>
                             <Button
                                 type="link"

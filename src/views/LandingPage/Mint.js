@@ -59,17 +59,15 @@ const Mint = (props) => {
                                     <br />
                                     <br />
                                     <span>
-                                        There are 9,000 unique characters called
-                                        Nomadz as an initial offering and an
-                                        additional 250 special characters
-                                        available in a presale event of 0.25
-                                        ETH.
+                                        The initial offering will include 9,000
+                                        unique characters called Nomadz and an
+                                        additional 250 special characters.
                                     </span>
                                     <br />
                                     <br />
                                     <span>
                                         {
-                                            "Our partner grants month to month 50% of its earnings from various concepts established in the strategic union with The Nomadz, who will deliver them to be distributed in the NFT's ecosystem."
+                                            'Our partner, Destinaire, will distribute 50% of monthly earnings to The Nomadz holders.'
                                         }
                                     </span>
                                     <br />
@@ -78,11 +76,10 @@ const Mint = (props) => {
                                         Owning a Nomadz gives you access to the
                                         metaverse as well as exclusive benefits
                                         to our travel partner. Once you mint a
-                                        Nomad you start to receive big
+                                        Nomad you will start to receive big
                                         incentives granted in DDOT (our partner
                                         token), exclusive promotions in our
-                                        partner travel platform and more. Read
-                                        the white paper.{' '}
+                                        partner travel platform and more.
                                         <a
                                             href={whitePaperLink}
                                             className="underline"
