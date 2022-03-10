@@ -50,25 +50,25 @@ const landImages = [
     {
         id: 1,
         img: nftsImages.france,
-        title: '25%',
+        title: '40%',
         percent: 'Country',
     },
     {
         id: 3,
         img: nftsImages.paris,
-        title: '6%',
+        title: '30%',
         percent: 'Destiny',
     },
     {
         id: 4,
         img: nftsImages.gold,
-        title: '2%-20%',
+        title: '20%',
         percent: 'Country ambassadors',
     },
     {
         id: 6,
         img: nftsImages.silver,
-        title: '0.9%-9%',
+        title: '10%',
         percent: 'Destiny ambassadors',
     },
 ]
