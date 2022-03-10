@@ -14,12 +14,12 @@ const faqs = [
                         'Use either Google Chrome or Brave to visit this page. You will need to have Metamask installed and ETH on your wallet. Select as many Wanderers as you want, click the Mint button and approve the transaction. You can see an extended video tutorial '
                     }
                 </span>
-                <a
+                {/* <a
                     href="https://www.youtube.com/watch?v=dbDxSyBWWYU&t=1s&ab_channel=TheWanderersMetaverse"
                     className="underline"
                 >
                     <strong>here.</strong>
-                </a>
+                </a> */}
             </React.Fragment>
         ),
     },

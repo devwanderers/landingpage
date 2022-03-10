@@ -30,10 +30,12 @@ import parisLand from './parisLand.png'
 import bronce from './bronce.png'
 import oro from './oro.png'
 import plata from './plata.png'
+import dttToken from './DDOT-token-01.png'
 
 const utilitiesImages = {
     card,
     nft,
+    dttToken,
     nft1,
     nft2,
     nft3,

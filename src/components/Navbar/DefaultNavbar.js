@@ -149,28 +149,13 @@ const DefaultNavbar = () => {
                             </div>
                         </a>
                         <a
-                            // onClick={() =>
-                            //     windowOpen('https://discord.gg/thewanderers')
-                            // }
-                            className="h-full flex items-center px-1 pointer-events-none"
+                            onClick={() =>
+                                windowOpen('https://discord.gg/JPx5v9Xv9g')
+                            }
+                            className="h-full flex items-center px-1"
                         >
                             <div className="h-10 w-10  ">
                                 <OctagonDiscordSVG width="100%" height="100%" />
-                            </div>
-                        </a>
-                        <a
-                            // onClick={() =>
-                            //     windowOpen(
-                            //         'https://t.me/joinchat/tXoYj6NupWRlNjEx'
-                            //     )
-                            // }
-                            className="h-full flex items-center px-1 pointer-events-none"
-                        >
-                            <div className="h-10 w-10 ">
-                                <OctagonTelegramSVG
-                                    width="100%"
-                                    height="100%"
-                                />
                             </div>
                         </a>
                     </div>

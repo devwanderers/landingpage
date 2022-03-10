@@ -7,7 +7,7 @@ import Paragraph from './../../components/DisplayText/Paragraph'
 import utilitiesImages from '../../assets/images/utilities'
 import AnimateTransition from './../../components/Animations/AnimateTransition'
 import { useInView } from 'react-intersection-observer'
-import { whitePaperLink } from './../../constants/linksContants'
+import { whitePaperDestinareLink } from './../../constants/linksContants'
 
 const Token = () => {
     const collectionConfig = {
@@ -45,7 +45,7 @@ const Token = () => {
                 <div className="flex-1 flex flex-row  max-h-full ">
                     <div
                         ref={subTitleRef}
-                        className="flex-1  text-center lg:text-left lg:text-left lg:pl-8  overflow-hidden"
+                        className="flex-1  text-center lg:text-left lg:pl-8  overflow-hidden"
                     >
                         <AnimateTransition
                             visible={subTitleInView}
@@ -91,7 +91,7 @@ const Token = () => {
                                         of Nomadzland´s metaverse. The token is
                                         based on ERC-20 token protocols.{' '}
                                         <a
-                                            href={whitePaperLink}
+                                            href={whitePaperDestinareLink}
                                             className="underline"
                                         >
                                             <strong>
@@ -119,8 +119,8 @@ const Token = () => {
                             >
                                 <img
                                     className="w-full h-auto"
-                                    src={utilitiesImages.wttCoin}
-                                    alt={utilitiesImages.wttCoin}
+                                    src={utilitiesImages.dttToken}
+                                    alt={utilitiesImages.dttToken}
                                 />
                             </AnimateTransition>
                         </div>

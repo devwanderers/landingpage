@@ -523,26 +523,10 @@ const LandingPage = () => {
                             </Button>
                             <Button
                                 type="link"
-                                className="h-16 w-16 lg:h-24 lg:w-24 p-0 pointer-events-none"
-                                // onClick={() =>
-                                //     windowOpen(
-                                //         'https://t.me/joinchat/tXoYj6NupWRlNjEx'
-                                //     )
-                                // }
-                            >
-                                <OctagonTelegramSVG
-                                    width="100%"
-                                    height="100%"
-                                />
-                            </Button>
-                            <Button
-                                type="link"
-                                className="h-16 w-16 lg:h-24 lg:w-24 p-0 pointer-events-none"
-                                // onClick={() =>
-                                //     windowOpen(
-                                //         'https://discord.gg/thewanderers'
-                                //     )
-                                // }
+                                className="h-16 w-16 lg:h-24 lg:w-24 p-0"
+                                onClick={() =>
+                                    windowOpen('https://discord.gg/JPx5v9Xv9g')
+                                }
                             >
                                 <OctagonDiscordSVG width="100%" height="100%" />
                             </Button>
@@ -571,7 +555,7 @@ const LandingPage = () => {
                                 <h5 className="text-capitalize text-xl text-blue-4 tracking-wide font-bold mb-2">
                                     Home
                                 </h5>
-                                <ul className="list-none font-saira-condensed font-semibold">
+                                {/* <ul className="list-none font-saira-condensed font-semibold">
                                     <li className="mb-2">
                                         <a
                                             className="text-blue-4 hover:text-gray-400"
@@ -588,7 +572,7 @@ const LandingPage = () => {
                                             Smart Contract
                                         </a>
                                     </li>
-                                </ul>
+                                </ul> */}
                             </div>
                         </div>
                     </div>
