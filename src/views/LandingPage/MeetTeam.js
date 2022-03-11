@@ -36,7 +36,7 @@ const teams = [
         name: 'Brandon S.',
         subtitle: 'Dev',
         description:
-            '8+ years in system engineering , lifelong gamer, methodical and creative, he is a commited person that doesnt hesitate on learning more about and going above and beyond. Extraordinary skills in software development.',
+            "8+ years in system engineering , lifelong gamer, methodical and creative, he is a commited person that doesn't hesitate on learning more about and going above and beyond. Extraordinary skills in software development.",
     },
     {
         image: utilitiesImages.kame,
