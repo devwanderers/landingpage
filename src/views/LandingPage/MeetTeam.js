@@ -12,7 +12,7 @@ import AnimateTransition from './../../components/Animations/AnimateTransition'
 const teams = [
     {
         image: utilitiesImages.angel,
-        name: 'Luis S.',
+        name: 'Angel S.',
         subtitle: 'Team Lead',
         description:
             "Developer and blockchain engineer who is passionate about constant learning, new technologies, best practices, and also knowledge transfer. He's fully compromised with the project and the team.",
