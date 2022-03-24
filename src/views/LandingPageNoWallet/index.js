@@ -21,7 +21,7 @@ import NextArrowControl from '../../components/CustomSliderControls/NextArrowCon
 import PrevArrowControl from '../../components/CustomSliderControls/PrevArrowControl'
 import Paragraph from '../../components/DisplayText/Paragraph'
 // import { IslandSVG } from '../assets/svg/utilities'
-import islandVideo from '../../assets/images/backgrounds/FLOAT-ISLAND.mp4'
+import islandVideo from '../../assets/images/backgrounds/background.mp4'
 import {
     FrameCounterTopSVG,
     FrameCounterBottomSVG,
@@ -225,7 +225,7 @@ const LandingPage = () => {
                                         <div className="absolute right-0 left-0 top-0">
                                             <FrameCounterHeaderCustom
                                                 innerWidth="100%"
-                                                // backgroundColor="2fb39b"
+                                            // backgroundColor="2fb39b"
                                             />
                                         </div>
                                         <HeaderText
@@ -245,7 +245,7 @@ const LandingPage = () => {
                                     type="primary"
                                     target="blank"
                                     onClick={() => scrollTo('community')}
-                                    // href="https://discord.gg/thewanderers"
+                                // href="https://discord.gg/thewanderers"
                                 >
                                     JOIN OUR COMMUNITY
                                 </a>

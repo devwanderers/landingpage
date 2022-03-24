@@ -12,8 +12,7 @@ import { abortablePromise, returnPromise } from '../services/promises'
 import useInterval from './useInterval'
 import useDeepCompareEffect from './useDeepCompareEffect'
 
-const publicPrice = 25e16
-const presalePrice = 15e16
+const publicPrice = 30e16
 
 const mintResultConverToArray = (res) => {
     const {
@@ -85,7 +84,7 @@ const useSCInteractions = () => {
             return [
                 ...acc,
                 new Promise((resolve, reject) => {
-                    ;(async () => {
+                    ; (async () => {
                         try {
                             const contract = new library.eth.Contract(
                                 AvatarDestinareAbi,
@@ -135,10 +134,6 @@ const useSCInteractions = () => {
                     AvatarDestinareAbi,
                     process.env.REACT_APP_AVATAR_DESTINARE_CONTRACT_ADDRESS
                 )
-                const onlyWhitelisted = await contract.methods
-                    .onlyWhitelisted()
-                    .call()
-
                 const whitelisted = await contract.methods
                     .whitelisted(account)
                     .call()
@@ -147,7 +142,7 @@ const useSCInteractions = () => {
                         return { tickets: parseInt(res[0]), active: res[1] }
                     })
                 console.log({ whitelisted })
-                resolve({ onlyWhitelisted, whitelisted })
+                resolve({ whitelisted })
             } catch (err) {
                 console.log({ err })
                 reject(err)
@@ -197,9 +192,6 @@ const useSCInteractions = () => {
                     AvatarDestinareAbi,
                     process.env.REACT_APP_AVATAR_DESTINARE_CONTRACT_ADDRESS
                 )
-                const activePresale = await contract.methods
-                    .onlyWhitelisted()
-                    .call()
 
                 const whitelisted = await contract.methods
                     .whitelisted(account)
@@ -213,11 +205,6 @@ const useSCInteractions = () => {
                     mintAvatar = await contract.methods
                         .mint(account, amount)
                         .send({ from: account, value: 0 })
-                } else if (activePresale && whitelisted.active) {
-                    console.log({ amount })
-                    mintAvatar = await contract.methods
-                        .mint(account, amount)
-                        .send({ from: account, value: presalePrice * amount })
                 } else {
                     mintAvatar = await contract.methods
                         .mint(account, amount)

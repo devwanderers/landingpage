@@ -160,10 +160,10 @@ const MintDisplay = ({ data = example }) => {
                 <Col xs={24} sm={16} md={16} lg={16} xl={16}>
                     <div className="bg-green-1 border-2 border-green-3 h-full p-4">
                         <div className="flex space-x-5 flex-wrap leading-none mb-4">
-                            
+
                             <div>
                                 <h3 className="text-green-0 text-base md:text-lg lg:text-xl mb-2">
-                                    Nomad ID
+                                    Land ID
                                 </h3>
                                 <p className="text-base lg:text-lg">
                                     {data[index]?.nftData.edition}

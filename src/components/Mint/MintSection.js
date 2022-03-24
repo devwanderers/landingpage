@@ -22,7 +22,7 @@ const presalePrice = 15e16
 
 const MintSection = () => {
     const [maxMint, setMaxMint] = useState(0)
-    const [priceMint, setPrice] = useState('0.25 ETH')
+    const [priceMint, setPrice] = useState('0.3 ETH')
     const { login, logout } = useAuth()
     const { account, chainId } = useWeb3React()
     const [mintAmount, setMintAmount] = useState(0)
@@ -57,20 +57,17 @@ const MintSection = () => {
 
     useDeepCompareEffect(() => {
         if (data) {
-            const { whitelisted, onlyWhitelisted } = data
+            const { whitelisted } = data
             if (whitelisted.active && whitelisted.tickets > 0) {
                 if (whitelisted.tickets <= 5) setMaxMint(whitelisted.tickets)
                 else setMaxMint(5)
                 setPrice('FREE')
-            } else if (onlyWhitelisted && whitelisted.active) {
-                setMaxMint(5)
-                setPrice('0.15 ETH')
-            } else if (!onlyWhitelisted) {
-                setMaxMint(15)
-                setPrice('0.25 ETH')
+                // } else if (whitelisted.active) {
+                //     setMaxMint(5)
+                //     setPrice('0.3 ETH')
             } else {
-                setMaxMint(0)
-                setPrice('0.25 ETH')
+                setMaxMint(15)
+                setPrice('0.3 ETH')
             }
         }
     }, [data])
@@ -97,18 +94,18 @@ const MintSection = () => {
                 minting={minting}
             />
             <div
-                className="w-full md:w-8/12 lg:w-6/12 bg-black-1 bg-opacity-40 px-10 py-6 relative mx-auto lg:mx-0 mb-5"
-                // style={{ borderColor: '#2fb39b' }}
+                className="w-full md:w-6/12 lg:w-4/12 bg-black-1 bg-opacity-40 px-5 py-6 relative mx-auto lg:mx-0 mb-5"
+            // style={{ borderColor: '#2fb39b' }}
             >
                 <div>
                     <div className="relative">
                         <div className="text-white">
                             <div className="flex justify-between items-center">
                                 <span className="font-bold text-5xl leading-none">
-                                    9,000
+
                                 </span>
-                                <span className="font-bold text-5xl leading-none">
-                                    Nomadz
+                                <span className="font-bold text-4xl leading-none">
+                                    Mint your lands
                                 </span>
                             </div>
                             <div className="text-2xl text-right">

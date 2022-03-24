@@ -21,7 +21,7 @@ import { LineWrapper } from '../../components/Wrappers/LineWrapper'
 import HeaderText from '../../components/DisplayText/Header'
 import Paragraph from '../../components/DisplayText/Paragraph'
 import DefaultNavbar from '../../components/Navbar/DefaultNavbar'
-import islandVideo from '../../assets/images/backgrounds/FLOAT-ISLAND.mp4'
+import islandVideo from '../../assets/images/backgrounds/background.mp4'
 import {
     FrameCounterTopSVG,
     FrameCounterBottomSVG,
@@ -126,7 +126,7 @@ const LandingPage = () => {
             </BackTop>
             <DefaultNavbar />
             <Content>
-                <div className="-mt-24 pb-1 xl:pb-32 lg:pb-40 relative">
+                <div className="-mt-24 relative">
                     <div className="absolute top-0 left-0 bottom-0 right-0 overflow-hidden">
                         <ReactPlayer
                             className="custom-react-player"
@@ -142,13 +142,13 @@ const LandingPage = () => {
                             onStart={() => console.log('playing')}
                         />
                     </div>
-                    <div className="section mx-auto pt-64px mb-20 h-screen">
-                        <div className="css-generic h-full flex-col justify-between py-4 md:py-6 lg:px-28 xl:px-36 lg:py-10">
+                    <div className="section mx-auto pt-64px h-screen">
+                        <div className="css-generic h-full flex-col justify-between py-4 md:py-6 lg:py-10">
                             <div className="pt-10 w-80 lg:w-96 mx-auto  pb-6">
                                 <Logo1SVG width="100%" />
                             </div>{' '}
                             <MintSection />
-                             {/* <div className="mb-10 z-20">
+                            {/* <div className="mb-10 z-20">
                                <div className="count-down bg-black-1 bg-opacity-40 mx-auto lg:px-4 pt-5 pb-4 relative z-10">
                                     <GenericCountDown date={deadline} />
                                     <div className="flex text-white text-lg md:text-2xl lg:text-4xl mt-5">
@@ -229,18 +229,12 @@ const LandingPage = () => {
                                     type="primary"
                                     target="blank"
                                     onClick={() => scrollTo('community')}
-                                    // href="https://discord.gg/thewanderers"
+                                // href="https://discord.gg/thewanderers"
                                 >
                                     JOIN OUR COMMUNITY
                                 </a>
                             </div>
                         </div>
-                    </div>
-                    <div
-                        className="absolute right-0 left-0"
-                        style={{ bottom: '-1px' }}
-                    >
-                        <RenderMarcoSVG width="100%" />
                     </div>
                 </div>
                 <Mint />
