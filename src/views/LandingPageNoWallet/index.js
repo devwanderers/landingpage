@@ -39,16 +39,16 @@ import {
 } from '../../assets/svg/icons'
 // import { BackgroundSectionSVG } from '../assets/svg/background'
 // import RoadMapSVG from './../assets/svg/utilities/RoadMapSVG'
-import useWindowDimensions from '../../customHooks/useWindowDimensions'
 import { returnValueByScreenWidth } from '../../services/stylesServices'
 // import { sectionsImages } from '../assets/images/sections'
 import { RenderMarcoSVG } from '../../assets/svg/sections/index'
 import { BrandLogoSVG, Logo1SVG } from '../../assets/svg/brand'
 import AnimDisplayFromTop from '../../components/Animations/AnimDisplayFromTop'
-import windowOpen from '../../services/windowOpen'
+import { windowOpen } from '../../services/windowServices'
 import CollectionSection from '../../components/Collection/CollectionSection'
 import { RoadMapMobSVG } from '../../assets/svg/utilities'
 import Navbar from './Navbar'
+import useWindowSize from '../../hooks/useWindowSize'
 
 const { Content } = Layout
 // const { Countdown } = Statistic
@@ -103,7 +103,7 @@ const scrollTo = (name) => {
 }
 
 const LandingPage = () => {
-    const { innerWidth } = useWindowDimensions()
+    const { innerWidth } = useWindowSize()
     const [selectedMenu, setMenuIndex] = useState(0)
     const [imageIndex, setImageIndex] = useState(0)
     const [collapseFaq, setCollapseFAQ] = useState(true)

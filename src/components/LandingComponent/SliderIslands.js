@@ -5,7 +5,7 @@ import utilitiesImages from '../../assets/images/utilities'
 import NextArrowControl from '../CustomSliderControls/NextArrowControl'
 import PrevArrowControl from '../CustomSliderControls/PrevArrowControl'
 import HeaderText from '../DisplayText/Header'
-import useWindowDimensions from './../../customHooks/useWindowDimensions'
+import useWindowSize from './../../hooks/useWindowSize'
 
 const landImages = [
     {
@@ -48,7 +48,7 @@ const landImages = [
 
 const SliderIslands = () => {
     const [imageIndex, setImageIndex] = useState(0)
-    const { width } = useWindowDimensions()
+    const { width } = useWindowSize()
     const sliderLandSettings = {
         dots: false,
         infinite: true,

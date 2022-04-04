@@ -42,6 +42,8 @@ import Token from './Token'
 import { Logo1SVG } from '../../assets/svg/brand'
 import useWindowSize from '../../hooks/useWindowSize'
 import nftsImages from '../../assets/images/nfts'
+import PrevArrowControl from '../../components/CustomSliderControls/PrevArrowControl'
+import NextArrowControl from '../../components/CustomSliderControls/NextArrowControl'
 
 const { Content } = Layout
 
@@ -210,7 +212,6 @@ const LandingPage = () => {
                                     </div>
                                 </div>
                             </div>{' '}
-                            */}
                             <div className="text-center z-20">
                                 <a
                                     className="bg-dark bg-opacity-50 h-auto text-primary text-xl md:text-2xl lg:text-3xl xl:text-4xl py-2 px-8"

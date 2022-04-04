@@ -1,7 +1,7 @@
 /* eslint-disable no-unused-vars */
 import React, { useState } from 'react'
 import { BrandLogoSVG } from '../../assets/svg/brand'
-import windowOpen from '../../services/windowOpen'
+import { windowOpen } from '../../services/windowServices'
 import useWindowSize from '../../hooks/useWindowSize'
 import {
     OctagonDiscordSVG,
