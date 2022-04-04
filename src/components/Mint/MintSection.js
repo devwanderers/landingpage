@@ -64,7 +64,7 @@ const MintSection = () => {
                 setPrice('FREE')
             } else if (onlyWhitelisted && whitelisted.active) {
                 setMaxMint(5)
-                setPrice('0.15 ETH')
+                setPrice('0.09 ETH')
             } else if (!onlyWhitelisted) {
                 setMaxMint(15)
                 setPrice('0.25 ETH')

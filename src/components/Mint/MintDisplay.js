@@ -259,14 +259,14 @@ const MintDisplay = ({ data = example }) => {
                     >
                         Secondary Marketplace
                     </Button>
-                    <Button
+                    {/* <Button
                         className="flex-1 border-solid border-1 border-info bg-transparent
                                             text-info hover:border-white hover:bg-info focus:bg-info
                                             hover:text-white focus:text-white"
                         size="large"
                     >
                         Download Image
-                    </Button>
+                    </Button> */}
                     {/* </div> */}
                 </Col>
             </Row>

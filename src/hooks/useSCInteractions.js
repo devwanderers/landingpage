@@ -13,7 +13,7 @@ import useInterval from './useInterval'
 import useDeepCompareEffect from './useDeepCompareEffect'
 
 const publicPrice = 25e16
-const presalePrice = 15e16
+const presalePrice = 9e16
 
 const mintResultConverToArray = (res) => {
     const {
