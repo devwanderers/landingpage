@@ -97,7 +97,7 @@ const MintSection = () => {
                 minting={minting}
             />
             <div
-                className="w-full md:w-8/12 lg:w-6/12 bg-black-1 bg-opacity-40 px-10 py-6 relative mx-auto lg:mx-0 mb-5"
+                className="w-full md:w-6/12 lg:w-4/12 bg-black-1 bg-opacity-40 px-5 py-6 relative mx-auto lg:mx-0 mb-5"
                 // style={{ borderColor: '#2fb39b' }}
             >
                 <div>
