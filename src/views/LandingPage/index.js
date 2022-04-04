@@ -148,15 +148,8 @@ const LandingPage = () => {
                                 <Logo1SVG width="100%" />
                             </div>{' '}
                             <MintSection />
-                            <div className="mb-10 z-20">
+                            {/* <div className="mb-10 z-20">
                                 <div className="count-down bg-black-1 bg-opacity-40 mx-auto lg:px-4 pt-5 pb-4 relative z-10">
-                                    {/* <GenericCountDown date={deadline} />
-                                    <div className="flex text-white text-lg md:text-2xl lg:text-4xl mt-5">
-                                        <div className="flex-1">DAYS</div>
-                                        <div className="flex-1">HOURS</div>
-                                        <div className="flex-1">MINUTES</div>
-                                        <div className="flex-1">SECONDS</div>
-                                    </div> */}
                                     <div className="flex flex-col text-white text-lg md:text-2xl lg:text-4xl mt-5 text-center">
                                         <div className="xl:text-6xl text-xl font-saira-condensed leading-none tracking-wide">
                                             PRE-SALE EVENT ALMOST
@@ -222,7 +215,7 @@ const LandingPage = () => {
                                         </HeaderText>
                                     </div>
                                 </div>
-                            </div>
+                            </div> */}
                             <div className="text-center z-20">
                                 <a
                                     className="bg-dark bg-opacity-50 h-auto text-primary text-xl md:text-2xl lg:text-3xl xl:text-4xl py-2 px-8"
