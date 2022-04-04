@@ -58,7 +58,8 @@ const example = [
             'https://wanderers.mypinata.cloud/ipfs/QmUe1xnFLh4xiodfBeRUTMcJQTEMJBNbqgMRkevqyDHChR/5.json',
         nftData: {
             name: 'Nomad #12',
-            description: 'Nomadland NFT is the first project with real life pasive incomes.',
+            description:
+                'Nomadland NFT is the first project with real life pasive incomes.',
             image: 'https://wanderers.mypinata.cloud/ipfs/QmdbYAh4RwHRasoZmWBagzBpuZrSKLQ544JqT7EZzZCrQV',
             dna: '9b64578024cc6c53622161ae85795655487e271b',
             edition: 11,
@@ -153,7 +154,10 @@ const MintDisplay = ({ data = example }) => {
                                         About
                                     </h3>
                                     {/* <p>{data[index]?.nftData.description}</p> */}
-                                    <p>Nomadzland the first project with real pasive incomes.</p>
+                                    <p>
+                                        Nomadzland the first project with real
+                                        pasive incomes.
+                                    </p>
                                 </div>
                             </div>
                         </Col>
@@ -164,16 +168,10 @@ const MintDisplay = ({ data = example }) => {
                         <div className="flex space-x-5 flex-wrap leading-none mb-4">
                             <div>
                                 <h3 className="text-green-0 text-base md:text-lg lg:text-xl mb-2">
-                                    Class
-                                </h3>
-                                <p className="text-base lg:text-lg">Alliance</p>
-                            </div>
-                            <div>
-                                <h3 className="text-green-0 text-base md:text-lg lg:text-xl mb-2">
                                     Nomad ID
                                 </h3>
                                 <p className="text-base lg:text-lg">
-                                    12
+                                    {data[index] && data[index].tokenId}
                                 </p>
                             </div>
                         </div>
