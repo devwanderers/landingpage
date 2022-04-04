@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 import React from 'react'
 import PropTypes from 'prop-types'
 import { TextSizes } from './../../constants/textConstants'
@@ -17,7 +18,7 @@ const Paragraph = ({ children, className, ...restProps }) => {
 
 Paragraph.defaultProps = {
     className: 'text-blue-4',
-    base: 'xl',
+    // base: 'xl',
 }
 
 Paragraph.propTypes = {

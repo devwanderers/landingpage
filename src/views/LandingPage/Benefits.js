@@ -6,7 +6,7 @@ import AnimateTransition from './../../components/Animations/AnimateTransition'
 
 const Benefits = () => {
     const collectionConfig = {
-        threshold: 0.5,
+        threshold: 1,
         triggerOnce: true,
     }
 
@@ -29,18 +29,20 @@ const Benefits = () => {
                     <div className="pr-1" ref={benefit1Ref}>
                         <HeaderText
                             base="5xl"
+                            md="4xl"
+                            lg="5xl"
                             className="block text-info leading-tight tracking-widest mx-auto font-saira-condensed font-bold"
                         >
                             1.
                         </HeaderText>
                     </div>
-                    <div className="flex-1 overflow-hidden">
+                    <div className="flex-1 overflow-hidden  flex items-center">
                         <AnimateTransition
                             visible={benefit1Inview}
                             transitionFrom="left"
                         >
-                            <Paragraph className="text-blue-4  text-justify text-lg">
-                                Up to 24% ROI just by holding
+                            <Paragraph className="text-blue-4  text-justify text-base md:text-lg lg:text-xl">
+                                Access to Prime & Ambassador NFTs Marketplace.
                             </Paragraph>
                         </AnimateTransition>
                     </div>
@@ -49,18 +51,21 @@ const Benefits = () => {
                     <div className="pr-1" ref={benefit2Ref}>
                         <HeaderText
                             base="5xl"
+                            md="4xl"
+                            lg="5xl"
                             className="block text-info leading-tight tracking-widest mx-auto font-saira-condensed font-bold"
                         >
                             2.
                         </HeaderText>
                     </div>
-                    <div className="flex-1 overflow-hidden">
+                    <div className="flex-1 overflow-hidden flex items-center">
                         <AnimateTransition
                             visible={benefit2Inview}
                             transitionFrom="left"
                         >
-                            <Paragraph className="text-blue-4  text-justify text-lg">
-                                Get great discounts our partner travel platform.
+                            <Paragraph className="text-blue-4  text-justify  text-base md:text-lg lg:text-xl">
+                                Unlock great discounts from our partner travel
+                                platform.
                             </Paragraph>
                         </AnimateTransition>
                     </div>
@@ -69,19 +74,22 @@ const Benefits = () => {
                     <div className="pr-1" ref={benefit3Ref}>
                         <HeaderText
                             base="5xl"
+                            md="4xl"
+                            lg="5xl"
                             className="block text-info leading-tight tracking-widest mx-auto font-saira-condensed font-bold"
                         >
                             3.
                         </HeaderText>
                     </div>
-                    <div className="flex-1 overflow-hidden">
+                    <div className="flex-1 overflow-hidden flex items-center">
                         <AnimateTransition
                             visible={benefit3Inview}
                             transitionFrom="left"
                         >
-                            <Paragraph className="text-blue-4  text-justify text-lg">
-                                Receive 1% of the subsequent resales of this NFT
-                                in tokens.
+                            <Paragraph className="text-blue-4  text-justify  text-base md:text-lg lg:text-xl">
+                                Every Nft holder will receive one territory Nft
+                                and will be able to receive up to two token
+                                airdrops supplied by our partner.
                             </Paragraph>
                         </AnimateTransition>
                     </div>
