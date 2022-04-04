@@ -14,7 +14,7 @@ const AnimateCover = ({ visible }) => {
         (props, item) =>
             item && (
                 <animated.div
-                    className="css-generic max-w-full"
+                    className="max-w-full z-0"
                     style={{
                         ...props,
                         position: 'absolute',

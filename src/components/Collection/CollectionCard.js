@@ -2,7 +2,7 @@ import React from 'react'
 
 const CollectionCard = ({ src, className, size }) => {
     return (
-        <div className="css-generic">
+        <div className="">
             <div
                 className="bg-aqua-1 border-8 border-blue-2 border-solid relative box-border "
                 style={{ height: size, width: size }}

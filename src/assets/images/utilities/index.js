@@ -17,13 +17,25 @@ import wallet from './wallet.png'
 import alex from '../team/mar-alexis.png'
 import amelie from '../team/mar-amelie.png'
 import kame from '../team/mar-kame.png'
+import angel from '../team/mar-angel.png'
 import skullman from '../team/mar-skullman.png'
+import kizzy from '../team/mar-2kizzy.png'
+import tina from '../team/mar-2tina.png'
+import xavier from '../team/mar-xavier g..png'
 import surtek from '../team/mar-surtek.png'
 import dr from '../team/mar-dr.png'
+import usaLand from './usaland.png'
+import sydneyLand from './sydneyLand.png'
+import parisLand from './parisLand.png'
+import bronce from './bronce.png'
+import oro from './oro.png'
+import plata from './plata.png'
+import dttToken from './DDOT-token-01.png'
 
 const utilitiesImages = {
     card,
     nft,
+    dttToken,
     nft1,
     nft2,
     nft3,
@@ -44,6 +56,16 @@ const utilitiesImages = {
     dr,
     nft1wb,
     wallet,
+    usaLand,
+    sydneyLand,
+    parisLand,
+    bronce,
+    oro,
+    plata,
+    kizzy,
+    tina,
+    xavier,
+    angel,
 }
 
 export default utilitiesImages

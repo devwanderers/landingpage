@@ -9,6 +9,7 @@ import { ReactComponent as OctagonTelegram } from './ico-telegram.svg'
 import { ReactComponent as OctagonTwitter } from './ico-twitter.svg'
 import { ReactComponent as InputArrowRight } from './input-arrow-right.svg'
 import { ReactComponent as InputArrowLeft } from './input-arrow-left.svg'
+import { ReactComponent as OctagonInstagram } from './ico-instagram.svg'
 
 export const DiscordSVG = Discord
 export const TwitterSVG = Twitter
@@ -21,3 +22,4 @@ export const OctagonTelegramSVG = OctagonTelegram
 export const OctagonTwitterSVG = OctagonTwitter
 export const InputArrowRightSVG = InputArrowRight
 export const InputArrowLeftSVG = InputArrowLeft
+export const OctagonInstagramSVG = OctagonInstagram

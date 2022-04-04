@@ -108,6 +108,7 @@ const AnimateTransition = ({
         if (visible) controls.start('show')
         else controls.start('hidden')
     }, [controls, visible])
+
     return (
         <motion.div
             className={className}
