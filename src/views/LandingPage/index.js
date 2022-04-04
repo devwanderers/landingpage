@@ -143,7 +143,7 @@ const LandingPage = () => {
                         />
                     </div>
                     <div className="section mx-auto pt-64px mb-20 h-screen">
-                        <div className="css-generic h-full flex-col justify-between py-4 md:py-6 lg:px-28 xl:px-36 lg:py-10">
+                        <div className="css-generic h-full flex-col justify-between py-4 md:py-6 lg:py-10">
                             <div className="pt-10 w-80 lg:w-96 mx-auto  pb-6">
                                 <Logo1SVG width="100%" />
                             </div>{' '}
