@@ -18,18 +18,18 @@ const teams = [
             "Developer and blockchain engineer who is passionate about constant learning, new technologies, best practices, and also knowledge transfer. He's fully compromised with the project and the team.",
     },
     {
-        image: utilitiesImages.tina,
-        name: 'Tina',
-        subtitle: 'Project Manager',
-        description:
-            'Creative social media strategist with a passion for building communities and uplifting people to their fullest potential. She has over 10 years of experience in the financial services sector and is part one of a two woman team overseeing Nomadzland NFT.',
-    },
-    {
         image: utilitiesImages.kizzy,
         name: 'Kizzy',
-        subtitle: 'Project Manager',
+        subtitle: 'Project Admin',
         description:
             'Full Time investor in Crypto, DeFi and NFTs with 10+ years in financial services and social media marketing. My goal is and always will be to build communities with the intent for everyone to succeed in all they strive to accomplish. Honored to be one of two women driving the boat to bring NomadzLand NFT to its full potential.',
+    },
+    {
+        image: utilitiesImages.juan,
+        name: 'Juan',
+        subtitle: 'Project Admin',
+        description:
+            'A Rutgers University graduate with a major in Psychology and double minor in Human resource management and Business Administrations. Advisor at Dao Ducks. Deep analysis into human nature and social patterns that develop in digital ecosystems is the perspective thatI build with.',
     },
     {
         image: utilitiesImages.skullman,

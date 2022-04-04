@@ -31,6 +31,7 @@ import bronce from './bronce.png'
 import oro from './oro.png'
 import plata from './plata.png'
 import dttToken from './DDOT-token-01.png'
+import juan from '../team/mar-juan.png'
 
 const utilitiesImages = {
     card,
@@ -66,6 +67,7 @@ const utilitiesImages = {
     tina,
     xavier,
     angel,
+    juan,
 }
 
 export default utilitiesImages
