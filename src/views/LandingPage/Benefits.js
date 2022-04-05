@@ -87,9 +87,9 @@ const Benefits = () => {
                             transitionFrom="left"
                         >
                             <Paragraph className="text-blue-4  text-justify  text-base md:text-lg lg:text-xl">
-                                Every Nft holder will receive one territory Nft
-                                and will be able to receive up to two token
-                                airdrops supplied by our partner.
+                                OG members that mint 2 Nomadz will receive 1
+                                destination airdrop & Diamondhands will receive
+                                1 destination NFT airdrop.
                             </Paragraph>
                         </AnimateTransition>
                     </div>
