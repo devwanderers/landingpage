@@ -146,8 +146,8 @@ const MintDisplay = ({ data = example }) => {
                         <Col span={24}>
                             <div className="bg-green-1 border-2 border-green-3 p-4">
                                 <h2 className="text-info text-xl lg:text-2xl font-bold leading-none">
-                                    {/* {data[index]?.nftData.name} */}
-                                    Nomadzland Unrevealed
+                                    {data[index]?.nftData.name}
+                                    {/* Nomadzland Unrevealed */}
                                 </h2>
                                 <div className="mt-2">
                                     <h3 className="text-green-0 text-base lg:text-lg">
@@ -193,15 +193,15 @@ const MintDisplay = ({ data = example }) => {
                                                         <span className="font-bold  ">
                                                             Type:{' '}
                                                         </span>
-                                                        {/* {val.trait_type} */}
-                                                        Unrevealed
+                                                        {val.trait_type}
+                                                        {/* Unrevealed */}
                                                     </div>
                                                     <div>
                                                         <span className=" font-bold">
                                                             Value:{' '}
                                                         </span>
-                                                        {/* {val.value} */}
-                                                        Unrevealed
+                                                        {val.value}
+                                                        {/* Unrevealed */}
                                                     </div>
                                                 </div>
                                             )
