@@ -10,6 +10,7 @@ import routes from './routes'
 import { HomePath } from '../constants/routerConstants'
 
 const AppRouter = () => {
+    console.log('router')
     return (
         <Router>
             <Switch>
