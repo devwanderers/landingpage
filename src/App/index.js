@@ -1,6 +1,6 @@
 import React from 'react'
 // import ReactGA from 'react-ga'
-import useConnect from '../hooks/useConnect'
+// import useConnect from '../hooks/useConnect'
 import '../styles/App.less'
 
 import LandingPage from '../views/LandingPage'
@@ -9,7 +9,7 @@ import LandingPage from '../views/LandingPage'
 import useGoogleAnalytics from './../hooks/useGoogleAnalytics'
 
 const App = () => {
-    useConnect()
+    // useConnect()
     // useDeactivateListener()
     useGoogleAnalytics()
     // useEffectOnce(() => {

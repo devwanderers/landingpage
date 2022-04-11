@@ -1,7 +1,13 @@
 import React from 'react'
-import { Switch, BrowserRouter as Router } from 'react-router-dom'
+import {
+    Switch,
+    BrowserRouter as Router,
+    Route,
+    Redirect,
+} from 'react-router-dom'
 import loadable from '@loadable/component'
 import routes from './routes'
+import { HomePath } from '../constants/routerConstants'
 
 const AppRouter = () => {
     return (
@@ -23,6 +29,7 @@ const AppRouter = () => {
                         />
                     )
                 })}
+                <Route component={() => <Redirect to={HomePath} />} />
             </Switch>
             {/* <Switch>{routes.map((route, index) => <Route path render{route.component})}</Switch> */}
         </Router>
