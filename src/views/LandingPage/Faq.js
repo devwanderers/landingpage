@@ -38,15 +38,13 @@ const faqs = [
     },
     {
         id: '3',
-        title: 'How to play and earn?',
+        title: 'What is a price?',
         detail: (
             <React.Fragment>
                 <span>
-                    We are working tirelessly to launch the nomadzlands video
-                    game. The game is the place where you can use our token to
-                    play and get rewarded in several ways (PVE, PVP, Tournaments
-                    and more), once the token has been listed, you can enjoy
-                    your rewards in real life.
+                    The price of the genesis collection is 0.0555 ETH. The price
+                    of the next {"season's"} collections will be announced soon,
+                    but {"don't"} worry we will keep it lower.
                 </span>
                 <br />
             </React.Fragment>

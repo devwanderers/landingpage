@@ -14,7 +14,7 @@ import PrevArrowControl from '../../components/CustomSliderControls/PrevArrowCon
 import Paragraph from '../../components/DisplayText/Paragraph'
 import DefaultNavbar from '../../components/Navbar/DefaultNavbar'
 import islandVideo from '../../assets/images/backgrounds/FLOAT-ISLAND.mp4'
-import territories from '../../assets/videos/territories.mp4'
+import lands from '../../assets/videos/LANDS.mp4'
 import {
     FrameCounterTopSVG,
     FrameCounterBottomSVG,
@@ -43,6 +43,7 @@ import { Logo1SVG } from '../../assets/svg/brand'
 import useWindowSize from '../../hooks/useWindowSize'
 import nftsImages from '../../assets/images/nfts'
 import MintSection from '../../components/Mint/MintSection'
+import GenericCountDown from '../../components/CountDowns/GenericCountDown'
 
 const { Content } = Layout
 
@@ -50,27 +51,39 @@ const { Content } = Layout
 const landImages = [
     {
         id: 1,
-        img: nftsImages.france,
-        title: '40%',
-        percent: 'Country',
+        img: nftsImages.canada,
+        // title: '40%',
+        // percent: 'Country',
+    },
+    {
+        id: 2,
+        img: nftsImages.madrid,
+        // title: '30%',
+        // percent: 'Destiny',
     },
     {
         id: 3,
-        img: nftsImages.paris,
-        title: '30%',
-        percent: 'Destiny',
+        img: nftsImages.urkLondon,
+        // title: '30%',
+        // percent: 'Destiny',
     },
     {
         id: 4,
-        img: nftsImages.gold,
-        title: '20%',
-        percent: 'Country ambassadors',
+        img: nftsImages.australiaA,
+        // title: '30%',
+        // percent: 'Destiny',
     },
     {
-        id: 6,
-        img: nftsImages.silver,
-        title: '10%',
-        percent: 'Destiny ambassadors',
+        id: 5,
+        img: nftsImages.australiaG,
+        // title: '30%',
+        // percent: 'Destiny',
+    },
+    {
+        id: 5,
+        img: nftsImages.germany,
+        // title: '30%',
+        // percent: 'Destiny',
     },
 ]
 
@@ -141,17 +154,15 @@ const LandingPage = () => {
                                 <div className="count-down bg-black-1 bg-opacity-40 mx-auto lg:px-4 py-8  relative z-10 ">
                                     <div className="flex justify-center text-white text-lg md:text-2xl lg:text-4xl text-center">
                                         <div className="flex flex-col">
+                                            <GenericCountDown
+                                                date={new Date('2022/05/10')}
+                                                className="text-5xl md:text-8xl  xl:text-10xl"
+                                            />
                                             <div
                                                 className="text-4xl md:text-5xl lg:text-6xl font-russo-one leading-none   tracking-widest "
                                                 // style={{ letterSpacing: '1.2rem' }}
                                             >
-                                                LAUNCHING
-                                            </div>
-                                            <div
-                                                className="text-4xl md:text-5xl lg:text-6xl font-russo-one leading-none relative tracking-widest "
-                                                // style={{ letterSpacing: '1.2rem' }}
-                                            >
-                                                SOON
+                                                10/05/2022
                                             </div>
                                         </div>
                                     </div>
@@ -207,7 +218,7 @@ const LandingPage = () => {
                                             lg="34px"
                                             className="text-white z-10"
                                         >
-                                            MINT STARTS
+                                            MINT DAY
                                         </HeaderText>
                                     </div>
                                 </div>
@@ -252,7 +263,7 @@ const LandingPage = () => {
                                         controls={false}
                                         loop={true}
                                         playing={true}
-                                        url={territories}
+                                        url={lands}
                                         muted={true}
                                         // onReady={handlePlayVideo}
                                         onError={(e) => console.log('error', e)}
@@ -295,7 +306,7 @@ const LandingPage = () => {
                                         handmade NFTs.
                                     </Article>
                                     <Article
-                                        header="Prime NFTs"
+                                        header="Destinations NFTs"
                                         headerProps={{
                                             className:
                                                 'mb-4 font-saira-condensed leading-none text-info font-semibold  text-center lg:text-left',
@@ -317,7 +328,7 @@ const LandingPage = () => {
                                         platform will pay you a commission!
                                     </Article>
 
-                                    <Article
+                                    {/* <Article
                                         header="Ambassador NFTs"
                                         headerProps={{
                                             className:
@@ -339,7 +350,7 @@ const LandingPage = () => {
                                         smaller percentage. In other words,
                                         you’re working for the Prime NFT owner
                                         but whom will share revenue with you.
-                                    </Article>
+                                    </Article> */}
                                 </LineWrapper>
                             </Col>
                         </Row>
@@ -360,18 +371,20 @@ const LandingPage = () => {
                                     lg: '23px',
                                 }}
                             >
-                                There is two different kinda of NFTS and three
-                                different categories within them. The Prime Nft
-                                consist of the Countries, Cities and Destinies
-                                and all distribute a percentage of profit sales
-                                given by our partner to the owner of each unique
-                                NFT. The Ambassador NFT also consist of all
-                                three categories but is divided into smaller
-                                percentages as there is ten copies of such NFT
+                                The Destination Nft consist of the Countries,
+                                Cities and Destinations. It distribute a
+                                percentage of profit sales given by our partner
+                                to the owner of each unique NFT. It means if you
+                                are a holder of one destination you get rewarded
+                                every single time that someone complete a
+                                booking through our partner portal.
                             </Article>
                         </div>
                         <div className="flex flex-col">
-                            <Slider className="px-12" {...sliderLandSettings}>
+                            <Slider
+                                className="px-12 py-10"
+                                {...sliderLandSettings}
+                            >
                                 {landImages.map(({ id, img }, idx) => (
                                     <div
                                         key={`land-${id}`}
@@ -548,7 +561,7 @@ const LandingPage = () => {
                                     base="2xl"
                                     className="text-blue-4 font-semibold font-saira-condensed"
                                 >
-                                    9,000 Unique Nomadz
+                                    4,420 Unique Nomadz
                                 </HeaderText>
                             </div>
                         </div>

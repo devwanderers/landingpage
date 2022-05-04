@@ -32,6 +32,13 @@ const teams = [
             'A Rutgers University graduate with a major in Psychology and double minor in Human resource management and Business Administrations. Advisor at Dao Ducks. Deep analysis into human nature and social patterns that develop in digital ecosystems is the perspective that I build with.',
     },
     {
+        image: utilitiesImages.juan,
+        name: 'Ralphie',
+        subtitle: 'Advisor',
+        description:
+            '13+ years of industry experience - Fortune 500 cybersecurity consultant by day with extensive in-depth knowledge about cybersecurity best practices, vulnerability management, threat analysis and intelligence.  NFT enthusiast, mod and project advisor aiming to leverage my experience and web3’s numerous possibilities to help build a more collaborative future.A Rutgers University graduate with a major in Psychology and double minor in Human resource management and Business Administrations. Advisor at Dao Ducks. Deep analysis into human nature and social patterns that develop in digital ecosystems is the perspective that I build with.',
+    },
+    {
         image: utilitiesImages.skullman,
         name: 'Brandon S.',
         subtitle: 'Dev',

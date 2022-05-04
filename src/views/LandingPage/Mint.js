@@ -10,6 +10,7 @@ import utilitiesImages from '../../assets/images/utilities'
 import Benefits from './Benefits'
 import useResponsive from './../../hooks/useResponsive'
 import { whitePaperLink } from './../../constants/linksContants'
+import HeaderText from '../../components/DisplayText/Header'
 
 const Mint = (props) => {
     const [nftFrameRef, nftFrameInview] = useInView({
@@ -30,7 +31,7 @@ const Mint = (props) => {
                         <div className="w-full">
                             <div className="w-full pt-10 xl:pr-16">
                                 <Article
-                                    header="9,000"
+                                    header="4,420"
                                     subHeader="Unique Nomadz"
                                     headerProps={{
                                         className:
@@ -58,16 +59,25 @@ const Mint = (props) => {
                                     </span>
                                     <br />
                                     <br />
+
+                                    <HeaderText
+                                        base="3xl"
+                                        lg="4xl"
+                                        className="text-primary leading-none tracking-widest mr-2 mb-6"
+                                    >
+                                        Season 1
+                                    </HeaderText>
                                     <span>
-                                        The initial offering will include 9,000
-                                        unique characters called Nomadz and an
-                                        additional 250 special characters.
+                                        The genesis collection will include 555
+                                        Outcasters Nomadz they only can be
+                                        minted by OG members in our discord.
+                                        (Minting price 0.0555 ETH)
                                     </span>
                                     <br />
                                     <br />
                                     <span>
                                         {
-                                            'Our partner, Destinaire, will distribute 50% of monthly earnings to The Nomadz holders.'
+                                            'Our partner, Destinaire, will distribute 50% of monthly earnings to The Nomadz holders of all the seasons. Next seasons dates & benefits TBA'
                                         }
                                     </span>
                                     <br />

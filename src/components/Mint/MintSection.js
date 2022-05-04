@@ -105,7 +105,7 @@ const MintSection = () => {
                         <div className="text-white">
                             <div className="flex justify-between items-center">
                                 <span className="font-bold text-5xl leading-none">
-                                    9,000
+                                    4,420
                                 </span>
                                 <span className="font-bold text-5xl leading-none">
                                     Nomadz

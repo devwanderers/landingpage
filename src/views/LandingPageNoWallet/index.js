@@ -269,7 +269,7 @@ const LandingPage = () => {
                                 <div className="w-full">
                                     <div className="w-full xl:pr-16">
                                         <Article
-                                            header="9,000"
+                                            header="4,420"
                                             subHeader="Unique Wanderers"
                                             headerProps={{
                                                 className:
@@ -299,7 +299,7 @@ const LandingPage = () => {
                                             <br />
                                             <br />
                                             <span>
-                                                There are 9,000 unique
+                                                There are 4,420 unique
                                                 characters called wanderers as
                                                 an initial offering and other
                                                 250 special characters aviable
@@ -1189,7 +1189,7 @@ const LandingPage = () => {
                                     base="2xl"
                                     className="text-blue-4 font-semibold font-saira-condensed"
                                 >
-                                    9,000 unique Wanderers
+                                    4,420 unique Wanderers
                                 </HeaderText>
                             </div>
                         </div>

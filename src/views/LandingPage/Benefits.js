@@ -21,7 +21,7 @@ const Benefits = () => {
                     base="4xl"
                     className="block text-primary mb-2 leading-tight tracking-widest mx-auto"
                 >
-                    Benefits
+                    Season 1 Benefits
                 </HeaderText>
             </div>
             <div className="">
@@ -42,7 +42,7 @@ const Benefits = () => {
                             transitionFrom="left"
                         >
                             <Paragraph className="text-blue-4  text-justify text-base md:text-lg lg:text-xl">
-                                Access to Prime & Ambassador NFTs Marketplace.
+                                Destination NFT free drop for genesis holders
                             </Paragraph>
                         </AnimateTransition>
                     </div>
@@ -64,8 +64,8 @@ const Benefits = () => {
                             transitionFrom="left"
                         >
                             <Paragraph className="text-blue-4  text-justify  text-base md:text-lg lg:text-xl">
-                                Unlock great discounts from our partner travel
-                                platform.
+                                A percentage of the next {"season's"} sales will
+                                be distributed to all the genesis holders
                             </Paragraph>
                         </AnimateTransition>
                     </div>
@@ -87,9 +87,8 @@ const Benefits = () => {
                             transitionFrom="left"
                         >
                             <Paragraph className="text-blue-4  text-justify  text-base md:text-lg lg:text-xl">
-                                OG members that mint 2 Nomadz will receive 1
-                                destination airdrop & Diamondhands will receive
-                                1 destination NFT airdrop.
+                                Qualification for destinare token airdrops
+                                (scheduled to late Jun - Early Jul) beneficios
                             </Paragraph>
                         </AnimateTransition>
                     </div>
