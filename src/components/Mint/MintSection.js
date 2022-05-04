@@ -105,7 +105,7 @@ const MintSection = () => {
 
                                 </span>
                                 <span className="font-bold text-4xl leading-none">
-                                    Mint your lands
+                                    Mint your destinations
                                 </span>
                             </div>
                             <div className="text-2xl text-right">
