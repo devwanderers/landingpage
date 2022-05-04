@@ -155,14 +155,14 @@ const LandingPage = () => {
                                     <div className="flex justify-center text-white text-lg md:text-2xl lg:text-4xl text-center">
                                         <div className="flex flex-col">
                                             <GenericCountDown
-                                                date={new Date('2022/05/10')}
+                                                date={new Date('2022/06/11')}
                                                 className="text-5xl md:text-8xl  xl:text-10xl"
                                             />
                                             <div
                                                 className="text-4xl md:text-5xl lg:text-6xl font-russo-one leading-none   tracking-widest "
-                                                // style={{ letterSpacing: '1.2rem' }}
+                                            // style={{ letterSpacing: '1.2rem' }}
                                             >
-                                                10/05/2022
+                                                06.11.2022
                                             </div>
                                         </div>
                                     </div>
@@ -209,7 +209,7 @@ const LandingPage = () => {
                                         <div className="absolute right-0 left-0 top-0">
                                             <FrameCounterHeaderCustom
                                                 width="100%"
-                                                // backgroundColor="2fb39b"
+                                            // backgroundColor="2fb39b"
                                             />
                                         </div>
                                         <HeaderText
