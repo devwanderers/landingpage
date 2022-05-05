@@ -32,6 +32,7 @@ import oro from './oro.png'
 import plata from './plata.png'
 import dttToken from './DDOT-token-01.png'
 import juan from '../team/mar-juan.png'
+import ralphie from '../team/mar-ralphie.png'
 
 const utilitiesImages = {
     card,
@@ -54,6 +55,7 @@ const utilitiesImages = {
     amelie,
     skullman,
     surtek,
+    ralphie,
     dr,
     nft1wb,
     wallet,

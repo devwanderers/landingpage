@@ -25,14 +25,7 @@ const teams = [
             'Full time investor in Crypto, DeFi and NFTs with 10+ years in financial services and social media marketing. My goal is and always will be to build communities with the intent for everyone to succeed in all they strive to accomplish. Honored to be a strong representation for women in tech as project admins driving the boat to bring NomadzLand NFT to its full potential.',
     },
     {
-        image: utilitiesImages.juan,
-        name: 'Juan',
-        subtitle: 'Project Admin',
-        description:
-            'A Rutgers University graduate with a major in Psychology and double minor in Human resource management and Business Administrations. Advisor at Dao Ducks. Deep analysis into human nature and social patterns that develop in digital ecosystems is the perspective that I build with.',
-    },
-    {
-        image: utilitiesImages.juan,
+        image: utilitiesImages.ralphie,
         name: 'Ralphie',
         subtitle: 'Advisor',
         description:
