@@ -88,7 +88,7 @@ const Benefits = () => {
                         >
                             <Paragraph className="text-blue-4  text-justify  text-base md:text-lg lg:text-xl">
                                 Qualification for destinare token airdrops
-                                (scheduled to late Jun - Early Jul) beneficios
+                                (scheduled to late Jun - Early Jul)
                             </Paragraph>
                         </AnimateTransition>
                     </div>
