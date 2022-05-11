@@ -1,26 +1,18 @@
-/* eslint-disable no-unused-vars */
-import React, { useEffect, useRef, useState } from 'react'
-import {
-    motion,
-    useViewportScroll,
-    useTransform,
-    useSpring,
-} from 'framer-motion'
-import useSize from './../../../hooks/useSize'
+import React, { useEffect, useState } from 'react'
+import { useViewportScroll, useTransform, motion } from 'framer-motion'
+
 import { useRefScrollProgress } from '../../../hooks/useRefScrollProgress'
-import useWindowSize from './../../../hooks/useWindowSize'
+import useWindowSize from '../../../hooks/useWindowSize'
 
-// export default RoadMapSVG
-
-const RoadgMapSVG = (props) => {
+const RoadMapSVG = (props) => {
     const { scrollY } = useViewportScroll()
     const { height } = useWindowSize()
-
     const [completed1, setCompleted1] = useState(false)
     const [completed2, setCompleted2] = useState(false)
     const [completed3, setCompleted3] = useState(false)
     const [completed4, setCompleted4] = useState(false)
     const [completed5, setCompleted5] = useState(false)
+    const [completed6, setCompleted6] = useState(false)
 
     const { ref: step1Ref, start: start1 } = useRefScrollProgress()
     const { ref: step2Ref, start: start2 } = useRefScrollProgress()
@@ -28,6 +20,7 @@ const RoadgMapSVG = (props) => {
     const { ref: step4Ref, start: start4 } = useRefScrollProgress()
     const { ref: step5Ref, start: start5 } = useRefScrollProgress()
     const { ref: step6Ref, start: start6 } = useRefScrollProgress()
+    const { ref: step7Ref, start: start7 } = useRefScrollProgress()
 
     const screenHeightHalf = height * 0.5
 
@@ -59,6 +52,12 @@ const RoadgMapSVG = (props) => {
         [-100, 0]
     )
 
+    const step6ToStep7 = useTransform(
+        scrollY,
+        [start6 - screenHeightHalf, start7 - screenHeightHalf],
+        [-100, 0]
+    )
+
     useEffect(
         () =>
             step1ToStep2.onChange((v) => {
@@ -85,1692 +84,1737 @@ const RoadgMapSVG = (props) => {
     useEffect(() =>
         step5ToStep6.onChange((v) => setCompleted5(v > -1), [step5ToStep6])
     )
+
+    useEffect(() =>
+        step6ToStep7.onChange((v) => setCompleted6(v > -1), [step6ToStep7])
+    )
+
+    console.log({ step2ToStep3, completed2 })
+
     return (
         <svg
-            id="Capa_1"
-            data-name="Capa 1"
+            id="a"
             xmlns="http://www.w3.org/2000/svg"
-            viewBox="0 0 481.5 544.39"
+            viewBox="0 0 530.24 848.01"
             {...props}
         >
-            <text
-                transform="translate(144.77 11.92)"
-                style={{
-                    isolation: 'isolate',
-                    fontSize: '14.025400161743164px',
-                    fill: '#39b396',
-                    fontFamily: 'RussoOne, Russo One',
-                }}
-            >
-                {'Q1 2022'}
-            </text>
-            <text
-                transform="translate(122.61 40.24)"
-                style={{
-                    isolation: 'isolate',
-                    fontSize: '14.025400161743164px',
-                    fill: '#10b4ea',
-                    fontFamily: 'RussoOne, Russo One',
-                }}
-            >
-                {'Launchpad'}
-            </text>
-            <text
-                transform="translate(67.8 62.71)"
-                style={{
-                    isolation: 'isolate',
-                    fontSize: '12.946499824523926px',
-                    fill: '#698da6',
-                    fontFamily: 'SairaCondensed-Medium, Saira Condensed',
-                    fontWeight: 500,
-                }}
-            >
-                {'W'}
-            </text>
-            <text
-                transform="translate(76.58 62.71)"
-                style={{
-                    isolation: 'isolate',
-                    fontSize: '12.946499824523926px',
-                    fill: '#698da6',
-                    fontFamily: 'SairaCondensed-Medium, Saira Condensed',
-                    fontWeight: 500,
-                }}
-            >
-                {'eb 1.0, community suppo'}
-            </text>
-            <text
-                transform="translate(190.31 62.71)"
-                style={{
-                    isolation: 'isolate',
-                    fontSize: '12.946499824523926px',
-                    fill: '#698da6',
-                    fontFamily: 'SairaCondensed-Medium, Saira Condensed',
-                    fontWeight: 500,
-                }}
-            >
-                {'r'}
-            </text>
-            <text
-                transform="translate(194.22 62.71)"
-                style={{
-                    isolation: 'isolate',
-                    fontSize: '12.946499824523926px',
-                    fill: '#698da6',
-                    fontFamily: 'SairaCondensed-Medium, Saira Condensed',
-                    fontWeight: 500,
-                }}
-            >
-                {'t'}
-            </text>
-            <text
-                transform="translate(197.25 62.71)"
-                style={{
-                    isolation: 'isolate',
-                    fontSize: '12.946499824523926px',
-                    fill: '#698da6',
-                    fontFamily: 'SairaCondensed-Medium, Saira Condensed',
-                    fontWeight: 500,
-                }}
-            >
-                {','}
-            </text>
-            <text
-                transform="translate(46.19 78.25)"
-                style={{
-                    isolation: 'isolate',
-                    fontSize: '12.946499824523926px',
-                    fill: '#698da6',
-                    fontFamily: 'SairaCondensed-Medium, Saira Condensed',
-                    fontWeight: 500,
-                }}
-            >
-                {'mar'}
-            </text>
-            <text
-                transform="translate(64.33 78.25)"
-                style={{
-                    isolation: 'isolate',
-                    fontSize: '12.946499824523926px',
-                    fill: '#698da6',
-                    fontFamily: 'SairaCondensed-Medium, Saira Condensed',
-                    fontWeight: 500,
-                }}
-            >
-                {'k'}
-            </text>
-            <text
-                transform="translate(69.58 78.25)"
-                style={{
-                    isolation: 'isolate',
-                    fontSize: '12.946499824523926px',
-                    fill: '#698da6',
-                    fontFamily: 'SairaCondensed-Medium, Saira Condensed',
-                    fontWeight: 500,
-                }}
-            >
-                {'e'}
-            </text>
-            <text
-                transform="translate(75.06 78.25)"
-                style={{
-                    isolation: 'isolate',
-                    fontSize: '12.946499824523926px',
-                    fill: '#698da6',
-                    fontFamily: 'SairaCondensed-Medium, Saira Condensed',
-                    fontWeight: 500,
-                }}
-            >
-                {'ting plan, NF'}
-            </text>
-            <text
-                transform="translate(132.46 78.25)"
-                style={{
-                    isolation: 'isolate',
-                    fontSize: '12.946499824523926px',
-                    fill: '#698da6',
-                    fontFamily: 'SairaCondensed-Medium, Saira Condensed',
-                    fontWeight: 500,
-                    letterSpacing: '-0.030021386495812385em',
-                }}
-            >
-                {'T'}
-            </text>
-            <g
-                style={{
-                    isolation: 'isolate',
-                }}
-            >
+            <g>
                 <text
-                    transform="translate(137.63 78.25)"
+                    transform="translate(181.16 11.92)"
                     style={{
-                        isolation: 'isolate',
-                        fontSize: '12.946499824523926px',
-                        fill: '#698da6',
-                        fontFamily: 'SairaCondensed-Medium, Saira Condensed',
-                        fontWeight: 500,
+                        fill: '#3ab295',
+                        fontFamily: 'RussoOne-Regular, Russo One',
+                        fontSize: '14.03px',
                     }}
                 >
-                    <tspan xmlSpace="preserve">{' d'}</tspan>
+                    <tspan x={0} y={0}>
+                        {'Q1 2022'}
+                    </tspan>
+                </text>
+                <text
+                    transform="translate(158.16 40.24)"
+                    style={{
+                        fill: '#10b4e9',
+                        fontFamily: 'RussoOne-Regular, Russo One',
+                        fontSize: '14.03px',
+                    }}
+                >
+                    <tspan x={0} y={0}>
+                        {'Launchpad'}
+                    </tspan>
+                </text>
+                <text
+                    transform="translate(184.62 62.71)"
+                    style={{
+                        fill: '#bbd0e3',
+                        fontFamily: 'SairaCondensed-Medium, Saira Condensed',
+                        fontSize: '12.95px',
+                    }}
+                >
+                    <tspan
+                        x={0}
+                        y={0}
+                        style={{
+                            letterSpacing: '-.03em',
+                        }}
+                    >
+                        {'W'}
+                    </tspan>
+                    <tspan x={8.78} y={0}>
+                        {'ebsi'}
+                    </tspan>
+                    <tspan
+                        x={27.61}
+                        y={0}
+                        style={{
+                            letterSpacing: '0em',
+                        }}
+                    >
+                        {'t'}
+                    </tspan>
+                    <tspan
+                        x={31.21}
+                        y={0}
+                        style={{
+                            letterSpacing: '0em',
+                        }}
+                    >
+                        {'e v.1'}
+                    </tspan>
+                    <tspan x={-39.47} y={21}>
+                        {'Community suppo'}
+                    </tspan>
+                    <tspan
+                        x={43.31}
+                        y={21}
+                        style={{
+                            letterSpacing: '0em',
+                        }}
+                    >
+                        {'r'}
+                    </tspan>
+                    <tspan
+                        x={47.23}
+                        y={21}
+                        style={{
+                            letterSpacing: '0em',
+                        }}
+                    >
+                        {'t'}
+                    </tspan>
+                    <tspan x={-18} y={42}>
+                        {'Mar'}
+                    </tspan>
+                    <tspan
+                        x={0}
+                        y={42}
+                        style={{
+                            letterSpacing: '0em',
+                        }}
+                    >
+                        {'k'}
+                    </tspan>
+                    <tspan
+                        x={5.24}
+                        y={42}
+                        style={{
+                            letterSpacing: '0em',
+                        }}
+                    >
+                        {'e'}
+                    </tspan>
+                    <tspan x={10.71} y={42}>
+                        {'ting plan'}
+                    </tspan>
+                    <tspan x={-31.14} y={63}>
+                        {'NF'}
+                    </tspan>
+                    <tspan
+                        x={-19.11}
+                        y={63}
+                        style={{
+                            letterSpacing: '-.01em',
+                        }}
+                    >
+                        {'T'}
+                    </tspan>
+                    <tspan x={-13.94} y={63} xmlSpace="preserve">
+                        {' d'}
+                    </tspan>
+                    <tspan
+                        x={-5.66}
+                        y={63}
+                        style={{
+                            letterSpacing: '0em',
+                        }}
+                    >
+                        {'ev'}
+                    </tspan>
+                    <tspan
+                        x={4.91}
+                        y={63}
+                        style={{
+                            letterSpacing: '0em',
+                        }}
+                    >
+                        {'elopment '}
+                    </tspan>
+                </text>
+                <text
+                    transform="translate(295.25 108.42)"
+                    style={{
+                        fill: '#3ab295',
+                        fontFamily: 'RussoOne-Regular, Russo One',
+                        fontSize: '14.03px',
+                    }}
+                >
+                    <tspan x={0} y={0}>
+                        {'Q1 2022'}
+                    </tspan>
+                </text>
+                <text
+                    transform="translate(295.25 136.73)"
+                    style={{
+                        fill: '#10b4e9',
+                        fontFamily: 'RussoOne-Regular, Russo One',
+                        fontSize: '14.03px',
+                    }}
+                >
+                    <tspan x={0} y={0}>
+                        {'Nomadzland Communi'}
+                    </tspan>
+                    <tspan
+                        x={157.5}
+                        y={0}
+                        style={{
+                            letterSpacing: '-.02em',
+                        }}
+                    >
+                        {'t'}
+                    </tspan>
+                    <tspan x={163.39} y={0}>
+                        {'y'}
+                    </tspan>
+                </text>
+                <text
+                    transform="translate(295.25 159.21)"
+                    style={{
+                        fill: '#bbd0e3',
+                        fontFamily: 'SairaCondensed-Medium, Saira Condensed',
+                        fontSize: '12.95px',
+                    }}
+                >
+                    <tspan x={0} y={0}>
+                        {'Community '}
+                    </tspan>
+                    <tspan
+                        x={54.81}
+                        y={0}
+                        style={{
+                            letterSpacing: '0em',
+                        }}
+                    >
+                        {'r'}
+                    </tspan>
+                    <tspan
+                        x={58.56}
+                        y={0}
+                        style={{
+                            letterSpacing: '0em',
+                        }}
+                    >
+                        {'ew'}
+                    </tspan>
+                    <tspan x={71.85} y={0}>
+                        {'a'}
+                    </tspan>
+                    <tspan
+                        x={77.34}
+                        y={0}
+                        style={{
+                            letterSpacing: '0em',
+                        }}
+                    >
+                        {'r'}
+                    </tspan>
+                    <tspan x={81.08} y={0}>
+                        {'ds'}
+                    </tspan>
+                    <tspan x={0} y={21}>
+                        {'Ai'}
+                    </tspan>
+                    <tspan
+                        x={9.05}
+                        y={21}
+                        style={{
+                            letterSpacing: '0em',
+                        }}
+                    >
+                        {'r'}
+                    </tspan>
+                    <tspan x={12.79} y={21}>
+                        {'d'}
+                    </tspan>
+                    <tspan
+                        x={18.59}
+                        y={21}
+                        style={{
+                            letterSpacing: '0em',
+                        }}
+                    >
+                        {'r'}
+                    </tspan>
+                    <tspan
+                        x={22.33}
+                        y={21}
+                        style={{
+                            letterSpacing: '0em',
+                        }}
+                    >
+                        {'ops'}
+                    </tspan>
+                    <tspan x={0} y={42}>
+                        {'Gi'}
+                    </tspan>
+                    <tspan
+                        x={8.91}
+                        y={42}
+                        style={{
+                            letterSpacing: '0em',
+                        }}
+                    >
+                        {'v'}
+                    </tspan>
+                    <tspan
+                        x={14.07}
+                        y={42}
+                        style={{
+                            letterSpacing: '0em',
+                        }}
+                    >
+                        {'e'}
+                    </tspan>
+                    <tspan
+                        x={19.6}
+                        y={42}
+                        style={{
+                            letterSpacing: '0em',
+                        }}
+                    >
+                        {'aw'}
+                    </tspan>
+                    <tspan x={32.86} y={42}>
+                        {'ays & mo'}
+                    </tspan>
+                    <tspan
+                        x={75.41}
+                        y={42}
+                        style={{
+                            letterSpacing: '0em',
+                        }}
+                    >
+                        {'r'}
+                    </tspan>
+                    <tspan x={79.15} y={42}>
+                        {'e'}
+                    </tspan>
+                    <tspan
+                        x={0}
+                        y={63}
+                        style={{
+                            letterSpacing: '-.03em',
+                        }}
+                    >
+                        {'T'}
+                    </tspan>
+                    <tspan
+                        x={4.97}
+                        y={63}
+                        style={{
+                            letterSpacing: '0em',
+                        }}
+                    >
+                        {'o'}
+                    </tspan>
+                    <tspan
+                        x={10.63}
+                        y={63}
+                        style={{
+                            letterSpacing: '-.01em',
+                        }}
+                    >
+                        {'k'}
+                    </tspan>
+                    <tspan x={15.87} y={63}>
+                        {'en and bac'}
+                    </tspan>
+                    <tspan
+                        x={65.15}
+                        y={63}
+                        style={{
+                            letterSpacing: '0em',
+                        }}
+                    >
+                        {'k'}
+                    </tspan>
+                    <tspan
+                        x={70.39}
+                        y={63}
+                        style={{
+                            letterSpacing: '0em',
+                        }}
+                    >
+                        {'end suppo'}
+                    </tspan>
+                    <tspan
+                        x={118.01}
+                        y={63}
+                        style={{
+                            letterSpacing: '0em',
+                        }}
+                    >
+                        {'r'}
+                    </tspan>
+                    <tspan
+                        x={121.93}
+                        y={63}
+                        style={{
+                            letterSpacing: '0em',
+                        }}
+                    >
+                        {'t deployment '}
+                    </tspan>
+                </text>
+                <text
+                    transform="translate(109.91 451.52)"
+                    style={{
+                        fill: '#3ab295',
+                        fontFamily: 'RussoOne-Regular, Russo One',
+                        fontSize: '14.03px',
+                    }}
+                >
+                    <tspan x={0} y={0}>
+                        {'Q2 2022 Season 2'}
+                    </tspan>
+                </text>
+                <text
+                    transform="translate(68.68 479.84)"
+                    style={{
+                        fill: '#10b4e9',
+                        fontFamily: 'RussoOne-Regular, Russo One',
+                        fontSize: '14.03px',
+                    }}
+                >
+                    <tspan x={0} y={0}>
+                        {'Nomadzland Metaverse'}
+                    </tspan>
+                </text>
+                <text
+                    transform="translate(132.84 502.31)"
+                    style={{
+                        fill: '#bbd0e3',
+                    }}
+                >
+                    <tspan
+                        style={{
+                            fontFamily:
+                                'SairaCondensed-Medium, Saira Condensed',
+                            fontSize: '12.95px',
+                        }}
+                    >
+                        <tspan x={0} y={0}>
+                            {'Public mint of all '}
+                        </tspan>
+                        <tspan
+                            x={78.58}
+                            y={0}
+                            style={{
+                                letterSpacing: '0em',
+                            }}
+                        >
+                            {'r'}
+                        </tspan>
+                        <tspan x={82.26} y={0}>
+                            {'aces'}
+                        </tspan>
+                    </tspan>
+                    <tspan
+                        style={{
+                            fontFamily:
+                                'SairaCondensed-Medium, Saira Condensed',
+                            fontSize: '12.95px',
+                        }}
+                    >
+                        <tspan x={-77.41} y={21}>
+                            {'The second '}
+                        </tspan>
+                        <tspan
+                            x={-23.5}
+                            y={21}
+                            style={{
+                                letterSpacing: '0em',
+                            }}
+                        >
+                            {'wav'}
+                        </tspan>
+                        <tspan
+                            x={-5.07}
+                            y={21}
+                            style={{
+                                letterSpacing: '0em',
+                            }}
+                        >
+                            {'e of De'}
+                        </tspan>
+                        <tspan
+                            x={26.79}
+                            y={21}
+                            style={{
+                                letterSpacing: '0em',
+                            }}
+                        >
+                            {'s'}
+                        </tspan>
+                        <tspan x={31.59} y={21}>
+                            {'tin'}
+                        </tspan>
+                        <tspan
+                            x={43.73}
+                            y={21}
+                            style={{
+                                letterSpacing: '0em',
+                            }}
+                        >
+                            {'a'}
+                        </tspan>
+                        <tspan x={49.16} y={21}>
+                            {'tions d'}
+                        </tspan>
+                        <tspan
+                            x={80.11}
+                            y={21}
+                            style={{
+                                letterSpacing: '0em',
+                            }}
+                        >
+                            {'r'}
+                        </tspan>
+                        <tspan
+                            x={83.85}
+                            y={21}
+                            style={{
+                                letterSpacing: '0em',
+                            }}
+                        >
+                            {'ops '}
+                        </tspan>
+                    </tspan>
+                    <tspan
+                        style={{
+                            fontFamily:
+                                'SairaCondensed-Regular, Saira Condensed',
+                            fontSize: 9,
+                        }}
+                    >
+                        <tspan x={10.45} y={34}>
+                            {'(2 Nomadz '}
+                        </tspan>
+                        <tspan
+                            x={46.18}
+                            y={34}
+                            style={{
+                                letterSpacing: '0em',
+                            }}
+                        >
+                            {'r'}
+                        </tspan>
+                        <tspan
+                            x={48.7}
+                            y={34}
+                            style={{
+                                letterSpacing: '0em',
+                            }}
+                        >
+                            {'equi'}
+                        </tspan>
+                        <tspan
+                            x={62.44}
+                            y={34}
+                            style={{
+                                letterSpacing: '0em',
+                            }}
+                        >
+                            {'r'}
+                        </tspan>
+                        <tspan x={64.96} y={34}>
+                            {'ed '}
+                        </tspan>
+                        <tspan
+                            x={74.59}
+                            y={34}
+                            style={{
+                                letterSpacing: '0em',
+                            }}
+                        >
+                            {'t'}
+                        </tspan>
+                        <tspan x={77} y={34}>
+                            {'o apply)'}
+                        </tspan>
+                    </tspan>
+                    <tspan
+                        style={{
+                            fontFamily:
+                                'SairaCondensed-Medium, Saira Condensed',
+                            fontSize: '12.95px',
+                        }}
+                    >
+                        <tspan x={36.93} y={55}>
+                            {'DD'}
+                        </tspan>
+                        <tspan
+                            x={49.78}
+                            y={55}
+                            style={{
+                                letterSpacing: '0em',
+                            }}
+                        >
+                            {'O'}
+                        </tspan>
+                        <tspan
+                            x={56.35}
+                            y={55}
+                            style={{
+                                letterSpacing: '-.01em',
+                            }}
+                        >
+                            {'T'}
+                        </tspan>
+                        <tspan x={61.52} y={55} xmlSpace="preserve">
+                            {' Ai'}
+                        </tspan>
+                        <tspan
+                            x={73.05}
+                            y={55}
+                            style={{
+                                letterSpacing: '0em',
+                            }}
+                        >
+                            {'r'}
+                        </tspan>
+                        <tspan x={76.8} y={55}>
+                            {'d'}
+                        </tspan>
+                        <tspan
+                            x={82.6}
+                            y={55}
+                            style={{
+                                letterSpacing: '0em',
+                            }}
+                        >
+                            {'r'}
+                        </tspan>
+                        <tspan
+                            x={86.34}
+                            y={55}
+                            style={{
+                                letterSpacing: '0em',
+                            }}
+                        >
+                            {'ops'}
+                        </tspan>
+                    </tspan>
+                    <tspan
+                        style={{
+                            fontFamily:
+                                'SairaCondensed-Medium, Saira Condensed',
+                            fontSize: '12.95px',
+                        }}
+                    >
+                        <tspan x={-24.97} y={76}>
+                            {'Public sale De'}
+                        </tspan>
+                        <tspan
+                            x={37.95}
+                            y={76}
+                            style={{
+                                letterSpacing: '0em',
+                            }}
+                        >
+                            {'s'}
+                        </tspan>
+                        <tspan x={42.75} y={76}>
+                            {'tin'}
+                        </tspan>
+                        <tspan
+                            x={54.89}
+                            y={76}
+                            style={{
+                                letterSpacing: '0em',
+                            }}
+                        >
+                            {'a'}
+                        </tspan>
+                        <tspan x={60.32} y={76}>
+                            {'tions NF'}
+                        </tspan>
+                        <tspan
+                            x={97.5}
+                            y={76}
+                            style={{
+                                letterSpacing: '-.01em',
+                            }}
+                        >
+                            {'T'}
+                        </tspan>
+                    </tspan>
                 </text>
             </g>
-            <text
-                transform="translate(145.91 78.25)"
+            <polyline
+                points="257.75 21.89 41.25 21.89 41.25 56.89"
                 style={{
-                    isolation: 'isolate',
-                    fontSize: '12.946499824523926px',
-                    fill: '#698da6',
-                    fontFamily: 'SairaCondensed-Medium, Saira Condensed',
-                    fontWeight: 500,
+                    fill: 'none',
+                    stroke: '#fff',
+                    strokeMiterlimit: 10,
+                    strokeWidth: '.5px',
                 }}
-            >
-                {'e'}
-            </text>
-            <text
-                transform="translate(151.31 78.25)"
+            />
+            <motion.line
+                x1={257.75}
+                y1={115.81}
+                x2={257.75}
+                y2={22.81}
                 style={{
-                    isolation: 'isolate',
-                    fontSize: '12.946499824523926px',
-                    fill: '#698da6',
-                    fontFamily: 'SairaCondensed-Medium, Saira Condensed',
-                    fontWeight: 500,
+                    fill: 'none',
+                    stroke: '#fff',
+                    strokeMiterlimit: 10,
+                    strokeWidth: '.5px',
                 }}
-            >
-                {'v'}
-            </text>
-            <text
-                transform="translate(156.5 78.25)"
+                strokeDashoffset={step1ToStep2}
+                pathLength="100"
+                strokeDasharray="100"
+            />
+            <motion.line
+                x1={257.75}
+                y1={243.89}
+                x2={257.75}
+                y2={115.81}
                 style={{
-                    isolation: 'isolate',
-                    fontSize: '12.946499824523926px',
-                    fill: '#698da6',
-                    fontFamily: 'SairaCondensed-Medium, Saira Condensed',
-                    fontWeight: 500,
+                    fill: 'none',
+                    stroke: '#fff',
+                    strokeMiterlimit: 10,
+                    strokeWidth: '.5px',
                 }}
-            >
-                {'elopment'}
-            </text>
-            <text
-                transform="translate(276.61 100)"
+                strokeDashoffset={step2ToStep3}
+                pathLength="100"
+                strokeDasharray="100"
+            />
+            <motion.line
+                x1={257.75}
+                y1={344.39}
+                x2={257.75}
+                y2={243.89}
                 style={{
-                    isolation: 'isolate',
-                    fontSize: '14.025400161743164px',
-                    fill: '#39b396',
-                    fontFamily: 'RussoOne, Russo One',
+                    fill: 'none',
+                    stroke: '#fff',
+                    strokeMiterlimit: 10,
+                    strokeWidth: '.5px',
                 }}
-            >
-                {'Q1 2022'}
-            </text>
-            <text
-                transform="translate(276.61 128.31)"
+                strokeDashoffset={step3ToStep4}
+                pathLength="100"
+                strokeDasharray="100"
+            />
+            <motion.line
+                x1={257.75}
+                y1={459.39}
+                x2={257.75}
+                y2={344.39}
                 style={{
-                    isolation: 'isolate',
-                    fontSize: '14.025400161743164px',
-                    fill: '#10b4ea',
-                    fontFamily: 'RussoOne, Russo One',
+                    fill: 'none',
+                    stroke: '#fff',
+                    strokeMiterlimit: 10,
+                    strokeWidth: '.5px',
                 }}
-            >
-                {'Nomadzland Communi'}
-            </text>
-            <text
-                transform="translate(434.11 128.31)"
+                strokeDashoffset={step4ToStep5}
+                pathLength="100"
+                strokeDasharray="100"
+            />
+            <motion.line
+                x1={257.75}
+                y1={604.39}
+                x2={257.75}
+                y2={459.39}
                 style={{
-                    isolation: 'isolate',
-                    fontSize: '14.025400161743164px',
-                    fill: '#10b4ea',
-                    fontFamily: 'RussoOne, Russo One',
+                    fill: 'none',
+                    stroke: '#fff',
+                    strokeMiterlimit: 10,
+                    strokeWidth: '.5px',
                 }}
-            >
-                {'t'}
-            </text>
-            <text
-                transform="translate(440 128.31)"
+                strokeDashoffset={step5ToStep6}
+                pathLength="100"
+                strokeDasharray="100"
+            />
+            <motion.line
+                x1={257.75}
+                y1={737.81}
+                x2={257.75}
+                y2={604.39}
                 style={{
-                    isolation: 'isolate',
-                    fontSize: '14.025400161743164px',
-                    fill: '#10b4ea',
-                    fontFamily: 'RussoOne, Russo One',
+                    fill: 'none',
+                    stroke: '#fff',
+                    strokeMiterlimit: 10,
+                    strokeWidth: '.5px',
                 }}
-            >
-                {'y'}
-            </text>
-            <text
-                transform="translate(276.61 150.79)"
+                strokeDashoffset={step6ToStep7}
+                pathLength="100"
+                strokeDasharray="100"
+            />
+            <polyline
+                points="256.99 116.31 529.99 116.31 529.99 144.81"
                 style={{
-                    isolation: 'isolate',
-                    fontSize: '12.946499824523926px',
-                    fill: '#698da6',
-                    fontFamily: 'SairaCondensed-Medium, Saira Condensed',
-                    fontWeight: 500,
+                    fill: 'none',
+                    stroke: '#fff',
+                    strokeMiterlimit: 10,
+                    strokeWidth: '.5px',
                 }}
-            >
-                {'Community'}
-            </text>
-            <text
-                transform="translate(331.42 150.79)"
+            />
+            <polyline
+                points="256.25 459.89 .25 459.89 .25 493.89"
                 style={{
-                    isolation: 'isolate',
-                    fontSize: '12.946499824523926px',
-                    fill: '#698da6',
-                    fontFamily: 'SairaCondensed-Medium, Saira Condensed',
-                    fontWeight: 500,
+                    fill: 'none',
+                    stroke: '#fff',
+                    strokeMiterlimit: 10,
+                    strokeWidth: '.5px',
                 }}
-            >
-                {'r'}
-            </text>
-            <text
-                transform="translate(335.17 150.79)"
-                style={{
-                    isolation: 'isolate',
-                    fontSize: '12.946499824523926px',
-                    fill: '#698da6',
-                    fontFamily: 'SairaCondensed-Medium, Saira Condensed',
-                    fontWeight: 500,
-                }}
-            >
-                {'e'}
-            </text>
-            <text
-                transform="translate(340.57 150.79)"
-                style={{
-                    isolation: 'isolate',
-                    fontSize: '12.946499824523926px',
-                    fill: '#698da6',
-                    fontFamily: 'SairaCondensed-Medium, Saira Condensed',
-                    fontWeight: 500,
-                }}
-            >
-                {'w'}
-            </text>
-            <text
-                transform="translate(348.49 150.79)"
-                style={{
-                    isolation: 'isolate',
-                    fontSize: '12.946499824523926px',
-                    fill: '#698da6',
-                    fontFamily: 'SairaCondensed-Medium, Saira Condensed',
-                    fontWeight: 500,
-                }}
-            >
-                {'a'}
-            </text>
-            <text
-                transform="translate(353.98 150.79)"
-                style={{
-                    isolation: 'isolate',
-                    fontSize: '12.946499824523926px',
-                    fill: '#698da6',
-                    fontFamily: 'SairaCondensed-Medium, Saira Condensed',
-                    fontWeight: 500,
-                }}
-            >
-                {'r'}
-            </text>
-            <text
-                transform="translate(357.73 150.79)"
-                style={{
-                    isolation: 'isolate',
-                    fontSize: '12.946499824523926px',
-                    fill: '#698da6',
-                    fontFamily: 'SairaCondensed-Medium, Saira Condensed',
-                    fontWeight: 500,
-                }}
-            >
-                {'ds, ai'}
-            </text>
-            <text
-                transform="translate(381.72 150.79)"
-                style={{
-                    isolation: 'isolate',
-                    fontSize: '12.946499824523926px',
-                    fill: '#698da6',
-                    fontFamily: 'SairaCondensed-Medium, Saira Condensed',
-                    fontWeight: 500,
-                }}
-            >
-                {'r'}
-            </text>
-            <text
-                transform="translate(385.47 150.79)"
-                style={{
-                    isolation: 'isolate',
-                    fontSize: '12.946499824523926px',
-                    fill: '#698da6',
-                    fontFamily: 'SairaCondensed-Medium, Saira Condensed',
-                    fontWeight: 500,
-                }}
-            >
-                {'d'}
-            </text>
-            <text
-                transform="translate(391.27 150.79)"
-                style={{
-                    isolation: 'isolate',
-                    fontSize: '12.946499824523926px',
-                    fill: '#698da6',
-                    fontFamily: 'SairaCondensed-Medium, Saira Condensed',
-                    fontWeight: 500,
-                }}
-            >
-                {'r'}
-            </text>
-            <text
-                transform="translate(395.03 150.79)"
-                style={{
-                    isolation: 'isolate',
-                    fontSize: '12.946499824523926px',
-                    fill: '#698da6',
-                    fontFamily: 'SairaCondensed-Medium, Saira Condensed',
-                    fontWeight: 500,
-                }}
-            >
-                {'ops, gi'}
-            </text>
-            <text
-                transform="translate(424.97 150.79)"
-                style={{
-                    isolation: 'isolate',
-                    fontSize: '12.946499824523926px',
-                    fill: '#698da6',
-                    fontFamily: 'SairaCondensed-Medium, Saira Condensed',
-                    fontWeight: 500,
-                }}
-            >
-                {'v'}
-            </text>
-            <text
-                transform="translate(430.14 150.79)"
-                style={{
-                    isolation: 'isolate',
-                    fontSize: '12.946499824523926px',
-                    fill: '#698da6',
-                    fontFamily: 'SairaCondensed-Medium, Saira Condensed',
-                    fontWeight: 500,
-                }}
-            >
-                {'e'}
-            </text>
-            <text
-                transform="translate(435.67 150.79)"
-                style={{
-                    isolation: 'isolate',
-                    fontSize: '12.946499824523926px',
-                    fill: '#698da6',
-                    fontFamily: 'SairaCondensed-Medium, Saira Condensed',
-                    fontWeight: 500,
-                }}
-            >
-                {'a'}
-            </text>
-            <text
-                transform="translate(441.04 150.79)"
-                style={{
-                    isolation: 'isolate',
-                    fontSize: '12.946499824523926px',
-                    fill: '#698da6',
-                    fontFamily: 'SairaCondensed-Medium, Saira Condensed',
-                    fontWeight: 500,
-                }}
-            >
-                {'w'}
-            </text>
-            <text
-                transform="translate(448.94 150.79)"
-                style={{
-                    isolation: 'isolate',
-                    fontSize: '12.946499824523926px',
-                    fill: '#698da6',
-                    fontFamily: 'SairaCondensed-Medium, Saira Condensed',
-                    fontWeight: 500,
-                }}
-            >
-                {'ays'}
-            </text>
-            <text
-                transform="translate(276.61 166.33)"
-                style={{
-                    isolation: 'isolate',
-                    fontSize: '12.946499824523926px',
-                    fill: '#698da6',
-                    fontFamily: 'SairaCondensed-Medium, Saira Condensed',
-                    fontWeight: 500,
-                }}
-            >
-                {'& mo'}
-            </text>
-            <text
-                transform="translate(300.48 166.33)"
-                style={{
-                    isolation: 'isolate',
-                    fontSize: '12.946499824523926px',
-                    fill: '#698da6',
-                    fontFamily: 'SairaCondensed-Medium, Saira Condensed',
-                    fontWeight: 500,
-                }}
-            >
-                {'r'}
-            </text>
-            <text
-                transform="translate(304.24 166.33)"
-                style={{
-                    isolation: 'isolate',
-                    fontSize: '12.946499824523926px',
-                    fill: '#698da6',
-                    fontFamily: 'SairaCondensed-Medium, Saira Condensed',
-                    fontWeight: 500,
-                }}
-            >
-                {'e, apply'}
-            </text>
-            <text
-                transform="translate(343.01 166.33)"
-                style={{
-                    isolation: 'isolate',
-                    fontSize: '12.946499824523926px',
-                    fill: '#698da6',
-                    fontFamily: 'SairaCondensed-Medium, Saira Condensed',
-                    fontWeight: 500,
-                }}
-            >
-                {'t'}
-            </text>
-            <text
-                transform="translate(346.61 166.33)"
-                style={{
-                    isolation: 'isolate',
-                    fontSize: '12.946499824523926px',
-                    fill: '#698da6',
-                    fontFamily: 'SairaCondensed-Medium, Saira Condensed',
-                    fontWeight: 500,
-                }}
-            >
-                {'o li'}
-            </text>
-            <text
-                transform="translate(360.04 166.33)"
-                style={{
-                    isolation: 'isolate',
-                    fontSize: '12.946499824523926px',
-                    fill: '#698da6',
-                    fontFamily: 'SairaCondensed-Medium, Saira Condensed',
-                    fontWeight: 500,
-                }}
-            >
-                {'s'}
-            </text>
-            <text
-                transform="translate(364.85 166.33)"
-                style={{
-                    isolation: 'isolate',
-                    fontSize: '12.946499824523926px',
-                    fill: '#698da6',
-                    fontFamily: 'SairaCondensed-Medium, Saira Condensed',
-                    fontWeight: 500,
-                }}
-            >
-                {'t NFT\xB4s in OpenSea,'}
-            </text>
-            <text
-                transform="translate(276.61 181.86)"
-                style={{
-                    isolation: 'isolate',
-                    fontSize: '12.946499824523926px',
-                    fill: '#698da6',
-                    fontFamily: 'SairaCondensed-Medium, Saira Condensed',
-                    fontWeight: 500,
-                }}
-            >
-                {'t'}
-            </text>
-            <text
-                transform="translate(280.22 181.86)"
-                style={{
-                    isolation: 'isolate',
-                    fontSize: '12.946499824523926px',
-                    fill: '#698da6',
-                    fontFamily: 'SairaCondensed-Medium, Saira Condensed',
-                    fontWeight: 500,
-                }}
-            >
-                {'o'}
-            </text>
-            <text
-                transform="translate(285.88 181.86)"
-                style={{
-                    isolation: 'isolate',
-                    fontSize: '12.946499824523926px',
-                    fill: '#698da6',
-                    fontFamily: 'SairaCondensed-Medium, Saira Condensed',
-                    fontWeight: 500,
-                }}
-            >
-                {'k'}
-            </text>
-            <text
-                transform="translate(291.14 181.86)"
-                style={{
-                    isolation: 'isolate',
-                    fontSize: '12.946499824523926px',
-                    fill: '#698da6',
-                    fontFamily: 'SairaCondensed-Medium, Saira Condensed',
-                    fontWeight: 500,
-                }}
-            >
-                {'en and bac'}
-            </text>
-            <text
-                transform="translate(340.41 181.86)"
-                style={{
-                    isolation: 'isolate',
-                    fontSize: '12.946499824523926px',
-                    fill: '#698da6',
-                    fontFamily: 'SairaCondensed-Medium, Saira Condensed',
-                    fontWeight: 500,
-                }}
-            >
-                {'k'}
-            </text>
-            <text
-                transform="translate(345.65 181.86)"
-                style={{
-                    isolation: 'isolate',
-                    fontSize: '12.946499824523926px',
-                    fill: '#698da6',
-                    fontFamily: 'SairaCondensed-Medium, Saira Condensed',
-                    fontWeight: 500,
-                }}
-            >
-                {'end suppo'}
-            </text>
-            <text
-                transform="translate(393.27 181.86)"
-                style={{
-                    isolation: 'isolate',
-                    fontSize: '12.946499824523926px',
-                    fill: '#698da6',
-                    fontFamily: 'SairaCondensed-Medium, Saira Condensed',
-                    fontWeight: 500,
-                }}
-            >
-                {'r'}
-            </text>
-            <text
-                transform="translate(397.18 181.86)"
-                style={{
-                    isolation: 'isolate',
-                    fontSize: '12.946499824523926px',
-                    fill: '#698da6',
-                    fontFamily: 'SairaCondensed-Medium, Saira Condensed',
-                    fontWeight: 500,
-                }}
-            >
-                {'t deployment'}
-            </text>
-            <text
-                transform="translate(145.61 191.13)"
-                style={{
-                    isolation: 'isolate',
-                    fontSize: '14.025400161743164px',
-                    fill: '#39b396',
-                    fontFamily: 'RussoOne, Russo One',
-                }}
-            >
-                {'Q2 2022'}
-            </text>
-            <text
-                transform="translate(44.28 219.45)"
-                style={{
-                    isolation: 'isolate',
-                    fontSize: '14.025400161743164px',
-                    fill: '#10b4ea',
-                    fontFamily: 'RussoOne, Russo One',
-                }}
-            >
-                {'Nomadzland p'}
-            </text>
-            <text
-                transform="translate(144.84 219.45)"
-                style={{
-                    isolation: 'isolate',
-                    fontSize: '14.025400161743164px',
-                    fill: '#10b4ea',
-                    fontFamily: 'RussoOne, Russo One',
-                }}
-            >
-                {'r'}
-            </text>
-            <text
-                transform="translate(151.01 219.45)"
-                style={{
-                    isolation: 'isolate',
-                    fontSize: '14.025400161743164px',
-                    fill: '#10b4ea',
-                    fontFamily: 'RussoOne, Russo One',
-                }}
-            >
-                {'eseason'}
-            </text>
-            <text
-                transform="translate(57.22 241.93)"
-                style={{
-                    isolation: 'isolate',
-                    fontSize: '12.946499824523926px',
-                    fill: '#698da6',
-                    fontFamily: 'SairaCondensed-Medium, Saira Condensed',
-                    fontWeight: 500,
-                }}
-            >
-                {'W'}
-            </text>
-            <text
-                transform="translate(66 241.93)"
-                style={{
-                    isolation: 'isolate',
-                    fontSize: '12.946499824523926px',
-                    fill: '#698da6',
-                    fontFamily: 'SairaCondensed-Medium, Saira Condensed',
-                    fontWeight: 500,
-                }}
-            >
-                {'eb 2.0 & mar'}
-            </text>
-            <text
-                transform="translate(124.42 241.93)"
-                style={{
-                    isolation: 'isolate',
-                    fontSize: '12.946499824523926px',
-                    fill: '#698da6',
-                    fontFamily: 'SairaCondensed-Medium, Saira Condensed',
-                    fontWeight: 500,
-                }}
-            >
-                {'k'}
-            </text>
-            <text
-                transform="translate(129.67 241.93)"
-                style={{
-                    isolation: 'isolate',
-                    fontSize: '12.946499824523926px',
-                    fill: '#698da6',
-                    fontFamily: 'SairaCondensed-Medium, Saira Condensed',
-                    fontWeight: 500,
-                }}
-            >
-                {'e'}
-            </text>
-            <text
-                transform="translate(135.14 241.93)"
-                style={{
-                    isolation: 'isolate',
-                    fontSize: '12.946499824523926px',
-                    fill: '#698da6',
-                    fontFamily: 'SairaCondensed-Medium, Saira Condensed',
-                    fontWeight: 500,
-                }}
-            >
-                {'tplace upd'}
-            </text>
-            <text
-                transform="translate(182.71 241.93)"
-                style={{
-                    isolation: 'isolate',
-                    fontSize: '12.946499824523926px',
-                    fill: '#698da6',
-                    fontFamily: 'SairaCondensed-Medium, Saira Condensed',
-                    fontWeight: 500,
-                }}
-            >
-                {'a'}
-            </text>
-            <text
-                transform="translate(188.13 241.93)"
-                style={{
-                    isolation: 'isolate',
-                    fontSize: '12.946499824523926px',
-                    fill: '#698da6',
-                    fontFamily: 'SairaCondensed-Medium, Saira Condensed',
-                    fontWeight: 500,
-                }}
-            >
-                {'t'}
-            </text>
-            <text
-                transform="translate(191.74 241.93)"
-                style={{
-                    isolation: 'isolate',
-                    fontSize: '12.946499824523926px',
-                    fill: '#698da6',
-                    fontFamily: 'SairaCondensed-Medium, Saira Condensed',
-                    fontWeight: 500,
-                }}
-            >
-                {'e,'}
-            </text>
-            <text
-                transform="translate(113.31 257.46)"
-                style={{
-                    isolation: 'isolate',
-                    fontSize: '12.946499824523926px',
-                    fill: '#698da6',
-                    fontFamily: 'SairaCondensed-Medium, Saira Condensed',
-                    fontWeight: 500,
-                }}
-            >
-                {'NF'}
-            </text>
-            <text
-                transform="translate(125.34 257.46)"
-                style={{
-                    isolation: 'isolate',
-                    fontSize: '12.946499824523926px',
-                    fill: '#698da6',
-                    fontFamily: 'SairaCondensed-Medium, Saira Condensed',
-                    fontWeight: 500,
-                    letterSpacing: '-0.030021386495812385em',
-                }}
-            >
-                {'T'}
-            </text>
-            <g
-                style={{
-                    isolation: 'isolate',
-                }}
-            >
-                <text
-                    transform="translate(130.52 257.46)"
+            />
+            <g>
+                <rect
+                    ref={step1Ref}
+                    x={252.89}
+                    y={17.44}
+                    width={9.9}
+                    height={9.9}
+                    transform="translate(91.35 -175.76) rotate(45)"
                     style={{
-                        isolation: 'isolate',
-                        fontSize: '12.946499824523926px',
-                        fill: '#698da6',
-                        fontFamily: 'SairaCondensed-Medium, Saira Condensed',
-                        fontWeight: 500,
+                        fill: '#3cb295',
+                    }}
+                />
+                <path
+                    d="M257.84,15.39l7,7-7,7-7-7,7-7m0-4.24l-2.12,2.12-7,7-2.12,2.12,2.12,2.12,7,7,2.12,2.12,2.12-2.12,7-7,2.12-2.12-2.12-2.12-7-7-2.12-2.12h0Z"
+                    style={{
+                        fill: '#fff',
+                    }}
+                />
+            </g>
+            <g>
+                <rect
+                    ref={step2Ref}
+                    x={252.63}
+                    y={110.86}
+                    width={9.9}
+                    height={9.9}
+                    transform="translate(157.33 -148.22) rotate(45)"
+                    style={{ fill: completed1 ? '#3bb396' : '#03152b' }}
+                />
+                <path
+                    d="M257.58,108.81l7,7-7,7-7-7,7-7m0-4.24l-2.12,2.12-7,7-2.12,2.12,2.12,2.12,7,7,2.12,2.12,2.12-2.12,7-7,2.12-2.12-2.12-2.12-7-7-2.12-2.12h0Z"
+                    style={{
+                        fill: '#fff',
+                    }}
+                />
+            </g>
+            <g>
+                {/* 5 */}
+                <rect
+                    ref={step5Ref}
+                    x={252.89}
+                    y={454.44}
+                    width={9.9}
+                    height={9.9}
+                    transform="translate(400.36 -47.77) rotate(45)"
+                    style={{ fill: completed4 ? '#3bb396' : '#03152b' }}
+                />
+                <path
+                    d="M257.84,452.39l7,7-7,7-7-7,7-7m0-4.24l-2.12,2.12-7,7-2.12,2.12,2.12,2.12,7,7,2.12,2.12,2.12-2.12,7-7,2.12-2.12-2.12-2.12-7-7-2.12-2.12h0Z"
+                    style={{
+                        fill: '#fff',
+                    }}
+                />
+            </g>
+            <g>
+                <text
+                    transform="translate(178.57 235.13)"
+                    style={{
+                        fill: '#3ab295',
+                        fontFamily: 'RussoOne-Regular, Russo One',
+                        fontSize: '14.03px',
                     }}
                 >
-                    <tspan xmlSpace="preserve">{' minting period'}</tspan>
+                    <tspan x={0} y={0}>
+                        {'Q2 2022'}
+                    </tspan>
+                </text>
+                <text
+                    transform="translate(69.66 263.45)"
+                    style={{
+                        fill: '#10b4e9',
+                        fontFamily: 'RussoOne-Regular, Russo One',
+                        fontSize: '14.03px',
+                    }}
+                >
+                    <tspan x={0} y={0}>
+                        {'Nomadzland p'}
+                    </tspan>
+                    <tspan
+                        x={100.56}
+                        y={0}
+                        style={{
+                            letterSpacing: '-.02em',
+                        }}
+                    >
+                        {'r'}
+                    </tspan>
+                    <tspan x={106.73} y={0}>
+                        {'eseason'}
+                    </tspan>
+                </text>
+                <polyline
+                    points="257.25 243.89 24.25 243.89 24.25 284.89"
+                    style={{
+                        fill: 'none',
+                        stroke: '#fff',
+                        strokeMiterlimit: 10,
+                        strokeWidth: '.5px',
+                    }}
+                />
+                <g>
+                    {/* 3 */}
+                    <rect
+                        ref={step3Ref}
+                        x={252.89}
+                        y={238.44}
+                        width={9.9}
+                        height={9.9}
+                        transform="translate(247.62 -111.03) rotate(45)"
+                        style={{ fill: completed2 ? '#3bb396' : '#03152b' }}
+                    />
+                    <path
+                        d="M257.84,236.39l7,7-7,7-7-7,7-7m0-4.24l-2.12,2.12-7,7-2.12,2.12,2.12,2.12,7,7,2.12,2.12,2.12-2.12,7-7,2.12-2.12-2.12-2.12-7-7-2.12-2.12h0Z"
+                        style={{
+                            fill: '#fff',
+                        }}
+                    />
+                </g>
+                <text
+                    transform="translate(159.88 281.43)"
+                    style={{
+                        fill: '#bbd0e3',
+                        fontFamily: 'SairaCondensed-Medium, Saira Condensed',
+                        fontSize: '12.95px',
+                    }}
+                >
+                    <tspan
+                        x={0}
+                        y={0}
+                        style={{
+                            letterSpacing: '-.03em',
+                        }}
+                    >
+                        {'W'}
+                    </tspan>
+                    <tspan x={8.78} y={0}>
+                        {'ebsi'}
+                    </tspan>
+                    <tspan
+                        x={27.61}
+                        y={0}
+                        style={{
+                            letterSpacing: '0em',
+                        }}
+                    >
+                        {'t'}
+                    </tspan>
+                    <tspan
+                        x={31.21}
+                        y={0}
+                        style={{
+                            letterSpacing: '0em',
+                        }}
+                    >
+                        {'e upd'}
+                    </tspan>
+                    <tspan
+                        x={56.67}
+                        y={0}
+                        style={{
+                            letterSpacing: '0em',
+                        }}
+                    >
+                        {'at'}
+                    </tspan>
+                    <tspan x={65.69} y={0}>
+                        {'es'}
+                    </tspan>
+                    <tspan x={-86.24} y={21}>
+                        {'R'}
+                    </tspan>
+                    <tspan
+                        x={-79.87}
+                        y={21}
+                        style={{
+                            letterSpacing: '-.01em',
+                        }}
+                    >
+                        {'ew'}
+                    </tspan>
+                    <tspan x={-66.57} y={21}>
+                        {'a'}
+                    </tspan>
+                    <tspan
+                        x={-61.08}
+                        y={21}
+                        style={{
+                            letterSpacing: '0em',
+                        }}
+                    >
+                        {'r'}
+                    </tspan>
+                    <tspan x={-57.34} y={21}>
+                        {"ds claiming's pl"}
+                    </tspan>
+                    <tspan
+                        x={12.35}
+                        y={21}
+                        style={{
+                            letterSpacing: '0em',
+                        }}
+                    >
+                        {'a'}
+                    </tspan>
+                    <tspan
+                        x={17.78}
+                        y={21}
+                        style={{
+                            letterSpacing: '0em',
+                        }}
+                    >
+                        {'t'}
+                    </tspan>
+                    <tspan
+                        x={21.44}
+                        y={21}
+                        style={{
+                            letterSpacing: '0em',
+                        }}
+                    >
+                        {'f'}
+                    </tspan>
+                    <tspan x={25.13} y={21}>
+                        {'orm launch'}
+                    </tspan>
+                    <tspan x={-7.18} y={42}>
+                        {'Pa'}
+                    </tspan>
+                    <tspan
+                        x={4.34}
+                        y={42}
+                        style={{
+                            letterSpacing: '0em',
+                        }}
+                    >
+                        {'r'}
+                    </tspan>
+                    <tspan x={8.26} y={42}>
+                        {'tners & Collabs'}
+                    </tspan>
                 </text>
             </g>
-            <text
-                transform="translate(276.61 284.56)"
-                style={{
-                    isolation: 'isolate',
-                    fontSize: '14.025400161743164px',
-                    fill: '#39b396',
-                    fontFamily: 'RussoOne, Russo One',
-                }}
-            >
-                {'Q2 2022'}
-            </text>
-            <text
-                transform="translate(276.61 312.88)"
-                style={{
-                    isolation: 'isolate',
-                    fontSize: '14.025400161743164px',
-                    fill: '#10b4ea',
-                    fontFamily: 'RussoOne, Russo One',
-                }}
-            >
-                {'Nomadzland season 1'}
-            </text>
-            <text
-                transform="translate(276.61 335.35)"
-                style={{
-                    isolation: 'isolate',
-                    fontSize: '12.946499824523926px',
-                    fill: '#698da6',
-                    fontFamily: 'SairaCondensed-Medium, Saira Condensed',
-                    fontWeight: 500,
-                }}
-            >
-                {'NF'}
-            </text>
-            <text
-                transform="translate(288.64 335.35)"
-                style={{
-                    isolation: 'isolate',
-                    fontSize: '12.946499824523926px',
-                    fill: '#698da6',
-                    fontFamily: 'SairaCondensed-Medium, Saira Condensed',
-                    fontWeight: 500,
-                    letterSpacing: '-0.030021386495812385em',
-                }}
-            >
-                {'T'}
-            </text>
-            <text
-                transform="translate(296.3 335.35)"
-                style={{
-                    isolation: 'isolate',
-                    fontSize: '12.946499824523926px',
-                    fill: '#698da6',
-                    fontFamily: 'SairaCondensed-Medium, Saira Condensed',
-                    fontWeight: 500,
-                }}
-            >
-                {'r'}
-            </text>
-            <text
-                transform="translate(300.48 335.35)"
-                style={{
-                    isolation: 'isolate',
-                    fontSize: '12.946499824523926px',
-                    fill: '#698da6',
-                    fontFamily: 'SairaCondensed-Medium, Saira Condensed',
-                    fontWeight: 500,
-                }}
-            >
-                {'elease, IDO DD'}
-                <tspan
-                    x={66.13}
-                    y={0}
+            <g>
+                <text
+                    transform="translate(295.51 336.56)"
                     style={{
-                        letterSpacing: '-0.006977332288599612em',
+                        fill: '#3ab295',
+                        fontFamily: 'RussoOne-Regular, Russo One',
+                        fontSize: '14.03px',
                     }}
                 >
-                    {'O'}
-                </tspan>
-                <tspan
-                    x={72.71}
-                    y={0}
+                    <tspan x={0} y={0}>
+                        {'Q2 2022'}
+                    </tspan>
+                </text>
+                <text
+                    transform="translate(295.51 364.88)"
                     style={{
-                        letterSpacing: '-0.015010693247906192em',
+                        fill: '#10b4e9',
+                        fontFamily: 'RussoOne-Regular, Russo One',
+                        fontSize: '14.03px',
                     }}
                 >
-                    {'T'}
-                </tspan>
-                <tspan x={77.87} y={0} />
-                <tspan
-                    x={80.36}
-                    y={0}
+                    <tspan x={0} y={0}>
+                        {'Nomadzland Season 1'}
+                    </tspan>
+                </text>
+                <polyline
+                    points="256.25 344.89 526.99 344.89 526.99 382.89"
                     style={{
-                        letterSpacing: '-0.030021386495812385em',
+                        fill: 'none',
+                        stroke: '#fff',
+                        strokeMiterlimit: 10,
+                        strokeWidth: '.5px',
+                    }}
+                />
+                <g>
+                    {/* 4 */}
+                    <rect
+                        ref={step4Ref}
+                        x={252.89}
+                        y={339.44}
+                        width={9.9}
+                        height={9.9}
+                        transform="translate(319.04 -81.45) rotate(45)"
+                        style={{
+                            fill: completed3 ? '#3cb295' : '#03152b',
+                        }}
+                    />
+                    <path
+                        d="M257.84,337.39l7,7-7,7-7-7,7-7m0-4.24l-2.12,2.12-7,7-2.12,2.12,2.12,2.12,7,7,2.12,2.12,2.12-2.12,7-7,2.12-2.12-2.12-2.12-7-7-2.12-2.12h0Z"
+                        style={{
+                            fill: '#fff',
+                        }}
+                    />
+                </g>
+                <text
+                    transform="translate(295.51 387.35)"
+                    style={{
+                        fill: '#bbd0e3',
+                        fontFamily: 'SairaCondensed-Medium, Saira Condensed',
+                        fontSize: '12.95px',
                     }}
                 >
-                    {'T'}
-                </tspan>
-                <tspan x={85.33} y={0}>
-                    {'o'}
-                </tspan>
-                <tspan
-                    x={90.99}
-                    y={0}
+                    <tspan x={0} y={0}>
+                        {'Genesis collection minting period'}
+                    </tspan>
+                    <tspan x={0} y={21}>
+                        {'Pri'}
+                    </tspan>
+                    <tspan
+                        x={12.48}
+                        y={21}
+                        style={{
+                            letterSpacing: '0em',
+                        }}
+                    >
+                        {'v'}
+                    </tspan>
+                    <tspan
+                        x={17.65}
+                        y={21}
+                        style={{
+                            letterSpacing: '0em',
+                        }}
+                    >
+                        {'at'}
+                    </tspan>
+                    <tspan x={26.67} y={21}>
+                        {'e & P'}
+                    </tspan>
+                    <tspan
+                        x={50.09}
+                        y={21}
+                        style={{
+                            letterSpacing: '0em',
+                        }}
+                    >
+                        {'r'}
+                    </tspan>
+                    <tspan x={53.83} y={21}>
+                        {'esale DD'}
+                    </tspan>
+                    <tspan
+                        x={93.21}
+                        y={21}
+                        style={{
+                            letterSpacing: '0em',
+                        }}
+                    >
+                        {'O'}
+                    </tspan>
+                    <tspan
+                        x={99.79}
+                        y={21}
+                        style={{
+                            letterSpacing: '-.01em',
+                        }}
+                    >
+                        {'T'}
+                    </tspan>
+                    <tspan x={104.96} y={21} xmlSpace="preserve">
+                        {' access '}
+                    </tspan>
+                    <tspan
+                        x={139.72}
+                        y={21}
+                        style={{
+                            letterSpacing: '0em',
+                        }}
+                    >
+                        {'f'}
+                    </tspan>
+                    <tspan x={143.41} y={21}>
+                        {'or genesis holders'}
+                    </tspan>
+                    <tspan x={0} y={42}>
+                        {'De'}
+                    </tspan>
+                    <tspan
+                        x={11.95}
+                        y={42}
+                        style={{
+                            letterSpacing: '0em',
+                        }}
+                    >
+                        {'s'}
+                    </tspan>
+                    <tspan x={16.75} y={42}>
+                        {'tin'}
+                    </tspan>
+                    <tspan
+                        x={28.9}
+                        y={42}
+                        style={{
+                            letterSpacing: '0em',
+                        }}
+                    >
+                        {'a'}
+                    </tspan>
+                    <tspan x={34.32} y={42}>
+                        {'tion NF'}
+                    </tspan>
+                    <tspan
+                        x={66.63}
+                        y={42}
+                        style={{
+                            letterSpacing: '-.03em',
+                        }}
+                    >
+                        {'T'}
+                    </tspan>
+                    <tspan x={71.61} y={42} xmlSpace="preserve">
+                        {'s  d'}
+                    </tspan>
+                    <tspan
+                        x={87.24}
+                        y={42}
+                        style={{
+                            letterSpacing: '0em',
+                        }}
+                    >
+                        {'r'}
+                    </tspan>
+                    <tspan
+                        x={90.99}
+                        y={42}
+                        style={{
+                            letterSpacing: '0em',
+                        }}
+                    >
+                        {'op '}
+                    </tspan>
+                    <tspan
+                        x={104.93}
+                        y={42}
+                        style={{
+                            letterSpacing: '0em',
+                        }}
+                    >
+                        {'t'}
+                    </tspan>
+                    <tspan x={108.53} y={42}>
+                        {'o genesis holders'}
+                    </tspan>
+                    <tspan x={0} y={63}>
+                        {'De'}
+                    </tspan>
+                    <tspan
+                        x={11.95}
+                        y={63}
+                        style={{
+                            letterSpacing: '0em',
+                        }}
+                    >
+                        {'s'}
+                    </tspan>
+                    <tspan x={16.75} y={63}>
+                        {'tina'}
+                    </tspan>
+                    <tspan
+                        x={34.39}
+                        y={63}
+                        style={{
+                            letterSpacing: '0em',
+                        }}
+                    >
+                        {'r'}
+                    </tspan>
+                    <tspan x={38.13} y={63}>
+                        {'e pl'}
+                    </tspan>
+                    <tspan
+                        x={54.58}
+                        y={63}
+                        style={{
+                            letterSpacing: '0em',
+                        }}
+                    >
+                        {'a'}
+                    </tspan>
+                    <tspan x={60.01} y={63}>
+                        {'t'}
+                    </tspan>
+                    <tspan
+                        x={63.67}
+                        y={63}
+                        style={{
+                            letterSpacing: '0em',
+                        }}
+                    >
+                        {'f'}
+                    </tspan>
+                    <tspan
+                        x={67.36}
+                        y={63}
+                        style={{
+                            letterSpacing: '0em',
+                        }}
+                    >
+                        {'orm access'}
+                    </tspan>
+                </text>
+            </g>
+            <g>
+                <text
+                    transform="translate(144.77 729.52)"
                     style={{
-                        letterSpacing: '-0.009994557062048093em',
+                        fill: '#3ab295',
+                        fontFamily: 'RussoOne-Regular, Russo One',
+                        fontSize: '14.03px',
                     }}
                 >
-                    {'k'}
-                </tspan>
-                <tspan x={96.23} y={0}>
-                    {'en, '}
-                </tspan>
-                <tspan
-                    x={112.79}
-                    y={0}
+                    <tspan x={0} y={0}>
+                        {'Q2 - Q3 2022'}
+                    </tspan>
+                </text>
+                <text
+                    transform="translate(90.35 757.84)"
                     style={{
-                        letterSpacing: '-0.004978420876189994em',
+                        fill: '#10b4e9',
+                        fontFamily: 'RussoOne-Regular, Russo One',
+                        fontSize: '14.03px',
                     }}
                 >
-                    {'t'}
-                </tspan>
-                <tspan x={116.39} y={0}>
-                    {'o'}
-                </tspan>
-                <tspan
-                    x={122.04}
-                    y={0}
+                    <tspan x={0} y={0}>
+                        {'Nomadzland & DDOT'}
+                    </tspan>
+                </text>
+                <text
+                    transform="translate(145.01 780.31)"
                     style={{
-                        letterSpacing: '-0.009994557062048093em',
+                        fill: '#bbd0e3',
+                        fontFamily: 'SairaCondensed-Medium, Saira Condensed',
+                        fontSize: '12.95px',
                     }}
                 >
-                    {'k'}
-                </tspan>
-                <tspan x={127.29} y={0}>
-                    {'en sale, '}
-                </tspan>
-            </text>
-            <text
-                transform="translate(276.61 350.89)"
-                style={{
-                    isolation: 'isolate',
-                    fontSize: '12.946499824523926px',
-                    fill: '#698da6',
-                    fontFamily: 'SairaCondensed-Medium, Saira Condensed',
-                    fontWeight: 500,
-                }}
-            >
-                {'Prime & Ambassador p'}
-                <tspan
-                    x={104.02}
-                    y={0}
+                    <tspan x={0} y={0}>
+                        {'Public '}
+                    </tspan>
+                    <tspan
+                        x={29.96}
+                        y={0}
+                        style={{
+                            letterSpacing: '0em',
+                        }}
+                    >
+                        {'s'}
+                    </tspan>
+                    <tspan
+                        x={34.76}
+                        y={0}
+                        style={{
+                            letterSpacing: '-.01em',
+                        }}
+                    >
+                        {'t'}
+                    </tspan>
+                    <tspan x={38.29} y={0}>
+                        {'aking DD'}
+                    </tspan>
+                    <tspan
+                        x={78.75}
+                        y={0}
+                        style={{
+                            letterSpacing: '0em',
+                        }}
+                    >
+                        {'O'}
+                    </tspan>
+                    <tspan
+                        x={85.33}
+                        y={0}
+                        style={{
+                            letterSpacing: '-.01em',
+                        }}
+                    >
+                        {'T'}
+                    </tspan>
+                    <tspan x={13.96} y={21}>
+                        {'Coingec'}
+                    </tspan>
+                    <tspan
+                        x={49.09}
+                        y={21}
+                        style={{
+                            letterSpacing: '0em',
+                        }}
+                    >
+                        {'k'}
+                    </tspan>
+                    <tspan x={54.34} y={21}>
+                        {'o li'}
+                    </tspan>
+                    <tspan
+                        x={67.76}
+                        y={21}
+                        style={{
+                            letterSpacing: '0em',
+                        }}
+                    >
+                        {'s'}
+                    </tspan>
+                    <tspan
+                        x={72.56}
+                        y={21}
+                        style={{
+                            letterSpacing: '0em',
+                        }}
+                    >
+                        {'ting'}
+                    </tspan>
+                    <tspan x={-79.89} y={42}>
+                        {'Applic'}
+                    </tspan>
+                    <tspan
+                        x={-52.08}
+                        y={42}
+                        style={{
+                            letterSpacing: '0em',
+                        }}
+                    >
+                        {'a'}
+                    </tspan>
+                    <tspan x={-46.66} y={42}>
+                        {'tion '}
+                    </tspan>
+                    <tspan
+                        x={-26.37}
+                        y={42}
+                        style={{
+                            letterSpacing: '0em',
+                        }}
+                    >
+                        {'f'}
+                    </tspan>
+                    <tspan
+                        x={-22.68}
+                        y={42}
+                        style={{
+                            letterSpacing: '0em',
+                        }}
+                    >
+                        {'or cent'}
+                    </tspan>
+                    <tspan
+                        x={8.82}
+                        y={42}
+                        style={{
+                            letterSpacing: '0em',
+                        }}
+                    >
+                        {'r'}
+                    </tspan>
+                    <tspan x={12.49} y={42}>
+                        {'alized '}
+                    </tspan>
+                    <tspan
+                        x={41.97}
+                        y={42}
+                        style={{
+                            letterSpacing: '-.01em',
+                        }}
+                    >
+                        {'ex'}
+                    </tspan>
+                    <tspan x={52.63} y={42}>
+                        {'changes'}
+                    </tspan>
+                    <tspan x={-89.21} y={63}>
+                        {'Mo'}
+                    </tspan>
+                    <tspan
+                        x={-74.85}
+                        y={63}
+                        style={{
+                            letterSpacing: '0em',
+                        }}
+                    >
+                        {'r'}
+                    </tspan>
+                    <tspan x={-71.11} y={63}>
+                        {'e benefits and announcements TBA'}
+                    </tspan>
+                </text>
+                <polyline
+                    points="256.25 737.89 .25 737.89 .25 771.89"
                     style={{
-                        letterSpacing: '-0.0050161361858581em',
+                        fill: 'none',
+                        stroke: '#fff',
+                        strokeMiterlimit: 10,
+                        strokeWidth: '.5px',
+                    }}
+                />
+                <g>
+                    {/* 7 */}
+                    <rect
+                        ref={step7Ref}
+                        x={252.89}
+                        y={732.44}
+                        width={9.9}
+                        height={9.9}
+                        transform="translate(596.93 33.66) rotate(45)"
+                        style={{
+                            fill: completed6 ? '#3cb295' : '',
+                        }}
+                    />
+                    <path
+                        d="M257.84,730.39l7,7-7,7-7-7,7-7m0-4.24l-2.12,2.12-7,7-2.12,2.12,2.12,2.12,7,7,2.12,2.12,2.12-2.12,7-7,2.12-2.12-2.12-2.12-7-7-2.12-2.12h0Z"
+                        style={{
+                            fill: '#fff',
+                        }}
+                    />
+                </g>
+            </g>
+            <g>
+                <text
+                    transform="translate(295.51 596.36)"
+                    style={{
+                        fill: '#3ab295',
+                        fontFamily: 'RussoOne-Regular, Russo One',
+                        fontSize: '14.03px',
                     }}
                 >
-                    {'r'}
-                </tspan>
-                <tspan
-                    x={107.76}
-                    y={0}
+                    <tspan x={0} y={0}>
+                        {'Q2 2022 '}
+                    </tspan>
+                </text>
+                <text
+                    transform="translate(295.51 624.68)"
                     style={{
-                        letterSpacing: '0.00003771530966810601em',
+                        fill: '#10b4e9',
+                        fontFamily: 'RussoOne-Regular, Russo One',
+                        fontSize: '14.03px',
                     }}
                 >
-                    {'esale'}
-                </tspan>
-            </text>
-            <text
-                transform="translate(145.61 379.52)"
-                style={{
-                    isolation: 'isolate',
-                    fontSize: '14.025400161743164px',
-                    fill: '#39b396',
-                    fontFamily: 'RussoOne, Russo One',
-                }}
-            >
-                {'Q2 2022'}
-            </text>
-            <text
-                transform="translate(33.55 407.84)"
-                style={{
-                    isolation: 'isolate',
-                    fontSize: '14.025400161743164px',
-                    fill: '#10b4ea',
-                    fontFamily: 'RussoOne, Russo One',
-                }}
-            >
-                {'Nomadzland me'}
-            </text>
-            <text
-                transform="translate(146.66 407.84)"
-                style={{
-                    isolation: 'isolate',
-                    fontSize: '14.025400161743164px',
-                    fill: '#10b4ea',
-                    fontFamily: 'RussoOne, Russo One',
-                }}
-            >
-                {'t'}
-            </text>
-            <text
-                transform="translate(152.57 407.84)"
-                style={{
-                    isolation: 'isolate',
-                    fontSize: '14.025400161743164px',
-                    fill: '#10b4ea',
-                    fontFamily: 'RussoOne, Russo One',
-                }}
-            >
-                {'a'}
-            </text>
-            <text
-                transform="translate(160.79 407.84)"
-                style={{
-                    isolation: 'isolate',
-                    fontSize: '14.025400161743164px',
-                    fill: '#10b4ea',
-                    fontFamily: 'RussoOne, Russo One',
-                }}
-            >
-                {'v'}
-            </text>
-            <text
-                transform="translate(168.78 407.84)"
-                style={{
-                    isolation: 'isolate',
-                    fontSize: '14.025400161743164px',
-                    fill: '#10b4ea',
-                    fontFamily: 'RussoOne, Russo One',
-                }}
-            >
-                {'erse'}
-            </text>
-            <text
-                transform="translate(24.22 430.31)"
-                style={{
-                    isolation: 'isolate',
-                    fontSize: '12.946499824523926px',
-                    fill: '#698da6',
-                    fontFamily: 'SairaCondensed-Medium, Saira Condensed',
-                    fontWeight: 500,
-                }}
-            >
-                {'Fir'}
-            </text>
-            <text
-                transform="translate(35.9 430.31)"
-                style={{
-                    isolation: 'isolate',
-                    fontSize: '12.946499824523926px',
-                    fill: '#698da6',
-                    fontFamily: 'SairaCondensed-Medium, Saira Condensed',
-                    fontWeight: 500,
-                }}
-            >
-                {'s'}
-            </text>
-            <text
-                transform="translate(40.71 430.31)"
-                style={{
-                    isolation: 'isolate',
-                    fontSize: '12.946499824523926px',
-                    fill: '#698da6',
-                    fontFamily: 'SairaCondensed-Medium, Saira Condensed',
-                    fontWeight: 500,
-                }}
-            >
-                {'t'}
-            </text>
-            <text
-                transform="translate(46.86 430.31)"
-                style={{
-                    isolation: 'isolate',
-                    fontSize: '12.946499824523926px',
-                    fill: '#698da6',
-                    fontFamily: 'SairaCondensed-Medium, Saira Condensed',
-                    fontWeight: 500,
-                }}
-            >
-                {'r'}
-            </text>
-            <text
-                transform="translate(50.62 430.31)"
-                style={{
-                    isolation: 'isolate',
-                    fontSize: '12.946499824523926px',
-                    fill: '#698da6',
-                    fontFamily: 'SairaCondensed-Medium, Saira Condensed',
-                    fontWeight: 500,
-                }}
-            >
-                {'e'}
-            </text>
-            <text
-                transform="translate(56.02 430.31)"
-                style={{
-                    isolation: 'isolate',
-                    fontSize: '12.946499824523926px',
-                    fill: '#698da6',
-                    fontFamily: 'SairaCondensed-Medium, Saira Condensed',
-                    fontWeight: 500,
-                }}
-            >
-                {'v'}
-            </text>
-            <text
-                transform="translate(61.19 430.31)"
-                style={{
-                    isolation: 'isolate',
-                    fontSize: '12.946499824523926px',
-                    fill: '#698da6',
-                    fontFamily: 'SairaCondensed-Medium, Saira Condensed',
-                    fontWeight: 500,
-                }}
-            >
-                {'enue sha'}
-            </text>
-            <text
-                transform="translate(102.61 430.31)"
-                style={{
-                    isolation: 'isolate',
-                    fontSize: '12.946499824523926px',
-                    fill: '#698da6',
-                    fontFamily: 'SairaCondensed-Medium, Saira Condensed',
-                    fontWeight: 500,
-                }}
-            >
-                {'r'}
-            </text>
-            <text
-                transform="translate(106.35 430.31)"
-                style={{
-                    isolation: 'isolate',
-                    fontSize: '12.946499824523926px',
-                    fill: '#698da6',
-                    fontFamily: 'SairaCondensed-Medium, Saira Condensed',
-                    fontWeight: 500,
-                }}
-            >
-                {'es, Prime & Ambassador '}
-            </text>
-            <text
-                transform="translate(71.71 445.85)"
-                style={{
-                    isolation: 'isolate',
-                    fontSize: '12.946499824523926px',
-                    fill: '#698da6',
-                    fontFamily: 'SairaCondensed-Medium, Saira Condensed',
-                    fontWeight: 500,
-                }}
-            >
-                {'s'}
-            </text>
-            <text
-                transform="translate(76.53 445.85)"
-                style={{
-                    isolation: 'isolate',
-                    fontSize: '12.946499824523926px',
-                    fill: '#698da6',
-                    fontFamily: 'SairaCondensed-Medium, Saira Condensed',
-                    fontWeight: 500,
-                }}
-            >
-                {'t'}
-            </text>
-            <text
-                transform="translate(80.07 445.85)"
-                style={{
-                    isolation: 'isolate',
-                    fontSize: '12.946499824523926px',
-                    fill: '#698da6',
-                    fontFamily: 'SairaCondensed-Medium, Saira Condensed',
-                    fontWeight: 500,
-                }}
-            >
-                {'a'}
-            </text>
-            <text
-                transform="translate(85.56 445.85)"
-                style={{
-                    isolation: 'isolate',
-                    fontSize: '12.946499824523926px',
-                    fill: '#698da6',
-                    fontFamily: 'SairaCondensed-Medium, Saira Condensed',
-                    fontWeight: 500,
-                }}
-            >
-                {'r'}
-            </text>
-            <text
-                transform="translate(89.49 445.85)"
-                style={{
-                    isolation: 'isolate',
-                    fontSize: '12.946499824523926px',
-                    fill: '#698da6',
-                    fontFamily: 'SairaCondensed-Medium, Saira Condensed',
-                    fontWeight: 500,
-                }}
-            >
-                {'t'}
-            </text>
-            <text
-                transform="translate(95.63 445.85)"
-                style={{
-                    isolation: 'isolate',
-                    fontSize: '12.946499824523926px',
-                    fill: '#698da6',
-                    fontFamily: 'SairaCondensed-Medium, Saira Condensed',
-                    fontWeight: 500,
-                }}
-            >
-                {'s'}
-            </text>
-            <text
-                transform="translate(100.45 445.85)"
-                style={{
-                    isolation: 'isolate',
-                    fontSize: '12.946499824523926px',
-                    fill: '#698da6',
-                    fontFamily: 'SairaCondensed-Medium, Saira Condensed',
-                    fontWeight: 500,
-                }}
-            >
-                {'t'}
-            </text>
-            <text
-                transform="translate(105.04 445.85)"
-                style={{
-                    isolation: 'isolate',
-                    fontSize: '12.946499824523926px',
-                    fill: '#698da6',
-                    fontFamily: 'SairaCondensed-Medium, Saira Condensed',
-                    fontWeight: 500,
-                }}
-            >
-                {'aking periods, CMC li'}
-            </text>
-            <text
-                transform="translate(198.75 445.85)"
-                style={{
-                    isolation: 'isolate',
-                    fontSize: '12.946499824523926px',
-                    fill: '#698da6',
-                    fontFamily: 'SairaCondensed-Medium, Saira Condensed',
-                    fontWeight: 500,
-                }}
-            >
-                {'s'}
-            </text>
-            <text
-                transform="translate(203.55 445.85)"
-                style={{
-                    isolation: 'isolate',
-                    fontSize: '12.946499824523926px',
-                    fill: '#698da6',
-                    fontFamily: 'SairaCondensed-Medium, Saira Condensed',
-                    fontWeight: 500,
-                }}
-            >
-                {'ting,'}
-            </text>
-            <text
-                transform="translate(111.68 461.38)"
-                style={{
-                    isolation: 'isolate',
-                    fontSize: '12.946499824523926px',
-                    fill: '#698da6',
-                    fontFamily: 'SairaCondensed-Medium, Saira Condensed',
-                    fontWeight: 500,
-                }}
-            >
-                {'game planning'}
-            </text>
-            <text
-                transform="translate(276.61 473.36)"
-                style={{
-                    isolation: 'isolate',
-                    fontSize: '14.025400161743164px',
-                    fill: '#39b396',
-                    fontFamily: 'RussoOne, Russo One',
-                }}
-            >
-                {'Q3 2022'}
-            </text>
-            <text
-                transform="translate(276.61 501.68)"
-                style={{
-                    isolation: 'isolate',
-                    fontSize: '14.025400161743164px',
-                    fill: '#10b4ea',
-                    fontFamily: 'RussoOne, Russo One',
-                }}
-            >
-                {'Nomadzland season 2'}
-            </text>
-            <text
-                transform="translate(276.61 524.16)"
-                style={{
-                    isolation: 'isolate',
-                    fontSize: '12.946499824523926px',
-                    fill: '#698da6',
-                    fontFamily: 'SairaCondensed-Medium, Saira Condensed',
-                    fontWeight: 500,
-                }}
-            >
-                {'Game d'}
-            </text>
-            <text
-                transform="translate(311.02 524.16)"
-                style={{
-                    isolation: 'isolate',
-                    fontSize: '12.946499824523926px',
-                    fill: '#698da6',
-                    fontFamily: 'SairaCondensed-Medium, Saira Condensed',
-                    fontWeight: 500,
-                }}
-            >
-                {'e'}
-            </text>
-            <text
-                transform="translate(316.42 524.16)"
-                style={{
-                    isolation: 'isolate',
-                    fontSize: '12.946499824523926px',
-                    fill: '#698da6',
-                    fontFamily: 'SairaCondensed-Medium, Saira Condensed',
-                    fontWeight: 500,
-                }}
-            >
-                {'v'}
-            </text>
-            <text
-                transform="translate(321.59 524.16)"
-                style={{
-                    isolation: 'isolate',
-                    fontSize: '12.946499824523926px',
-                    fill: '#698da6',
-                    fontFamily: 'SairaCondensed-Medium, Saira Condensed',
-                    fontWeight: 500,
-                }}
-            >
-                {'elomen'}
-            </text>
-            <text
-                transform="translate(355.62 524.16)"
-                style={{
-                    isolation: 'isolate',
-                    fontSize: '12.946499824523926px',
-                    fill: '#698da6',
-                    fontFamily: 'SairaCondensed-Medium, Saira Condensed',
-                    fontWeight: 500,
-                }}
-            >
-                {'t'}
-            </text>
-            <text
-                transform="translate(358.65 524.16)"
-                style={{
-                    isolation: 'isolate',
-                    fontSize: '12.946499824523926px',
-                    fill: '#698da6',
-                    fontFamily: 'SairaCondensed-Medium, Saira Condensed',
-                    fontWeight: 500,
-                }}
-            >
-                {','}
-            </text>
-            <text
-                transform="translate(276.61 539.69)"
-                style={{
-                    isolation: 'isolate',
-                    fontSize: '12.946499824523926px',
-                    fill: '#698da6',
-                    fontFamily: 'SairaCondensed-Medium, Saira Condensed',
-                    fontWeight: 500,
-                }}
-            >
-                {'season 2'}
-            </text>
-            <text
-                transform="translate(319.51 539.69)"
-                style={{
-                    isolation: 'isolate',
-                    fontSize: '12.946499824523926px',
-                    fill: '#698da6',
-                    fontFamily: 'SairaCondensed-Medium, Saira Condensed',
-                    fontWeight: 500,
-                }}
-            >
-                {'r'}
-            </text>
-            <text
-                transform="translate(323.26 539.69)"
-                style={{
-                    isolation: 'isolate',
-                    fontSize: '12.946499824523926px',
-                    fill: '#698da6',
-                    fontFamily: 'SairaCondensed-Medium, Saira Condensed',
-                    fontWeight: 500,
-                }}
-            >
-                {'e'}
-            </text>
-            <text
-                transform="translate(328.67 539.69)"
-                style={{
-                    isolation: 'isolate',
-                    fontSize: '12.946499824523926px',
-                    fill: '#698da6',
-                    fontFamily: 'SairaCondensed-Medium, Saira Condensed',
-                    fontWeight: 500,
-                }}
-            >
-                {'v'}
-            </text>
-            <text
-                transform="translate(333.83 539.69)"
-                style={{
-                    isolation: 'isolate',
-                    fontSize: '12.946499824523926px',
-                    fill: '#698da6',
-                    fontFamily: 'SairaCondensed-Medium, Saira Condensed',
-                    fontWeight: 500,
-                }}
-            >
-                {'enue model & mo'}
-            </text>
-            <text
-                transform="translate(413.88 539.69)"
-                style={{
-                    isolation: 'isolate',
-                    fontSize: '12.946499824523926px',
-                    fill: '#698da6',
-                    fontFamily: 'SairaCondensed-Medium, Saira Condensed',
-                    fontWeight: 500,
-                }}
-            >
-                {'r'}
-            </text>
-            <text
-                transform="translate(417.62 539.69)"
-                style={{
-                    isolation: 'isolate',
-                    fontSize: '12.946499824523926px',
-                    fill: '#698da6',
-                    fontFamily: 'SairaCondensed-Medium, Saira Condensed',
-                    fontWeight: 500,
-                }}
-            >
-                {'e'}
-            </text>
-            <polyline
-                points="238.95 21.9 22.25 21.9 22.25 56.9"
-                style={{
-                    fill: 'none',
-                    stroke: '#fff',
-                    strokeMiterlimit: 10,
-                    strokeWidth: '0.5px',
-                }}
-            />
-            <motion.line
-                x1={238.95}
-                y1={107.4}
-                x2={238.95}
-                y2={21.9}
-                style={{
-                    fill: 'none',
-                    stroke: '#fff',
-                    strokeMiterlimit: 10,
-                    strokeWidth: '2px',
-                    strokeDashoffset: step1ToStep2,
-                    strokeDasharray: 100,
-                }}
-            />
-            <motion.line
-                x1={238.95}
-                y1={199.4}
-                x2={238.95}
-                y2={107.4}
-                style={{
-                    fill: 'none',
-                    stroke: '#fff',
-                    strokeMiterlimit: 10,
-                    strokeWidth: '2px',
-                    strokeDashoffset: step2ToStep3,
-                    strokeDasharray: 100,
-                }}
-            />
-            <motion.line
-                x1={238.95}
-                y1={292.4}
-                x2={238.95}
-                y2={199.4}
-                style={{
-                    fill: 'none',
-                    stroke: '#fff',
-                    strokeMiterlimit: 10,
-                    strokeWidth: '2px',
-                    strokeDashoffset: step3ToStep4,
-                    strokeDasharray: 100,
-                }}
-            />
-            <motion.line
-                x1={238.95}
-                y1={387.4}
-                x2={238.95}
-                y2={292.4}
-                style={{
-                    fill: 'none',
-                    stroke: '#fff',
-                    strokeMiterlimit: 10,
-                    strokeWidth: '2px',
-                    strokeDashoffset: step4ToStep5,
-                    strokeDasharray: 100,
-                }}
-            />
-            <motion.line
-                x1={238.95}
-                y1={482.4}
-                x2={238.95}
-                y2={387.4}
-                style={{
-                    fill: 'none',
-                    stroke: '#fff',
-                    strokeMiterlimit: 10,
-                    strokeWidth: '2px',
-                    strokeDashoffset: step5ToStep6,
-                    strokeDasharray: 100,
-                }}
-            />
-            <polyline
-                points="238.25 107.9 481.25 107.9 481.25 136.4"
-                style={{
-                    fill: 'none',
-                    stroke: '#fff',
-                    strokeMiterlimit: 10,
-                    strokeWidth: '0.5px',
-                }}
-            />
-            <polyline
-                points="238.25 199.9 24.25 199.9 24.25 240.9"
-                style={{
-                    fill: 'none',
-                    stroke: '#fff',
-                    strokeMiterlimit: 10,
-                    strokeWidth: '0.5px',
-                }}
-            />
-            <polyline
-                points="237.25 292.9 466.25 292.9 466.25 330.9"
-                style={{
-                    fill: 'none',
-                    stroke: '#fff',
-                    strokeMiterlimit: 10,
-                    strokeWidth: '0.5px',
-                }}
-            />
-            <polyline
-                points="237.25 387.9 0.25 387.9 0.25 421.9"
-                style={{
-                    fill: 'none',
-                    stroke: '#fff',
-                    strokeMiterlimit: 10,
-                    strokeWidth: '0.5px',
-                }}
-            />
-            <polyline
-                points="238.25 481.9 461.25 481.9 461.25 511.9"
-                style={{
-                    fill: 'none',
-                    stroke: '#fff',
-                    strokeMiterlimit: 10,
-                    strokeWidth: '0.5px',
-                }}
-            />
-            <rect
-                ref={step1Ref}
-                x={232.95}
-                y={16.42}
-                width={11.9}
-                height={11.9}
-                transform="translate(54.16 175.48) rotate(-45)"
-                style={{
-                    fill: '#3bb396',
-                }}
-            />
-            <path
-                d="M239,15.4l7,7-7,7-7-7,7-7m0-2.8-1.4,1.4-7,7-1.4,1.4,1.4,1.4,7,7,1.4,1.4,1.4-1.4,7-7,1.4-1.4-1.4-1.4-7-7A18.49,18.49,0,0,1,239,12.6Z"
-                style={{
-                    fill: '#fff',
-                }}
-            />
-            <rect
-                ref={step2Ref}
-                x={232.95}
-                y={101.42}
-                width={11.9}
-                height={11.9}
-                transform="translate(-5.95 200.38) rotate(-45)"
-                style={{ fill: completed1 ? '#3bb396' : '#03152b' }}
-            />
-            <path
-                d="M239,100.4l7,7-7,7-7-7,7-7m0-2.8-1.4,1.4-7,7-1.4,1.4,1.4,1.4,7,7,1.4,1.4,1.4-1.4,7-7,1.4-1.4-1.4-1.4-7-7Z"
-                style={{
-                    fill: '#fff',
-                }}
-            />
-            <rect
-                ref={step3Ref}
-                x={232.95}
-                y={193.42}
-                width={11.9}
-                height={11.9}
-                transform="translate(-71.01 227.32) rotate(-45)"
-                style={{ fill: completed2 ? '#3bb396' : '#03152b' }}
-            />
-            <path
-                d="M239,192.4l7,7-7,7-7-7,7-7m0-2.8-1.4,1.4-7,7-1.4,1.4,1.4,1.4,7,7,1.4,1.4,1.4-1.4,7-7,1.4-1.4-1.4-1.4-7-7Z"
-                style={{
-                    fill: '#fff',
-                }}
-            />
-            <rect
-                ref={step4Ref}
-                x={232.95}
-                y={286.41}
-                width={11.9}
-                height={11.9}
-                transform="translate(-136.76 254.56) rotate(-45)"
-                style={{ fill: completed3 ? '#3bb396' : '#03152b' }}
-            />
-            <path
-                d="M239,285.4l7,7-7,7-7-7,7-7m0-2.8-1.4,1.4-7,7-1.4,1.4,1.4,1.4,7,7,1.4,1.4,1.4-1.4,7-7,1.4-1.4-1.4-1.4-7-7Z"
-                style={{
-                    fill: '#fff',
-                }}
-            />
-            <rect
-                ref={step5Ref}
-                x={232.95}
-                y={381.41}
-                width={11.9}
-                height={11.9}
-                transform="translate(-203.94 282.38) rotate(-45)"
-                style={{ fill: completed4 ? '#3bb396' : '#03152b' }}
-            />
-            <path
-                d="M239,380.4l7,7-7,7-7-7,7-7m0-2.8-1.4,1.4-7,7-1.4,1.4,1.4,1.4,7,7,1.4,1.4,1.4-1.4,7-7,1.4-1.4-1.4-1.4-7-7Z"
-                style={{
-                    fill: '#fff',
-                }}
-            />
-            <rect
-                ref={step6Ref}
-                x={232.96}
-                y={475.41}
-                width={11.9}
-                height={11.9}
-                transform="translate(-270.4 309.92) rotate(-45)"
-                style={{ fill: completed5 ? '#3bb396' : '#03152b' }}
-            />
-            <path
-                d="M239,474.4l7,7-7,7-7-7,7-7m0-2.8-1.4,1.4-7,7-1.4,1.4,1.4,1.4,7,7,1.4,1.4,1.4-1.4,7-7,1.4-1.4-1.4-1.4-7-7Z"
-                style={{
-                    fill: '#fff',
-                }}
-            />
-            <text
-                transform="translate(46.86 445.85)"
-                style={{
-                    isolation: 'isolate',
-                    fontSize: '12.946499824523926px',
-                    fill: '#698da6',
-                    fontFamily: 'SairaCondensed-Medium, Saira Condensed',
-                    fontWeight: 500,
-                }}
-            >
-                {'sale,'}
-            </text>
+                    <tspan x={0} y={0}>
+                        {'Nomadzland season 3'}
+                    </tspan>
+                </text>
+                <polyline
+                    points="257.25 604.89 484.99 604.89 484.99 634.89"
+                    style={{
+                        fill: 'none',
+                        stroke: '#fff',
+                        strokeMiterlimit: 10,
+                        strokeWidth: '.5px',
+                    }}
+                />
+                <g>
+                    {/* 6 */}
+                    <rect
+                        ref={step6Ref}
+                        x={252.89}
+                        y={599.44}
+                        width={9.9}
+                        height={9.9}
+                        transform="translate(502.89 -5.3) rotate(45)"
+                        style={{
+                            fill: completed5 ? '#3cb295' : '',
+                        }}
+                    />
+                    <path
+                        d="M257.84,597.39l7,7-7,7-7-7,7-7m0-4.24l-2.12,2.12-7,7-2.12,2.12,2.12,2.12,7,7,2.12,2.12,2.12-2.12,7-7,2.12-2.12-2.12-2.12-7-7-2.12-2.12h0Z"
+                        style={{
+                            fill: '#fff',
+                        }}
+                    />
+                </g>
+                <text
+                    transform="translate(295.51 647.16)"
+                    style={{
+                        fill: '#bbd0e3',
+                        fontFamily: 'SairaCondensed-Medium, Saira Condensed',
+                        fontSize: '12.95px',
+                    }}
+                >
+                    <tspan x={0} y={0}>
+                        {'Public sale DD'}
+                    </tspan>
+                    <tspan
+                        x={63.81}
+                        y={0}
+                        style={{
+                            letterSpacing: '0em',
+                        }}
+                    >
+                        {'O'}
+                    </tspan>
+                    <tspan
+                        x={70.39}
+                        y={0}
+                        style={{
+                            letterSpacing: '-.01em',
+                        }}
+                    >
+                        {'T'}
+                    </tspan>
+                    <tspan x={0} y={21}>
+                        {'The second '}
+                    </tspan>
+                    <tspan
+                        x={53.91}
+                        y={21}
+                        style={{
+                            letterSpacing: '0em',
+                        }}
+                    >
+                        {'wav'}
+                    </tspan>
+                    <tspan
+                        x={72.33}
+                        y={21}
+                        style={{
+                            letterSpacing: '0em',
+                        }}
+                    >
+                        {'e of DD'}
+                    </tspan>
+                    <tspan
+                        x={105.08}
+                        y={21}
+                        style={{
+                            letterSpacing: '0em',
+                        }}
+                    >
+                        {'O'}
+                    </tspan>
+                    <tspan
+                        x={111.66}
+                        y={21}
+                        style={{
+                            letterSpacing: '-.02em',
+                        }}
+                    >
+                        {'T'}
+                    </tspan>
+                    <tspan x={116.83} y={21} xmlSpace="preserve">
+                        {' Ai'}
+                    </tspan>
+                    <tspan
+                        x={128.36}
+                        y={21}
+                        style={{
+                            letterSpacing: '0em',
+                        }}
+                    >
+                        {'r'}
+                    </tspan>
+                    <tspan x={132.1} y={21}>
+                        {'d'}
+                    </tspan>
+                    <tspan
+                        x={137.9}
+                        y={21}
+                        style={{
+                            letterSpacing: '0em',
+                        }}
+                    >
+                        {'r'}
+                    </tspan>
+                    <tspan x={141.65} y={21}>
+                        {'ops '}
+                    </tspan>
+                    <tspan x={0} y={42}>
+                        {'Mo'}
+                    </tspan>
+                    <tspan
+                        x={14.36}
+                        y={42}
+                        style={{
+                            letterSpacing: '0em',
+                        }}
+                    >
+                        {'r'}
+                    </tspan>
+                    <tspan x={18.1} y={42}>
+                        {'e Pa'}
+                    </tspan>
+                    <tspan
+                        x={37.63}
+                        y={42}
+                        style={{
+                            letterSpacing: '0em',
+                        }}
+                    >
+                        {'r'}
+                    </tspan>
+                    <tspan
+                        x={41.56}
+                        y={42}
+                        style={{
+                            letterSpacing: '0em',
+                        }}
+                    >
+                        {'tners & Collabs'}
+                    </tspan>
+                    <tspan x={0} y={63}>
+                        {'Li'}
+                    </tspan>
+                    <tspan
+                        x={7.55}
+                        y={63}
+                        style={{
+                            letterSpacing: '0em',
+                        }}
+                    >
+                        {'s'}
+                    </tspan>
+                    <tspan x={12.35} y={63}>
+                        {'ting DD'}
+                    </tspan>
+                    <tspan
+                        x={45.61}
+                        y={63}
+                        style={{
+                            letterSpacing: '0em',
+                        }}
+                    >
+                        {'O'}
+                    </tspan>
+                    <tspan
+                        x={52.19}
+                        y={63}
+                        style={{
+                            letterSpacing: '-.01em',
+                        }}
+                    >
+                        {'T'}
+                    </tspan>
+                    <tspan x={57.35} y={63} xmlSpace="preserve">
+                        {' on Unis'}
+                    </tspan>
+                    <tspan
+                        x={93.77}
+                        y={63}
+                        style={{
+                            letterSpacing: '0em',
+                        }}
+                    >
+                        {'w'}
+                    </tspan>
+                    <tspan x={101.67} y={63}>
+                        {'app'}
+                    </tspan>
+                </text>
+            </g>
         </svg>
     )
 }
-
-export default RoadgMapSVG
+export default RoadMapSVG

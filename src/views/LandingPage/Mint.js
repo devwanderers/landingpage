@@ -54,7 +54,7 @@ const Mint = (props) => {
                                 >
                                     <span>
                                         {
-                                            'We’ve created a completely virtual metaverse in which all tourist destinations offered by our travel partner are represented as NFTs within our platform known as Lands or Roles. Such destinations can be owned by you, or a group of adventurers called Nomadz, who are also represented as unique handmade NFTs.'
+                                            'We’ve created a completely virtual metaverse in which all tourist destinations offered by our travel partner are represented as NFTs within our platform known as destinations. Such destinations can be owned by you, or a group of adventurers called Nomadz, who are also represented as unique handmade NFTs.'
                                         }
                                     </span>
                                     <br />

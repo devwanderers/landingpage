@@ -160,7 +160,7 @@ const LandingPage = () => {
                                             />
                                             <div
                                                 className="text-4xl md:text-5xl lg:text-6xl font-russo-one leading-none   tracking-widest "
-                                            // style={{ letterSpacing: '1.2rem' }}
+                                                // style={{ letterSpacing: '1.2rem' }}
                                             >
                                                 06.11.2022
                                             </div>
@@ -209,7 +209,7 @@ const LandingPage = () => {
                                         <div className="absolute right-0 left-0 top-0">
                                             <FrameCounterHeaderCustom
                                                 width="100%"
-                                            // backgroundColor="2fb39b"
+                                                // backgroundColor="2fb39b"
                                             />
                                         </div>
                                         <HeaderText
@@ -295,15 +295,19 @@ const LandingPage = () => {
                                             lg: '23px',
                                         }}
                                     >
-                                        We’ve created a completely virtual
-                                        metaverse in which all tourist
-                                        destinations offered by our travel
-                                        partner are represented as NFTs within
-                                        our platform known as Lands or Roles.
-                                        These destinations can be owned by you,
-                                        or a group of adventurers called Nomadz,
-                                        who are also represented as unique
-                                        handmade NFTs.
+                                        The mission began when a small group of
+                                        Nomadz decided to reinitiate an
+                                        investigation about the Earth’s
+                                        gravitational catastrophe that happened
+                                        hundreds of years ago. These Nomadz went
+                                        off to investigate if there were any
+                                        remaining civilizations or Destinations
+                                        after the catastrophe, and that sets off
+                                        the mission. After realizing there were
+                                        over 150 different territoryes with
+                                        thousands of different Destination the
+                                        Nomadz decided to start an expansion in
+                                        their civilization.
                                     </Article>
                                     <Article
                                         header="Destinations NFTs"
