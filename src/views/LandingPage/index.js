@@ -328,7 +328,7 @@ const LandingPage = () => {
                                         of NTF, now you’re the only owner of
                                         this Prime NFT, it means that every
                                         single booking completed to the
-                                        equivalent place in our partnet travel
+                                        equivalent place in our partner travel
                                         platform will pay you a commission!
                                     </Article>
 
