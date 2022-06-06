@@ -111,7 +111,7 @@ const MintDisplay = ({ data = example }) => {
     const imageIpfsURI = data[index]?.nftData.image
     const imageUri = imageIpfsURI.replace(
         /^ipfs?:\/\//,
-        'https://wanderers.mypinata.cloud/ipfs/'
+        'https://nomadzland.mypinata.cloud/ipfs/'
     )
     return (
         <React.Fragment>

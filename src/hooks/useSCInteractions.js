@@ -12,8 +12,7 @@ import { abortablePromise, returnPromise } from '../services/promises'
 import useInterval from './useInterval'
 import useDeepCompareEffect from './useDeepCompareEffect'
 
-const publicPrice = 25e16
-const presalePrice = 9e16
+const publicPrice = 555e14
 
 const mintResultConverToArray = (res) => {
     const {
@@ -96,7 +95,7 @@ const useSCInteractions = () => {
                                 .call()
                             const uri = tokenUri.replace(
                                 /^ipfs?:\/\//,
-                                'https://wanderers.mypinata.cloud/ipfs/'
+                                'https://nomadzland.mypinata.cloud/ipfs/'
                             )
 
                             const response = await fetch(uri)
@@ -136,16 +135,16 @@ const useSCInteractions = () => {
                     process.env.REACT_APP_AVATAR_DESTINARE_CONTRACT_ADDRESS
                 )
                 const onlyWhitelisted = await contract.methods
-                    .onlyWhitelisted()
+                    .onlyOG()
                     .call()
 
                 const whitelisted = await contract.methods
                     .whitelisted(account)
                     .call()
-                    .then((res) => {
-                        console.log({ res })
-                        return { tickets: parseInt(res[0]), active: res[1] }
-                    })
+                    // .then((res) => {
+                    //     console.log({ res })
+                    //     return { tickets: parseInt(res[0]), active: res[1] }
+                    // })
                 console.log({ whitelisted })
                 resolve({ onlyWhitelisted, whitelisted })
             } catch (err) {
@@ -161,6 +160,7 @@ const useSCInteractions = () => {
             const controller = refController.current
             try {
                 const signal = controller.signal
+                console.log("Entro toda todita completa")
                 const data = await getContractData({
                     signal,
                 })
@@ -198,29 +198,25 @@ const useSCInteractions = () => {
                     process.env.REACT_APP_AVATAR_DESTINARE_CONTRACT_ADDRESS
                 )
                 const activePresale = await contract.methods
-                    .onlyWhitelisted()
+                    .onlyOG()
                     .call()
 
                 const whitelisted = await contract.methods
                     .whitelisted(account)
                     .call()
-                    .then((res) => {
-                        return { tickets: parseInt(res[0]), active: res[1] }
-                    })
+                    // .then((res) => {
+                    //     return { tickets: parseInt(res[0]), active: res[1] }
+                    // })
                 console.log({ amount, account })
                 let mintAvatar
-                if (whitelisted.active && whitelisted.tickets > 0) {
-                    mintAvatar = await contract.methods
-                        .mint(account, amount)
-                        .send({ from: account, value: 0 })
-                } else if (activePresale && whitelisted.active) {
+                if (activePresale && whitelisted) {
                     console.log({ amount })
                     mintAvatar = await contract.methods
-                        .mint(account, amount)
-                        .send({ from: account, value: presalePrice * amount })
+                        .mint(amount)
+                        .send({ from: account, value: publicPrice * amount })
                 } else {
                     mintAvatar = await contract.methods
-                        .mint(account, amount)
+                        .mint(amount)
                         .send({ from: account, value: publicPrice * amount })
                 }
 

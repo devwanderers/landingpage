@@ -22,7 +22,7 @@ const presalePrice = 15e16
 
 const MintSection = () => {
     const [maxMint, setMaxMint] = useState(0)
-    const [priceMint, setPrice] = useState('0.25 ETH')
+    const [priceMint, setPrice] = useState('0.0555 ETH')
     const { login, logout } = useAuth()
     const { account, chainId } = useWeb3React()
     const [mintAmount, setMintAmount] = useState(0)
@@ -58,16 +58,13 @@ const MintSection = () => {
     useDeepCompareEffect(() => {
         if (data) {
             const { whitelisted, onlyWhitelisted } = data
-            if (whitelisted.active && whitelisted.tickets > 0) {
-                if (whitelisted.tickets <= 5) setMaxMint(whitelisted.tickets)
-                else setMaxMint(5)
-                setPrice('FREE')
-            } else if (onlyWhitelisted && whitelisted.active) {
-                setMaxMint(5)
-                setPrice('0.09 ETH')
-            } else if (!onlyWhitelisted) {
-                setMaxMint(15)
-                setPrice('0.25 ETH')
+            console.log(whitelisted, onlyWhitelisted, 'dfsdfsfsfsf')
+            if (onlyWhitelisted && whitelisted) {
+                setMaxMint(1)
+                setPrice('0.0555 ETH')
+            } else if (!onlyWhitelisted && whitelisted) {
+                setMaxMint(2)
+                setPrice('0.0555 ETH')
             } else {
                 setMaxMint(0)
                 setPrice('0.25 ETH')
