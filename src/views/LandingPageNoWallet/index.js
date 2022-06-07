@@ -484,7 +484,7 @@ const LandingPage = () => {
                                         of NTF, now you’re the only owner of
                                         this land, it means that every single
                                         booking completed to the equivalent
-                                        place in our partnet travel platform
+                                        place in our partner travel platform
                                         will pay you a commission!
                                     </Article>
                                     <Article

@@ -295,15 +295,19 @@ const LandingPage = () => {
                                             lg: '23px',
                                         }}
                                     >
-                                        We’ve created a completely virtual
-                                        metaverse in which all tourist
-                                        destinations offered by our travel
-                                        partner are represented as NFTs within
-                                        our platform known as Lands or Roles.
-                                        These destinations can be owned by you,
-                                        or a group of adventurers called Nomadz,
-                                        who are also represented as unique
-                                        handmade NFTs.
+                                        The mission began when a small group of
+                                        Nomadz decided to reinitiate an
+                                        investigation about the Earth’s
+                                        gravitational catastrophe that happened
+                                        hundreds of years ago. These Nomadz went
+                                        off to investigate if there were any
+                                        remaining civilizations or Destinations
+                                        after the catastrophe, and that sets off
+                                        the mission. After realizing there were
+                                        over 150 different territoryes with
+                                        thousands of different Destination the
+                                        Nomadz decided to start an expansion in
+                                        their civilization.
                                     </Article>
                                     <Article
                                         header="Destinations NFTs"
@@ -324,7 +328,7 @@ const LandingPage = () => {
                                         of NTF, now you’re the only owner of
                                         this Prime NFT, it means that every
                                         single booking completed to the
-                                        equivalent place in our partnet travel
+                                        equivalent place in our partner travel
                                         platform will pay you a commission!
                                     </Article>
 
