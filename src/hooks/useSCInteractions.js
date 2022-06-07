@@ -84,7 +84,7 @@ const useSCInteractions = () => {
             return [
                 ...acc,
                 new Promise((resolve, reject) => {
-                    ;(async () => {
+                    ; (async () => {
                         try {
                             const contract = new library.eth.Contract(
                                 AvatarDestinareAbi,
@@ -141,14 +141,17 @@ const useSCInteractions = () => {
                 const whitelisted = await contract.methods
                     .whitelisted(account)
                     .call()
-                    // .then((res) => {
-                    //     console.log({ res })
-                    //     return { tickets: parseInt(res[0]), active: res[1] }
-                    // })
-                console.log({ whitelisted })
-                resolve({ onlyWhitelisted, whitelisted })
+
+                const maxMintAmount = await contract.methods
+                    .maxMintAmount()
+                    .call()
+
+                const balanceOf = await contract.methods
+                    .balanceOf(account)
+                    .call()
+
+                resolve({ onlyWhitelisted, whitelisted, maxMintAmount, balanceOf })
             } catch (err) {
-                console.log({ err })
                 reject(err)
             }
         })
@@ -160,11 +163,9 @@ const useSCInteractions = () => {
             const controller = refController.current
             try {
                 const signal = controller.signal
-                console.log("Entro toda todita completa")
                 const data = await getContractData({
                     signal,
                 })
-                console.log({ data })
                 setTimeout(() => {
                     setData({
                         ...data,
@@ -204,9 +205,9 @@ const useSCInteractions = () => {
                 const whitelisted = await contract.methods
                     .whitelisted(account)
                     .call()
-                    // .then((res) => {
-                    //     return { tickets: parseInt(res[0]), active: res[1] }
-                    // })
+                // .then((res) => {
+                //     return { tickets: parseInt(res[0]), active: res[1] }
+                // })
                 console.log({ amount, account })
                 let mintAvatar
                 if (activePresale && whitelisted) {

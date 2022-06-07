@@ -4,6 +4,7 @@ import { FrameNftTopSVG, FrameNftBottomSVG } from '../../assets/svg/frames'
 import { FaArrowCircleRight, FaArrowCircleLeft } from 'react-icons/fa'
 import useResponsive from './../../hooks/useResponsive'
 import { registerToken } from '../../services/wallet'
+import { windowOpen } from '../../services/windowServices';
 
 const example = [
     {
@@ -153,11 +154,11 @@ const MintDisplay = ({ data = example }) => {
                                     <h3 className="text-green-0 text-base lg:text-lg">
                                         About
                                     </h3>
-                                    {/* <p>{data[index]?.nftData.description}</p> */}
-                                    <p>
+                                    <p>{data[index]?.nftData.description}</p>
+                                    {/* <p>
                                         Nomadzland the first project with real
                                         pasive incomes.
-                                    </p>
+                                    </p> */}
                                 </div>
                             </div>
                         </Col>
@@ -187,7 +188,7 @@ const MintDisplay = ({ data = example }) => {
                                             return (
                                                 <div
                                                     key={`nft-${data[index].tokenId}-type${val.trait_type}`}
-                                                    className=" flex flex-col border-2 border-green-3 rounded-md py-2 px-3 mr-2 mt-2 shadow-inner text-xs xl:text-base"
+                                                    className=" flex flex-col border-2 border-green-3 rounded-md py-2 px-3 mr-2 mt-2 shadow-inner text-md xl:text-lg"
                                                 >
                                                     <div>
                                                         <span className="font-bold  ">
@@ -249,7 +250,15 @@ const MintDisplay = ({ data = example }) => {
                                             focus:bg-primary text-white hover:text-white focus:text-white"
                         size="large"
                     >
-                        Add NFT
+                        Add to Metamask
+                    </Button>
+                    <Button
+                        onClick={() => windowOpen("https://lands.nomadzlandnft.io/")}
+                        className="flex-1 border-none bg-primary hover:bg-primary
+                                            focus:bg-primary text-white hover:text-white focus:text-white"
+                        size="large"
+                    >
+                        Land Airdrop
                     </Button>
                     <Button
                         onClick={() => console.log('OpenSea Link')}
@@ -257,7 +266,7 @@ const MintDisplay = ({ data = example }) => {
                                             focus:bg-info text-white hover:text-white focus:text-white"
                         size="large"
                     >
-                        Secondary Marketplace
+                        OpenSea
                     </Button>
                     {/* <Button
                         className="flex-1 border-solid border-1 border-info bg-transparent

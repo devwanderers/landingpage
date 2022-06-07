@@ -12,6 +12,7 @@ import { supportedChainIds } from './../../constants/chainNetworks'
 import { setupNetwork } from './../../services/wallet'
 import useSCInteractions from './../../hooks/useSCInteractions'
 import useDeepCompareEffect from './../../hooks/useDeepCompareEffect'
+import { useSupply } from '../../hooks/useSupply'
 
 const antIcon = (
     <LoadingOutlined style={{ fontSize: 50, color: 'white' }} spin />
@@ -57,13 +58,12 @@ const MintSection = () => {
 
     useDeepCompareEffect(() => {
         if (data) {
-            const { whitelisted, onlyWhitelisted } = data
-            console.log(whitelisted, onlyWhitelisted, 'dfsdfsfsfsf')
+            const { whitelisted, onlyWhitelisted, maxMintAmount, balanceOf } = data;
             if (onlyWhitelisted && whitelisted) {
-                setMaxMint(1)
+                setMaxMint(1 - balanceOf)
                 setPrice('0.0555 ETH')
             } else if (!onlyWhitelisted && whitelisted) {
-                setMaxMint(2)
+                setMaxMint(maxMintAmount - balanceOf)
                 setPrice('0.0555 ETH')
             } else {
                 setMaxMint(0)
@@ -84,6 +84,8 @@ const MintSection = () => {
         }
     }, [visibleModal, mintingError])
 
+    const { reload, supply } = useSupply()
+
     return (
         <React.Fragment>
             <ModalMint
@@ -95,14 +97,15 @@ const MintSection = () => {
             />
             <div
                 className="w-full md:w-6/12 lg:w-4/12 bg-black-1 bg-opacity-40 px-5 py-6 relative mx-auto lg:mx-0 mb-5"
-                // style={{ borderColor: '#2fb39b' }}
+            // style={{ borderColor: '#2fb39b' }}
             >
                 <div>
                     <div className="relative">
                         <div className="text-white">
                             <div className="flex justify-between items-center">
                                 <span className="font-bold text-5xl leading-none">
-                                    4,420
+                                    {/* {supply ? `${supply} /` : ""} 555 */}
+                                    Total supply 555
                                 </span>
                                 <span className="font-bold text-5xl leading-none">
                                     Nomadz
@@ -123,7 +126,7 @@ const MintSection = () => {
                                 disabled={!data || maxMint === 0}
                             />
                             <span className="text-xl">
-                                Max {maxMint} mints per tx
+                                {maxMint} mints left
                             </span>
                         </div>
                         <div className="flex justify-center mt-4 space-x-3">

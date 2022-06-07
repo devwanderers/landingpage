@@ -1,17 +1,28 @@
-import { ethers } from 'ethers'
-import { useContractCall } from '@usedapp/core'
-import destinareContractAbi from '../abi/DestinareContract.json'
+import AvatarDestinareAbi from "../abi/AvatarDestinare.json"
+import { useWeb3React } from '@web3-react/core';
+import { useCallback, useState } from "react";
+import useInterval from "./useInterval";
 
-const contractAddress = process.env.DESTINARE_CONTRACT
-const contractInterface = new ethers.utils.Interface(destinareContractAbi)
+export const useSupply = () => {
+    const { account, library } = useWeb3React()
 
-export default function useSupply() {
-    const [values] =
-        useContractCall({
-            abi: contractInterface,
-            address: contractAddress,
-            method: 'totalSupply',
-            args: [],
-        }) ?? []
-    return values
+
+    const [supply, setSupply] = useState(null)
+    const fetchSupply = useCallback(async () => {
+        if (!account) return
+        const contract = new library.eth.Contract(
+            AvatarDestinareAbi,
+            process.env.REACT_APP_AVATAR_DESTINARE_CONTRACT_ADDRESS
+        )
+        const newSupply = await contract.methods
+            .totalSupply()
+            .call()
+        setSupply(newSupply)
+    }, [account])
+
+    useInterval(() => {
+        fetchSupply()
+    }, account ? 5000 : null)
+
+    return { reload: fetchSupply, supply }
 }
