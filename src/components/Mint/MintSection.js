@@ -105,9 +105,9 @@ const MintSection = () => {
                             <div className="flex justify-between items-center">
                                 <span className="font-bold text-5xl leading-none">
                                     {/* {supply ? `${supply} /` : ""} 555 */}
-                                    Total supply 555
+                                    Supply 555
                                 </span>
-                                <span className="font-bold text-5xl leading-none">
+                                <span className="font-bold text-5xl" style={{ lineHeight: 0 }}>
                                     Nomadz
                                 </span>
                             </div>
