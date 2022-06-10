@@ -18,12 +18,12 @@ const antIcon = (
     <LoadingOutlined style={{ fontSize: 50, color: 'white' }} spin />
 )
 
-const publicPrice = 25e16
-const presalePrice = 15e16
+const presalePrice = 777e14;
+const publicPrice = 999e14;
 
 const MintSection = () => {
     const [maxMint, setMaxMint] = useState(0)
-    const [priceMint, setPrice] = useState('0.0555 ETH')
+    const [priceMint, setPrice] = useState('0.0777 ETH')
     const { login, logout } = useAuth()
     const { account, chainId } = useWeb3React()
     const [mintAmount, setMintAmount] = useState(0)
@@ -59,15 +59,22 @@ const MintSection = () => {
     useDeepCompareEffect(() => {
         if (data) {
             const { whitelisted, onlyWhitelisted, maxMintAmount, balanceOf } = data;
-            if (onlyWhitelisted && whitelisted) {
-                setMaxMint(1 - balanceOf)
-                setPrice('0.0555 ETH')
-            } else if (!onlyWhitelisted && whitelisted) {
-                setMaxMint(maxMintAmount - balanceOf)
-                setPrice('0.0555 ETH')
+            if (whitelisted.active && whitelisted.tickets > 0) {
+                if (whitelisted.tickets <= 5) setMaxMint(whitelisted.tickets)
+                else setMaxMint(5)
+                setPrice('FREE')
+            } else if (onlyWhitelisted && whitelisted.active) {
+                setMaxMint(5)
+                setPrice('0.0777 ETH')
+            } else if (onlyWhitelisted && !whitelisted.active) {
+                setMaxMint(5)
+                setPrice('0.0999 ETH')
+            } else if (!onlyWhitelisted) {
+                setMaxMint(10)
+                setPrice('0.0999 ETH')
             } else {
                 setMaxMint(0)
-                setPrice('0.25 ETH')
+                setPrice('Loading price')
             }
         }
     }, [data])
@@ -105,7 +112,7 @@ const MintSection = () => {
                             <div className="flex justify-between items-center">
                                 <span className="font-bold text-5xl leading-none">
                                     {/* {supply ? `${supply} /` : ""} 555 */}
-                                    Supply 555
+                                    Supply {supply}
                                 </span>
                                 <span className="font-bold text-5xl" style={{ lineHeight: 0 }}>
                                     Nomadz

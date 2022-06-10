@@ -12,7 +12,8 @@ import { abortablePromise, returnPromise } from '../services/promises'
 import useInterval from './useInterval'
 import useDeepCompareEffect from './useDeepCompareEffect'
 
-const publicPrice = 555e14
+const presalePrice = 777e14;
+const publicPrice = 999e14;
 
 const mintResultConverToArray = (res) => {
     const {
@@ -135,13 +136,17 @@ const useSCInteractions = () => {
                     process.env.REACT_APP_AVATAR_DESTINARE_CONTRACT_ADDRESS
                 )
                 const onlyWhitelisted = await contract.methods
-                    .onlyOG()
+                    .onlyWhitelisted()
                     .call()
-
+                    
                 const whitelisted = await contract.methods
                     .whitelisted(account)
                     .call()
-
+                    .then((res) => {
+                        console.log({ res })
+                        return { tickets: parseInt(res[0]), active: res[1] }
+                    })
+                    
                 const maxMintAmount = await contract.methods
                     .maxMintAmount()
                     .call()
@@ -199,22 +204,24 @@ const useSCInteractions = () => {
                     process.env.REACT_APP_AVATAR_DESTINARE_CONTRACT_ADDRESS
                 )
                 const activePresale = await contract.methods
-                    .onlyOG()
+                    .onlyWhitelisted()
                     .call()
 
                 const whitelisted = await contract.methods
                     .whitelisted(account)
                     .call()
-                // .then((res) => {
-                //     return { tickets: parseInt(res[0]), active: res[1] }
-                // })
-                console.log({ amount, account })
+                    .then((res) => {
+                        return { tickets: parseInt(res[0]), active: res[1] }
+                    })
                 let mintAvatar
-                if (activePresale && whitelisted) {
-                    console.log({ amount })
+                if (whitelisted.active && whitelisted.tickets > 0) {
                     mintAvatar = await contract.methods
                         .mint(amount)
-                        .send({ from: account, value: publicPrice * amount })
+                        .send({ from: account, value: 0 })
+                } else if (activePresale && whitelisted.active) {
+                    mintAvatar = await contract.methods
+                        .mint(amount)
+                        .send({ from: account, value: presalePrice * amount })
                 } else {
                     mintAvatar = await contract.methods
                         .mint(amount)

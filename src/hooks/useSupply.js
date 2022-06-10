@@ -14,10 +14,21 @@ export const useSupply = () => {
             AvatarDestinareAbi,
             process.env.REACT_APP_AVATAR_DESTINARE_CONTRACT_ADDRESS
         )
-        const newSupply = await contract.methods
-            .totalSupply()
+        const seasonTwo = await contract.methods
+            .seasonTwo()
             .call()
-        setSupply(newSupply)
+
+        if (seasonTwo){
+            const newSupply = await contract.methods
+                .maxSupplySeasonTwo()
+                .call()
+                setSupply(newSupply)
+        } else  {
+            const newSupply = await contract.methods
+                .maxSupply()
+                .call()
+                setSupply(newSupply)
+        }
     }, [account])
 
     useInterval(() => {
