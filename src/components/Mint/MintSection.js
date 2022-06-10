@@ -62,9 +62,6 @@ const MintSection = () => {
                 if (whitelisted.tickets <= 5) setMaxMint(whitelisted.tickets)
                 else setMaxMint(5)
                 setPrice('FREE')
-                // } else if (whitelisted.active) {
-                //     setMaxMint(5)
-                //     setPrice('0.3 ETH')
             } else {
                 setMaxMint(15)
                 setPrice('0.3 ETH')
@@ -95,14 +92,14 @@ const MintSection = () => {
             />
             <div
                 className="w-full md:w-6/12 lg:w-4/12 bg-black-1 bg-opacity-40 px-5 py-6 relative mx-auto lg:mx-0 mb-5"
-            // style={{ borderColor: '#2fb39b' }}
+                // style={{ borderColor: '#2fb39b' }}
             >
                 <div>
                     <div className="relative">
                         <div className="text-white">
                             <div className="flex justify-between items-center">
                                 <span className="font-bold text-5xl leading-none">
-
+                                    4,420
                                 </span>
                                 <span className="font-bold text-4xl leading-none">
                                     Mint your destinations

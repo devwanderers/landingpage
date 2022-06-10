@@ -58,7 +58,8 @@ const example = [
             'https://wanderers.mypinata.cloud/ipfs/QmUe1xnFLh4xiodfBeRUTMcJQTEMJBNbqgMRkevqyDHChR/5.json',
         nftData: {
             name: 'Nomad #12',
-            description: 'Nomadland NFT is the first project with real life pasive incomes.',
+            description:
+                'Nomadland NFT is the first project with real life pasive incomes.',
             image: 'https://wanderers.mypinata.cloud/ipfs/QmdbYAh4RwHRasoZmWBagzBpuZrSKLQ544JqT7EZzZCrQV',
             dna: '9b64578024cc6c53622161ae85795655487e271b',
             edition: 11,
@@ -146,6 +147,7 @@ const MintDisplay = ({ data = example }) => {
                             <div className="bg-green-1 border-2 border-green-3 p-4">
                                 <h2 className="text-info text-xl lg:text-2xl font-bold leading-none">
                                     {data[index]?.nftData.name}
+                                    {/* Nomadzland Unrevealed */}
                                 </h2>
                                 <div className="mt-2">
                                     <h3 className="text-green-0 text-base lg:text-lg">
@@ -160,7 +162,6 @@ const MintDisplay = ({ data = example }) => {
                 <Col xs={24} sm={16} md={16} lg={16} xl={16}>
                     <div className="bg-green-1 border-2 border-green-3 h-full p-4">
                         <div className="flex space-x-5 flex-wrap leading-none mb-4">
-
                             <div>
                                 <h3 className="text-green-0 text-base md:text-lg lg:text-xl mb-2">
                                     Land ID
@@ -189,12 +190,14 @@ const MintDisplay = ({ data = example }) => {
                                                             Type:{' '}
                                                         </span>
                                                         {val.trait_type}
+                                                        {/* Unrevealed */}
                                                     </div>
                                                     <div>
                                                         <span className=" font-bold">
                                                             Value:{' '}
                                                         </span>
                                                         {val.value}
+                                                        {/* Unrevealed */}
                                                     </div>
                                                 </div>
                                             )
@@ -252,14 +255,14 @@ const MintDisplay = ({ data = example }) => {
                     >
                         Secondary Marketplace
                     </Button>
-                    <Button
+                    {/* <Button
                         className="flex-1 border-solid border-1 border-info bg-transparent
                                             text-info hover:border-white hover:bg-info focus:bg-info
                                             hover:text-white focus:text-white"
                         size="large"
                     >
                         Download Image
-                    </Button>
+                    </Button> */}
                     {/* </div> */}
                 </Col>
             </Row>

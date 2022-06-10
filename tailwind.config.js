@@ -1,4 +1,5 @@
 const colors = require('tailwindcss/colors')
+const defaultTheme = require('tailwindcss/defaultTheme')
 
 module.exports = {
     // important: true,
@@ -34,6 +35,8 @@ module.exports = {
         },
         maxWidth: {
             '1000px': '1000px',
+            '1100px': '1100px',
+            '1400px': '1400px',
             '1800px': '1800px',
         },
         fontFamily: {
@@ -102,18 +105,16 @@ module.exports = {
             '34px': '34px',
         },
         letterSpacing: {
-            widest: '0.2em',
+            ...defaultTheme.letterSpacing,
+            customWidest: '0.2em',
         },
         extend: {
             backgroundImage: {
-                render:
-                    "url('/src/assets/images/backgrounds/render-fondo.jpg')",
+                render: "url('/src/assets/images/backgrounds/render-fondo.jpg')",
                 'render-mobil':
                     "url('/src/assets/images/backgrounds/render-fondo-mobil.jpg')",
-                earth:
-                    "url('/src/assets/images/backgrounds/bakgroundearth3.png')",
-                floor:
-                    "url('/src/assets/images/backgrounds/fondo-transparencia.png')",
+                earth: "url('/src/assets/images/backgrounds/bakgroundearth3.png')",
+                floor: "url('/src/assets/images/backgrounds/fondo-transparencia.png')",
                 whitelistSlider:
                     "url('/src/assets/images/backgrounds/whitelist-slider-desktop.jpeg')",
                 whiteListBottom:
@@ -141,6 +142,7 @@ module.exports = {
                 '750px': '750px',
                 '900px': '900px',
                 '1000px': '1000px',
+                '1300px': '1300px',
                 '1025px': '1025px',
                 '1100px': '1100px',
             },

@@ -7,38 +7,62 @@ import utilitiesImages from '../../assets/images/utilities'
 import HeaderText from '../../components/DisplayText/Header'
 import Paragraph from '../../components/DisplayText/Paragraph'
 import Article from './../../components/DisplayText/Article'
+import AnimateTransition from './../../components/Animations/AnimateTransition'
 
 const teams = [
-    { image: utilitiesImages.dr, name: 'Dr. Millan', description: 'COO' },
-    { image: utilitiesImages.skullman, name: 'Brandon S.', description: 'CTO' },
     {
-        image: utilitiesImages.amelie,
-        name: 'Riot Mei',
-        description: 'Social Media Manager',
+        image: utilitiesImages.angel,
+        name: 'Angel S.',
+        subtitle: 'Team Lead',
+        description:
+            "Developer and blockchain engineer who is passionate about constant learning, new technologies, best practices, and also knowledge transfer. He's fully compromised with the project and the team.",
+    },
+    {
+        image: utilitiesImages.kizzy,
+        name: 'Kizzy',
+        subtitle: 'Project Admin',
+        description:
+            'Full time investor in Crypto, DeFi and NFTs with 10+ years in financial services and social media marketing. My goal is and always will be to build communities with the intent for everyone to succeed in all they strive to accomplish. Honored to be a strong representation for women in tech as project admins driving the boat to bring NomadzLand NFT to its full potential.',
+    },
+    {
+        image: utilitiesImages.ralphie,
+        name: 'Ralphie',
+        subtitle: 'Advisor',
+        description:
+            '13+ years of industry experience - Fortune 500 cybersecurity consultant by day with extensive in-depth knowledge about cybersecurity best practices, vulnerability management, threat analysis and intelligence.  NFT enthusiast, mod and project advisor aiming to leverage my experience and web3’s numerous possibilities to help build a more collaborative future.A Rutgers University graduate with a major in Psychology and double minor in Human resource management and Business Administrations. Advisor at Dao Ducks. Deep analysis into human nature and social patterns that develop in digital ecosystems is the perspective that I build with.',
+    },
+    {
+        image: utilitiesImages.skullman,
+        name: 'Brandon S.',
+        subtitle: 'Dev',
+        description:
+            "8+ years in system engineering , lifelong gamer, methodical and creative, he is a commited person that doesn't hesitate on learning more about and going above and beyond. Extraordinary skills in software development.",
     },
     {
         image: utilitiesImages.kame,
         name: 'Kame',
-        description: 'Marketing Director',
+        subtitle: 'Principal Designer',
+        description:
+            'Fearless designer with a great sense of humor. 6+ years of experience endorse her talent and dedication. She is characterized for being a very creative and daring person when it comes to design. Not to mention her love for cats',
     },
+
     {
-        image: utilitiesImages.surtek,
-        name: 'Surtek TK',
-        description: 'Strategy',
-    },
-    {
-        image: utilitiesImages.surtek,
-        name: 'Tina',
-        description: 'Project Manager',
+        image: utilitiesImages.amelie,
+        name: 'Riot Mei',
+        subtitle: 'Head Mod',
+        description:
+            'Passionate in creating and building communities, creative in all kinds of circumstances and with an optimistic social vision.',
     },
     // {
     //     image: utilitiesImages.surtek,
-    //     name: 'Kizzys',
-    //     description: 'Project Manager',
+    //     name: 'Surtek TK',
+    //     subtitle: 'Mod',
+    //     description:
+    //         'Always looking for the good side, she is committed to her work, always attentive to the needs of the community and actively participates in the conversations.,',
     // },
 ]
 
-const TeamProfile = ({ image, name, description }) => {
+const TeamProfile = ({ image, name, subtitle, description }) => {
     return (
         <div className="flex flex-col items-center overflow-hidden">
             <div className="h-16 w-16 md:h-24 md:w-24">
@@ -50,14 +74,13 @@ const TeamProfile = ({ image, name, description }) => {
                         {name}
                     </div>
                     <div className="text-blue-4 text-center text-lg lg:text-23px">
-                        {description}
+                        {subtitle}
                     </div>
                 </div>
             </div>
-            <div className="w-full px-2 ">
+            <div className="w-full  pt-2">
                 <p className="text-blue-4 text-justify text-lg">
-                    Lorem ipsum dolor sit amet consectetur, adipisicing elit.
-                    Minus voluptates nostrum quia!
+                    {description}
                 </p>
             </div>
         </div>
@@ -65,10 +88,18 @@ const TeamProfile = ({ image, name, description }) => {
 }
 
 const Teams = () => {
-    const [refTeam, teamInView] = useInView({
+    const collectionConfig = {
         threshold: 1,
         triggerOnce: true,
+    }
+    const [refTeam, teamInView] = useInView({
+        threshold: 0.3,
+        triggerOnce: true,
     })
+
+    const [titleRef, titleInView] = useInView(collectionConfig)
+    const [subTitleRef, subTitleInView] = useInView(collectionConfig)
+
     const controls = useAnimation()
 
     const teamsVariant = {
@@ -111,23 +142,34 @@ const Teams = () => {
                 backgroundPosition: '0% 100%',
             }}
         >
-            <div className="section">
+            <div className="max-w-1400px mx-auto pb-6 px-5 md:px-10 lg:px-14">
                 <Row className="mb-12 lg:mb-16 xs:mb-2">
                     <Col xs={24} lg={7} className="text-center lg:text-left">
-                        <HeaderText
-                            base="4xl"
-                            lg="89px"
-                            className="text-primary leading-none tracking-widest"
-                        >
-                            Meet
-                        </HeaderText>
-                        <HeaderText
-                            base="2xl"
-                            lg="53px"
-                            className="text-info font-semibold leading-none font-saira-condensed lg:relative lg:-right-32"
-                        >
-                            The team
-                        </HeaderText>
+                        <div ref={titleRef} className="overflow-hidden">
+                            <AnimateTransition visible={titleInView}>
+                                <HeaderText
+                                    base="4xl"
+                                    lg="89px"
+                                    className="text-primary leading-none tracking-widest"
+                                >
+                                    Meet
+                                </HeaderText>
+                            </AnimateTransition>
+                        </div>
+                        <div ref={subTitleRef} className="overflow-hidden">
+                            <AnimateTransition
+                                visible={subTitleInView}
+                                transitionFrom="right"
+                            >
+                                <HeaderText
+                                    base="2xl"
+                                    lg="53px"
+                                    className="text-info font-semibold leading-none font-saira-condensed lg:relative lg:-right-32"
+                                >
+                                    The team
+                                </HeaderText>
+                            </AnimateTransition>
+                        </div>
                     </Col>
                     <Col xs={24} lg={17} className="pt-4 lg:pt-12">
                         <Paragraph
@@ -137,23 +179,27 @@ const Teams = () => {
                         ></Paragraph>
                     </Col>
                 </Row>
-                <div className="w-10/12 md:w-full mx-auto ">
+                <div className="md:w-full mx-auto ">
                     <div className="flex flex-col md:flex-row space-y-3 md:space-y-0 md:space-x-10 pb-16 md:pb-12">
                         <div className="flex-1 flex flex-col items-center ">
                             <div className="h-24 w-24 md:h-32 md:w-32 mb-2">
                                 <img
                                     className="w-full h-auto"
-                                    src={utilitiesImages.alex}
-                                    alt={utilitiesImages.alex}
+                                    src={utilitiesImages.xavier}
+                                    alt={utilitiesImages.xavier}
                                 />
                             </div>
                             <Article
-                                header={'AlexArt'}
+                                header={'Xavier G.'}
+                                subHeader="Founder"
                                 headerProps={{
                                     className:
-                                        'leading-tight text-info text-center mb-2',
-                                    base: '3xl',
-                                    lg: '40px',
+                                        'leading-tight text-info text-center mb-1',
+                                }}
+                                subHeaderProps={{
+                                    className: 'text-blue-4 text-center mb-2',
+                                    base: 'lg',
+                                    lg: '23px',
                                 }}
                                 paragraphProps={{
                                     className: 'text-blue-4  text-justify',
@@ -161,11 +207,14 @@ const Teams = () => {
                                     lg: '23px',
                                 }}
                             >
-                                {' '}
-                                Lorem ipsum, dolor sit amet consectetur
-                                adipisicing elit. Ipsa consequatur ducimus ullam
-                                eius! Non quibusdam aliquid vero, asperiores
-                                dicta illo?{' '}
+                                We are motivated to make this work because we
+                                want to show the community that NFTS aren’t only
+                                digital art with high values, we want to show
+                                the power behind them and what better way to do
+                                it than by adding real utility to our project
+                                through our partners real life business which
+                                gives people the opportunity to generate passive
+                                income and lots of benefits.
                             </Article>
                         </div>
                         <div className="flex-1 flex flex-col items-center">
@@ -177,12 +226,16 @@ const Teams = () => {
                                 />
                             </div>
                             <Article
-                                header={'AlexArt'}
+                                header={'Alex S.'}
+                                subHeader="Artist"
                                 headerProps={{
                                     className:
-                                        'leading-tight text-info text-center mb-2',
-                                    base: '3xl',
-                                    lg: '40px',
+                                        'leading-tight text-info text-center mb-1',
+                                }}
+                                subHeaderProps={{
+                                    className: 'text-blue-4 text-center mb-2',
+                                    base: 'lg',
+                                    lg: '23px',
                                 }}
                                 paragraphProps={{
                                     className: 'text-blue-4  text-justify',
@@ -190,36 +243,41 @@ const Teams = () => {
                                     lg: '23px',
                                 }}
                             >
-                                {' '}
-                                Lorem ipsum, dolor sit amet consectetur
-                                adipisicing elit. Ipsa consequatur ducimus ullam
-                                eius! Non quibusdam aliquid vero, asperiores
-                                dicta illo?{' '}
+                                One day Xavier contacted me while I was working
+                                as a free lancer and he told me about the
+                                project because he liked the art I’ve previously
+                                created. I fell in love with the idea and the
+                                concept of the characters as well as the
+                                opportunity to show my art through this amazing
+                                project
                             </Article>
                         </div>
                     </div>
                 </div>
-                <motion.div
-                    ref={refTeam}
-                    initial="hidden"
-                    className="grid grid-cols-2 md:grid-cols-3 gap-5"
-                    variants={teamsVariant}
-                    animate={controls}
-                >
-                    {teams.map((t) => (
-                        <motion.div
-                            className=" justify-self-auto "
-                            variants={teamItem}
-                            key={`team-${t.name}`}
-                        >
-                            <TeamProfile
-                                image={t.image}
-                                name={t.name}
-                                description={t.description}
-                            />
-                        </motion.div>
-                    ))}
-                </motion.div>
+                <div className=" overflow-hidden">
+                    <motion.div
+                        ref={refTeam}
+                        initial="hidden"
+                        className="grid grid-cols-2 lg:grid-cols-3 gap-5"
+                        variants={teamsVariant}
+                        animate={controls}
+                    >
+                        {teams.map((t) => (
+                            <motion.div
+                                className=" justify-self-auto "
+                                variants={teamItem}
+                                key={`team-${t.name}`}
+                            >
+                                <TeamProfile
+                                    image={t.image}
+                                    name={t.name}
+                                    subtitle={t.subtitle}
+                                    description={t.description}
+                                />
+                            </motion.div>
+                        ))}
+                    </motion.div>
+                </div>
             </div>
         </Element>
     )

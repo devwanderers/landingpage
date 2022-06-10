@@ -1,4 +1,5 @@
 import React from 'react'
+import { cls } from './../../services/helpers'
 
 export const LineWrapper = ({
     children,
@@ -11,31 +12,48 @@ export const LineWrapper = ({
 }) => {
     return (
         <div
-            className={`css-generic w-full max-h-full flex flex-grow relative ${className}`}
+            className={cls(
+                `w-full max-h-full flex flex-grow relative
+                ${className}`
+            )}
         >
             <div
-                className={`css-generic ${
-                    side === 'left' ? 'lg:pl-14' : 'lg:pr-14'
-                } pt-2 lg:pt-10`}
+                className={cls(
+                    `${
+                        side === 'left' ? 'lg:pl-14' : 'lg:pr-14'
+                    } pt-2 lg:pt-10 `
+                )}
             >
                 {children}
             </div>
             <div
-                className={`wrapper-line wrapper-line-${
-                    side === 'left' ? 'lt' : 'rt'
-                }   border-blue-4 border-solid`}
-                style={{ height: borderHeight, width: borderWidth }}
+                className={cls(
+                    `absolute top-0  border-l border-blue-4 border-solid ${
+                        side === 'left' ? 'left-0' : 'right-0'
+                    }`
+                )}
+                style={{ height: borderHeight }}
             >
-                <div className="line-decoration">
+                <div className="relative h-full bg-red-500">
                     <div
-                        className="border-l-4 -mb-1px border-solid border-primary"
+                        className={cls(
+                            `absolute border-l-4 -mb-1px border-solid border-primary
+                            ${side === 'left' ? 'left-0' : 'right-0'}
+                            ${side === 'left' ? '-ml-1' : '-mr-1'}
+                            `
+                        )}
                         style={{
+                            backgroundColor: 'green',
                             bottom: decorationBottom,
                             height: decorationHeight,
                         }}
                     ></div>
                 </div>
             </div>
+            <div
+                className={cls(`absolute top-0  border-t border-blue-4`)}
+                style={{ width: borderWidth }}
+            ></div>
         </div>
     )
 }

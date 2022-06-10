@@ -2,22 +2,24 @@
 import React, { useState } from 'react'
 import { useHistory } from 'react-router'
 import { BrandLogoSVG } from '../../assets/svg/brand'
-import windowOpen from './../../services/windowOpen'
+import { windowOpen, windowLocationPush } from './../../services/windowServices'
 import useWindowSize from './../../hooks/useWindowSize'
 import {
     OctagonDiscordSVG,
     OctagonTelegramSVG,
     OctagonTwitterSVG,
+    OctagonInstagramSVG,
 } from './../../assets/svg/icons/index'
 import { Drawer } from 'antd'
 import { scrollTo } from '../../services/react-scroll-utils'
 import { GiHamburgerMenu } from 'react-icons/gi'
 import { HomePath, WhitelistPath } from '../../constants/routerConstants'
+import { destinareLink, whitePaperLink } from './../../constants/linksContants'
 
 const DefaultNavbar = () => {
     const [selectedMenu, setMenuIndex] = useState(0)
     const [showDrawer, setShowDrawer] = useState(false)
-    const { innerWidth } = useWindowSize()
+    const { width } = useWindowSize()
     const history = useHistory()
     const marketPlaceMenu = [
         {
@@ -36,7 +38,7 @@ const DefaultNavbar = () => {
         },
         {
             key: 'lands',
-            label: 'Lands',
+            label: 'Metaverse',
             onClick: () => {
                 scrollTo('lands')
             },
@@ -62,30 +64,23 @@ const DefaultNavbar = () => {
                 scrollTo('team')
             },
         },
-        // {
-        //     key: 'whiteList',
-        //     label: 'Whitelist',
-        //     onClick: () => {
-        //         history.push(WhitelistPath)
-        //     },
-        // },
-        // {
-        //     key: 'marketplace',
-        //     label: 'Marketplace',
-        //     onClick: () => {
-        //         window.location.replace('https://marketplace.thewanderers.io')
-        //     },
-        // },
+        {
+            key: 'destinare',
+            label: 'Destinare.io',
+            onClick: () => {
+                windowLocationPush(destinareLink)
+            },
+        },
     ]
 
     const handleOnClickBurger = () => {
         setShowDrawer(!showDrawer)
     }
 
-    return innerWidth > 768 ? (
+    return width > 768 ? (
         <header className="h-24 relative z-50 lg:px-0 text-white bg-blue-5 bg-opacity-25">
             <div className="max-w-1800px m-auto flex flex-row h-full px-6 3xl:px-0 ">
-                <div className=" sm:mr-10 xl:mr-20 h-full py-5">
+                <div className=" sm:mr-10 xl:mr-20 h-full py-5 ">
                     <a className="h-full bg-blue-2">
                         <div className="h-full">
                             <BrandLogoSVG
@@ -130,34 +125,7 @@ const DefaultNavbar = () => {
                     <div className="flex flex-row items-center space-x-2 h-full">
                         <a
                             onClick={() =>
-                                windowOpen('https://discord.gg/thewanderers')
-                            }
-                            className="h-full flex items-center px-1"
-                        >
-                            <div className="h-10 w-10  ">
-                                <OctagonDiscordSVG width="100%" height="100%" />
-                            </div>
-                        </a>
-                        <a
-                            onClick={() =>
-                                windowOpen(
-                                    'https://t.me/joinchat/tXoYj6NupWRlNjEx'
-                                )
-                            }
-                            className="h-full flex items-center px-1"
-                        >
-                            <div className="h-10 w-10 ">
-                                <OctagonTelegramSVG
-                                    width="100%"
-                                    height="100%"
-                                />
-                            </div>
-                        </a>
-                        <a
-                            onClick={() =>
-                                windowOpen(
-                                    'https://twitter.com/TheWanderersNFT'
-                                )
+                                windowOpen('https://twitter.com/NomadzlandNFT')
                             }
                             className="h-full flex items-center px-1"
                         >
@@ -165,14 +133,35 @@ const DefaultNavbar = () => {
                                 <OctagonTwitterSVG width="100%" height="100%" />
                             </div>
                         </a>
+                        <a
+                            onClick={() =>
+                                windowOpen(
+                                    'https://www.instagram.com/nomadzlandnft'
+                                )
+                            }
+                            className="h-full flex items-center px-1"
+                        >
+                            <div className="h-10 w-10 ">
+                                <OctagonInstagramSVG
+                                    width="100%"
+                                    height="100%"
+                                />
+                            </div>
+                        </a>
+                        <a
+                            onClick={() =>
+                                windowOpen('https://discord.gg/JPx5v9Xv9g')
+                            }
+                            className="h-full flex items-center px-1"
+                        >
+                            <div className="h-10 w-10  ">
+                                <OctagonDiscordSVG width="100%" height="100%" />
+                            </div>
+                        </a>
                     </div>
                     <div className="hidden lg:block h-full pl-3">
                         <button
-                            onClick={() =>
-                                windowOpen(
-                                    'https://thewanderers.sfo3.digitaloceanspaces.com/The%20wanderers%20whitepaper.pdf'
-                                )
-                            }
+                            onClick={() => windowOpen(whitePaperLink)}
                             className="text-xl h-full  border border-blue-7 flex justify-center items-center px-4"
                         >
                             Whitepaper
@@ -221,27 +210,7 @@ const DefaultNavbar = () => {
                 <div className="flex flex-row items-center space-x-2 mb-4">
                     <a
                         onClick={() =>
-                            windowOpen('https://discord.gg/thewanderers')
-                        }
-                        className="h-full flex items-center px-1"
-                    >
-                        <div className="h-10 w-10  ">
-                            <OctagonDiscordSVG width="100%" height="100%" />
-                        </div>
-                    </a>
-                    <a
-                        onClick={() =>
-                            windowOpen('https://t.me/joinchat/tXoYj6NupWRlNjEx')
-                        }
-                        className="h-full flex items-center px-1"
-                    >
-                        <div className="h-10 w-10 ">
-                            <OctagonTelegramSVG width="100%" height="100%" />
-                        </div>
-                    </a>
-                    <a
-                        onClick={() =>
-                            windowOpen('https://twitter.com/TheWanderersNFT')
+                            windowOpen('https://twitter.com/NomadzlandNFT')
                         }
                         className="h-full flex items-center px-1"
                     >
@@ -249,14 +218,42 @@ const DefaultNavbar = () => {
                             <OctagonTwitterSVG width="100%" height="100%" />
                         </div>
                     </a>
+                    <a
+                        onClick={() =>
+                            windowOpen(
+                                'https://www.instagram.com/nomadzlandnft'
+                            )
+                        }
+                        className="h-full flex items-center px-1"
+                    >
+                        <div className="h-10 w-10 ">
+                            <OctagonInstagramSVG width="100%" height="100%" />
+                        </div>
+                    </a>
+                    <a
+                        // onClick={() =>
+                        //     windowOpen('https://discord.gg/thewanderers')
+                        // }
+                        className="h-full flex items-center px-1 pointer-events-none"
+                    >
+                        <div className="h-10 w-10  ">
+                            <OctagonDiscordSVG width="100%" height="100%" />
+                        </div>
+                    </a>
+                    <a
+                        // onClick={() =>
+                        //     windowOpen('https://t.me/joinchat/tXoYj6NupWRlNjEx')
+                        // }
+                        className="h-full flex items-center px-1 pointer-events-none"
+                    >
+                        <div className="h-10 w-10 ">
+                            <OctagonTelegramSVG width="100%" height="100%" />
+                        </div>
+                    </a>
                 </div>
                 <div className="">
                     <button
-                        onClick={() =>
-                            windowOpen(
-                                'https://thewanderers.sfo3.digitaloceanspaces.com/The%20wanderers%20whitepaper.pdf'
-                            )
-                        }
+                        onClick={() => windowOpen(whitePaperLink)}
                         className="text-xl h-full  border border-blue-7 flex justify-center items-center px-4"
                     >
                         Whitepaper
@@ -265,9 +262,9 @@ const DefaultNavbar = () => {
             </Drawer>
             <header className="h-24 relative z-50 lg:px-0 text-white bg-blue-5  bg-opacity-25">
                 <div className=" m-auto flex justify-between h-full px-6">
-                    <div className=" sm:mr-10 xl:mr-20 h-full py-5">
+                    <div className=" sm:mr-10 xl:mr-20 h-full py-5 ">
                         <a className="h-full bg-blue-2">
-                            <div className="h-full">
+                            <div className="h-full w-12">
                                 <BrandLogoSVG width={'100%'} height={'100%'} />
                             </div>
                         </a>

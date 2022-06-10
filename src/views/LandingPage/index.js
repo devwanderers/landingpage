@@ -1,33 +1,26 @@
 /* eslint-disable no-unused-vars */
 import React, { useState } from 'react'
 import { Layout, Row, Col, Button, BackTop } from 'antd'
-import SliderIslands from './../../components/LandingComponent/SliderIslands'
-// import {} from 'react-icons/fa'
 import Slider from 'react-slick'
 import ReactPlayer from 'react-player/file'
 import { Element, scroller } from 'react-scroll'
 import { BiUpArrowAlt } from 'react-icons/bi'
-// import brandImages from '../assets/images/brand'
-
-// import logo from '../assets/images/brand/logo.png'
-// import { DiscordIcon } from '../components/CustomIcons'
-// import { SiDiscord } from 'react-icons/si'
-import MintSection from './../../components/Mint/MintSection'
-import GenericCountDown from '../../components/CountDowns/GenericCountDown'
 import Article from '../../components/DisplayText/Article'
-import SectionTitle from '../../components/Sections/SectionTitle'
 import utilitiesImages from '../../assets/images/utilities'
 import { LineWrapper } from '../../components/Wrappers/LineWrapper'
 import HeaderText from '../../components/DisplayText/Header'
+import NextArrowControl from '../../components/CustomSliderControls/NextArrowControl'
+import PrevArrowControl from '../../components/CustomSliderControls/PrevArrowControl'
 import Paragraph from '../../components/DisplayText/Paragraph'
 import DefaultNavbar from '../../components/Navbar/DefaultNavbar'
 import islandVideo from '../../assets/images/backgrounds/background.mp4'
+
+import lands from '../../assets/videos/LANDS.mp4'
 import {
     FrameCounterTopSVG,
     FrameCounterBottomSVG,
     FrameFAQTopSVG,
     FrameFAQBottomSVG,
-    FrameCharacterSVG,
 } from '../../assets/svg/frames'
 import FrameCounterHeaderCustom from '../../assets/svg/frames/FrameCounterHeaderCustom'
 import {
@@ -35,63 +28,63 @@ import {
     OctagonDiscordSVG,
     OctagonTelegramSVG,
     OctagonTwitterSVG,
+    OctagonInstagramSVG,
 } from '../../assets/svg/icons'
-import useWindowDimensions from '../../customHooks/useWindowDimensions'
+import { RenderMarcoSVG } from './../../assets/svg/sections/index'
 import { returnValueByScreenWidth } from '../../services/stylesServices'
-import { RenderMarcoSVG } from '../../assets/svg/sections/index'
-import { BrandLogoSVG, Logo1SVG } from '../../assets/svg/brand'
-import AnimDisplayFromTop from '../../components/Animations/AnimDisplayFromTop'
-import windowOpen from '../../services/windowOpen'
-import CollectionSection from '../../components/Collection/CollectionSection'
-import { RoadMapMobSVG } from '../../assets/svg/utilities'
-import Benefits from './Benefits'
+import { windowOpen } from '../../services/windowServices'
 import Faq from './Faq'
 import MeetTeam from './MeetTeam'
-import AnimateTransition from '../../components/Animations/AnimateTransition'
-import { useInView } from 'react-intersection-observer'
 import Mint from './Mint'
 import Wanderers from './Wanderers'
-import RoadMapSvg from '../../assets/svg/utilities/RoadMapSVG'
+import RoadMap from './RoadMap'
+import useScrollTop from '../../hooks/useScrollTop'
+import Token from './Token'
+import { Logo1SVG } from '../../assets/svg/brand'
+import useWindowSize from '../../hooks/useWindowSize'
+import nftsImages from '../../assets/images/nfts'
+import MintSection from '../../components/Mint/MintSection'
+import GenericCountDown from '../../components/CountDowns/GenericCountDown'
 
 const { Content } = Layout
-const deadline = new Date('February 15, 2022 11:00:00')
 
+// TODO change percents
 const landImages = [
     {
         id: 1,
-        img: utilitiesImages.isla,
-        title: '25%',
-        percent: 'Country',
+        img: nftsImages.canada,
+        // title: '40%',
+        // percent: 'Country',
     },
     {
         id: 2,
-        img: utilitiesImages.isla,
-        title: '10%',
-        percent: 'City',
+        img: nftsImages.madrid,
+        // title: '30%',
+        // percent: 'Destiny',
     },
     {
         id: 3,
-        img: utilitiesImages.isla,
-        title: '6%',
-        percent: 'Destiny',
+        img: nftsImages.urkLondon,
+        // title: '30%',
+        // percent: 'Destiny',
     },
     {
         id: 4,
-        img: utilitiesImages.isla,
-        title: '20%',
-        percent: 'Country ambassadors',
+        img: nftsImages.australiaA,
+        // title: '30%',
+        // percent: 'Destiny',
     },
     {
         id: 5,
-        img: utilitiesImages.isla,
-        title: '15%',
-        percent: 'City ambassadors',
+        img: nftsImages.australiaG,
+        // title: '30%',
+        // percent: 'Destiny',
     },
     {
-        id: 6,
-        img: utilitiesImages.isla,
-        title: '9%',
-        percent: 'Destiny ambassadors',
+        id: 5,
+        img: nftsImages.germany,
+        // title: '30%',
+        // percent: 'Destiny',
     },
 ]
 
@@ -104,21 +97,31 @@ const scrollTo = (name) => {
 }
 
 const LandingPage = () => {
-    const { innerWidth } = useWindowDimensions()
-    const [selectedMenu, setMenuIndex] = useState(0)
+    useScrollTop()
+    const { width } = useWindowSize()
+    const [imageIndex, setImageIndex] = useState(0)
     const [collapseFaq, setCollapseFAQ] = useState(true)
-    // const [roadKey, setSelectedKey] = useState(1)
-    // const [videoReady, playVideo] = useState(false)
+
+    const sliderLandSettings = {
+        dots: false,
+        infinite: true,
+        lazyLoad: true,
+        autoplay: true,
+        speed: 300,
+        slidesToShow: width < 768 ? 1 : 3,
+        centerMode: true,
+        centerPadding: 0,
+        nextArrow: <NextArrowControl />,
+        prevArrow: <PrevArrowControl />,
+        beforeChange: (_, next) => setImageIndex(next),
+    }
 
     const handleCollapseFaq = () => {
         setCollapseFAQ(!collapseFaq)
     }
 
     return (
-        <Layout
-            className="flex flex-col min-h-screen"
-            style={{ minWidth: '425px' }}
-        >
+        <Layout className="block min-w-minMobileWidth">
             <BackTop>
                 <div className="h-12 w-12 lg:h-16 lg:w-16 rounded-full flex justify-center items-center bg-primary text-white">
                     <BiUpArrowAlt className="text-2xl" />
@@ -126,7 +129,7 @@ const LandingPage = () => {
             </BackTop>
             <DefaultNavbar />
             <Content>
-                <div className="-mt-24 relative">
+                <div className="-mt-24 pb-1 xl:pb-32 lg:pb-40 relative ">
                     <div className="absolute top-0 left-0 bottom-0 right-0 overflow-hidden">
                         <ReactPlayer
                             className="custom-react-player"
@@ -161,51 +164,47 @@ const LandingPage = () => {
                                         <div className="xl:text-6xl text-xl font-saira-condensed leading-none tracking-wide">
                                             PRE-SALE EVENT ALMOST
                                         </div>
+                                    </div>
+
+                                    <div className="absolute right-0 left-0 top-0">
                                         <div
-                                            className="xl:text-6xl text-lg font-russo-one leading-none pt-4 relative -mr-5"
-                                            style={{ letterSpacing: '0.8rem' }}
-                                        >
-                                            LAUNCHING SOON!
-                                        </div>
+                                            className="w-full mx-auto "
+                                            style={{
+                                                height: '1px',
+                                                backgroundColor: '#2fb39b',
+                                            }}
+                                        ></div>
                                     </div>
-                                    <div
-                                        className="absolute right-0 left-0 -mx-3"
-                                        style={{
-                                            top: returnValueByScreenWidth(
-                                                innerWidth,
-                                                {
-                                                    base: '-10px',
-                                                    sm: '-16px',
-                                                    md: '-18px',
-                                                    xl: '-18px',
-                                                }
-                                            ),
-                                        }}
-                                    >
-                                        <FrameCounterTopSVG width="100%" />
+                                    <div className="absolute right-0 left-0 top-0">
+                                        <div
+                                            className="w-6/12 mx-auto "
+                                            style={{
+                                                height: '4px',
+                                                backgroundColor: '#2fb39b',
+                                            }}
+                                        ></div>
                                     </div>
-                                    <div
-                                        className="absolute right-0 left-0 -mx-3"
-                                        style={{
-                                            bottom: returnValueByScreenWidth(
-                                                innerWidth,
-                                                {
-                                                    base: '-10px',
-                                                    sm: '-16px',
-                                                    md: '-18px',
-                                                    xl: '-18px',
-                                                }
-                                            ),
-                                        }}
-                                    >
-                                        <FrameCounterBottomSVG
-                                            width="100%"
-                                            height="100%"
-                                        />
+                                    <div className="absolute right-0 left-0 bottom-0">
+                                        <div
+                                            className="w-full mx-auto "
+                                            style={{
+                                                height: '1px',
+                                                backgroundColor: '#2fb39b',
+                                            }}
+                                        ></div>
+                                    </div>
+                                    <div className="absolute right-0 left-0 bottom-0">
+                                        <div
+                                            className="w-6/12 mx-auto "
+                                            style={{
+                                                height: '4px',
+                                                backgroundColor: '#2fb39b',
+                                            }}
+                                        ></div>
                                     </div>
                                 </div>
-                                <div className="css-generic">
-                                    <div className="css-generic px-12 md:px-16 xl:px-20 text-center mx-auto relative">
+                                <div className="flex">
+                                    <div className="flex px-12 md:px-16 xl:px-20 text-center mx-auto relative">
                                         <div className="absolute right-0 left-0 top-0">
                                             <FrameCounterHeaderCustom
                                                 width="100%"
@@ -218,7 +217,7 @@ const LandingPage = () => {
                                             lg="34px"
                                             className="text-white z-10"
                                         >
-                                            MINT STARTS
+                                            MINT DAY
                                         </HeaderText>
                                     </div>
                                 </div>
@@ -229,7 +228,6 @@ const LandingPage = () => {
                                     type="primary"
                                     target="blank"
                                     onClick={() => scrollTo('community')}
-                                // href="https://discord.gg/thewanderers"
                                 >
                                     JOIN OUR COMMUNITY
                                 </a>
@@ -241,20 +239,28 @@ const LandingPage = () => {
                 <Wanderers />
                 <Element
                     name="lands"
-                    className="bg-blue-5 pt-10 pb-3 lg:pb-20 border-0"
+                    className="bg-blue-5 pt-10 pb-3 lg:pb-16 border-0"
                 >
-                    <div className="section">
+                    <div className="max-w-1400px mx-auto px-6 md:px-10 lg:px-14 pb-6 lg:pb-32">
                         <Row className=" flex-wrap-reverse lg:flex-wrap">
                             <Col
                                 xs={24}
                                 lg={12}
-                                className="hidden lg:flex justify-center "
+                                className="hidden lg:flex justify-center pr-10"
                             >
-                                <div className="w-6/12 md:w-5/12 lg:w-10/12 xl:w-8/12 mx-auto">
-                                    <img
-                                        className="w-full"
-                                        src={utilitiesImages.island}
-                                        alt={utilitiesImages.island}
+                                <div className="w-6/12 md:w-5/12 lg:w-10/12 xl:w-full pt-10 ">
+                                    <ReactPlayer
+                                        // className="custom-react-player"
+                                        width="100%"
+                                        height="100%"
+                                        controls={false}
+                                        loop={true}
+                                        playing={true}
+                                        url={lands}
+                                        muted={true}
+                                        // onReady={handlePlayVideo}
+                                        onError={(e) => console.log('error', e)}
+                                        onStart={() => console.log('playing')}
                                     />
                                 </div>
                             </Col>
@@ -265,7 +271,7 @@ const LandingPage = () => {
                                         lg="89px"
                                         className="text-primary leading-tight tracking-widest text-center lg:text-left"
                                     >
-                                        NFT
+                                        Metaverse
                                     </HeaderText>
                                 </div>
 
@@ -275,7 +281,29 @@ const LandingPage = () => {
                                     decorationBottom="0.7rem"
                                 >
                                     <Article
-                                        header="Lands"
+                                        paragraphProps={{
+                                            className:
+                                                ' text-blue-4 text-justify mb-8',
+                                            base: 'lg',
+                                            lg: '23px',
+                                        }}
+                                    >
+                                        The mission began when a small group of
+                                        Nomadz decided to reinitiate an
+                                        investigation about the Earth’s
+                                        gravitational catastrophe that happened
+                                        hundreds of years ago. These Nomadz went
+                                        off to investigate if there were any
+                                        remaining civilizations or Destinations
+                                        after the catastrophe, and that sets off
+                                        the mission. After realizing there were
+                                        over 150 different territoryes with
+                                        thousands of different Destination the
+                                        Nomadz decided to start an expansion in
+                                        their civilization.
+                                    </Article>
+                                    <Article
+                                        header="Destinations NFTs"
                                         headerProps={{
                                             className:
                                                 'mb-4 font-saira-condensed leading-none text-info font-semibold  text-center lg:text-left',
@@ -291,13 +319,14 @@ const LandingPage = () => {
                                     >
                                         Feel the power!! Once you get this class
                                         of NTF, now you’re the only owner of
-                                        this land, it means that every single
-                                        booking completed to the equivalent
-                                        place in our partnet travel platform
-                                        will pay you a commission!
+                                        this Prime NFT, it means that every
+                                        single booking completed to the
+                                        equivalent place in our partner travel
+                                        platform will pay you a commission!
                                     </Article>
-                                    <Article
-                                        header="Role in Land"
+
+                                    {/* <Article
+                                        header="Ambassador NFTs"
                                         headerProps={{
                                             className:
                                                 'mb-4 font-saira-condensed leading-none text-info font-semibold  text-center lg:text-left',
@@ -311,22 +340,80 @@ const LandingPage = () => {
                                             lg: '23px',
                                         }}
                                     >
-                                        As the role in land NFT you and 9 others
-                                        will guard the land, by doing so, you
-                                        will also be rewarded with a commission
-                                        when a booking has been completed, but
-                                        in a smaller percentage. In other words,
-                                        you’re working for the land owner but
-                                        whom will share revenue with you.
-                                    </Article>
+                                        As the Ambassador you and 9 others will
+                                        guard the land, by doing so, you will
+                                        also be rewarded with a commission when
+                                        a booking has been completed, but in a
+                                        smaller percentage. In other words,
+                                        you’re working for the Prime NFT owner
+                                        but whom will share revenue with you.
+                                    </Article> */}
                                 </LineWrapper>
                             </Col>
                         </Row>
                     </div>
                 </Element>
                 <div className="bg-blue-5 pb-16 relative border-0">
-                    <div className="section">
-                        <SliderIslands landImages={landImages} />
+                    <div className="max-w-1400px mx-auto px-6 md:px-10 lg:px-14 ">
+                        <div className="text-center mb-2 w-full lg:w-8/12 mx-auto">
+                            <Article
+                                header={'Rewards Distribution'}
+                                headerProps={{
+                                    className:
+                                        'text-primary text-4xl lg:text-89px mb-5 md:mb-10 leading-tight tracking-widest mx-auto',
+                                }}
+                                paragraphProps={{
+                                    className: 'mb-8 text-blue-4 text-justify',
+                                    base: 'lg',
+                                    lg: '23px',
+                                }}
+                            >
+                                The Destination Nft consist of the Countries,
+                                Cities and Destinations. It distribute a
+                                percentage of profit sales given by our partner
+                                to the owner of each unique NFT. It means if you
+                                are a holder of one destination you get rewarded
+                                every single time that someone complete a
+                                booking through our partner portal.
+                            </Article>
+                        </div>
+                        <div className="flex flex-col">
+                            <Slider
+                                className="px-12 py-10"
+                                {...sliderLandSettings}
+                            >
+                                {landImages.map(({ id, img }, idx) => (
+                                    <div
+                                        key={`land-${id}`}
+                                        className={
+                                            idx === imageIndex
+                                                ? 'landSlide activeSlide'
+                                                : 'landSlide'
+                                        }
+                                    >
+                                        <img src={img} alt={img} />
+                                    </div>
+                                ))}
+                            </Slider>
+                        </div>
+                        <div className="flex flex-col items-center mt-5">
+                            <HeaderText
+                                className="leading-tight text-primary tracking-widest"
+                                base="3xl"
+                                lg="40px"
+                            >
+                                {landImages[imageIndex] &&
+                                    landImages[imageIndex]?.title}
+                            </HeaderText>
+                            <HeaderText
+                                className="leading-none text-info font-saira-condensed font-semibold"
+                                base="xl"
+                                lg="27px"
+                            >
+                                {landImages[imageIndex] &&
+                                    landImages[imageIndex]?.percent}
+                            </HeaderText>
+                        </div>
                     </div>
                 </div>
                 <div
@@ -335,133 +422,12 @@ const LandingPage = () => {
                         backgroundPosition: '0% 100%',
                     }}
                 >
-                    <div className="section">
-                        <Element
-                            name="token"
-                            className="css-generic flex-grow "
-                        >
-                            <div className="css-generic items-center">
-                                <HeaderText
-                                    base="4xl"
-                                    lg="89px"
-                                    className="text-primary leading-none tracking-widest"
-                                >
-                                    WTT
-                                </HeaderText>
-                            </div>
-                            <div className="css-generic"></div>
-                            <div className="css-generic flex-row flex-grow max-h-full ">
-                                <div className="css-generic hidden lg:flex flex-1"></div>
-                                <div className="css-generic flex-1  text-center lg:text-left lg:pl-8">
-                                    <HeaderText
-                                        base="2xl"
-                                        lg="53px"
-                                        className="text-info leading-none font-saira-condensed font-semibold"
-                                    >
-                                        Token
-                                    </HeaderText>
-                                </div>
-                            </div>
-                        </Element>
-                        <Element className="css-generic mb-8 lg:mb-20">
-                            <Row>
-                                <Col xs={24} lg={12}>
-                                    <LineWrapper
-                                        side="right"
-                                        decorationBottom="0.7rem"
-                                    >
-                                        <Paragraph
-                                            className=" text-blue-4 text-justify"
-                                            base="lg"
-                                            lg="23px"
-                                        >
-                                            {
-                                                'We are creating an ecosystem where your NFTs are more than Art. We believe in our community and was to give you a piece back for the trust you put into this project. '
-                                            }
-                                            <br />
-                                            The token rewards you will receive
-                                            in the ecosystem has unique features
-                                            you will love!! The Nomadz Travel
-                                            Token is the native currency in the
-                                            ecosystem, it is based on ERC-20
-                                            making it highly diverse and easy to
-                                            use. Token listening is coming soon!
-                                        </Paragraph>
-                                    </LineWrapper>
-                                </Col>
-                                <Col
-                                    xs={24}
-                                    lg={12}
-                                    className="flex justify-center lg:pl-5"
-                                >
-                                    <div className="w-6/12 lg:w-full">
-                                        <img
-                                            className="w-full h-auto"
-                                            src={utilitiesImages.wttCoin}
-                                            alt={utilitiesImages.wttCoin}
-                                        />
-                                    </div>
-                                </Col>
-                            </Row>
-                        </Element>
-                        <Element
-                            name="roadMap"
-                            className="css-generic text-center lg:text-left"
-                        >
-                            <HeaderText
-                                base="4xl"
-                                lg="89px"
-                                className="text-primary leading-none tracking-widest mb-10 lg:mb-28"
-                            >
-                                Road Map
-                            </HeaderText>
-                            <div className="css-generic mx-auto w-full lg:w-8/12">
-                                <Article
-                                    header="Road Map"
-                                    subHeader="February 2022"
-                                    headerProps={{
-                                        className:
-                                            'leading-tight text-info text-center lg:text-left',
-                                        base: '3xl',
-                                        lg: '40px',
-                                    }}
-                                    subHeaderProps={{
-                                        className:
-                                            'leading-tight text-blue-4 font-saira-condensed font-semibold mb-4',
-                                        base: 'xl',
-                                        lg: '27px',
-                                    }}
-                                    paragraphProps={{
-                                        className:
-                                            'mb-8 text-blue-4  text-justify',
-                                        base: 'lg',
-                                        lg: '23px',
-                                    }}
-                                >
-                                    Unlike many other projects, our project has
-                                    been created to be in the market for the
-                                    long run. That is why our roadmap is more
-                                    complex and detailed than more projects. The
-                                    team is working tirelessly to accomplish all
-                                    the goals set forth in the roadmap. We’ll be
-                                    keeping you updated through social media
-                                    every step of the way.
-                                </Article>
-                            </div>
-
-                            <div className="css-generic max-w-full flex justify-center">
-                                <RoadMapSvg
-                                    currentStep={3}
-                                    width="100%"
-                                    height="100%"
-                                />
-                            </div>
-                        </Element>
-                    </div>
+                    <Token />
+                    <RoadMap />
                 </div>
                 <div className="bg-blue-5 pt-10 pb-20 lg:pb-44 lg:pt-20">
-                    <div className="section">
-                        <div className="css-generic relative bg-blue-6 bg-opacity-40 py-10">
+                    <div className="max-w-1400px mx-auto px-6 md:px-10 lg:px-14 ">
+                        <div className="flex flex-col relative bg-blue-6 bg-opacity-40 py-5 lg:py-10">
                             <div
                                 className="absolute left-0 right-0"
                                 style={{ top: '-8px' }}
@@ -474,12 +440,13 @@ const LandingPage = () => {
                             >
                                 <FrameFAQBottomSVG width="100%" />
                             </div>
-                            <div className="css-generic justify-center items-center flex-row">
+                            <div className="flex flex-row justify-center items-center ">
                                 <div
-                                    className="css-generic cursor-pointer select-none"
+                                    className="flex cursor-pointer select-none"
                                     onClick={handleCollapseFaq}
                                 >
                                     <HeaderText
+                                        base="4xl"
                                         lg="89px"
                                         className="text-primary leading-none tracking-widest mr-2"
                                     >
@@ -487,10 +454,10 @@ const LandingPage = () => {
                                     </HeaderText>
                                 </div>
                                 <div
-                                    className="css-generic w-10 cursor-pointer"
+                                    className="flex w-12 lg:w-16 cursor-pointer"
                                     onClick={handleCollapseFaq}
                                 >
-                                    <DownArrowSVG />
+                                    <DownArrowSVG width={'100%'} />
                                 </div>
                             </div>
                             <Faq visible={!collapseFaq} />
@@ -499,7 +466,7 @@ const LandingPage = () => {
                 </div>
                 <MeetTeam />
                 <Element name="community" className="bg-blue-5 pb-20 lg:pb-48">
-                    <div className="section">
+                    <div className="max-w-1400px mx-auto px-6 md:px-10 lg:px-14 ">
                         <Row className="mb-12 lg:mb-16">
                             <Col
                                 xs={24}
@@ -540,17 +507,28 @@ const LandingPage = () => {
                                 </LineWrapper>
                             </Col>
                         </Row>
-                        <div className="css-generic flex-row justify-center space-x-8 lg:space-x-10">
+                        <div className="flex flex-row justify-center space-x-8 lg:space-x-10">
                             <Button
                                 type="link"
                                 className="h-16 w-16 lg:h-24 lg:w-24 p-0"
                                 onClick={() =>
                                     windowOpen(
-                                        'https://t.me/joinchat/tXoYj6NupWRlNjEx'
+                                        'https://twitter.com/NomadzlandNFT'
                                     )
                                 }
                             >
-                                <OctagonTelegramSVG
+                                <OctagonTwitterSVG width="100%" height="100%" />
+                            </Button>
+                            <Button
+                                type="link"
+                                className="h-16 w-16 lg:h-24 lg:w-24 p-0"
+                                onClick={() =>
+                                    windowOpen(
+                                        'https://www.instagram.com/nomadzlandnft'
+                                    )
+                                }
+                            >
+                                <OctagonInstagramSVG
                                     width="100%"
                                     height="100%"
                                 />
@@ -559,51 +537,37 @@ const LandingPage = () => {
                                 type="link"
                                 className="h-16 w-16 lg:h-24 lg:w-24 p-0"
                                 onClick={() =>
-                                    windowOpen(
-                                        'https://discord.gg/thewanderers'
-                                    )
+                                    windowOpen('https://discord.gg/JPx5v9Xv9g')
                                 }
                             >
                                 <OctagonDiscordSVG width="100%" height="100%" />
-                            </Button>
-
-                            <Button
-                                type="link"
-                                className="h-16 w-16 lg:h-24 lg:w-24 p-0"
-                                onClick={() =>
-                                    windowOpen(
-                                        'https://twitter.com/TheWanderersNFT'
-                                    )
-                                }
-                            >
-                                <OctagonTwitterSVG width="100%" height="100%" />
                             </Button>
                         </div>
                     </div>
                 </Element>
             </Content>
             <footer className="bg-blue-5 py-12 border-blue-4 border-solid border-t hidden lg:block">
-                <div className="section">
-                    <div className="css-generic flex-row justify-between">
-                        <div className="css-generic flex-grow max-h-full w-6/12 ">
-                            <div className="css-generic items-center w-64">
-                                <div className="css-generic w-full mb-3 px-8">
+                <div className="max-w-1400px mx-auto px-6 md:px-10 lg:px-14">
+                    <div className="flex flex-row justify-between w-full ">
+                        <div className=" max-h-full ">
+                            <div className="flex flex-row items-center ">
+                                <div className="flex mb-3 px-8 w-64">
                                     <Logo1SVG width="100%" />
                                 </div>
                                 <HeaderText
                                     base="2xl"
                                     className="text-blue-4 font-semibold font-saira-condensed"
                                 >
-                                    9,000 Unique Nomadz
+                                    4,420 Unique Nomadz
                                 </HeaderText>
                             </div>
                         </div>
-                        <div className="css-generic flex-grow max-h-full w-6/12  items-center">
-                            <div className="css-generic">
+                        <div className="max-h-full  items-center">
+                            <div className="flex flex-col">
                                 <h5 className="text-capitalize text-xl text-blue-4 tracking-wide font-bold mb-2">
                                     Home
                                 </h5>
-                                <ul className="list-none font-saira-condensed font-semibold">
+                                {/* <ul className="list-none font-saira-condensed font-semibold">
                                     <li className="mb-2">
                                         <a
                                             className="text-blue-4 hover:text-gray-400"
@@ -620,7 +584,7 @@ const LandingPage = () => {
                                             Smart Contract
                                         </a>
                                     </li>
-                                </ul>
+                                </ul> */}
                             </div>
                         </div>
                     </div>

@@ -4,15 +4,16 @@ import { useSelector, useDispatch } from 'react-redux'
 import { useWeb3React } from '@web3-react/core'
 import { injected } from '../wallet/connectors'
 import { useLocalStorage } from './useStorage'
-import AvatarDestinareAbi from '../abi/AvatarDestinare.json'
+import LandsNomadz from '../abi/LandsNomadz.json'
 import useEffectOnce from './useEffectOnce'
 import * as scActions from '../store/reducers/scInteractionReducer/actions'
 import { scInteractionReducerSelector } from '../store/reducers/scInteractionReducer/selectors'
 import { abortablePromise, returnPromise } from '../services/promises'
 import useInterval from './useInterval'
 import useDeepCompareEffect from './useDeepCompareEffect'
+import { ethers } from 'ethers'
 
-const publicPrice = 30e16
+const publicPrice = ethers.utils.parseEther('0.1212')
 
 const mintResultConverToArray = (res) => {
     const {
@@ -84,10 +85,10 @@ const useSCInteractions = () => {
             return [
                 ...acc,
                 new Promise((resolve, reject) => {
-                    ; (async () => {
+                    ;(async () => {
                         try {
                             const contract = new library.eth.Contract(
-                                AvatarDestinareAbi,
+                                LandsNomadz,
                                 process.env.REACT_APP_AVATAR_DESTINARE_CONTRACT_ADDRESS
                             )
                             const tokenUri = await contract.methods
@@ -131,7 +132,7 @@ const useSCInteractions = () => {
         return abortablePromise({ signal }, async (resolve, reject) => {
             try {
                 const contract = new library.eth.Contract(
-                    AvatarDestinareAbi,
+                    LandsNomadz,
                     process.env.REACT_APP_AVATAR_DESTINARE_CONTRACT_ADDRESS
                 )
                 const whitelisted = await contract.methods
@@ -189,7 +190,7 @@ const useSCInteractions = () => {
             setFetchingMinting(true)
             try {
                 const contract = new library.eth.Contract(
-                    AvatarDestinareAbi,
+                    LandsNomadz,
                     process.env.REACT_APP_AVATAR_DESTINARE_CONTRACT_ADDRESS
                 )
 

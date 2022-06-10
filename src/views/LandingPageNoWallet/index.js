@@ -39,16 +39,16 @@ import {
 } from '../../assets/svg/icons'
 // import { BackgroundSectionSVG } from '../assets/svg/background'
 // import RoadMapSVG from './../assets/svg/utilities/RoadMapSVG'
-import useWindowDimensions from '../../customHooks/useWindowDimensions'
 import { returnValueByScreenWidth } from '../../services/stylesServices'
 // import { sectionsImages } from '../assets/images/sections'
 import { RenderMarcoSVG } from '../../assets/svg/sections/index'
 import { BrandLogoSVG, Logo1SVG } from '../../assets/svg/brand'
 import AnimDisplayFromTop from '../../components/Animations/AnimDisplayFromTop'
-import windowOpen from '../../services/windowOpen'
+import { windowOpen } from '../../services/windowServices'
 import CollectionSection from '../../components/Collection/CollectionSection'
 import { RoadMapMobSVG } from '../../assets/svg/utilities'
 import Navbar from './Navbar'
+import useWindowSize from '../../hooks/useWindowSize'
 
 const { Content } = Layout
 // const { Countdown } = Statistic
@@ -103,7 +103,7 @@ const scrollTo = (name) => {
 }
 
 const LandingPage = () => {
-    const { innerWidth } = useWindowDimensions()
+    const { innerWidth } = useWindowSize()
     const [selectedMenu, setMenuIndex] = useState(0)
     const [imageIndex, setImageIndex] = useState(0)
     const [collapseFaq, setCollapseFAQ] = useState(true)
@@ -269,7 +269,7 @@ const LandingPage = () => {
                                 <div className="w-full">
                                     <div className="w-full xl:pr-16">
                                         <Article
-                                            header="9,000"
+                                            header="4,420"
                                             subHeader="Unique Wanderers"
                                             headerProps={{
                                                 className:
@@ -299,7 +299,7 @@ const LandingPage = () => {
                                             <br />
                                             <br />
                                             <span>
-                                                There are 9,000 unique
+                                                There are 4,420 unique
                                                 characters called wanderers as
                                                 an initial offering and other
                                                 250 special characters aviable
@@ -484,7 +484,7 @@ const LandingPage = () => {
                                         of NTF, now you’re the only owner of
                                         this land, it means that every single
                                         booking completed to the equivalent
-                                        place in our partnet travel platform
+                                        place in our partner travel platform
                                         will pay you a commission!
                                     </Article>
                                     <Article
@@ -1189,7 +1189,7 @@ const LandingPage = () => {
                                     base="2xl"
                                     className="text-blue-4 font-semibold font-saira-condensed"
                                 >
-                                    9,000 unique Wanderers
+                                    4,420 unique Wanderers
                                 </HeaderText>
                             </div>
                         </div>

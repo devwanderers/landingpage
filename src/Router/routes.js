@@ -14,7 +14,7 @@ const routes = [
     // {
     //     name: 'Whitelist',
     //     path: paths.WhitelistPath,
-    //     route: Route,
+    //     route: () => <Redirect to={paths.HomePath} />,
     //     componentProps: { routes: [] },
     //     exact: true,
     // },

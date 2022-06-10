@@ -24,6 +24,7 @@ import { Logo1SVG } from '../assets/svg/brand'
 import utilitiesImages from '../assets/images/utilities'
 import { returnValueByScreenWidth } from '../services/stylesServices'
 import { validations } from '../services/yupValidations'
+import useWindowSize from './../hooks/useWindowSize'
 
 const { Content } = Layout
 
@@ -43,13 +44,9 @@ const referrerOptions = [
 ]
 
 const Whitelist = () => {
-    const {
-        verifySponsorId,
-        addUser,
-        fetching,
-        verified,
-        setIdVerified,
-    } = whiteListApi()
+    const { width } = useWindowSize()
+    const { verifySponsorId, addUser, fetching, verified, setIdVerified } =
+        whiteListApi()
     const [referralOpt, setReferralOpt] = useState('id')
     const [byId, setbyId] = useState(true)
     const [verifiedWallet, setVerifiedWallet] = useState(false)
@@ -132,7 +129,7 @@ const Whitelist = () => {
             <DefaultNavbar />
             <Content className="bg-blue-5">
                 <div className="bg-whitelistSlider bg-no-repeat bg-cover -mt-24 pb-1 xl:pb-32 lg:pb-40 relative">
-                    <div className="section mx-auto h-screen">
+                    <div className="max-w-1400px mx-auto pb-6 md:pb-10 lg:pb-14  h-screen">
                         <div className="css-generic h-full flex-col justify-center">
                             <div className="count-down bg-black-1 bg-opacity-50 py-8 relative">
                                 <div className="text-white">
@@ -178,7 +175,7 @@ const Whitelist = () => {
                                         className="absolute right-0 left-0 -mx-3"
                                         style={{
                                             top: returnValueByScreenWidth(
-                                                innerWidth,
+                                                width,
                                                 {
                                                     base: '-10px',
                                                     sm: '-16px',
@@ -194,7 +191,7 @@ const Whitelist = () => {
                                         className="absolute right-0 left-0 -mx-3"
                                         style={{
                                             bottom: returnValueByScreenWidth(
-                                                innerWidth,
+                                                width,
                                                 {
                                                     base: '-10px',
                                                     sm: '-16px',
@@ -656,7 +653,7 @@ const Whitelist = () => {
                     </Formik>
                 </div>
                 <footer className="bg-blue-5 py-12 hidden lg:block">
-                    <div className="section">
+                    <div className="max-w-1400px mx-auto pb-6 md:pb-10 lg:pb-14">
                         <div className="css-generic flex-row justify-between">
                             <div className="css-generic flex-grow max-h-full w-6/12 ">
                                 <div className="css-generic items-center w-64">
@@ -667,7 +664,7 @@ const Whitelist = () => {
                                         base="2xl"
                                         className="text-blue-4 font-semibold font-saira-condensed"
                                     >
-                                        9,000 Unique Nomadz
+                                        4,420 Unique Nomadz
                                     </HeaderText>
                                 </div>
                             </div>

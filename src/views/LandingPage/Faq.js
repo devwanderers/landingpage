@@ -14,39 +14,37 @@ const faqs = [
                         'Use either Google Chrome or Brave to visit this page. You will need to have Metamask installed and ETH on your wallet. Select as many Wanderers as you want, click the Mint button and approve the transaction. You can see an extended video tutorial '
                     }
                 </span>
-                <a
+                {/* <a
                     href="https://www.youtube.com/watch?v=dbDxSyBWWYU&t=1s&ab_channel=TheWanderersMetaverse"
                     className="underline"
                 >
                     <strong>here.</strong>
-                </a>
+                </a> */}
             </React.Fragment>
         ),
     },
     {
         id: '2',
-        title: 'Who are The Wanderers?',
+        title: 'Who are Nomadzlands NFT?',
         detail: (
             <span>
                 The adventure began when a small group of adventurers called
-                Wanderers decided to reinitiate an investigation about the
-                earth’s gravitational catastrophe that happened hundreds of
-                years ago. These Wanderers went off to investigate if there were
-                any remaining civilizations or Lands after the catastrophe.
+                Nomadz decided to reinitiate an investigation about the earth’s
+                gravitational catastrophe that happened hundreds of years ago.
+                These Nomadz went off to investigate if there were any remaining
+                civilizations or lands after the catastrophe.
             </span>
         ),
     },
     {
         id: '3',
-        title: 'How to play and earn?',
+        title: 'What is a price?',
         detail: (
             <React.Fragment>
                 <span>
-                    We are working tirelessly to launch the wanderers video
-                    game. The game is the place where you can use our token to
-                    play and get rewarded in several ways (PVE, PVP, Tournaments
-                    and more), once the token has been listed, you can enjoy
-                    your rewards in real life.
+                    The price of the genesis collection is 0.0555 ETH. The price
+                    of the next {"season's"} collections will be announced soon,
+                    but {"don't"} worry we will keep it lower.
                 </span>
                 <br />
             </React.Fragment>
@@ -105,9 +103,9 @@ const Faq = ({ visible }) => {
             initial="hidden"
             animate={visible ? 'show' : 'hidden'}
             variants={container}
-            className="overflow-hidden css-generic"
+            className="overflow-hidden"
         >
-            <div className="css-generic px-10 lg:px-20 pt-10 ">
+            <div className=" px-10 lg:px-20 pt-10 overflow-hidden">
                 {faqs.map((faq) => {
                     return (
                         <motion.div key={`faq-${faq.id}`} variants={faqItem}>

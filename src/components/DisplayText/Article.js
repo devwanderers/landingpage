@@ -15,32 +15,47 @@ const Article = ({
     subHeaderProps,
 }) => {
     const collectionConfig = {
-        threshold: 0.4,
+        threshold: 0.5,
         triggerOnce: true,
     }
 
-    const [articleRef, articleInView] = useInView(collectionConfig)
+    const [titleRef, titleInView] = useInView(collectionConfig)
+    const [subTitleRef, subTitleView] = useInView(collectionConfig)
+    const [paragraphRef, paragraphInView] = useInView(collectionConfig)
 
     return (
-        <div ref={articleRef} className={`flex flex-col ${className}`}>
-            <AnimateTransition visible={articleInView} transitionFrom="left">
-                <Header {...headerProps}>{header}</Header>
-            </AnimateTransition>
-            {subHeader && (
-                <AnimateTransition
-                    visible={articleInView}
-                    transitionFrom="right"
-                >
-                    <Header {...subHeaderProps}>{subHeader}</Header>
-                </AnimateTransition>
+        <div className={`flex flex-col ${className}`}>
+            {header && (
+                <div ref={titleRef} className=" overflow-hidden">
+                    <AnimateTransition
+                        className="w-full overflow-hidden"
+                        visible={titleInView}
+                        transitionFrom="left"
+                    >
+                        <Header {...headerProps}>{header}</Header>
+                    </AnimateTransition>
+                </div>
             )}
-            <AnimateTransition
-                visible={articleInView}
-                transitionFrom="bottom"
-                // duration={1}
-            >
-                <Paragraph {...paragraphProps}>{children}</Paragraph>
-            </AnimateTransition>
+            {subHeader && (
+                <div ref={subTitleRef} className=" overflow-hidden">
+                    <AnimateTransition
+                        visible={subTitleView}
+                        transitionFrom="right"
+                    >
+                        <Header {...subHeaderProps}>{subHeader}</Header>
+                    </AnimateTransition>
+                </div>
+            )}
+
+            <div ref={paragraphRef} className=" overflow-hidden">
+                <AnimateTransition
+                    visible={paragraphInView}
+                    transitionFrom="bottom"
+                    // duration={1}
+                >
+                    <Paragraph {...paragraphProps}>{children}</Paragraph>
+                </AnimateTransition>
+            </div>
         </div>
     )
 }

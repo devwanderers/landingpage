@@ -5,10 +5,10 @@ import Header from '../DisplayText/Header'
 const StepTitle = ({ children, className = '', direction }) => {
     return direction === 'right' ? (
         <div
-            className={`css-generic pb-5 lg:pb-10 items-end justify-end flex-grow relative ${className}`}
+            className={` pb-5 lg:pb-10 items-end justify-end flex-grow relative ${className}`}
         >
-            <div className="css-generic w-100px ">
-                <div className="css-generic mr-8">
+            <div className="w-100px ">
+                <div className="mr-8">
                     <Header
                         lg="89px"
                         className="text-primary transform rotate-180 leading-tight tracking-widest"
@@ -29,10 +29,10 @@ const StepTitle = ({ children, className = '', direction }) => {
         </div>
     ) : (
         <div
-            className={`css-generic pb-5 lg:pb-10 items-start justify-end flex-grow relative ${className}`}
+            className={` pb-5 lg:pb-10 items-start justify-end flex-grow relative ${className}`}
         >
-            <div className="css-generic w-100px ">
-                <div className="css-generic mr-8">
+            <div className=" w-100px ">
+                <div className=" mr-8">
                     <Header
                         lg="89px"
                         className="text-primary transform rotate-180 leading-tight tracking-widest"
