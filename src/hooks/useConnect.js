@@ -23,12 +23,20 @@ const useConnect = () => {
                 setWalletAuth(false)
             }
 
+            const reload = () => {
+                window.location.reload()
+            }
+
             connector.on('Web3ReactDeactivate', handleDeactivate)
+            window.ethereum.on('chainChanged', reload)
+            window.ethereum.on('accountsChanged', reload)
             return () => {
                 connector.removeListener(
                     'Web3ReactDeactivate',
                     handleDeactivate
                 )
+                window.ethereum.removeListener('chainChanged', reload)
+                window.ethereum.removeListener('accountsChanged', reload)
             }
         }
         return undefined

@@ -149,7 +149,7 @@ const LandingPage = () => {
                             <div className="w-80 lg:w-96 mx-auto pt-10 pb-6">
                                 <Logo1SVG width="100%" />
                             </div>
-                            {/* <MintSection /> */}
+                            <MintSection />
                             <div className="mb-10 z-20 px-4 md:px-12">
                                 <div className="count-down bg-black-1 bg-opacity-40 mx-auto lg:px-4 py-8  relative z-10 ">
                                     <div className="flex justify-center text-white text-lg md:text-2xl lg:text-4xl text-center">
