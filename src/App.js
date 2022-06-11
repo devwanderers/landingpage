@@ -11,10 +11,10 @@ import AppRouter from './Router'
 // import AuthLayout from './components/Layouts/AuthLayout'
 // import LandingPage from './views/LandingPage'
 // import useGoogleAnalytics from './hooks/useGoogleAnalytics'
-// import useConnect from './hooks/useConnect'
+import useConnect from './hooks/useConnect'
 
 const App = () => {
-    // useConnect()
+    useConnect()
     // useGoogleAnalytics()
     return <AppRouter />
 }
