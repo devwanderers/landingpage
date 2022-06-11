@@ -4,7 +4,7 @@ import { FrameNftTopSVG, FrameNftBottomSVG } from '../../assets/svg/frames'
 import { FaArrowCircleRight, FaArrowCircleLeft } from 'react-icons/fa'
 import useResponsive from './../../hooks/useResponsive'
 import { registerToken } from '../../services/wallet'
-import { windowOpen } from '../../services/windowServices';
+import { windowOpen } from '../../services/windowServices'
 
 const example = [
     {
@@ -253,7 +253,9 @@ const MintDisplay = ({ data = example }) => {
                         Add to Metamask
                     </Button>
                     <Button
-                        onClick={() => windowOpen("https://lands.nomadzlandnft.io/")}
+                        onClick={() =>
+                            windowOpen('https://lands.nomadzlandnft.io/')
+                        }
                         className="flex-1 border-none bg-primary hover:bg-primary
                                             focus:bg-primary text-white hover:text-white focus:text-white"
                         size="large"
@@ -261,7 +263,9 @@ const MintDisplay = ({ data = example }) => {
                         Land Airdrop
                     </Button>
                     <Button
-                        onClick={() => console.log('OpenSea Link')}
+                        onClick={() =>
+                            windowOpen('https://opensea.io/NomadzlandNFT')
+                        }
                         className="flex-1 border-none bg-info hover:bg-info
                                             focus:bg-info text-white hover:text-white focus:text-white"
                         size="large"

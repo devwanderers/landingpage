@@ -1,5 +1,5 @@
 /* eslint-disable no-unused-vars */
-import React, { useState } from 'react'
+import React, { useMemo, useState } from 'react'
 import IncreaseDecreaseInput from '../Inputs/IncreaseDecreaseInput'
 import { useWeb3React } from '@web3-react/core'
 import { Spin } from 'antd'
@@ -22,8 +22,8 @@ const publicPrice = 25e16
 const presalePrice = 15e16
 
 const MintSection = () => {
-    const [maxMint, setMaxMint] = useState(0)
-    const [priceMint, setPrice] = useState('0.0555 ETH')
+    // const [maxMint, setMaxMint] = useState(0)
+    // const [priceMint, setPrice] = useState('0.0555 ETH')
     const { login, logout } = useAuth()
     const { account, chainId } = useWeb3React()
     const [mintAmount, setMintAmount] = useState(0)
@@ -56,21 +56,22 @@ const MintSection = () => {
         }
     }
 
-    useDeepCompareEffect(() => {
-        if (data) {
-            const { whitelisted, onlyWhitelisted, maxMintAmount, balanceOf } = data;
-            if (onlyWhitelisted && whitelisted) {
-                setMaxMint(1 - balanceOf)
-                setPrice('0.0555 ETH')
-            } else if (!onlyWhitelisted && whitelisted) {
-                setMaxMint(maxMintAmount - balanceOf)
-                setPrice('0.0555 ETH')
-            } else {
-                setMaxMint(0)
-                setPrice('0.25 ETH')
-            }
-        }
-    }, [data])
+    // useDeepCompareEffect(() => {
+    //     if (data) {
+    //         const { whitelisted, onlyWhitelisted, maxMintAmount, balanceOf } =
+    //             data
+    //         if (onlyWhitelisted && whitelisted) {
+    //             setMaxMint(1 - balanceOf)
+    //             setPrice('0.0555 ETH')
+    //         } else if (!onlyWhitelisted && whitelisted) {
+    //             setMaxMint(maxMintAmount - balanceOf)
+    //             setPrice('0.0555 ETH')
+    //         } else {
+    //             setMaxMint(0)
+    //             setPrice('0.25 ETH')
+    //         }
+    //     }
+    // }, [data])
 
     useDeepCompareEffect(() => {
         if (!visibleModal) return
@@ -86,6 +87,23 @@ const MintSection = () => {
 
     const { reload, supply } = useSupply()
 
+    const [priceMint, maxMint] = useMemo(() => {
+        let _priceMint = '0.0555 ETH'
+        let _maxMint = 0
+        if (data) {
+            const { whitelisted, onlyWhitelisted, maxMintAmount, balanceOf } =
+                data
+            if (onlyWhitelisted && whitelisted) {
+                _maxMint = 1 - balanceOf
+            } else if (!onlyWhitelisted && whitelisted) {
+                _maxMint = maxMintAmount - balanceOf
+            } else {
+                _priceMint = 'Only OG'
+            }
+        }
+        return [_priceMint, _maxMint]
+    }, [data])
+
     return (
         <React.Fragment>
             <ModalMint
@@ -97,24 +115,32 @@ const MintSection = () => {
             />
             <div
                 className="w-full md:w-6/12 lg:w-4/12 bg-black-1 bg-opacity-40 px-5 py-6 relative mx-auto lg:mx-0 mb-5"
-            // style={{ borderColor: '#2fb39b' }}
+                // style={{ borderColor: '#2fb39b' }}
             >
                 <div>
                     <div className="relative">
                         <div className="text-white">
-                            <div className="flex justify-between items-center">
-                                <span className="font-bold text-5xl leading-none">
-                                    {/* {supply ? `${supply} /` : ""} 555 */}
-                                    Total supply 555
-                                </span>
-                                <span className="font-bold text-5xl leading-none">
-                                    Nomadz
-                                </span>
-                            </div>
-                            <div className="text-2xl text-right">
-                                <span className="leading-none">
-                                    Price {priceMint}
-                                </span>
+                            <div className="flex justify-between items-start ">
+                                <div className="">
+                                    <div className="font-bold text-3xl leading-none">
+                                        {/* {supply ? `${supply} /` : ""} 555 */}
+                                        Supply
+                                    </div>
+                                    <div className="font-bold text-4xl leading-none">
+                                        {/* {supply ? `${supply} /` : ""} 555 */}
+                                        555
+                                    </div>
+                                </div>
+                                <div className="flex flex-col">
+                                    <div className="font-bold text-5xl leading-none text-right">
+                                        Nomadz
+                                    </div>
+                                    <div className="text-2xl text-right">
+                                        <span className="leading-none">
+                                            Price {priceMint}
+                                        </span>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                         <div className="text-white text-center w-4/5 m-auto">
@@ -125,9 +151,6 @@ const MintSection = () => {
                                 maxValue={maxMint}
                                 disabled={!data || maxMint === 0}
                             />
-                            <span className="text-xl">
-                                {maxMint} mints left
-                            </span>
                         </div>
                         <div className="flex justify-center mt-4 space-x-3">
                             {!account ? (
