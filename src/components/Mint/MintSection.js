@@ -95,7 +95,7 @@ const MintSection = () => {
                 data
 
             if (!onlyWhitelisted) {
-                _maxMint = 5
+                _maxMint = 15
             } else {
                 _priceMint = 'Only OG'
             }
@@ -151,7 +151,7 @@ const MintSection = () => {
                                 disabled={!data || maxMint === 0}
                             />
                             <span className="text-xl">
-                                Max 5 mints per transaction
+                                Max 15 mints per transaction
                             </span>
                         </div>
                         <div className="flex justify-center mt-4 space-x-3">
