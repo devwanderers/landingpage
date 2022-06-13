@@ -93,10 +93,9 @@ const MintSection = () => {
         if (data) {
             const { whitelisted, onlyWhitelisted, maxMintAmount, balanceOf } =
                 data
-            if (onlyWhitelisted && whitelisted) {
-                _maxMint = 1 - balanceOf
-            } else if (!onlyWhitelisted && whitelisted) {
-                _maxMint = maxMintAmount - balanceOf
+
+            if (!onlyWhitelisted) {
+                _maxMint = 5
             } else {
                 _priceMint = 'Only OG'
             }
@@ -151,6 +150,9 @@ const MintSection = () => {
                                 maxValue={maxMint}
                                 disabled={!data || maxMint === 0}
                             />
+                            <span className="text-xl">
+                                Max 5 mints per transaction
+                            </span>
                         </div>
                         <div className="flex justify-center mt-4 space-x-3">
                             {!account ? (
