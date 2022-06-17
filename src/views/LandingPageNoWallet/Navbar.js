@@ -108,7 +108,7 @@ const Navbar = () => {
                     <div className="flex flex-row items-center space-x-2 h-full">
                         <a
                             onClick={() =>
-                                windowOpen('https://discord.gg/thewanderers')
+                                windowOpen('https://discord.gg/nomadzlandnft')
                             }
                             className="h-full flex items-center px-1"
                         >
@@ -199,7 +199,7 @@ const Navbar = () => {
                 <div className="flex flex-row items-center space-x-2 mb-4">
                     <a
                         onClick={() =>
-                            windowOpen('https://discord.gg/thewanderers')
+                            windowOpen('https://discord.gg/nomadzlandnft')
                         }
                         className="h-full flex items-center px-1"
                     >

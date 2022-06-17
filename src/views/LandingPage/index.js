@@ -544,7 +544,9 @@ const LandingPage = () => {
                                 type="link"
                                 className="h-16 w-16 lg:h-24 lg:w-24 p-0"
                                 onClick={() =>
-                                    windowOpen('https://discord.gg/JPx5v9Xv9g')
+                                    windowOpen(
+                                        'https://discord.gg/nomadzlandnft'
+                                    )
                                 }
                             >
                                 <OctagonDiscordSVG width="100%" height="100%" />

@@ -150,7 +150,7 @@ const DefaultNavbar = () => {
                         </a>
                         <a
                             onClick={() =>
-                                windowOpen('https://discord.gg/JPx5v9Xv9g')
+                                windowOpen('https://discord.gg/nomadzlandnft')
                             }
                             className="h-full flex items-center px-1"
                         >
