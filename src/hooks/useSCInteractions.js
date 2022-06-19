@@ -12,7 +12,7 @@ import { abortablePromise, returnPromise } from '../services/promises'
 import useInterval from './useInterval'
 import useDeepCompareEffect from './useDeepCompareEffect'
 
-const publicPrice = 555e14
+const publicPrice = 777e14
 
 const mintResultConverToArray = (res) => {
     const {

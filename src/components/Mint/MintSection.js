@@ -88,7 +88,7 @@ const MintSection = () => {
     const { reload, supply } = useSupply()
 
     const [priceMint, maxMint] = useMemo(() => {
-        let _priceMint = '0.0555 ETH'
+        let _priceMint = '0.0777 ETH'
         let _maxMint = 0
         if (data) {
             const { whitelisted, onlyWhitelisted, maxMintAmount, balanceOf } =
