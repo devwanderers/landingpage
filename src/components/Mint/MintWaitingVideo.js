@@ -43,6 +43,7 @@ const MintWaitingVideo = ({ minting, onEnded }) => {
                 controls={false}
                 playing={isVisible}
                 url={loadingVideo}
+                playsinline
                 muted={true}
                 onProgress={handleOnProgress}
                 onError={(e) => console.log('error', e)}
