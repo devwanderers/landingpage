@@ -162,15 +162,11 @@ const LandingPage = () => {
                                 <div className="count-down bg-black-1 bg-opacity-40 mx-auto lg:px-4 py-8  relative z-10 ">
                                     <div className="flex justify-center text-white text-lg md:text-2xl lg:text-4xl text-center">
                                         <div className="flex flex-col">
-                                            <GenericCountDown
-                                                date={new Date(1654963200000)}
-                                                className="text-5xl md:text-8xl  xl:text-10xl"
-                                            />
                                             <div
                                                 className="text-4xl md:text-5xl lg:text-6xl font-russo-one leading-none   tracking-widest "
                                                 // style={{ letterSpacing: '1.2rem' }}
                                             >
-                                                06.11.2022
+                                                COMING SOON
                                             </div>
                                         </div>
                                     </div>
@@ -226,7 +222,7 @@ const LandingPage = () => {
                                             lg="34px"
                                             className="text-white z-10"
                                         >
-                                            MINT DAY
+                                            Are you ready?
                                         </HeaderText>
                                     </div>
                                 </div>
