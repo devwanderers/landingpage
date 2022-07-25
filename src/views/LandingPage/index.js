@@ -13,7 +13,9 @@ import NextArrowControl from '../../components/CustomSliderControls/NextArrowCon
 import PrevArrowControl from '../../components/CustomSliderControls/PrevArrowControl'
 import Paragraph from '../../components/DisplayText/Paragraph'
 import DefaultNavbar from '../../components/Navbar/DefaultNavbar'
-import islandVideo from '../../assets/images/backgrounds/FLOAT-ISLAND.mp4'
+// import islandVideo from '../../assets/images/backgrounds/FLOAT-ISLAND.mp4'
+import season from '../../assets/images/backgrounds/season2-fondo.jpg'
+import nomadz from '../../assets/images/backgrounds/nomadz.png'
 import lands from '../../assets/videos/LANDS.mp4'
 import {
     FrameCounterTopSVG,
@@ -129,8 +131,14 @@ const LandingPage = () => {
             <DefaultNavbar />
             <Content>
                 <div className="-mt-24 pb-1 xl:pb-32 lg:pb-40 relative ">
-                    <div className="absolute top-0 left-0 bottom-0 right-0 overflow-hidden">
-                        <ReactPlayer
+                    <div className="absolute inset-0 overflow-hidden">
+                        <img src={season} className="h-full w-full " />
+                        <div className="absolute inset-0 flex justify-center">
+                            <div className="w-6/12 mt-44">
+                                <img src={nomadz} className="h-auto w-full " />
+                            </div>
+                        </div>
+                        {/* <ReactPlayer
                             className="custom-react-player"
                             width="100%"
                             height="100%"
@@ -142,14 +150,87 @@ const LandingPage = () => {
                             // onReady={handlePlayVideo}
                             onError={(e) => console.log('error', e)}
                             onStart={() => console.log('playing')}
-                        />
+                        /> */}
                     </div>
                     <div className="h-screen relative max-w-1400px mx-auto px-6 md:px-10 lg:px-14 pt-64px mb-20">
                         <div className="h-full flex flex-col justify-between py-4 md:py-6 lg:py-10">
                             <div className="w-80 lg:w-96 mx-auto pt-10 pb-6">
                                 <Logo1SVG width="100%" />
                             </div>
-                            <MintSection />
+                            {/* <MintSection /> */}{' '}
+                            <div className="mb-10 z-20 px-4 md:px-12">
+                                <div className="count-down bg-black-1 bg-opacity-40 mx-auto lg:px-4 py-8  relative z-10 ">
+                                    <div className="flex justify-center text-white text-lg md:text-2xl lg:text-4xl text-center">
+                                        <div className="flex flex-col">
+                                            <GenericCountDown
+                                                date={new Date(1654963200000)}
+                                                className="text-5xl md:text-8xl  xl:text-10xl"
+                                            />
+                                            <div
+                                                className="text-4xl md:text-5xl lg:text-6xl font-russo-one leading-none   tracking-widest "
+                                                // style={{ letterSpacing: '1.2rem' }}
+                                            >
+                                                06.11.2022
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div className="absolute right-0 left-0 top-0">
+                                        <div
+                                            className="w-full mx-auto "
+                                            style={{
+                                                height: '1px',
+                                                backgroundColor: '#2fb39b',
+                                            }}
+                                        ></div>
+                                    </div>
+                                    <div className="absolute right-0 left-0 top-0">
+                                        <div
+                                            className="w-6/12 mx-auto "
+                                            style={{
+                                                height: '4px',
+                                                backgroundColor: '#2fb39b',
+                                            }}
+                                        ></div>
+                                    </div>
+                                    <div className="absolute right-0 left-0 bottom-0">
+                                        <div
+                                            className="w-full mx-auto "
+                                            style={{
+                                                height: '1px',
+                                                backgroundColor: '#2fb39b',
+                                            }}
+                                        ></div>
+                                    </div>
+                                    <div className="absolute right-0 left-0 bottom-0">
+                                        <div
+                                            className="w-6/12 mx-auto "
+                                            style={{
+                                                height: '4px',
+                                                backgroundColor: '#2fb39b',
+                                            }}
+                                        ></div>
+                                    </div>
+                                </div>
+                                <div className="flex">
+                                    <div className="flex px-12 md:px-16 xl:px-20 text-center mx-auto relative">
+                                        <div className="absolute right-0 left-0 top-0">
+                                            <FrameCounterHeaderCustom
+                                                width="100%"
+                                                // backgroundColor="2fb39b"
+                                            />
+                                        </div>
+                                        <HeaderText
+                                            base="xl"
+                                            md="3xl"
+                                            lg="34px"
+                                            className="text-white z-10"
+                                        >
+                                            MINT DAY
+                                        </HeaderText>
+                                    </div>
+                                </div>
+                            </div>
                             {/* <div className="mb-10 z-20 px-4 md:px-12">
                                 <div className="count-down bg-black-1 bg-opacity-40 mx-auto lg:px-4 py-8  relative z-10 ">
                                     <div className="flex justify-center text-white text-lg md:text-2xl lg:text-4xl text-center">

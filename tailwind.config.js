@@ -119,6 +119,8 @@ module.exports = {
                     "url('/src/assets/images/backgrounds/whitelist-slider-desktop.jpeg')",
                 whiteListBottom:
                     "url('/src/assets/images/backgrounds/bg-whitelist-bottom.png')",
+                season2:
+                    "url('/src/assets/images/backgrounds/season2-fondo.jpg')",
             },
             margin: {
                 84: '21rem',
