@@ -166,7 +166,13 @@ const LandingPage = () => {
                                     <div className="flex justify-center text-white text-lg md:text-2xl lg:text-4xl text-center">
                                         <div className="flex flex-col">
                                             <div
-                                                className="text-4xl md:text-5xl lg:text-6xl font-russo-one leading-none   tracking-widest "
+                                                className="text-4xl md:text-5xl lg:text-6xl font-russo-one leading-none tracking-widest "
+                                                // style={{ letterSpacing: '1.2rem' }}
+                                            >
+                                                SEASON 2
+                                            </div>
+                                            <div
+                                                className="text-4xl md:text-5xl lg:text-6xl font-russo-one leading-none tracking-widest "
                                                 // style={{ letterSpacing: '1.2rem' }}
                                             >
                                                 COMING SOON

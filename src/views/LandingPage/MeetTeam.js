@@ -20,7 +20,7 @@ const teams = [
     {
         image: utilitiesImages.tina,
         name: 'Tina',
-        subtitle: 'Colab Manager',
+        subtitle: 'Collab Manager',
         description:
             'A financial services veteran with over 10 years of experience, encompassing sales of high value assets, risk management and marketing. My passion is helping people surpass their own expectations and protecting their assets. I joined web 3 in 2021 with hopes of expanding my investment portfolio and curating communities of like minded people who all believe in WAGMI.',
     },
