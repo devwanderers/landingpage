@@ -2,9 +2,9 @@ import React from 'react'
 import { Element } from 'react-scroll'
 import HeaderText from './../../components/DisplayText/Header'
 import Article from './../../components/DisplayText/Article'
-import RoadMapSVG from '../../assets/svg/utilities/RoadMapSVG'
 import AnimateTransition from './../../components/Animations/AnimateTransition'
 import { useInView } from 'react-intersection-observer'
+import RoadMapSeason2SVG from './../../assets/svg/utilities/RoadMapSeason2SVG'
 
 const RoadMap = (props) => {
     const collectionConfig = {
@@ -62,7 +62,7 @@ const RoadMap = (props) => {
                 </div>
 
                 <div className="max-w-full flex justify-center">
-                    <RoadMapSVG width="100%" height="100%" />
+                    <RoadMapSeason2SVG width="100%" height="100%" />
                 </div>
             </div>
         </Element>
