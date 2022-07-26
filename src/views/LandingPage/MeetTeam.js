@@ -18,19 +18,19 @@ const teams = [
             "Developer and blockchain engineer who is passionate about constant learning, new technologies, best practices, and also knowledge transfer. He's fully compromised with the project and the team.",
     },
     {
-        image: utilitiesImages.kizzy,
-        name: 'Kizzy',
-        subtitle: 'Project Admin',
+        image: utilitiesImages.tina,
+        name: 'Tina',
+        subtitle: 'Colab Manager',
         description:
-            'Full time investor in Crypto, DeFi and NFTs with 10+ years in financial services and social media marketing. My goal is and always will be to build communities with the intent for everyone to succeed in all they strive to accomplish. Honored to be a strong representation for women in tech as project admins driving the boat to bring NomadzLand NFT to its full potential.',
+            'A financial services veteran with over 10 years of experience, encompassing sales of high value assets, risk management and marketing. My passion is helping people surpass their own expectations and protecting their assets. I joined web 3 in 2021 with hopes of expanding my investment portfolio and curating communities of like minded people who all believe in WAGMI.',
     },
-    {
-        image: utilitiesImages.ralphie,
-        name: 'Ralphie',
-        subtitle: 'Advisor',
-        description:
-            '13+ years of industry experience - Fortune 500 cybersecurity consultant by day with extensive in-depth knowledge about cybersecurity best practices, vulnerability management, threat analysis and intelligence.  NFT enthusiast, mod and project advisor aiming to leverage my experience and web3’s numerous possibilities to help build a more collaborative future.A Rutgers University graduate with a major in Psychology and double minor in Human resource management and Business Administrations. Advisor at Dao Ducks. Deep analysis into human nature and social patterns that develop in digital ecosystems is the perspective that I build with.',
-    },
+    // {
+    //     image: utilitiesImages.ralphie,
+    //     name: 'Ralphie',
+    //     subtitle: 'Advisor',
+    //     description:
+    //         '13+ years of industry experience - Fortune 500 cybersecurity consultant by day with extensive in-depth knowledge about cybersecurity best practices, vulnerability management, threat analysis and intelligence.  NFT enthusiast, mod and project advisor aiming to leverage my experience and web3’s numerous possibilities to help build a more collaborative future.A Rutgers University graduate with a major in Psychology and double minor in Human resource management and Business Administrations. Advisor at Dao Ducks. Deep analysis into human nature and social patterns that develop in digital ecosystems is the perspective that I build with.',
+    // },
     {
         image: utilitiesImages.skullman,
         name: 'Brandon S.',
@@ -47,8 +47,8 @@ const teams = [
     },
 
     {
-        image: utilitiesImages.amelie,
-        name: 'Riot Mei',
+        image: utilitiesImages.carlos,
+        name: 'Charlie',
         subtitle: 'Head Mod',
         description:
             'Passionate in creating and building communities, creative in all kinds of circumstances and with an optimistic social vision.',

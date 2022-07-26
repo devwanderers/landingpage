@@ -132,9 +132,12 @@ const LandingPage = () => {
             <Content>
                 <div className="-mt-24 pb-1 xl:pb-32 lg:pb-40 relative ">
                     <div className="absolute inset-0 overflow-hidden">
-                        <img src={season} className="h-full w-full " />
+                        <img
+                            src={season}
+                            className="h-full w-full object-cover"
+                        />
                         <div className="absolute inset-0 flex justify-center">
-                            <div className="w-6/12 mt-44">
+                            <div className="w-10/12 mt-64 lg:w-6/12 lg:mt-44">
                                 <img src={nomadz} className="h-auto w-full " />
                             </div>
                         </div>

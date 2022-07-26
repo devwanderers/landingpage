@@ -33,6 +33,7 @@ import plata from './plata.png'
 import dttToken from './DDOT-token-01.png'
 import juan from '../team/mar-juan.png'
 import ralphie from '../team/mar-ralphie.png'
+import carlos from '../team/mar-carlos2.png'
 
 const utilitiesImages = {
     card,
@@ -70,6 +71,7 @@ const utilitiesImages = {
     xavier,
     angel,
     juan,
+    carlos,
 }
 
 export default utilitiesImages
