@@ -11,7 +11,7 @@ const faqs = [
             <React.Fragment>
                 <span>
                     {
-                        'Use either Google Chrome or Brave to visit this page. You will need to have Metamask installed and ETH on your wallet. Select as many Wanderers as you want, click the Mint button and approve the transaction. You can see an extended video tutorial '
+                        'Use either Google Chrome or Brave to visit this page. You will need to have Metamask installed and ETH on your wallet. Select as many Nomadz as you want, click the Mint button and approve the transaction. You can see an extended video tutorial '
                     }
                 </span>
                 {/* <a

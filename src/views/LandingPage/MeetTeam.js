@@ -144,7 +144,7 @@ const Teams = () => {
         >
             <div className="max-w-1400px mx-auto pb-6 px-5 md:px-10 lg:px-14">
                 <Row className="mb-12 lg:mb-16 xs:mb-2">
-                    <Col xs={24} lg={7} className="text-center lg:text-left">
+                    <Col xs={24} lg={8} className="text-center lg:text-left">
                         <div ref={titleRef} className="overflow-hidden">
                             <AnimateTransition visible={titleInView}>
                                 <HeaderText

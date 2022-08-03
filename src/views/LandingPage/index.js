@@ -7,6 +7,7 @@ import { Element, scroller } from 'react-scroll'
 import { BiUpArrowAlt } from 'react-icons/bi'
 import Article from '../../components/DisplayText/Article'
 import utilitiesImages from '../../assets/images/utilities'
+import benefitsBg from '../../assets/images/backgrounds/benefits-background.jpg'
 import { LineWrapper } from '../../components/Wrappers/LineWrapper'
 import HeaderText from '../../components/DisplayText/Header'
 import NextArrowControl from '../../components/CustomSliderControls/NextArrowControl'
@@ -46,6 +47,9 @@ import useWindowSize from '../../hooks/useWindowSize'
 import nftsImages from '../../assets/images/nfts'
 import MintSection from '../../components/Mint/MintSection'
 import GenericCountDown from '../../components/CountDowns/GenericCountDown'
+import AnimateTransition from '../../components/Animations/AnimateTransition'
+import { useInView } from 'react-intersection-observer'
+import icons from '../../assets/images/icons'
 
 const { Content } = Layout
 
@@ -95,6 +99,252 @@ const scrollTo = (name) => {
         delay: 0,
         smooth: 'easeInOutQuart',
     })
+}
+
+const Benefit = ({ label, icon, detail }) => {
+    const Icon = icon
+    return (
+        <div className="w-full relative flex flex-col p-3">
+            <div className="absolute inset-0 bg-white rounded-md mix-blend-overlay"></div>
+            <div className="flex flex-row items-end relative">
+                <div
+                    className="relative text-xl font-normal"
+                    style={{ color: '#A6CAE7' }}
+                >
+                    {label}
+                </div>
+                {icon && (
+                    <div className="ml-auto">
+                        <img className="h-full w-auto" src={icon} alt={icon} />
+                    </div>
+                )}
+            </div>
+            <div className="relative mt-2" style={{ color: '#A6CAE7' }}>
+                {detail}
+            </div>{' '}
+        </div>
+    )
+}
+
+const NftBenefits = () => {
+    const collectionConfig = {
+        threshold: 0.4,
+        triggerOnce: true,
+    }
+    const [titleRef, titleInView] = useInView(collectionConfig)
+
+    return (
+        <section className="relative w-full justify-center pb-32 pt-24 px-4 lg:px-0">
+            <div className=" absolute inset-0">
+                <img
+                    className="w-full h-full object-cover"
+                    src={benefitsBg}
+                    alt={benefitsBg}
+                />
+            </div>
+            <div className="text-center relative pt-8 lg:pt-0">
+                <div ref={titleRef}>
+                    <AnimateTransition visible={titleInView}>
+                        <HeaderText
+                            base="4xl"
+                            lg="89px"
+                            className="text-primary leading-none tracking-widest mb-10 lg:mb-20"
+                        >
+                            Benefits
+                        </HeaderText>
+                    </AnimateTransition>
+                </div>
+            </div>
+            <div className="relative">
+                <div className="lg:absolute flex flex-col lg:flex-row lg:inset-x-0 lg:-top-20 lg:pt-12 ">
+                    <div className=" flex-1">
+                        <div className="w-full lg:w-350px ml-auto flex flex-col gap-3 lg:gap-10 mb-3 lg:mb-0">
+                            <Benefit
+                                label={
+                                    <div>
+                                        Access to{' '}
+                                        <span
+                                            className=""
+                                            style={{ color: '#00B5EB' }}
+                                        >
+                                            {' '}
+                                            Destinare.io Travel platform
+                                        </span>
+                                    </div>
+                                }
+                                icon={icons.claiming}
+                                detail={
+                                    <div>
+                                        <div>
+                                            Bridging crypto and real-world
+                                            utility on one platform.
+                                        </div>
+                                        <div>
+                                            Buy, stake, earn and travel the
+                                            world with the best rates in the
+                                            market.{' '}
+                                            <a
+                                                href="https://destinare.io/"
+                                                target="blank"
+                                                className=" text-info hover:underline cursor-pointer"
+                                            >
+                                                Learn more.
+                                            </a>
+                                        </div>
+                                    </div>
+                                }
+                            />
+                            <Benefit
+                                label={
+                                    <div>
+                                        <span
+                                            className=""
+                                            style={{ color: '#00B5EB' }}
+                                        >
+                                            {' '}
+                                            Travel Drops
+                                        </span>
+                                    </div>
+                                }
+                                icon={icons.tridrop}
+                                detail={
+                                    <div>
+                                        {' '}
+                                        Get access to exclusive travel drops,
+                                        like coupons, complimentary trips &
+                                        more.
+                                    </div>
+                                }
+                            />
+
+                            <Benefit
+                                label={
+                                    <div>
+                                        {' '}
+                                        DDOT{' '}
+                                        <span
+                                            className=""
+                                            style={{ color: '#00B5EB' }}
+                                        >
+                                            {' '}
+                                            Airdrops
+                                        </span>
+                                    </div>
+                                }
+                                icon={icons.airdrop}
+                                detail={
+                                    <div>
+                                        <div>
+                                            The main use for DDOT is to book
+                                            over 3,100,000 travel products on
+                                            Destinare.io covering 90,124
+                                            destinations in 230 countries. DDOT
+                                            can also be used to reward for
+                                            bookings, get better discounts,
+                                            access to DeFi functionalities and
+                                            more.
+                                        </div>
+                                    </div>
+                                }
+                            />
+                        </div>
+                    </div>
+                    <div className="w-full max-w-300px hidden lg:block"></div>
+                    <div className="flex-1">
+                        <div className="w-full lg:w-350px mr-auto flex flex-col gap-3 lg:gap-10 font-light">
+                            <Benefit
+                                label={
+                                    <div>
+                                        Nomadzland
+                                        <span
+                                            className=""
+                                            style={{ color: '#00B5EB' }}
+                                        >
+                                            {' '}
+                                            Destinations NFT Airdrops
+                                        </span>
+                                    </div>
+                                }
+                                icon={icons.destinareNft}
+                                detail={
+                                    <div>
+                                        {' '}
+                                        Every 2 Nomadz minted grant access to
+                                        mint a destination for free and start
+                                        receiving rewards
+                                    </div>
+                                }
+                            />
+                            <Benefit
+                                label={
+                                    <div>
+                                        <span
+                                            className=""
+                                            style={{ color: '#00B5EB' }}
+                                        >
+                                            {' '}
+                                            Monthly rewards
+                                        </span>
+                                    </div>
+                                }
+                                icon={icons.mountly}
+                                detail={
+                                    <div>
+                                        {' '}
+                                        Being a Nomadz and Destination holder
+                                        gives you access to our rewards system.
+                                        Every time someone completes a booking
+                                        on our platform the rewards increase.
+                                    </div>
+                                }
+                            />
+                            <Benefit
+                                label={
+                                    <div>
+                                        Access to{' '}
+                                        <span
+                                            className=""
+                                            style={{ color: '#00B5EB' }}
+                                        >
+                                            {' '}
+                                            DDOT private sale
+                                        </span>
+                                    </div>
+                                }
+                                icon={icons.ddot}
+                                detail={
+                                    <div>
+                                        <div>
+                                            {' '}
+                                            DDOT is our native currency,
+                                            developed with ERC-20 makes it
+                                            highly diverse and easy to shift
+                                            interdomain.
+                                        </div>
+                                        <div>
+                                            It is designed to encourage the use
+                                            of the Destinare.io platform to
+                                            enable travelers from around the
+                                            world to be rewarded by consuming
+                                            our products and take advantage of
+                                            the crypto-world functionalities.
+                                        </div>
+                                    </div>
+                                }
+                            />
+                        </div>
+                    </div>
+                </div>
+                <div className="relative w-full max-w-300px mx-auto mt-6 lg:mt-0">
+                    <img
+                        className="w-full h-auto relative"
+                        src={utilitiesImages.alien}
+                        alt={utilitiesImages.alien}
+                    />
+                </div>
+            </div>
+        </section>
+    )
 }
 
 const LandingPage = () => {
@@ -329,7 +579,8 @@ const LandingPage = () => {
                     </div>
                 </div>
                 <Mint />
-                <Wanderers />
+                <NftBenefits />
+                {/* <Wanderers /> */}
                 <Element
                     name="lands"
                     className="bg-blue-5 pt-10 pb-3 lg:pb-16 border-0"
@@ -360,8 +611,8 @@ const LandingPage = () => {
                             <Col xs={24} lg={12}>
                                 <div className=" lg:pl-5">
                                     <HeaderText
-                                        base="4xl"
-                                        lg="89px"
+                                        base="3xl"
+                                        lg="7xl"
                                         className="text-primary leading-tight tracking-widest text-center lg:text-left"
                                     >
                                         Metaverse

@@ -38,11 +38,13 @@ module.exports = {
             '1100px': '1100px',
             '1400px': '1400px',
             '1800px': '1800px',
+            '300px': '300px',
         },
         fontFamily: {
             'russo-one': ['Russo One', 'sans-serif'],
             'saira-condensed': ['Saira Condensed', 'sans-serif'],
         },
+
         colors: {
             // ...colors,
             red: colors.red,
@@ -75,9 +77,11 @@ module.exports = {
                 8: '#75b2c4',
                 9: '#1e3755',
                 10: '#728294',
+                11: '#197CB1',
             },
             black: {
                 1: '#1d1d1b',
+                2: '#21253C',
             },
         },
         fontSize: {
@@ -132,6 +136,7 @@ module.exports = {
             padding: {
                 '10%': '10%',
                 '25%': '25%',
+                '50%': '50%',
                 '64px': '64px',
                 '10px': '10px',
                 '50px': '50px',
@@ -141,6 +146,7 @@ module.exports = {
                 '125px': '125px',
                 '150px': '150px',
                 '300px': '300px',
+                '350px': '350px',
                 '750px': '750px',
                 '900px': '900px',
                 '1000px': '1000px',

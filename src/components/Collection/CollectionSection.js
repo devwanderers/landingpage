@@ -26,7 +26,7 @@ const CollectionSection = () => {
         duration: 0.4,
     }
     return (
-        <div className="flex flex-col w-full lg:w-750px xl:w-1300px space-y-2 xl:space-y-4 space ">
+        <div className="flex flex-col space-y-2 xl:space-y-4  w-full">
             <div
                 ref={refCol1}
                 style={{ height: heightContainerCollection }}
@@ -39,15 +39,11 @@ const CollectionSection = () => {
                     <CollectionContainer>
                         <CollectionCard
                             size={heightContainerCollection}
-                            src={utilitiesImages.nft}
+                            src={utilitiesImages.nft5}
                         />
                         <CollectionCard
                             size={heightContainerCollection}
                             src={utilitiesImages.nft9}
-                        />
-                        <CollectionCard
-                            size={heightContainerCollection}
-                            src={utilitiesImages.nft5}
                         />
                     </CollectionContainer>
                 </AnimateTransition>
@@ -65,19 +61,11 @@ const CollectionSection = () => {
                     <CollectionContainer>
                         <CollectionCard
                             size={heightContainerCollection}
-                            src={utilitiesImages.nft7}
-                        />
-                        <CollectionCard
-                            size={heightContainerCollection}
-                            src={utilitiesImages.nft3}
-                        />
-                        <CollectionCard
-                            size={heightContainerCollection}
                             src={utilitiesImages.nft8}
                         />
                         <CollectionCard
                             size={heightContainerCollection}
-                            src={utilitiesImages.nft2}
+                            src={utilitiesImages.nft3}
                         />
                     </CollectionContainer>
                 </AnimateTransition>
@@ -95,15 +83,11 @@ const CollectionSection = () => {
                     <CollectionContainer>
                         <CollectionCard
                             size={heightContainerCollection}
-                            src={utilitiesImages.nft6}
+                            src={utilitiesImages.nft10}
                         />
                         <CollectionCard
                             size={heightContainerCollection}
                             src={utilitiesImages.nft1}
-                        />
-                        <CollectionCard
-                            size={heightContainerCollection}
-                            src={utilitiesImages.nft4}
                         />
                     </CollectionContainer>
                 </AnimateTransition>

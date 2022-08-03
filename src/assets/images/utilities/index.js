@@ -9,6 +9,7 @@ import nft6 from './nfts/rebelde 1.png'
 import nft7 from './nfts/rebelde 2.png'
 import nft8 from './nfts/robot.png'
 import nft9 from './nfts/robot 2.png'
+import nft10 from './nfts/soldado.png'
 import nft1wb from './nfts/nobackgroundnnft.png'
 import isla from './isla.png'
 import island from './piedras-fondo.gif'
@@ -34,6 +35,7 @@ import dttToken from './DDOT-token-01.png'
 import juan from '../team/mar-juan.png'
 import ralphie from '../team/mar-ralphie.png'
 import carlos from '../team/mar-carlos2.png'
+import alien from './allien.png'
 
 const utilitiesImages = {
     card,
@@ -72,6 +74,8 @@ const utilitiesImages = {
     angel,
     juan,
     carlos,
+    alien,
+    nft10,
 }
 
 export default utilitiesImages
