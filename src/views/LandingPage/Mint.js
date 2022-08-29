@@ -81,7 +81,7 @@ const Mint = (props) => {
                                     <br />
                                     <span>
                                         {
-                                            'Our partner, Destinaire, will distribute 50% of monthly earnings to The Nomadz holders of all the seasons. Next seasons dates & benefits TBA'
+                                            'Our partner, Destinare, will distribute 50% of monthly earnings to The Nomadz holders of all the seasons. Next seasons dates & benefits TBA'
                                         }
                                     </span>
                                     <br />
